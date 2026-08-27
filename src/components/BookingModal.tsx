@@ -119,12 +119,17 @@ export const BookingModal: React.FC<BookingModalProps> = ({
             </div>
             <div>
               <h3 className={`text-lg font-extrabold ${theme === 'dark' ? 'text-white' : 'text-neutral-900'}`}>BOOK TRAINING / INQUIRY</h3>
-              <p className="text-xs text-neutral-400">Connect with CS Academy instructors & advisors</p>
+              <p className={`text-xs ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'}`}>Connect with CS Academy instructors & advisors</p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="p-2 rounded-xl bg-neutral-900 hover:bg-neutral-800 text-neutral-400 hover:text-white transition-colors"
+            aria-label="Close"
+            className={`p-2 rounded-xl transition-colors ${
+              theme === 'dark'
+                ? 'bg-neutral-900 hover:bg-neutral-800 text-neutral-400 hover:text-white'
+                : 'bg-neutral-100 hover:bg-neutral-200 text-neutral-700 hover:text-neutral-900'
+            }`}
           >
             <X className="w-5 h-5" />
           </button>
@@ -132,10 +137,10 @@ export const BookingModal: React.FC<BookingModalProps> = ({
 
         {/* Modal Body / Form Inputs */}
         <div className="p-6 sm:p-8 space-y-5">
-          
+
           <div className="grid sm:grid-cols-2 gap-4">
               <div className="space-y-1.5">
-                <label className="text-xs font-bold uppercase tracking-wider text-neutral-300">
+                <label className={`text-xs font-bold uppercase tracking-wider ${theme === 'dark' ? 'text-neutral-300' : 'text-neutral-800'}`}>
                   Your Name
                 </label>
                 <input
@@ -145,15 +150,23 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                   onChange={(e) => { setName(e.target.value); if (errors.name) setErrors((p) => ({ ...p, name: undefined })); }}
                   placeholder="e.g. Maria Joseph"
                   aria-invalid={!!errors.name}
-                  className={`w-full px-4 py-2.5 bg-[#0B0B0B] border rounded-xl text-xs text-white placeholder-neutral-500 focus:outline-none focus:border-[#DC2626] ${
-                    errors.name ? 'border-red-500' : 'border-neutral-800'
+                  className={`w-full px-4 py-2.5 border rounded-xl text-xs focus:outline-none focus:border-[#DC2626] ${
+                    theme === 'dark'
+                      ? 'bg-[#0B0B0B] text-white placeholder-neutral-500'
+                      : 'bg-white text-neutral-900 placeholder-neutral-500'
+                  } ${
+                    errors.name
+                      ? 'border-red-500'
+                      : theme === 'dark'
+                        ? 'border-neutral-800'
+                        : 'border-neutral-300'
                   }`}
                 />
                 {errors.name && <p className="text-[10px] font-semibold text-red-500">{errors.name}</p>}
               </div>
 
               <div className="space-y-1.5">
-                <label className="text-xs font-bold uppercase tracking-wider text-neutral-300">
+                <label className={`text-xs font-bold uppercase tracking-wider ${theme === 'dark' ? 'text-neutral-300' : 'text-neutral-800'}`}>
                   Email Address
                 </label>
                 <input
@@ -162,8 +175,16 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                   onChange={(e) => { setEmail(e.target.value); if (errors.email) setErrors((p) => ({ ...p, email: undefined })); }}
                   placeholder="e.g. maria@company.com"
                   aria-invalid={!!errors.email}
-                  className={`w-full px-4 py-2.5 bg-[#0B0B0B] border rounded-xl text-xs text-white placeholder-neutral-500 focus:outline-none focus:border-[#DC2626] ${
-                    errors.email ? 'border-red-500' : 'border-neutral-800'
+                  className={`w-full px-4 py-2.5 border rounded-xl text-xs focus:outline-none focus:border-[#DC2626] ${
+                    theme === 'dark'
+                      ? 'bg-[#0B0B0B] text-white placeholder-neutral-500'
+                      : 'bg-white text-neutral-900 placeholder-neutral-500'
+                  } ${
+                    errors.email
+                      ? 'border-red-500'
+                      : theme === 'dark'
+                        ? 'border-neutral-800'
+                        : 'border-neutral-300'
                   }`}
                 />
                 {errors.email && <p className="text-[10px] font-semibold text-red-500">{errors.email}</p>}
@@ -172,7 +193,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
 
           <div className="grid sm:grid-cols-2 gap-4">
             <div className="space-y-1.5">
-              <label className="text-xs font-bold uppercase tracking-wider text-neutral-300">
+              <label className={`text-xs font-bold uppercase tracking-wider ${theme === 'dark' ? 'text-neutral-300' : 'text-neutral-800'}`}>
                 Organization / Institution (or Individual)
               </label>
               <input
@@ -180,18 +201,26 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 value={organization}
                 onChange={(e) => setOrganization(e.target.value)}
                 placeholder="e.g. University / Company / Self"
-                className="w-full px-4 py-2.5 bg-[#0B0B0B] border border-neutral-800 rounded-xl text-xs text-white placeholder-neutral-500 focus:outline-none focus:border-[#DC2626]"
+                className={`w-full px-4 py-2.5 border rounded-xl text-xs focus:outline-none focus:border-[#DC2626] ${
+                  theme === 'dark'
+                    ? 'bg-[#0B0B0B] text-white placeholder-neutral-500 border-neutral-800'
+                    : 'bg-white text-neutral-900 placeholder-neutral-500 border-neutral-300'
+                }`}
               />
             </div>
 
             <div className="space-y-1.5">
-              <label className="text-xs font-bold uppercase tracking-wider text-neutral-300">
+              <label className={`text-xs font-bold uppercase tracking-wider ${theme === 'dark' ? 'text-neutral-300' : 'text-neutral-800'}`}>
                 Location / Country
               </label>
               <select
                 value={location}
                 onChange={(e) => setLocation(e.target.value)}
-                className="w-full px-4 py-2.5 bg-[#0B0B0B] border border-neutral-800 rounded-xl text-xs text-white focus:outline-none focus:border-[#DC2626]"
+                className={`w-full px-4 py-2.5 border rounded-xl text-xs focus:outline-none focus:border-[#DC2626] ${
+                  theme === 'dark'
+                    ? 'bg-[#0B0B0B] text-white border-neutral-800'
+                    : 'bg-white text-neutral-900 border-neutral-300'
+                }`}
               >
                 <option value="Tanzania">Tanzania</option>
                 <option value="Kenya">Kenya</option>
@@ -208,13 +237,17 @@ export const BookingModal: React.FC<BookingModalProps> = ({
 
           {/* Program Select */}
           <div className="space-y-1.5">
-            <label className="text-xs font-bold uppercase tracking-wider text-neutral-300">
+            <label className={`text-xs font-bold uppercase tracking-wider ${theme === 'dark' ? 'text-neutral-300' : 'text-neutral-800'}`}>
               Selected Training Program
             </label>
             <select
               value={program}
               onChange={(e) => setProgram(e.target.value)}
-              className="w-full px-4 py-2.5 bg-[#0B0B0B] border border-neutral-800 rounded-xl text-xs text-white focus:outline-none focus:border-[#DC2626]"
+              className={`w-full px-4 py-2.5 border rounded-xl text-xs focus:outline-none focus:border-[#DC2626] ${
+                theme === 'dark'
+                  ? 'bg-[#0B0B0B] text-white border-neutral-800'
+                  : 'bg-white text-neutral-900 border-neutral-300'
+              }`}
             >
               <optgroup label="Core Academies">
                 <option value="AI Academy Flagship Program">AI Academy Flagship Program</option>
@@ -241,13 +274,17 @@ export const BookingModal: React.FC<BookingModalProps> = ({
           <div className="grid sm:grid-cols-2 gap-4">
             {/* Preferred Delivery Format */}
             <div className="space-y-1.5">
-              <label className="text-xs font-bold uppercase tracking-wider text-neutral-300">
+              <label className={`text-xs font-bold uppercase tracking-wider ${theme === 'dark' ? 'text-neutral-300' : 'text-neutral-800'}`}>
                 Preferred Format
               </label>
               <select
                 value={format}
                 onChange={(e) => setFormat(e.target.value)}
-                className="w-full px-4 py-2.5 bg-[#0B0B0B] border border-neutral-800 rounded-xl text-xs text-white focus:outline-none focus:border-[#DC2626]"
+                className={`w-full px-4 py-2.5 border rounded-xl text-xs focus:outline-none focus:border-[#DC2626] ${
+                  theme === 'dark'
+                    ? 'bg-[#0B0B0B] text-white border-neutral-800'
+                    : 'bg-white text-neutral-900 border-neutral-300'
+                }`}
               >
                 <option value="Live Online (Zoom/Google Meet)">Live Online (Zoom/Google Meet)</option>
                 <option value="On-Site Physical Workshop">On-Site Physical Workshop</option>
@@ -259,13 +296,17 @@ export const BookingModal: React.FC<BookingModalProps> = ({
 
             {/* Audience Segment */}
             <div className="space-y-1.5">
-              <label className="text-xs font-bold uppercase tracking-wider text-neutral-300">
+              <label className={`text-xs font-bold uppercase tracking-wider ${theme === 'dark' ? 'text-neutral-300' : 'text-neutral-800'}`}>
                 Audience Segment
               </label>
               <select
                 value={audienceType}
                 onChange={(e) => setAudienceType(e.target.value)}
-                className="w-full px-4 py-2.5 bg-[#0B0B0B] border border-neutral-800 rounded-xl text-xs text-white focus:outline-none focus:border-[#DC2626]"
+                className={`w-full px-4 py-2.5 border rounded-xl text-xs focus:outline-none focus:border-[#DC2626] ${
+                  theme === 'dark'
+                    ? 'bg-[#0B0B0B] text-white border-neutral-800'
+                    : 'bg-white text-neutral-900 border-neutral-300'
+                }`}
               >
                 <option value="Individual Professional / Student">Individual Professional / Student</option>
                 <option value="Company / Enterprise Team">Company / Enterprise Team</option>
@@ -279,31 +320,45 @@ export const BookingModal: React.FC<BookingModalProps> = ({
 
           {/* Notes / Special requirements */}
           <div className="space-y-1.5">
-            <label className="text-xs font-bold uppercase tracking-wider text-neutral-300">
+            <label className={`text-xs font-bold uppercase tracking-wider ${theme === 'dark' ? 'text-neutral-300' : 'text-neutral-800'}`}>
               Specific Objectives or Team Size (Optional)
             </label>
             <textarea
               rows={2}
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
-              placeholder="e.g. Training 25 team members on prompt engineering, English & Kiswahili mix..."
-              className="w-full px-4 py-2.5 bg-[#0B0B0B] border border-neutral-800 rounded-xl text-xs text-white placeholder-neutral-500 focus:outline-none focus:border-[#DC2626]"
+              placeholder="e.g. Training 25 team members on prompt engineering..."
+              className={`w-full px-4 py-2.5 border rounded-xl text-xs focus:outline-none focus:border-[#DC2626] ${
+                theme === 'dark'
+                  ? 'bg-[#0B0B0B] text-white placeholder-neutral-500 border-neutral-800'
+                  : 'bg-white text-neutral-900 placeholder-neutral-500 border-neutral-300'
+              }`}
             />
           </div>
 
           {/* Message Preview Box */}
-          <div className="p-3.5 rounded-xl bg-[#0B0B0B] border border-neutral-800/80 space-y-1 text-xs">
-            <div className="flex items-center justify-between text-neutral-400 text-[10px] font-mono uppercase">
+          <div className={`p-3.5 rounded-xl border space-y-1 text-xs ${
+            theme === 'dark' ? 'bg-[#0B0B0B] border-neutral-800' : 'bg-neutral-50 border-neutral-300'
+          }`}>
+            <div className={`flex items-center justify-between text-[10px] font-mono uppercase ${
+              theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'
+            }`}>
               <span>Automated Message Preview:</span>
               <button
                 type="button"
                 onClick={handleCopyInquiry}
-                className="text-[#DC2626] hover:text-white font-bold transition-colors"
+                className={`font-bold transition-colors ${
+                  theme === 'dark'
+                    ? 'text-[#DC2626] hover:text-white'
+                    : 'text-[#B91C1C] hover:text-[#DC2626]'
+                }`}
               >
-                {copied ? ('Copied to Clipboard!') : ('Copy Text')}
+                {copied ? 'Copied to Clipboard!' : 'Copy Text'}
               </button>
             </div>
-            <p className="text-neutral-300 line-clamp-3 text-[11px] font-mono">
+            <p className={`line-clamp-3 text-[11px] font-mono ${
+              theme === 'dark' ? 'text-neutral-300' : 'text-neutral-800'
+            }`}>
               {constructMessageText()}
             </p>
           </div>
@@ -313,7 +368,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
             <button
               id="modal-send-whatsapp"
               onClick={handleWhatsAppSend}
-              className="w-full py-3.5 px-4 rounded-xl font-extrabold text-xs text-white bg-[#B91C1C] hover:bg-[#DC2626] flex items-center justify-center gap-2 uppercase tracking-wider shadow-lg transition-all"
+              className="w-full py-3.5 px-4 rounded-xl font-extrabold text-xs text-white bg-[#B91C1C] hover:bg-[#DC2626] active:scale-[0.98] flex items-center justify-center gap-2 uppercase tracking-wider shadow-lg transition-all"
             >
               <MessageCircle className="w-4 h-4" />
               <span>Send via WhatsApp</span>
@@ -322,7 +377,11 @@ export const BookingModal: React.FC<BookingModalProps> = ({
             <button
               id="modal-send-email"
               onClick={handleEmailSend}
-              className="w-full py-3.5 px-4 rounded-xl font-bold text-xs text-neutral-200 hover:text-white bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 flex items-center justify-center gap-2 uppercase tracking-wider transition-colors"
+              className={`w-full py-3.5 px-4 rounded-xl font-bold text-xs flex items-center justify-center gap-2 uppercase tracking-wider transition-colors ${
+                theme === 'dark'
+                  ? 'text-neutral-200 hover:text-white bg-neutral-900 hover:bg-neutral-800 border border-neutral-800'
+                  : 'text-neutral-800 hover:text-neutral-900 bg-white hover:bg-neutral-100 border border-neutral-300'
+              }`}
             >
               <Mail className="w-4 h-4" />
               <span>Send via Email</span>

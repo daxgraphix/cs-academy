@@ -184,7 +184,7 @@ export const LearningFormatsPage: React.FC<LearningFormatsPageProps> = ({
                     format: format.title,
                     program: `Delivery Track: ${format.title}`
                   })}
-                  className="w-full py-3.5 px-4 rounded-2xl text-xs font-extrabold uppercase tracking-wider text-white bg-[#B91C1C] hover:bg-[#DC2626] shadow-lg flex items-center justify-center gap-2 transition-all"
+                  className="w-full py-3.5 px-4 rounded-2xl text-xs font-extrabold uppercase tracking-wider text-white bg-[#B91C1C] hover:bg-[#DC2626] active:scale-[0.98] shadow-lg flex items-center justify-center gap-2 transition-all"
                 >
                   <span>SELECT THIS DELIVERY TRACK</span>
                   <ArrowRight className="w-4 h-4" />

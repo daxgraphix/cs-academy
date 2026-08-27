@@ -48,7 +48,7 @@ export const AudienceStrip: React.FC = () => {
                   className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-bold tracking-wider border transition-all ${
                     theme === 'dark'
                       ? 'bg-[#171717] border-neutral-800 text-neutral-300 hover:text-white hover:border-neutral-700'
-                      : 'bg-neutral-50 border-neutral-200 text-neutral-700 hover:text-neutral-950 hover:bg-neutral-100'
+                      : 'bg-neutral-50 border-neutral-200 text-neutral-700 hover:text-neutral-950 hover:bg-neutral-100 transition-colors duration-200'
                   }`}
                 >
                   <Icon className="w-3.5 h-3.5 text-[#DC2626]" />

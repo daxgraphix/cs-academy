@@ -1,15 +1,16 @@
 import React from 'react';
 import { useApp } from '../context/AppContext';
 import { siteConfig } from '../config/site';
-import { 
-  Zap, 
-  Globe2, 
-  Languages, 
-  Award, 
-  MonitorSmartphone, 
-  ShieldCheck, 
-  Sliders, 
-  Building2, 
+import { useReveal } from '../hooks/useReveal';
+import {
+  Zap,
+  Globe2,
+  Languages,
+  Award,
+  MonitorSmartphone,
+  ShieldCheck,
+  Sliders,
+  Building2,
   Users,
   ArrowRight,
   BadgeCheck
@@ -23,6 +24,7 @@ export const WhyCSAcademy: React.FC<WhyCSAcademyProps> = ({
   openBookingModal
 }) => {
   const { theme, t } = useApp();
+  const benefitsRef = useReveal<HTMLDivElement>();
 
   const stats = [
     { value: siteConfig.stats.learnersTrained, label: 'Learners Trained'},
@@ -135,7 +137,7 @@ export const WhyCSAcademy: React.FC<WhyCSAcademyProps> = ({
         </div>
 
         {/* 11 Benefits Bento Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div ref={benefitsRef} className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 reveal-stagger">
           {benefits.map((item, idx) => {
             const Icon = item.icon;
             return (
@@ -180,7 +182,7 @@ export const WhyCSAcademy: React.FC<WhyCSAcademyProps> = ({
             </div>
             <button
               onClick={() => openBookingModal({ program: 'Next Practical Cohort' })}
-              className="inline-flex items-center gap-2 px-8 py-4 text-xs font-extrabold text-white bg-[#B91C1C] hover:bg-[#DC2626] rounded-2xl shadow-lg uppercase tracking-wider transition-all whitespace-nowrap"
+              className="inline-flex items-center gap-2 px-8 py-4 text-xs font-extrabold text-white bg-[#B91C1C] hover:bg-[#DC2626] active:scale-[0.98] rounded-2xl shadow-lg uppercase tracking-wider transition-all whitespace-nowrap"
             >
               <span>JOIN NEXT COHORT</span>
               <ArrowRight className="w-4 h-4" />

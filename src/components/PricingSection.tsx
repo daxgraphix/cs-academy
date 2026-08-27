@@ -273,8 +273,8 @@ export const PricingSection: React.FC<PricingSectionProps> = ({
                       isPopular
                         ? 'bg-[#ff3b30] hover:bg-[#ff564d] text-white shadow-[0_14px_30px_rgba(255,59,48,0.35)]'
                         : theme === 'dark'
-                        ? 'bg-white/5 hover:bg-white/10 text-neutral-200 border border-white/10'
-                        : 'bg-neutral-100 hover:bg-neutral-200 text-neutral-800 border border-neutral-200'
+                        ? 'bg-white/5 hover:bg-white/10 transition-colors duration-200 text-neutral-200 border border-white/10'
+                        : 'bg-neutral-100 hover:bg-neutral-200 transition-colors duration-200 text-neutral-800 border border-neutral-200'
                     }`}
                   >
                     <span>{plan.ctaText}</span>

@@ -2,10 +2,11 @@ import React, { useState, useMemo } from 'react';
 import { blogPostsData } from '../data/blog';
 import { BlogPost } from '../types';
 import { useApp } from '../context/AppContext';
-import { 
-  Clock, 
-  ArrowRight, 
-  BookOpen, 
+import { useReveal } from '../hooks/useReveal';
+import {
+  Clock,
+  ArrowRight,
+  BookOpen,
   User,
   Search,
   ArrowUpDown,
@@ -27,6 +28,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
   const [selectedTag, setSelectedTag] = useState<string>('ALL');
   const [searchQuery, setSearchQuery] = useState('');
   const [sortKey, setSortKey] = useState<SortKey>('newest');
+  const gridRef = useReveal<HTMLDivElement>();
 
   const tags = ['ALL', 'AI Literacy', 'Cybersecurity', 'Education', 'Business', 'Swahili AI'];
 
@@ -184,7 +186,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
         )}
 
         {/* Blog Posts Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div ref={gridRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 reveal-stagger">
           {rest.map((post) => (
             <article
               key={post.id}

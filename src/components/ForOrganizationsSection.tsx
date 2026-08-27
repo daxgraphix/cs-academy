@@ -162,7 +162,7 @@ export const ForOrganizationsSection: React.FC<ForOrganizationsSectionProps> = (
               <button
                 id="btn-request-corporate-proposal"
                 onClick={() => openBookingModal({ program: 'Corporate AI & Security Workforce Training' })}
-                className="w-full py-4 px-6 text-xs font-extrabold text-white bg-[#B91C1C] hover:bg-[#DC2626] rounded-2xl shadow-lg hover:shadow-red-900/40 uppercase tracking-wider transition-all flex items-center justify-center gap-2 text-center"
+                className="w-full py-4 px-6 text-xs font-extrabold text-white bg-[#B91C1C] hover:bg-[#DC2626] active:scale-[0.98] rounded-2xl shadow-lg hover:shadow-red-900/40 uppercase tracking-wider transition-all flex items-center justify-center gap-2 text-center"
               >
                 <span>REQUEST CORPORATE PROPOSAL</span>
                 <ArrowRight className="w-4 h-4" />
@@ -174,7 +174,7 @@ export const ForOrganizationsSection: React.FC<ForOrganizationsSectionProps> = (
                 className={`w-full py-3 px-6 text-xs font-bold rounded-2xl border transition-colors uppercase tracking-wider text-center ${
                   theme === 'dark'
                     ? 'text-neutral-200 hover:text-white bg-[#0B0B0B] hover:bg-neutral-800 border-neutral-800'
-                    : 'text-neutral-800 hover:text-neutral-950 bg-white hover:bg-neutral-100 border-neutral-300'
+                    : 'text-neutral-800 hover:text-neutral-950 bg-white hover:bg-neutral-100 transition-colors duration-200 border-neutral-300'
                 }`}
               >
                 BOOK A CONSULTATION

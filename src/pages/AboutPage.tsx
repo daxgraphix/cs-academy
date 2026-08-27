@@ -293,7 +293,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
               <div className="pt-2 flex flex-wrap items-center gap-3">
                 <button
                   onClick={() => openBookingModal({ program: 'Speaking Engagement with Alex Rweyemamu' })}
-                  className="px-5 py-2.5 rounded-xl font-bold text-xs text-white bg-[#B91C1C] hover:bg-[#DC2626] uppercase tracking-wider transition-colors shadow-md flex items-center gap-2"
+                  className="px-5 py-2.5 rounded-xl font-bold text-xs text-white bg-[#B91C1C] hover:bg-[#DC2626] active:scale-[0.98] uppercase tracking-wider transition-colors shadow-md flex items-center gap-2"
                 >
                   <span>Book Keynote / Training</span>
                   <ArrowRight className="w-3.5 h-3.5" />

@@ -172,7 +172,7 @@ export const ResourceViewModal: React.FC<ResourceViewModalProps> = ({
             </span>
             <button
               onClick={handleDownload}
-              className="w-full sm:w-auto px-8 py-3.5 rounded-xl font-extrabold text-xs text-white bg-[#B91C1C] hover:bg-[#DC2626] uppercase tracking-wider shadow-lg flex items-center justify-center gap-2 transition-all"
+              className="w-full sm:w-auto px-8 py-3.5 rounded-xl font-extrabold text-xs text-white bg-[#B91C1C] hover:bg-[#DC2626] active:scale-[0.98] uppercase tracking-wider shadow-lg flex items-center justify-center gap-2 transition-all"
             >
               <Download className="w-4 h-4" />
               <span>{downloaded ? labels.cta : labels.ctaIdle}</span>

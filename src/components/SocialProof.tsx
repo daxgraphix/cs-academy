@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import { Quote, Award, Users, Star, CheckCircle2, ShieldCheck, TrendingUp, Filter } from 'lucide-react';
 import { siteConfig } from '../config/site';
 import { useApp } from '../context/AppContext';
+import { useReveal } from '../hooks/useReveal';
 
 export const SocialProof: React.FC = () => {
   const { theme, t } = useApp();
   const [selectedFilter, setSelectedFilter] = useState<string>('all');
+  const gridRef = useReveal<HTMLDivElement>();
 
   const filterOptions = [
     { id: 'all', label: 'All Reviews'},
@@ -116,7 +118,7 @@ export const SocialProof: React.FC = () => {
         </div>
 
         {/* Testimonials Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+        <div ref={gridRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16 reveal-stagger">
           {filteredTestimonials.map((item, idx) => (
             <div
               key={idx}

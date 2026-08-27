@@ -177,7 +177,7 @@ export const ShareButtons: React.FC<ShareButtonsProps> = ({
               ? 'bg-emerald-950/60 border-emerald-500 text-emerald-300'
               : theme === 'dark'
                 ? 'bg-neutral-900 hover:bg-neutral-800 text-neutral-200 border-neutral-700'
-                : 'bg-white hover:bg-neutral-100 text-neutral-800 border-neutral-300 shadow-sm'
+                : 'bg-white hover:bg-neutral-100 transition-colors duration-200 text-neutral-800 border-neutral-300 shadow-sm'
           }`}
         >
           {copied ? (

@@ -94,7 +94,7 @@ export const TrainingDetailModal: React.FC<TrainingDetailModalProps> = ({
             <div className="grid sm:grid-cols-2 gap-2">
               {training.highlights.map((h, i) => (
                 <div key={i} className="text-xs text-neutral-300 p-2 rounded bg-neutral-900 border border-neutral-800">
-                  ✓ {h}
+                  “ {h}
                 </div>
               ))}
             </div>
@@ -108,7 +108,7 @@ export const TrainingDetailModal: React.FC<TrainingDetailModalProps> = ({
                 onClose();
                 openBookingModal({ program: training.title, format: training.format });
               }}
-              className="w-full sm:w-auto px-8 py-3 rounded-xl font-extrabold text-xs text-white bg-[#B91C1C] hover:bg-[#DC2626] uppercase tracking-wider shadow-lg flex items-center justify-center gap-2"
+              className="w-full sm:w-auto px-8 py-3 rounded-xl font-extrabold text-xs text-white bg-[#B91C1C] hover:bg-[#DC2626] active:scale-[0.98] uppercase tracking-wider shadow-lg flex items-center justify-center gap-2"
             >
               <span>BOOK THIS COURSE</span>
               <ArrowRight className="w-4 h-4" />

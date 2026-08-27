@@ -101,7 +101,7 @@ export const ProgramDeepDivePage: React.FC<ProgramDeepDivePageProps> = ({
                 <button
                   id={`btn-deepdive-book-${program.slug}`}
                   onClick={() => openBookingModal({ program: program.title })}
-                  className="px-8 py-4 rounded-xl font-extrabold text-xs text-white bg-[#B91C1C] hover:bg-[#DC2626] uppercase tracking-wider shadow-lg flex items-center gap-2 transition-all"
+                  className="px-8 py-4 rounded-xl font-extrabold text-xs text-white bg-[#B91C1C] hover:bg-[#DC2626] active:scale-[0.98] uppercase tracking-wider shadow-lg flex items-center gap-2 transition-all"
                 >
                   <Calendar className="w-4 h-4" />
                   <span>{`BOOK ${program.title}`}</span>
@@ -111,7 +111,7 @@ export const ProgramDeepDivePage: React.FC<ProgramDeepDivePageProps> = ({
                   className={`px-6 py-4 rounded-xl font-bold text-xs uppercase tracking-wider transition-colors border ${
                     theme === 'dark'
                       ? 'text-neutral-200 hover:text-white bg-[#0B0B0B] hover:bg-neutral-800 border-neutral-800'
-                      : 'text-neutral-800 hover:text-neutral-950 bg-white hover:bg-neutral-100 border-neutral-300 shadow-sm'
+                      : 'text-neutral-800 hover:text-neutral-950 bg-white hover:bg-neutral-100 transition-colors duration-200 border-neutral-300 shadow-sm'
                   }`}
                 >
                   Request Corporate Proposal
@@ -247,7 +247,7 @@ export const ProgramDeepDivePage: React.FC<ProgramDeepDivePageProps> = ({
           <div className="pt-2 flex flex-col sm:flex-row justify-center items-center gap-3">
             <button
               onClick={() => openBookingModal({ program: program.title })}
-              className="px-8 py-4 rounded-xl font-extrabold text-xs text-white bg-[#B91C1C] hover:bg-[#DC2626] uppercase tracking-wider shadow-lg flex items-center gap-2 transition-all"
+              className="px-8 py-4 rounded-xl font-extrabold text-xs text-white bg-[#B91C1C] hover:bg-[#DC2626] active:scale-[0.98] uppercase tracking-wider shadow-lg flex items-center gap-2 transition-all"
             >
               <span>INQUIRE & BOOK NOW</span>
               <ArrowRight className="w-4 h-4" />

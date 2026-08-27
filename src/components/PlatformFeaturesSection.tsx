@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { platformFeaturesData } from '../data/platformFeatures';
 import { useApp } from '../context/AppContext';
+import { useReveal } from '../hooks/useReveal';
 import {
   Video,
   CheckSquare,
@@ -28,6 +29,7 @@ export const PlatformFeaturesSection: React.FC<PlatformFeaturesSectionProps> = (
 }) => {
   const { theme } = useApp();
   const [activeFeatureId, setActiveFeatureId] = useState<string>('quizzes-assessment');
+  const contentRef = useReveal<HTMLDivElement>();
 
   const getFeatureIcon = (iconName: string, className = "w-6 h-6") => {
     switch (iconName) {
@@ -158,7 +160,7 @@ export const PlatformFeaturesSection: React.FC<PlatformFeaturesSectionProps> = (
         theme === 'dark' ? 'bg-[#0B0B0B] text-white border-neutral-800' : 'bg-white text-neutral-900 border-neutral-300'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      <div ref={contentRef} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 reveal">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
@@ -271,7 +273,7 @@ export const PlatformFeaturesSection: React.FC<PlatformFeaturesSectionProps> = (
                     <div className="pt-5">
                       <button
                         onClick={() => openBookingModal({ program: `Enroll via ${feature.title}` })}
-                        className="px-7 py-3.5 rounded-2xl font-extrabold text-xs text-white bg-[#B91C1C] hover:bg-[#DC2626] uppercase tracking-wider shadow-lg inline-flex items-center gap-2 transition-all duration-200 hover:-translate-y-0.5"
+                        className="px-7 py-3.5 rounded-2xl font-extrabold text-xs text-white bg-[#B91C1C] hover:bg-[#DC2626] active:scale-[0.98] uppercase tracking-wider shadow-lg inline-flex items-center gap-2 transition-all duration-200 hover:-translate-y-0.5"
                       >
                         <span>{`Get Started with ${feature.title}`}</span>
                         <ArrowRight className="w-4 h-4" />

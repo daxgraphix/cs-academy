@@ -2,10 +2,11 @@ import React from 'react';
 import { PageRoute, ProgramPillar } from '../types';
 import { programsData } from '../data/programs';
 import { useApp } from '../context/AppContext';
-import { 
+import { useReveal } from '../hooks/useReveal';
+import {
   ShieldCheck,
-  Laptop, 
-  ArrowRight, 
+  Laptop,
+  ArrowRight,
   CheckCircle,
   Layers,
   BookOpen
@@ -23,6 +24,7 @@ export const ProgramsOverview: React.FC<ProgramsOverviewProps> = ({
   openBookingModal
 }) => {
   const { theme, t } = useApp();
+  const gridRef = useReveal<HTMLDivElement>();
 
   const getIcon = (iconName: string) => {
     switch (iconName) {
@@ -65,7 +67,7 @@ export const ProgramsOverview: React.FC<ProgramsOverviewProps> = ({
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div ref={gridRef} className="grid md:grid-cols-3 gap-8 reveal-stagger">
           {programsData.map((pillar) => {
             return (
             <div
@@ -171,8 +173,8 @@ export const ProgramsOverview: React.FC<ProgramsOverviewProps> = ({
                     onClick={() => openProgramModal(pillar)}
                     className={`flex-1 py-2.5 rounded-full text-[10px] font-bold uppercase tracking-[0.16em] border transition-all duration-200 hover:-translate-y-0.5 text-center ${
                       theme === 'dark' 
-                        ? 'text-neutral-300 hover:text-white bg-white/5 hover:bg-white/10 border-white/10' 
-                        : 'text-neutral-700 hover:text-neutral-900 bg-neutral-100 hover:bg-neutral-200 border-neutral-200'
+                        ? 'text-neutral-300 hover:text-white bg-white/5 hover:bg-white/10 transition-colors duration-200 border-white/10' 
+                        : 'text-neutral-700 hover:text-neutral-900 bg-neutral-100 hover:bg-neutral-200 transition-colors duration-200 border-neutral-200'
                     }`}
                   >
                     View Syllabus
@@ -182,8 +184,8 @@ export const ProgramsOverview: React.FC<ProgramsOverviewProps> = ({
                     onClick={() => openBookingModal({ program: pillar.title })}
                     className={`flex-1 py-2.5 rounded-full text-[10px] font-bold uppercase tracking-[0.16em] border transition-all duration-200 hover:-translate-y-0.5 text-center ${
                       theme === 'dark' 
-                        ? 'text-neutral-300 hover:text-white bg-white/5 hover:bg-white/10 border-white/10' 
-                        : 'text-neutral-700 hover:text-neutral-900 bg-neutral-100 hover:bg-neutral-200 border-neutral-200'
+                        ? 'text-neutral-300 hover:text-white bg-white/5 hover:bg-white/10 transition-colors duration-200 border-white/10' 
+                        : 'text-neutral-700 hover:text-neutral-900 bg-neutral-100 hover:bg-neutral-200 transition-colors duration-200 border-neutral-200'
                     }`}
                   >
                     {t.common.enrollNow}

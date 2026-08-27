@@ -3,6 +3,7 @@ import { PageRoute, ProgramPillar, TrainingProgram, ResourceItem, BlogPost } fro
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { BackToTop } from './components/BackToTop';
+import { ScrollProgress } from './components/ScrollProgress';
 
 // Pages
 import { HomePage } from './pages/HomePage';
@@ -182,7 +183,7 @@ export default function App() {
 
   return (
     <div
-      className={`min-h-screen flex flex-col font-sans antialiased transition-colors duration-300 ${
+      className={`min-h-screen flex flex-col font-sans antialiased transition-colors duration-300 scroll-smooth ${
         theme === 'dark'
           ? 'bg-[#090909] text-white selection:bg-[#DC2626] selection:text-white'
           : 'bg-[#f7f4ee] text-neutral-900 selection:bg-[#ff3b30] selection:text-white'
@@ -237,6 +238,7 @@ export default function App() {
       />
 
       <BackToTop />
+      <ScrollProgress />
     </div>
   );
 }

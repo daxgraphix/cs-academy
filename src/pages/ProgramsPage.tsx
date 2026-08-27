@@ -150,7 +150,7 @@ export const ProgramsPage: React.FC<ProgramsPageProps> = ({
                   onClick={() => setSearchQuery('')}
                   className="absolute right-4 top-1/2 -translate-y-1/2 text-xs font-bold text-neutral-400 hover:text-[#DC2626] p-1"
                 >
-                  Ã¢Å“â€¢
+                  -
                 </button>
               )}
             </div>
@@ -187,7 +187,7 @@ export const ProgramsPage: React.FC<ProgramsPageProps> = ({
                       ? 'bg-[#DC2626] text-white shadow-lg shadow-red-900/40 scale-[1.02]'
                       : theme === 'dark'
                       ? 'bg-[#0B0B0B] text-neutral-300 hover:text-white border border-neutral-800 hover:border-neutral-700'
-                      : 'bg-neutral-100 text-neutral-700 hover:text-neutral-900 border border-neutral-300 hover:bg-neutral-200'
+                      : 'bg-neutral-100 text-neutral-700 hover:text-neutral-900 border border-neutral-300 hover:bg-neutral-200 transition-colors duration-200'
                   }`}
                 >
                   <Icon className="w-3.5 h-3.5" />
@@ -281,14 +281,14 @@ export const ProgramsPage: React.FC<ProgramsPageProps> = ({
                       className={`px-5 py-2.5 rounded-xl text-xs font-bold transition-colors uppercase tracking-wider ${
                         theme === 'dark'
                           ? 'text-neutral-200 hover:text-white bg-[#0B0B0B] hover:bg-neutral-800 border border-neutral-800'
-                          : 'text-neutral-800 hover:text-black bg-neutral-100 hover:bg-neutral-200 border border-neutral-300'
+                          : 'text-neutral-800 hover:text-black bg-neutral-100 hover:bg-neutral-200 transition-colors duration-200 border border-neutral-300'
                       }`}
                     >
                       View Academy Page
                     </button>
                     <button
                       onClick={() => openBookingModal({ program: pillar.title })}
-                      className="px-6 py-2.5 rounded-xl text-xs font-extrabold text-white bg-[#B91C1C] hover:bg-[#DC2626] uppercase tracking-wider shadow-lg transition-all"
+                      className="px-6 py-2.5 rounded-xl text-xs font-extrabold text-white bg-[#B91C1C] hover:bg-[#DC2626] active:scale-[0.98] uppercase tracking-wider shadow-lg transition-all"
                     >
                       Book Training
                     </button>
@@ -345,7 +345,7 @@ export const ProgramsPage: React.FC<ProgramsPageProps> = ({
                           </div>
                           <div className="text-[11px] text-neutral-400">{mod.description}</div>
                           <div className="text-[10px] text-[#DC2626] font-mono font-bold mt-1">
-                            Ã¢Å“Â¦ {mod.practicalSkill}
+                            ✓ {mod.practicalSkill}
                           </div>
                         </div>
                       ))}
@@ -383,7 +383,7 @@ export const ProgramsPage: React.FC<ProgramsPageProps> = ({
                       <p>Formats: {pillar.deliveryFormats.join(', ')}</p>
                       <p>Duration: {pillar.durationOptions.join(', ')}</p>
                       <p className="text-[#DC2626] pt-1 font-semibold">
-                        Ã¢Å“â€œ Instructed in English & Kiswahili
+                        ✓ Instructed in English & Kiswahili
                       </p>
                     </div>
                   </div>

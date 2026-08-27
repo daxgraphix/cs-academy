@@ -1,15 +1,16 @@
 import React, { useState, useMemo, useRef, KeyboardEvent } from 'react';
 import { faqData } from '../data/faq';
 import { useApp } from '../context/AppContext';
-import { 
-  ChevronDown, 
-  HelpCircle, 
-  Search, 
+import { useReveal } from '../hooks/useReveal';
+import {
+  ChevronDown,
+  HelpCircle,
+  Search,
   BookOpen,
-  CreditCard, 
-  Headphones, 
-  Award, 
-  MessageCircle, 
+  CreditCard,
+  Headphones,
+  Award,
+  MessageCircle,
   Filter,
   Users
 } from 'lucide-react';
@@ -22,6 +23,7 @@ export const FAQSection: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [selectedCategory, setSelectedCategory] = useState<string>('ALL');
   const listRef = useRef<HTMLDivElement>(null);
+  const contentRef = useReveal<HTMLDivElement>();
 
   const categories = [
     { id: 'ALL', label: 'All FAQs', icon: Filter },
@@ -90,7 +92,7 @@ export const FAQSection: React.FC = () => {
       }`}
     >
       <div className="absolute inset-x-0 top-0 h-72 bg-[radial-gradient(circle_at_top,_rgba(255,59,48,0.14),transparent_45%)]" />
-      <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div ref={contentRef} className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
         
         {/* Section Header */}
         <div className="text-center space-y-4 mb-12">

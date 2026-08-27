@@ -54,7 +54,7 @@ export const PricingPage: React.FC<PricingPageProps> = ({
               className={`px-6 py-3.5 rounded-2xl font-extrabold text-xs border uppercase tracking-wider transition-colors ${
                 theme === 'dark'
                   ? 'text-neutral-300 hover:text-white bg-[#0B0B0B] hover:bg-neutral-800 border-neutral-800'
-                  : 'text-neutral-800 hover:text-neutral-950 bg-white hover:bg-neutral-100 border-neutral-300 shadow-sm'
+                  : 'text-neutral-800 hover:text-neutral-950 bg-white hover:bg-neutral-100 transition-colors duration-200 border-neutral-300 shadow-sm'
               }`}
             >
               <span>Contact Admissions Team</span>

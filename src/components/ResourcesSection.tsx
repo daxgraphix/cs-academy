@@ -2,11 +2,12 @@ import React, { useState, useMemo } from 'react';
 import { resourcesData } from '../data/resources';
 import { ResourceItem } from '../types';
 import { useApp } from '../context/AppContext';
-import { 
-  Download, 
-  Eye, 
-  CheckCircle2, 
-  Clock, 
+import { useReveal } from '../hooks/useReveal';
+import {
+  Download,
+  Eye,
+  CheckCircle2,
+  Clock,
   Search
 } from 'lucide-react';
 import { downloadResource } from '../utils/download';
@@ -21,6 +22,7 @@ export const ResourcesSection: React.FC<ResourcesSectionProps> = ({
   const { theme, t } = useApp();
   const [activeCategory, setActiveCategory] = useState<string>('ALL');
   const [searchQuery, setSearchQuery] = useState('');
+  const gridRef = useReveal<HTMLDivElement>();
 
   // Derive categories from data so every toolkit is discoverable
   const categories = useMemo(() => {
@@ -112,7 +114,7 @@ export const ResourcesSection: React.FC<ResourcesSectionProps> = ({
         </div>
 
         {/* Resources Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div ref={gridRef} className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 reveal-stagger">
           {filteredResources.map((resource) => {
             const title = resource.title;
             const description = resource.description;
@@ -205,7 +207,7 @@ export const ResourcesSection: React.FC<ResourcesSectionProps> = ({
                   onClick={() => downloadResource(resource)}
                   title={'Download toolkit'}
                   aria-label={`Download ${title}`}
-                  className="py-2 px-3 rounded-xl text-xs font-bold text-white bg-[#B91C1C] hover:bg-[#DC2626] flex items-center justify-center transition-colors shadow-sm"
+                  className="py-2 px-3 rounded-xl text-xs font-bold text-white bg-[#B91C1C] hover:bg-[#DC2626] active:scale-[0.98] flex items-center justify-center transition-colors shadow-sm"
                 >
                   <Download className="w-3.5 h-3.5" />
                 </button>

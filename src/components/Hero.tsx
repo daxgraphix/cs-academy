@@ -1,6 +1,7 @@
 import React from 'react';
 import { PageRoute } from '../types';
 import { useApp } from '../context/AppContext';
+import { useReveal } from '../hooks/useReveal';
 import {
   ArrowRight,
   CheckCircle2,
@@ -17,6 +18,7 @@ export const Hero: React.FC<HeroProps> = ({
   openBookingModal
 }) => {
   const { theme, t } = useApp();
+  const contentRef = useReveal<HTMLDivElement>();
 
   return (
     <section
@@ -33,7 +35,7 @@ export const Hero: React.FC<HeroProps> = ({
       <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:42px_42px] [mask-image:radial-gradient(ellipse_80%_60%_at_45%_40%,#000_55%,transparent_100%)] opacity-40" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl">
+        <div ref={contentRef} className="max-w-4xl reveal">
           <div className="space-y-8">
             <div className="space-y-5">
               <h1 className={`text-4xl sm:text-6xl lg:text-[5.2rem] lg:leading-[0.94] font-black tracking-[-0.06em] break-words ${
@@ -77,8 +79,8 @@ export const Hero: React.FC<HeroProps> = ({
                 }}
                 className={`inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full border text-sm font-bold uppercase tracking-[0.14em] transition-all duration-200 hover:-translate-y-0.5 ${
                   theme === 'dark'
-                    ? 'border-white/10 bg-white/5 text-white hover:bg-white/10'
-                    : 'border-neutral-200 bg-white text-neutral-900 hover:bg-neutral-100'
+                    ? 'border-white/10 bg-white/5 text-white hover:bg-white/10 transition-colors duration-200'
+                    : 'border-neutral-200 bg-white text-neutral-900 hover:bg-neutral-100 transition-colors duration-200'
                 }`}
               >
                 <span>{t.hero.ctaExplore}</span>

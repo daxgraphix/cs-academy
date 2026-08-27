@@ -56,7 +56,7 @@ export const BlogArticleModal: React.FC<BlogArticleModalProps> = ({
             className={`p-2 rounded-xl transition-colors ${
               theme === 'dark' 
                 ? 'bg-neutral-900 hover:bg-neutral-800 text-neutral-400 hover:text-white' 
-                : 'bg-neutral-100 hover:bg-neutral-200 text-neutral-800 hover:text-neutral-900'
+                : 'bg-neutral-100 hover:bg-neutral-200 transition-colors duration-200 text-neutral-800 hover:text-neutral-900'
             }`}
           >
             <X className="w-5 h-5" />
@@ -185,7 +185,7 @@ export const BlogArticleModal: React.FC<BlogArticleModalProps> = ({
                 onClose();
                 openBookingModal({ program: `Training on ${post.category}: ${post.title}` });
               }}
-              className="w-full sm:w-auto px-6 py-3 rounded-xl font-extrabold text-xs text-white bg-[#B91C1C] hover:bg-[#DC2626] uppercase tracking-wider shadow-lg transition-all"
+              className="w-full sm:w-auto px-6 py-3 rounded-xl font-extrabold text-xs text-white bg-[#B91C1C] hover:bg-[#DC2626] active:scale-[0.98] uppercase tracking-wider shadow-lg transition-all"
             >
               Book Related Training
             </button>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { siteConfig } from '../config/site';
 import { useApp } from '../context/AppContext';
+import { useReveal } from '../hooks/useReveal';
 import {
   ArrowRight,
   CheckCircle2,
@@ -18,6 +19,8 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
   openBookingModal
 }) => {
   const { theme, t } = useApp();
+  const contentRef = useReveal<HTMLDivElement>();
+  const statsRef = useReveal<HTMLDivElement>();
 
   const stats = [
     { value: siteConfig.stats.learnersTrained, label: 'Learners Trained' },
@@ -33,7 +36,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
         theme === 'dark' ? 'bg-[#121212] text-white border-neutral-800' : 'bg-neutral-50 text-neutral-900 border-neutral-300'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div ref={contentRef} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
 
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
@@ -93,7 +96,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
               <button
                 id="btn-work-with-academy"
                 onClick={() => openBookingModal({ program: 'Web Development & Digital Skills Cohort' })}
-                className="inline-flex items-center gap-2 px-8 py-4 text-xs font-extrabold text-white bg-[#B91C1C] hover:bg-[#DC2626] rounded-2xl shadow-lg uppercase tracking-wider transition-all"
+                className="inline-flex items-center gap-2 px-8 py-4 text-xs font-extrabold text-white bg-[#B91C1C] hover:bg-[#DC2626] active:scale-[0.98] rounded-2xl shadow-lg uppercase tracking-wider transition-all"
               >
                 <span>JOIN NEXT COHORT</span>
                 <ArrowRight className="w-4 h-4" />
@@ -157,7 +160,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
         </div>
 
         {/* Impact Stats Row */}
-        <div className={`grid grid-cols-2 sm:grid-cols-4 gap-4 mb-12 ${
+        <div ref={statsRef} className={`reveal-stagger grid grid-cols-2 sm:grid-cols-4 gap-4 mb-12 ${
           theme === 'dark' ? 'text-white' : 'text-neutral-900'
         }`}>
           {stats.map((stat, i) => (
@@ -213,7 +216,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
             }`}>
               <Quote className="w-4 h-4 text-[#DC2626] shrink-0 mt-0.5" />
               <p className={`text-xs italic ${theme === 'dark' ? 'text-neutral-300' : 'text-neutral-800'}`}>
-                Ã¢â‚¬Å“{siteConfig.founder.quote}Ã¢â‚¬Â
+                "{siteConfig.founder.quote}"
               </p>
             </div>
             <div className={`flex items-center gap-1.5 text-xs font-semibold ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'}`}>

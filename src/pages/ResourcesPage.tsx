@@ -169,7 +169,7 @@ export const ResourcesPage: React.FC<ResourcesPageProps> = ({
                 </button>
                 <button
                   onClick={() => openResourceModal(resource)}
-                  className="py-3 px-4 rounded-2xl text-xs font-bold text-white bg-[#B91C1C] hover:bg-[#DC2626] flex items-center justify-center transition-colors shadow-sm"
+                  className="py-3 px-4 rounded-2xl text-xs font-bold text-white bg-[#B91C1C] hover:bg-[#DC2626] active:scale-[0.98] flex items-center justify-center transition-colors shadow-sm"
                   title="Download File"
                 >
                   <Download className="w-4 h-4" />

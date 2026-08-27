@@ -44,9 +44,9 @@ export const Navbar: React.FC<NavbarProps> = ({
   };
 
   return (
-    <header 
+    <header
       id="main-header"
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all transition-shadow duration-300 ${
         isScrolled 
           ? theme === 'dark' 
             ? 'bg-[#0b0b0b]/90 backdrop-blur-xl border-b border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.28)] py-3' 
@@ -109,7 +109,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all ${
                 currentRoute === 'features' 
                   ? theme === 'dark' ? 'text-white bg-neutral-900 border border-neutral-800' : 'text-neutral-900 bg-neutral-100 border border-neutral-200'
-                  : theme === 'dark' ? 'text-neutral-300 hover:text-white hover:bg-neutral-900/50' : 'text-neutral-800 hover:text-neutral-900 hover:bg-neutral-100'
+                  : theme === 'dark' ? 'text-neutral-300 hover:text-white hover:bg-neutral-900/50' : 'text-neutral-800 hover:text-neutral-900 hover:bg-neutral-100 transition-colors duration-200'
               }`}
             >
                 <span>Features</span>
@@ -124,7 +124,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 className={`flex items-center gap-1 px-3 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all ${
                   currentRoute.startsWith('programs')
                     ? theme === 'dark' ? 'text-white bg-neutral-900 border border-neutral-800' : 'text-neutral-900 bg-neutral-100 border border-neutral-200'
-                    : theme === 'dark' ? 'text-neutral-300 hover:text-white hover:bg-neutral-900/50' : 'text-neutral-800 hover:text-neutral-900 hover:bg-neutral-100'
+                    : theme === 'dark' ? 'text-neutral-300 hover:text-white hover:bg-neutral-900/50' : 'text-neutral-800 hover:text-neutral-900 hover:bg-neutral-100 transition-colors duration-200'
                 }`}
               >
                 <span>Programs</span>
@@ -145,7 +145,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                     id="dropdown-all-programs"
                     onClick={() => navigateTo('programs')}
                     className={`w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-left text-xs font-extrabold uppercase tracking-wider transition-colors ${
-                      theme === 'dark' ? 'text-neutral-300 hover:text-white hover:bg-neutral-800' : 'text-neutral-700 hover:text-neutral-900 hover:bg-neutral-100'
+                      theme === 'dark' ? 'text-neutral-300 hover:text-white hover:bg-neutral-800' : 'text-neutral-700 hover:text-neutral-900 hover:bg-neutral-100 transition-colors duration-200'
                     }`}
                   >
                     <span>{t.nav.allPrograms}</span>
@@ -157,7 +157,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                     id="dropdown-ai-academy"
                     onClick={() => navigateTo('programs/ai')}
                     className={`w-full flex items-start gap-3 px-3 py-2.5 rounded-xl text-left transition-colors group/item ${
-                      theme === 'dark' ? 'hover:bg-neutral-800' : 'hover:bg-neutral-100'
+                      theme === 'dark' ? 'hover:bg-neutral-800' : 'hover:bg-neutral-100 transition-colors duration-200'
                     }`}
                   >
                     <div>
@@ -174,7 +174,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                     id="dropdown-cyber-academy"
                     onClick={() => navigateTo('programs/cybersecurity')}
                     className={`w-full flex items-start gap-3 px-3 py-2.5 rounded-xl text-left transition-colors group/item ${
-                      theme === 'dark' ? 'hover:bg-neutral-800' : 'hover:bg-neutral-100'
+                      theme === 'dark' ? 'hover:bg-neutral-800' : 'hover:bg-neutral-100 transition-colors duration-200'
                     }`}
                   >
                     <div>
@@ -191,7 +191,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                     id="dropdown-digital-academy"
                     onClick={() => navigateTo('programs/digital-skills')}
                     className={`w-full flex items-start gap-3 px-3 py-2.5 rounded-xl text-left transition-colors group/item ${
-                      theme === 'dark' ? 'hover:bg-neutral-800' : 'hover:bg-neutral-100'
+                      theme === 'dark' ? 'hover:bg-neutral-800' : 'hover:bg-neutral-100 transition-colors duration-200'
                     }`}
                   >
                     <div>
@@ -213,7 +213,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               className={`px-3 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all ${
                 currentRoute === 'learning-formats' 
                   ? theme === 'dark' ? 'text-white bg-neutral-900 border border-neutral-800' : 'text-neutral-900 bg-neutral-100 border border-neutral-200'
-                  : theme === 'dark' ? 'text-neutral-300 hover:text-white hover:bg-neutral-900/50' : 'text-neutral-800 hover:text-neutral-900 hover:bg-neutral-100'
+                  : theme === 'dark' ? 'text-neutral-300 hover:text-white hover:bg-neutral-900/50' : 'text-neutral-800 hover:text-neutral-900 hover:bg-neutral-100 transition-colors duration-200'
               }`}
             >
               Formats
@@ -225,7 +225,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               className={`flex items-center gap-1 px-3 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all ${
                 currentRoute === 'for-organizations' 
                   ? theme === 'dark' ? 'text-white bg-neutral-900 border border-neutral-800' : 'text-neutral-900 bg-neutral-100 border border-neutral-200'
-                  : theme === 'dark' ? 'text-neutral-300 hover:text-white hover:bg-neutral-900/50' : 'text-neutral-800 hover:text-neutral-900 hover:bg-neutral-100'
+                  : theme === 'dark' ? 'text-neutral-300 hover:text-white hover:bg-neutral-900/50' : 'text-neutral-800 hover:text-neutral-900 hover:bg-neutral-100 transition-colors duration-200'
               }`}
             >
               <span>Teams</span>
@@ -237,7 +237,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               className={`px-3 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all ${
                 currentRoute === 'pricing' 
                   ? theme === 'dark' ? 'text-white bg-neutral-900 border border-neutral-800' : 'text-neutral-900 bg-neutral-100 border border-neutral-200'
-                  : theme === 'dark' ? 'text-neutral-300 hover:text-white hover:bg-neutral-900/50' : 'text-neutral-800 hover:text-neutral-900 hover:bg-neutral-100'
+                  : theme === 'dark' ? 'text-neutral-300 hover:text-white hover:bg-neutral-900/50' : 'text-neutral-800 hover:text-neutral-900 hover:bg-neutral-100 transition-colors duration-200'
               }`}
             >
               Pricing
@@ -249,7 +249,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               className={`flex items-center gap-1 px-3 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all ${
                 currentRoute === 'resources' 
                   ? theme === 'dark' ? 'text-white bg-neutral-900 border border-neutral-800' : 'text-neutral-900 bg-neutral-100 border border-neutral-200'
-                  : theme === 'dark' ? 'text-neutral-300 hover:text-white hover:bg-neutral-900/50' : 'text-neutral-800 hover:text-neutral-900 hover:bg-neutral-100'
+                  : theme === 'dark' ? 'text-neutral-300 hover:text-white hover:bg-neutral-900/50' : 'text-neutral-800 hover:text-neutral-900 hover:bg-neutral-100 transition-colors duration-200'
               }`}
             >
               <span>Resources</span>
@@ -261,7 +261,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               className={`px-3 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all ${
                 currentRoute === 'about' 
                   ? theme === 'dark' ? 'text-white bg-neutral-900 border border-neutral-800' : 'text-neutral-900 bg-neutral-100 border border-neutral-200'
-                  : theme === 'dark' ? 'text-neutral-300 hover:text-white hover:bg-neutral-900/50' : 'text-neutral-800 hover:text-neutral-900 hover:bg-neutral-100'
+                  : theme === 'dark' ? 'text-neutral-300 hover:text-white hover:bg-neutral-900/50' : 'text-neutral-800 hover:text-neutral-900 hover:bg-neutral-100 transition-colors duration-200'
               }`}
             >
               About
@@ -279,7 +279,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               className={`p-2 rounded-xl transition-all border ${
                 theme === 'dark'
                   ? 'bg-[#171717] hover:bg-neutral-800 text-amber-400 border-neutral-800'
-                  : 'bg-neutral-100 hover:bg-neutral-200 text-neutral-700 border-neutral-200'
+                  : 'bg-neutral-100 hover:bg-neutral-200 transition-colors duration-200 text-neutral-700 border-neutral-200'
               }`}
             >
               {theme === 'dark' ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
@@ -339,7 +339,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             <button
               onClick={() => navigateTo('home')}
               className={`w-full text-left px-3 py-2.5 rounded-xl text-sm font-bold ${
-                theme === 'dark' ? 'hover:bg-neutral-900' : 'hover:bg-neutral-100'
+                theme === 'dark' ? 'hover:bg-neutral-900' : 'hover:bg-neutral-100 transition-colors duration-200'
               }`}
             >
               {t.nav.home}
@@ -348,7 +348,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             <button
               onClick={() => navigateTo('features')}
               className={`w-full text-left px-3 py-2.5 rounded-xl text-sm font-bold flex items-center justify-between ${
-                theme === 'dark' ? 'hover:bg-neutral-900' : 'hover:bg-neutral-100'
+                theme === 'dark' ? 'hover:bg-neutral-900' : 'hover:bg-neutral-100 transition-colors duration-200'
               }`}
             >
               <span>{t.nav.features}</span>
@@ -358,7 +358,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             <button
               onClick={() => navigateTo('pricing')}
               className={`w-full text-left px-3 py-2.5 rounded-xl text-sm font-bold flex items-center justify-between ${
-                theme === 'dark' ? 'hover:bg-neutral-900' : 'hover:bg-neutral-100'
+                theme === 'dark' ? 'hover:bg-neutral-900' : 'hover:bg-neutral-100 transition-colors duration-200'
               }`}
             >
               <span>{t.nav.pricing}</span>
@@ -402,7 +402,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             <button
               onClick={() => navigateTo('learning-formats')}
               className={`w-full text-left px-3 py-2.5 rounded-xl text-sm font-bold ${
-                theme === 'dark' ? 'hover:bg-neutral-900' : 'hover:bg-neutral-100'
+                theme === 'dark' ? 'hover:bg-neutral-900' : 'hover:bg-neutral-100 transition-colors duration-200'
               }`}
             >
               {t.nav.formats}
@@ -411,7 +411,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             <button
               onClick={() => navigateTo('for-organizations')}
               className={`w-full text-left px-3 py-2.5 rounded-xl text-sm font-bold flex items-center justify-between ${
-                theme === 'dark' ? 'hover:bg-neutral-900' : 'hover:bg-neutral-100'
+                theme === 'dark' ? 'hover:bg-neutral-900' : 'hover:bg-neutral-100 transition-colors duration-200'
               }`}
             >
               <span>{t.nav.organizations}</span>
@@ -421,7 +421,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             <button
               onClick={() => navigateTo('resources')}
               className={`w-full text-left px-3 py-2.5 rounded-xl text-sm font-bold ${
-                theme === 'dark' ? 'hover:bg-neutral-900' : 'hover:bg-neutral-100'
+                theme === 'dark' ? 'hover:bg-neutral-900' : 'hover:bg-neutral-100 transition-colors duration-200'
               }`}
             >
               {t.nav.resources}
@@ -430,7 +430,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             <button
               onClick={() => navigateTo('blog')}
               className={`w-full text-left px-3 py-2.5 rounded-xl text-sm font-bold ${
-                theme === 'dark' ? 'hover:bg-neutral-900' : 'hover:bg-neutral-100'
+                theme === 'dark' ? 'hover:bg-neutral-900' : 'hover:bg-neutral-100 transition-colors duration-200'
               }`}
             >
               {t.nav.blog}
@@ -439,7 +439,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             <button
               onClick={() => navigateTo('about')}
               className={`w-full text-left px-3 py-2.5 rounded-xl text-sm font-bold ${
-                theme === 'dark' ? 'hover:bg-neutral-900' : 'hover:bg-neutral-100'
+                theme === 'dark' ? 'hover:bg-neutral-900' : 'hover:bg-neutral-100 transition-colors duration-200'
               }`}
             >
               {t.nav.about}
@@ -448,7 +448,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             <button
               onClick={() => navigateTo('contact')}
               className={`w-full text-left px-3 py-2.5 rounded-xl text-sm font-bold ${
-                theme === 'dark' ? 'hover:bg-neutral-900' : 'hover:bg-neutral-100'
+                theme === 'dark' ? 'hover:bg-neutral-900' : 'hover:bg-neutral-100 transition-colors duration-200'
               }`}
             >
               {t.nav.contact}
@@ -458,7 +458,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           <div className="mt-5 pt-4 border-t border-neutral-800 space-y-2">
             <button
               onClick={() => { setMobileMenuOpen(false); openBookingModal(); }}
-              className="w-full py-3.5 text-center text-xs font-bold text-white bg-[#B91C1C] hover:bg-[#DC2626] rounded-xl tracking-wider uppercase shadow-lg"
+              className="w-full py-3.5 text-center text-xs font-bold text-white bg-[#B91C1C] hover:bg-[#DC2626] active:scale-[0.98] rounded-xl tracking-wider uppercase shadow-lg"
             >
               {t.nav.bookTraining}
             </button>

@@ -29,7 +29,7 @@ export const FeaturesPage: React.FC<FeaturesPageProps> = ({
           <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
             <button
               onClick={() => setCurrentRoute('pricing')}
-              className="px-6 py-3 rounded-xl font-extrabold text-xs text-white bg-[#B91C1C] hover:bg-[#DC2626] uppercase tracking-wider shadow-lg inline-flex items-center gap-2"
+              className="px-6 py-3 rounded-xl font-extrabold text-xs text-white bg-[#B91C1C] hover:bg-[#DC2626] active:scale-[0.98] uppercase tracking-wider shadow-lg inline-flex items-center gap-2"
             >
               <span>View Pricing Plans</span>
               <ArrowRight className="w-4 h-4" />

@@ -144,7 +144,7 @@ export const ProgramDetailModal: React.FC<ProgramDetailModalProps> = ({
                 onClose();
                 openBookingModal({ program: program.title });
               }}
-              className="w-full sm:w-auto px-8 py-3.5 rounded-xl font-extrabold text-xs text-white bg-[#B91C1C] hover:bg-[#DC2626] uppercase tracking-wider shadow-lg flex items-center justify-center gap-2"
+              className="w-full sm:w-auto px-8 py-3.5 rounded-xl font-extrabold text-xs text-white bg-[#B91C1C] hover:bg-[#DC2626] active:scale-[0.98] uppercase tracking-wider shadow-lg flex items-center justify-center gap-2"
             >
               <span>BOOK THIS PROGRAM</span>
               <ArrowRight className="w-4 h-4" />

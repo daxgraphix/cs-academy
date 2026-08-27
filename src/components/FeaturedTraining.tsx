@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import { featuredTrainingData } from '../data/training';
 import { TrainingProgram } from '../types';
 import { useApp } from '../context/AppContext';
-import { 
-  Users, 
-  MapPin, 
-  ArrowRight, 
-  CheckCircle2, 
+import { useReveal } from '../hooks/useReveal';
+import {
+  Users,
+  MapPin,
+  ArrowRight,
+  CheckCircle2,
   Shield,
   Laptop
 } from 'lucide-react';
@@ -22,6 +23,7 @@ export const FeaturedTraining: React.FC<FeaturedTrainingProps> = ({
 }) => {
   const { theme, t } = useApp();
   const [filter, setFilter] = useState<'ALL' | 'AI' | 'CYBER' | 'DIGITAL'>('ALL');
+  const gridRef = useReveal<HTMLDivElement>();
 
   const filteredTrainings = featuredTrainingData.filter((item) => {
     if (filter === 'AI') return item.category === 'ai';
@@ -120,7 +122,7 @@ export const FeaturedTraining: React.FC<FeaturedTrainingProps> = ({
         </div>
 
         {/* 6 Training Cards Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div ref={gridRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 reveal-stagger">
           {filteredTrainings.map((course) => {
             return (
             <div
@@ -218,7 +220,7 @@ export const FeaturedTraining: React.FC<FeaturedTrainingProps> = ({
                   className={`flex-1 py-2.5 px-3 text-xs font-bold rounded-xl border transition-colors text-center ${
                     theme === 'dark'
                       ? 'text-neutral-300 hover:text-white bg-neutral-900 hover:bg-neutral-800 border-neutral-800'
-                      : 'text-neutral-700 hover:text-neutral-900 bg-neutral-100 hover:bg-neutral-200 border-neutral-300'
+                      : 'text-neutral-700 hover:text-neutral-900 bg-neutral-100 hover:bg-neutral-200 transition-colors duration-200 border-neutral-300'
                   }`}
                 >
                   Learn More
@@ -226,7 +228,7 @@ export const FeaturedTraining: React.FC<FeaturedTrainingProps> = ({
                 <button
                   id={`btn-book-${course.id}`}
                   onClick={() => openBookingModal({ program: course.title, format: course.format })}
-                  className="flex-1 py-2.5 px-3 text-xs font-extrabold text-white bg-[#B91C1C] hover:bg-[#DC2626] rounded-xl flex items-center justify-center gap-1.5 transition-all shadow-md"
+                  className="flex-1 py-2.5 px-3 text-xs font-extrabold text-white bg-[#B91C1C] hover:bg-[#DC2626] active:scale-[0.98] rounded-xl flex items-center justify-center gap-1.5 transition-all shadow-md"
                 >
                   <span>{t.common.bookTraining}</span>
                   <ArrowRight className="w-3 h-3" />

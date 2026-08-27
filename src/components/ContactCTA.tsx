@@ -1,10 +1,11 @@
 import React from 'react';
 import { siteConfig } from '../config/site';
 import { useApp } from '../context/AppContext';
-import { 
-  Mail, 
-  MessageCircle, 
-  ArrowRight, 
+import { useReveal } from '../hooks/useReveal';
+import {
+  Mail,
+  MessageCircle,
+  ArrowRight,
   Calendar
 } from 'lucide-react';
 
@@ -16,6 +17,7 @@ export const ContactCTA: React.FC<ContactCTAProps> = ({
   openBookingModal
 }) => {
   const { theme } = useApp();
+  const contentRef = useReveal<HTMLDivElement>();
 
   const whatsappUrl = `https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(
     "Hello CS Academy, I would like to inquire about training programs for myself / my organization.")}`;
@@ -38,7 +40,7 @@ export const ContactCTA: React.FC<ContactCTAProps> = ({
         theme === 'dark' ? 'bg-red-950/20' : 'bg-red-200/40'
       }`}></div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div ref={contentRef} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
         
         {/* Main CTA Box */}
         <div className={`border rounded-[2rem] p-8 sm:p-14 shadow-2xl relative overflow-hidden site-panel ${
@@ -151,7 +153,7 @@ export const ContactCTA: React.FC<ContactCTAProps> = ({
                   className={`w-full py-3 px-5 text-xs font-bold rounded-2xl border transition-all duration-200 hover:-translate-y-0.5 uppercase tracking-wider flex items-center justify-center gap-2 ${
                     theme === 'dark'
                       ? 'text-neutral-200 hover:text-white bg-[#171717] hover:bg-neutral-800 border-neutral-800'
-                      : 'text-neutral-800 hover:text-neutral-950 bg-white hover:bg-neutral-100 border-neutral-200'
+                      : 'text-neutral-800 hover:text-neutral-950 bg-white hover:bg-neutral-100 transition-colors duration-200 border-neutral-200'
                   }`}
                 >
                   <MessageCircle className="w-4 h-4 text-emerald-500" />
