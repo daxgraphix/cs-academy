@@ -55,7 +55,7 @@ export const ProgramDeepDivePage: React.FC<ProgramDeepDivePageProps> = ({
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
             className={`inline-flex items-center gap-2 text-xs font-semibold transition-colors ${
-              theme === 'dark' ? 'text-neutral-400 hover:text-white' : 'text-neutral-600 hover:text-neutral-950'
+              theme === 'dark' ? 'text-neutral-400 hover:text-white' : 'text-neutral-800 hover:text-neutral-950'
             }`}
           >
             <ArrowLeft className="w-4 h-4" />
@@ -71,7 +71,7 @@ export const ProgramDeepDivePage: React.FC<ProgramDeepDivePageProps> = ({
 
         {/* Hero Banner */}
         <div className={`border rounded-3xl p-8 sm:p-14 shadow-2xl relative overflow-hidden transition-colors ${
-          theme === 'dark' ? 'bg-[#171717] border-neutral-800' : 'bg-neutral-50 border-neutral-200'
+          theme === 'dark' ? 'bg-[#171717] border-neutral-800' : 'bg-neutral-50 border-neutral-300'
         }`}>
           <div className="grid lg:grid-cols-12 gap-8 items-center">
             
@@ -92,7 +92,7 @@ export const ProgramDeepDivePage: React.FC<ProgramDeepDivePageProps> = ({
                 {program.tagline}
               </p>
               <p className={`text-sm sm:text-base leading-relaxed max-w-2xl ${
-                theme === 'dark' ? 'text-neutral-300' : 'text-neutral-600'
+                theme === 'dark' ? 'text-neutral-300' : 'text-neutral-800'
               }`}>
                 {program.extendedDescription}
               </p>
@@ -119,7 +119,7 @@ export const ProgramDeepDivePage: React.FC<ProgramDeepDivePageProps> = ({
               </div>
 
               {/* Social Share Bar inside Hero */}
-              <div className={`pt-4 border-t ${theme === 'dark' ? 'border-neutral-800' : 'border-neutral-200'}`}>
+              <div className={`pt-4 border-t ${theme === 'dark' ? 'border-neutral-800' : 'border-neutral-300'}`}>
                 <ShareButtons
                   title={`Jifunze ${program.title} na CS Academy: ${program.tagline}`}
                   description={program.extendedDescription}
@@ -130,11 +130,11 @@ export const ProgramDeepDivePage: React.FC<ProgramDeepDivePageProps> = ({
 
             <div className="lg:col-span-4 flex justify-center">
               <div className={`w-52 h-52 rounded-3xl border flex flex-col items-center justify-center p-6 text-center shadow-xl ${
-                theme === 'dark' ? 'bg-[#0B0B0B] border-neutral-800' : 'bg-white border-neutral-200 shadow-md'
+                theme === 'dark' ? 'bg-[#0B0B0B] border-neutral-800' : 'bg-white border-neutral-300 shadow-md'
               }`}>
                 {getIcon(program.icon)}
                 <span className={`text-xs font-bold mt-4 ${theme === 'dark' ? 'text-white' : 'text-neutral-900'}`}>{program.title}</span>
-                <span className={`text-[10px] font-mono mt-1 ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'}`}>CS Academy Pillar</span>
+                <span className={`text-[10px] font-mono mt-1 ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'}`}>CS Academy Pillar</span>
               </div>
             </div>
 
@@ -147,7 +147,7 @@ export const ProgramDeepDivePage: React.FC<ProgramDeepDivePageProps> = ({
             <h2 className={`text-2xl sm:text-3xl font-extrabold ${theme === 'dark' ? 'text-white' : 'text-neutral-950'}`}>
               Syllabus & Practical Competency Modules
             </h2>
-            <p className={`text-sm ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'}`}>
+            <p className={`text-sm ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-800'}`}>
               Each module combines direct instruction, live demonstrations, guided practice, and real-world exercises.
             </p>
           </div>
@@ -157,7 +157,7 @@ export const ProgramDeepDivePage: React.FC<ProgramDeepDivePageProps> = ({
               <div
                 key={idx}
                 className={`p-6 rounded-2xl border space-y-3 shadow-lg flex flex-col justify-between transition-colors ${
-                  theme === 'dark' ? 'bg-[#171717] border-neutral-800' : 'bg-neutral-50 border-neutral-200'
+                  theme === 'dark' ? 'bg-[#171717] border-neutral-800' : 'bg-neutral-50 border-neutral-300'
                 }`}
               >
                 <div className="space-y-2">
@@ -167,10 +167,10 @@ export const ProgramDeepDivePage: React.FC<ProgramDeepDivePageProps> = ({
                     Module 0{idx + 1}
                   </span>
                   <h3 className={`text-base font-bold ${theme === 'dark' ? 'text-white' : 'text-neutral-900'}`}>{mod.title}</h3>
-                  <p className={`text-xs leading-relaxed ${theme === 'dark' ? 'text-neutral-300' : 'text-neutral-600'}`}>{mod.description}</p>
+                  <p className={`text-xs leading-relaxed ${theme === 'dark' ? 'text-neutral-300' : 'text-neutral-800'}`}>{mod.description}</p>
                 </div>
                 <div className={`p-3 rounded-xl border text-xs flex items-start gap-2 ${
-                  theme === 'dark' ? 'bg-[#0B0B0B] border-neutral-800/80 text-neutral-200' : 'bg-white border-neutral-200 text-neutral-800'
+                  theme === 'dark' ? 'bg-[#0B0B0B] border-neutral-800/80 text-neutral-200' : 'bg-white border-neutral-300 text-neutral-800'
                 }`}>
                   <CheckCircle2 className="w-3.5 h-3.5 text-[#DC2626] shrink-0 mt-0.5" />
                   <span><strong>Hands-on Output:</strong> {mod.practicalSkill}</span>
@@ -184,7 +184,7 @@ export const ProgramDeepDivePage: React.FC<ProgramDeepDivePageProps> = ({
         <div className="grid lg:grid-cols-2 gap-8">
           {/* Who is it for */}
           <div className={`p-8 rounded-3xl border space-y-4 ${
-            theme === 'dark' ? 'bg-[#171717] border-neutral-800' : 'bg-neutral-50 border-neutral-200'
+            theme === 'dark' ? 'bg-[#171717] border-neutral-800' : 'bg-neutral-50 border-neutral-300'
           }`}>
             <div className="flex items-center gap-2 text-xs font-bold text-[#DC2626] uppercase font-mono">
               <Users className="w-4 h-4" />
@@ -196,7 +196,7 @@ export const ProgramDeepDivePage: React.FC<ProgramDeepDivePageProps> = ({
             <div className="space-y-2">
               {program.audience.map((aud, i) => (
                 <div key={i} className={`flex items-center gap-2 text-xs sm:text-sm p-2.5 rounded-lg border ${
-                  theme === 'dark' ? 'text-neutral-300 bg-[#0B0B0B] border-neutral-800' : 'text-neutral-700 bg-white border-neutral-200'
+                  theme === 'dark' ? 'text-neutral-300 bg-[#0B0B0B] border-neutral-800' : 'text-neutral-700 bg-white border-neutral-300'
                 }`}>
                   <CheckCircle2 className="w-3.5 h-3.5 text-[#DC2626]" />
                   <span>{aud}</span>
@@ -207,7 +207,7 @@ export const ProgramDeepDivePage: React.FC<ProgramDeepDivePageProps> = ({
 
           {/* Delivery & Formats */}
           <div className={`p-8 rounded-3xl border space-y-4 ${
-            theme === 'dark' ? 'bg-[#171717] border-neutral-800' : 'bg-neutral-50 border-neutral-200'
+            theme === 'dark' ? 'bg-[#171717] border-neutral-800' : 'bg-neutral-50 border-neutral-300'
           }`}>
             <div className="flex items-center gap-2 text-xs font-bold text-[#DC2626] uppercase font-mono">
               <Clock className="w-4 h-4" />
@@ -219,14 +219,14 @@ export const ProgramDeepDivePage: React.FC<ProgramDeepDivePageProps> = ({
             <div className="space-y-2">
               {program.durationOptions.map((dur, i) => (
                 <div key={i} className={`flex items-center gap-2 text-xs sm:text-sm p-2.5 rounded-lg border ${
-                  theme === 'dark' ? 'text-neutral-300 bg-[#0B0B0B] border-neutral-800' : 'text-neutral-700 bg-white border-neutral-200'
+                  theme === 'dark' ? 'text-neutral-300 bg-[#0B0B0B] border-neutral-800' : 'text-neutral-700 bg-white border-neutral-300'
                 }`}>
                   <span className="w-2 h-2 rounded-full bg-[#DC2626]"></span>
                   <span>{dur}</span>
                 </div>
               ))}
             </div>
-            <p className={`text-xs pt-2 ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'}`}>
+            <p className={`text-xs pt-2 ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'}`}>
               Available in live online video classes, WhatsApp cohort micro-learning, or physical on-site delivery at your facility.
             </p>
           </div>
@@ -241,7 +241,7 @@ export const ProgramDeepDivePage: React.FC<ProgramDeepDivePageProps> = ({
           <h3 className={`text-2xl sm:text-3xl font-extrabold ${theme === 'dark' ? 'text-white' : 'text-neutral-900'}`}>
             {`Ready to enroll or schedule ${program.title}?`}
           </h3>
-          <p className={`text-sm max-w-xl mx-auto ${theme === 'dark' ? 'text-neutral-300' : 'text-neutral-600'}`}>
+          <p className={`text-sm max-w-xl mx-auto ${theme === 'dark' ? 'text-neutral-300' : 'text-neutral-800'}`}>
             Contact us for upcoming cohort dates or request a customized proposal for your organization.
           </p>
           <div className="pt-2 flex flex-col sm:flex-row justify-center items-center gap-3">

@@ -53,7 +53,7 @@ export const Hero: React.FC<HeroProps> = ({
             </div>
 
             <div className={`flex flex-wrap items-center gap-x-5 gap-y-2 text-[11px] font-semibold ${
-              theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'
+              theme === 'dark' ? 'text-neutral-400' : 'text-neutral-800'
             }`}>
               <span className="inline-flex items-center gap-1.5"><CheckCircle2 className="h-3.5 w-3.5 text-emerald-500" /> No prior experience required</span>
               <span className="inline-flex items-center gap-1.5"><Smartphone className="h-3.5 w-3.5 text-[#ff3b30]" /> Learn on phone or computer</span>
@@ -97,7 +97,7 @@ export const Hero: React.FC<HeroProps> = ({
                 <div key={item.label} className="pt-4">
                   <div className="text-2xl font-black tracking-[-0.05em] text-[#ff3b30]">{item.value}</div>
                   <div className={`mt-1 text-[11px] font-semibold uppercase tracking-[0.12em] ${
-                    theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'
+                    theme === 'dark' ? 'text-neutral-400' : 'text-neutral-800'
                   }`}>{item.label}</div>
                 </div>
               ))}

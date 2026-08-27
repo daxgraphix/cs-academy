@@ -42,7 +42,7 @@ export const TrainingProcess: React.FC = () => {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
           <div className={`inline-flex items-center gap-2 px-3.5 py-1 rounded-full border text-xs font-mono font-bold uppercase tracking-wider ${
-            theme === 'dark' ? 'bg-[#171717] border-neutral-800 text-neutral-300' : 'bg-white border-neutral-200 text-neutral-800 shadow-sm'
+            theme === 'dark' ? 'bg-[#171717] border-neutral-800 text-neutral-300' : 'bg-white border-neutral-300 text-neutral-800 shadow-sm'
           }`}>
             <span>{t.process.badge}</span>
           </div>
@@ -52,7 +52,7 @@ export const TrainingProcess: React.FC = () => {
             {t.process.title}
           </h2>
           <p className={`text-base sm:text-lg leading-relaxed ${
-            theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'
+            theme === 'dark' ? 'text-neutral-400' : 'text-neutral-800'
           }`}>
             {t.process.subtitle}
           </p>
@@ -66,7 +66,7 @@ export const TrainingProcess: React.FC = () => {
               className={`border rounded-3xl p-6 flex flex-col justify-between relative group transition-all duration-200 shadow-lg ${
                 theme === 'dark' 
                   ? 'bg-[#171717] border-neutral-800 hover:border-neutral-700' 
-                  : 'bg-white border-neutral-200 hover:border-red-200 hover:shadow-xl'
+                  : 'bg-white border-neutral-300 hover:border-red-400 hover:shadow-xl'
               }`}
             >
               {/* Step number badge */}
@@ -86,7 +86,7 @@ export const TrainingProcess: React.FC = () => {
               {/* Title & Description */}
               <div className="space-y-2">
                 <div className={`text-xs font-mono font-bold uppercase ${
-                  theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'
+                  theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'
                 }`}>
                   {step.name}
                 </div>
@@ -96,7 +96,7 @@ export const TrainingProcess: React.FC = () => {
                   {step.title}
                 </h3>
                 <p className={`text-xs leading-relaxed ${
-                  theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'
+                  theme === 'dark' ? 'text-neutral-400' : 'text-neutral-800'
                 }`}>
                   {step.description}
                 </p>

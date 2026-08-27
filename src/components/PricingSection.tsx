@@ -91,7 +91,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({
             {t.pricing.title}
           </h2>
           <p className={`text-base sm:text-lg leading-relaxed ${
-            theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'
+            theme === 'dark' ? 'text-neutral-400' : 'text-neutral-800'
           }`}>
             {t.pricing.subtitle}
           </p>
@@ -112,7 +112,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({
                     ? 'bg-[#ff3b30] border-[#ff3b30] text-white shadow-[0_12px_30px_rgba(255,59,48,0.28)]'
                     : theme === 'dark'
                     ? 'bg-white/5 text-neutral-300 hover:text-white border-white/10'
-                    : 'bg-white text-neutral-600 hover:text-neutral-900 border-neutral-200'
+                    : 'bg-white text-neutral-800 hover:text-neutral-900 border-neutral-200'
                 }`}
               >
                 {tab.label}
@@ -130,7 +130,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({
                 className={`px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-[0.18em] transition-all ${
                   currency === curr 
                     ? 'bg-[#ff3b30] text-white shadow-[0_10px_24px_rgba(255,59,48,0.3)]' 
-                    : theme === 'dark' ? 'text-neutral-400 hover:text-white' : 'text-neutral-600 hover:text-neutral-900'
+                    : theme === 'dark' ? 'text-neutral-400 hover:text-white' : 'text-neutral-800 hover:text-neutral-900'
                 }`}
               >
                 {curr === 'TSH' ? 'TZS (Tsh)' : curr === 'KES' ? 'KES (KSh)' : 'USD ($)'}
@@ -153,7 +153,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({
                   <CheckCircle2 className="h-3.5 w-3.5" />
                   <span>{item.title}</span>
                 </div>
-                <p className={`text-xs leading-relaxed ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'}`}>{item.text}</p>
+                <p className={`text-xs leading-relaxed ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-800'}`}>{item.text}</p>
               </div>
             ))}
           </div>
@@ -210,24 +210,24 @@ export const PricingSection: React.FC<PricingSectionProps> = ({
                   </div>
 
                   <div className="space-y-2">
-                    <div className={`text-[10px] font-bold uppercase tracking-[0.16em] ${theme === 'dark' ? 'text-neutral-500' : 'text-neutral-500'}`}>
+                    <div className={`text-[10px] font-bold uppercase tracking-[0.16em] ${theme === 'dark' ? 'text-neutral-500' : 'text-neutral-700'}`}>
                       {membershipLabel}
                     </div>
                     <h3 className={`text-xl font-black tracking-[-0.05em] ${theme === 'dark' ? 'text-white' : 'text-neutral-900'}`}>{plan.name}</h3>
-                    <p className={`text-xs leading-relaxed ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'}`}>{plan.tagline}</p>
+                    <p className={`text-xs leading-relaxed ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-800'}`}>{plan.tagline}</p>
                   </div>
 
                   <div className={`pb-4 border-b ${theme === 'dark' ? 'border-white/10' : 'border-neutral-200'}`}>
                     <div className={`text-3xl font-black tracking-[-0.06em] ${theme === 'dark' ? 'text-white' : 'text-neutral-950'}`}>
                       {formatPrice(plan)}
                     </div>
-                    <div className={`mt-1 text-[10px] font-bold uppercase tracking-[0.18em] ${theme === 'dark' ? 'text-neutral-500' : 'text-neutral-500'}`}>
+                    <div className={`mt-1 text-[10px] font-bold uppercase tracking-[0.18em] ${theme === 'dark' ? 'text-neutral-500' : 'text-neutral-700'}`}>
                       {plan.billingPeriod}
                     </div>
 
                     {plan.bandwidthRequirement && (
                       <div className={`mt-2 flex min-w-0 items-start gap-1.5 text-[10px] font-semibold ${
-                        theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'
+                        theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'
                       }`}>
                         <Wifi className="w-3 h-3 text-[#ff3b30]" />
                         <span className="min-w-0 break-words">Bandwidth: {plan.bandwidthRequirement}</span>
@@ -237,7 +237,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({
 
                   <div className="space-y-3">
                     <span className={`text-[10px] font-bold uppercase tracking-[0.18em] ${
-                      theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'
+                      theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'
                     }`}>
                       Included in this Delivery Option:
                     </span>

@@ -337,5 +337,205 @@ export const trainingPackagesData: TrainingPackage[] = [
     targetAudience: 'NGOs, Multilateral Agencies, Government Ministries, Banks',
     keyOutcomes: ['Custom curriculum design', 'Pre & post assessments', 'Localized training materials', 'Dedicated trainer assigned'],
     category: 'Institutional'
+  },
+  {
+    id: 'pkg-ai-leadership',
+    title: 'AI for Leadership Teams',
+    tagline: 'Equip directors and senior managers to lead AI adoption responsibly.',
+    durations: ['Half Day', '1 Day'],
+    formats: ['Executive Boardroom', 'Private Cohort'],
+    targetAudience: 'C-Suite, Directors, Department Heads, Senior Managers',
+    keyOutcomes: ['AI strategy frameworks', 'Risk and governance overview', 'Departmental adoption roadmap', 'Decision-making with AI'],
+    category: 'AI'
+  },
+  {
+    id: 'pkg-ai-data-analytics',
+    title: 'AI for Data & Analytics',
+    tagline: 'Apply AI to spreadsheets, reports, and operational data analysis.',
+    durations: ['1 Day', '2 Days'],
+    formats: ['Live Online Workshop', 'Physical Training'],
+    targetAudience: 'Analysts, operations, finance, and programme teams',
+    keyOutcomes: ['AI-assisted spreadsheet formulas', 'Data cleaning and validation', 'Report drafting with AI', 'Insight summaries for leaders'],
+    category: 'AI'
+  },
+  {
+    id: 'pkg-ai-customer-support',
+    title: 'AI for Customer Support Teams',
+    tagline: 'Speed up customer replies without losing your brand voice.',
+    durations: ['Half Day', '1 Day'],
+    formats: ['Live Virtual', 'Physical Workshop'],
+    targetAudience: 'Customer support, contact centre, and service desk teams',
+    keyOutcomes: ['Reply drafting prompts', 'Tone and brand voice library', 'Escalation rules for AI', 'Quality review checklists'],
+    category: 'AI'
+  },
+  {
+    id: 'pkg-ai-marketing-content',
+    title: 'AI for Marketing & Content',
+    tagline: 'Plan, draft, and repurpose marketing content at scale.',
+    durations: ['1 Day', '2 Days'],
+    formats: ['Live Online', 'Hybrid Cohort'],
+    targetAudience: 'Marketing teams, content creators, founders, and agencies',
+    keyOutcomes: ['Content calendar generation', 'Multi-channel repurposing', 'Brand voice prompt library', 'Originality and review workflow'],
+    category: 'AI'
+  },
+  {
+    id: 'pkg-cyber-incident-response',
+    title: 'Cyber Incident Response Drill',
+    tagline: 'Run a live simulation so your team knows exactly what to do during an attack.',
+    durations: ['Half Day', '1 Day'],
+    formats: ['Tabletop Exercise', 'Live Simulation'],
+    targetAudience: 'IT leads, security champions, operations, and executive sponsors',
+    keyOutcomes: ['Live breach simulation', 'Decision tree practice', 'Communication protocols', 'Post-incident reporting'],
+    category: 'Cybersecurity'
+  },
+  {
+    id: 'pkg-cyber-mobile-money',
+    title: 'Mobile Money & Payments Security',
+    tagline: 'Protect customer payments and reduce fraud across mobile channels.',
+    durations: ['2 Hours', 'Half Day'],
+    formats: ['All Hands Virtual', 'On-Site Briefing'],
+    targetAudience: 'Finance teams, agents, and any staff handling mobile payments',
+    keyOutcomes: ['SIM-swap and OTP fraud defense', 'Customer verification scripts', 'Fraud reporting workflows', 'Refund and dispute handling'],
+    category: 'Cybersecurity'
+  },
+  {
+    id: 'pkg-cyber-data-protection',
+    title: 'Data Protection & Privacy Workshop',
+    tagline: 'Build practical data-handling habits aligned to modern privacy laws.',
+    durations: ['Half Day', '1 Day'],
+    formats: ['Live Online', 'Physical Workshop'],
+    targetAudience: 'Compliance, HR, legal, and operations teams handling personal data',
+    keyOutcomes: ['Personal data inventory', 'Consent and retention rules', 'Subject request handling', 'Breach response basics'],
+    category: 'Cybersecurity'
+  },
+  {
+    id: 'pkg-cyber-executive',
+    title: 'Executive Cyber Risk Briefing',
+    tagline: 'Translate cyber threats into a board-ready risk conversation.',
+    durations: ['90 Minutes', '2 Hours'],
+    formats: ['Private Boardroom', 'Live Virtual'],
+    targetAudience: 'Boards, CEOs, audit committees, and risk officers',
+    keyOutcomes: ['Top threats facing the sector', 'Cyber risk register primer', 'Investment prioritisation', 'Board-level reporting template'],
+    category: 'Cybersecurity'
+  },
+  {
+    id: 'pkg-digital-collaboration',
+    title: 'Cloud Collaboration Bootcamp',
+    tagline: 'Modernise day-to-day teamwork with cloud documents and shared workflows.',
+    durations: ['1 Day', '2 Days'],
+    formats: ['Physical Computer Lab', 'Live Virtual'],
+    targetAudience: 'Administrative, operations, and programme staff',
+    keyOutcomes: ['Google Workspace or Microsoft 365 mastery', 'Shared drives and permissions', 'Real-time co-editing', 'Version control and naming'],
+    category: 'Digital Skills'
+  },
+  {
+    id: 'pkg-digital-spreadsheets',
+    title: 'Spreadsheets for Decision-Making',
+    tagline: 'Go beyond basic formulas to build reliable, decision-ready spreadsheets.',
+    durations: ['1 Day', '2 Days'],
+    formats: ['Live Online', 'Physical Lab'],
+    targetAudience: 'Finance, operations, programme, and reporting teams',
+    keyOutcomes: ['Lookup and array formulas', 'Data validation and cleaning', 'Pivot tables and summaries', 'Charts that explain a decision'],
+    category: 'Digital Skills'
+  },
+  {
+    id: 'pkg-digital-presentations',
+    title: 'Presentation & Storytelling Skills',
+    tagline: 'Design clear, professional slides and present with confidence.',
+    durations: ['Half Day', '1 Day'],
+    formats: ['Live Online', 'In-Person Workshop'],
+    targetAudience: 'Managers, sales teams, trainers, and rising leaders',
+    keyOutcomes: ['Slide structure frameworks', 'Visual hierarchy and layout', 'Reusable slide templates', 'Delivery and pacing practice'],
+    category: 'Digital Skills'
+  },
+  {
+    id: 'pkg-digital-project-management',
+    title: 'Project & Task Management Essentials',
+    tagline: 'Set up lightweight systems that keep teams aligned and on schedule.',
+    durations: ['1 Day', '2 Days'],
+    formats: ['Live Virtual', 'Physical Workshop'],
+    targetAudience: 'Team leads, project coordinators, and growing organisations',
+    keyOutcomes: ['Task board setup', 'Weekly planning rituals', 'Status update templates', 'Risk and blocker tracking'],
+    category: 'Digital Skills'
+  },
+  {
+    id: 'pkg-exec-ai-strategy',
+    title: 'Executive AI Strategy Retreat',
+    tagline: 'A focused offsite to align leadership on AI priorities and investment.',
+    durations: ['1 Day', '2 Days'],
+    formats: ['Executive Offsite', 'Private Boardroom'],
+    targetAudience: 'Boards, C-Suite, and senior leadership teams',
+    keyOutcomes: ['Strategic AI positioning', 'Investment prioritisation', 'Talent and change plan', '90-day execution roadmap'],
+    category: 'Executive'
+  },
+  {
+    id: 'pkg-exec-cyber-governance',
+    title: 'Cyber Governance for Executives',
+    tagline: 'Strengthen board-level oversight of cyber and data risk.',
+    durations: ['Half Day', '1 Day'],
+    formats: ['Private Boardroom', 'Live Virtual'],
+    targetAudience: 'Boards, audit and risk committees, CEOs',
+    keyOutcomes: ['Cyber governance framework', 'Roles and responsibilities', 'Reporting cadence', 'Third-party risk primer'],
+    category: 'Executive'
+  },
+  {
+    id: 'pkg-exec-innovation',
+    title: 'Executive Innovation Lab',
+    tagline: 'Identify, prioritise, and pilot AI and digital initiatives across the business.',
+    durations: ['2 Days', '3 Days'],
+    formats: ['Offsite Workshop', 'Hybrid Cohort'],
+    targetAudience: 'Senior leaders, innovation heads, and strategy teams',
+    keyOutcomes: ['Opportunity mapping', 'Use case prioritisation', 'Pilot design', 'Success metrics and review'],
+    category: 'Executive'
+  },
+  {
+    id: 'pkg-exec-leadership-coaching',
+    title: 'Leadership Coaching Cohort',
+    tagline: 'A small-group coaching programme for senior leaders navigating change.',
+    durations: ['6 Weeks', '3 Months'],
+    formats: ['Hybrid Cohort', 'Private Coaching'],
+    targetAudience: 'Senior managers, directors, and emerging executives',
+    keyOutcomes: ['Personal leadership plan', 'Decision-making practice', 'Feedback and communication', 'Peer accountability circle'],
+    category: 'Executive'
+  },
+  {
+    id: 'pkg-inst-school-programme',
+    title: 'Whole-School Digital Programme',
+    tagline: 'Roll out a unified digital and AI curriculum across a school.',
+    durations: ['Semester Long', 'Academic Year'],
+    formats: ['On-Campus', 'Blended Online'],
+    targetAudience: 'Primary and secondary schools, heads of ICT, and deputy heads',
+    keyOutcomes: ['Year-long curriculum map', 'Teacher training cohorts', 'Student assessments', 'Parent engagement sessions'],
+    category: 'Institutional'
+  },
+  {
+    id: 'pkg-inst-university-elective',
+    title: 'University Elective & Certificate',
+    tagline: 'Embed a credit-bearing digital skills elective in your university.',
+    durations: ['One Semester', '12-Week Module'],
+    formats: ['Campus Lectures', 'Online Cohort'],
+    targetAudience: 'Universities, deans, faculty, and student affairs teams',
+    keyOutcomes: ['Accredited curriculum', 'Faculty co-teaching', 'Student capstone projects', 'Certificate of completion'],
+    category: 'Institutional'
+  },
+  {
+    id: 'pkg-inst-ngo-capacity',
+    title: 'NGO & Development Capacity Building',
+    tagline: 'Strengthen programme teams with practical AI and data skills.',
+    durations: ['1 Week', 'Multi-Week'],
+    formats: ['In-Country Workshop', 'Remote Cohort'],
+    targetAudience: 'NGOs, donor programmes, implementing partners',
+    keyOutcomes: ['Programme team enablement', 'Data quality practices', 'Reporting automation', 'Local trainer certification'],
+    category: 'Institutional'
+  },
+  {
+    id: 'pkg-inst-government-workforce',
+    title: 'Government Workforce Modernisation',
+    tagline: 'Modernise civil service workflows with secure, practical digital skills.',
+    durations: ['Multi-Week', 'Quarter Long'],
+    formats: ['Government Premises', 'Secure Virtual'],
+    targetAudience: 'Ministries, departments, civil service training institutes',
+    keyOutcomes: ['Workforce baseline assessment', 'Role-based training tracks', 'Security and compliance', 'Change management support'],
+    category: 'Institutional'
   }
 ];

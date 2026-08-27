@@ -80,7 +80,7 @@ export const Footer: React.FC<FooterProps> = ({
                 )}
               </h3>
               <p className={`text-sm leading-relaxed ${
-                theme === 'dark' ? 'text-neutral-300' : 'text-neutral-600'
+                theme === 'dark' ? 'text-neutral-300' : 'text-neutral-800'
               }`}>
                 Subscribe for weekly Swahili & English tech guides, free prompt cheat sheets, live cohort announcements, and East African cybersecurity insights.
               </p>
@@ -96,7 +96,7 @@ export const Footer: React.FC<FooterProps> = ({
                     <div className="text-sm font-bold">
                       Successfully Subscribed!
                     </div>
-                    <div className={`mt-1 text-xs ${theme === 'dark' ? 'text-neutral-300' : 'text-neutral-600'}`}>
+                    <div className={`mt-1 text-xs ${theme === 'dark' ? 'text-neutral-300' : 'text-neutral-800'}`}>
                       We have dispatched your free Swahili Prompt Starter Pack PDF. Stay tuned for our next masterclass alert!
                     </div>
                     <button
@@ -112,7 +112,7 @@ export const Footer: React.FC<FooterProps> = ({
                   <div className="flex flex-col sm:flex-row gap-2.5">
                     <div className="relative min-w-0 flex-1">
                       <Mail className={`absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 ${
-                        theme === 'dark' ? 'text-neutral-500' : 'text-neutral-400'
+                        theme === 'dark' ? 'text-neutral-500' : 'text-neutral-700'
                       }`} />
                       <input
                         id="footer-newsletter-email"
@@ -127,7 +127,7 @@ export const Footer: React.FC<FooterProps> = ({
                             ? 'border-red-500'
                             : theme === 'dark'
                             ? 'bg-[#0d0d0d] border-white/10 text-white placeholder-neutral-500'
-                            : 'bg-white border-neutral-200 text-neutral-900 placeholder-neutral-400 shadow-sm'
+                            : 'bg-white border-neutral-200 text-neutral-900 placeholder-neutral-500 shadow-sm'
                         }`}
                       />
                     </div>
@@ -151,7 +151,7 @@ export const Footer: React.FC<FooterProps> = ({
                   </div>
 
                   <div className="flex flex-wrap items-center gap-2 text-[10px]">
-                    <span className={theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'}>
+                    <span className={theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'}>
                       Preferred topics:
                     </span>
                     {[
@@ -169,7 +169,7 @@ export const Footer: React.FC<FooterProps> = ({
                             ? 'border-[#ff3b30] bg-[#ff3b30] text-white'
                             : theme === 'dark'
                             ? 'border-white/10 bg-white/5 text-neutral-300 hover:text-white'
-                            : 'border-neutral-200 bg-white text-neutral-600 hover:text-neutral-900'
+                            : 'border-neutral-200 bg-white text-neutral-800 hover:text-neutral-900'
                         }`}
                       >
                         {opt.label}
@@ -177,7 +177,7 @@ export const Footer: React.FC<FooterProps> = ({
                     ))}
                   </div>
 
-                  <div className={`flex items-center gap-1.5 text-[10px] ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'}`}>
+                  <div className={`flex items-center gap-1.5 text-[10px] ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'}`}>
                     <ShieldCheck className="h-3 w-3 text-[#ff3b30]" />
                     <span>Zero spam. Unsubscribe at any time with 1-click.</span>
                   </div>
@@ -206,7 +206,7 @@ export const Footer: React.FC<FooterProps> = ({
                   CS ACADEMY
                 </span>
                 <p className={`text-[10px] font-medium tracking-[0.18em] uppercase ${
-                  theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'
+                  theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'
                 }`}>
                   SWAHILI TECH EDUCATION
                 </p>
@@ -218,12 +218,12 @@ export const Footer: React.FC<FooterProps> = ({
             </p>
 
             <p className={`max-w-sm text-xs leading-relaxed ${
-              theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'
+              theme === 'dark' ? 'text-neutral-400' : 'text-neutral-800'
             }`}>
               Practical training in Artificial Intelligence, Cybersecurity, and Digital Skills across East and Central Africa.
             </p>
 
-            <div className={`space-y-1.5 text-xs ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'}`}>
+            <div className={`space-y-1.5 text-xs ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-800'}`}>
               <div className="flex items-center gap-2">
                 <Mail className="h-3.5 w-3.5 text-[#ff3b30]" />
                 <a href={`mailto:${siteConfig.email}`} className="hover:text-[#ff3b30] transition-colors">{siteConfig.email}</a>
@@ -254,11 +254,11 @@ export const Footer: React.FC<FooterProps> = ({
             <h4 className={`text-[10px] font-bold uppercase tracking-[0.2em] ${theme === 'dark' ? 'text-neutral-300' : 'text-neutral-800'}`}>
               PROGRAMS
             </h4>
-            <ul className={`space-y-2 text-xs ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'}`}>
+            <ul className={`space-y-2 text-xs ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-800'}`}>
               <li><button onClick={() => navigate('programs/ai')} className="text-left hover:text-[#ff3b30] transition-colors">AI & Vibe Coding</button></li>
               <li><button onClick={() => navigate('programs/cybersecurity')} className="text-left hover:text-[#ff3b30] transition-colors">Cybersecurity</button></li>
               <li><button onClick={() => navigate('programs/digital-skills')} className="text-left hover:text-[#ff3b30] transition-colors">Digital Skills</button></li>
-              <li><button onClick={() => navigate('programs')} className="text-left font-semibold text-[#ff3b30] hover:text-[#ff564d]">All Curricula →</button></li>
+              <li><button onClick={() => navigate('programs')} className="text-left font-semibold text-[#ff3b30] hover:text-[#ff564d]">All Curricula â†’</button></li>
             </ul>
           </div>
 
@@ -266,7 +266,7 @@ export const Footer: React.FC<FooterProps> = ({
             <h4 className={`text-[10px] font-bold uppercase tracking-[0.2em] ${theme === 'dark' ? 'text-neutral-300' : 'text-neutral-800'}`}>
               DELIVERY
             </h4>
-            <ul className={`space-y-2 text-xs ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'}`}>
+            <ul className={`space-y-2 text-xs ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-800'}`}>
               <li><button onClick={() => navigate('learning-formats')} className="text-left hover:text-[#ff3b30] transition-colors">6 Delivery Formats</button></li>
               <li><button onClick={() => navigate('pricing')} className="text-left font-semibold text-emerald-500 hover:text-emerald-400">Pricing & Plans (M-Pesa)</button></li>
               <li><button onClick={() => navigate('learning-formats')} className="text-left hover:text-[#ff3b30] transition-colors">WhatsApp Micro-Course</button></li>
@@ -278,7 +278,7 @@ export const Footer: React.FC<FooterProps> = ({
             <h4 className={`text-[10px] font-bold uppercase tracking-[0.2em] ${theme === 'dark' ? 'text-neutral-300' : 'text-neutral-800'}`}>
               ORGANIZATIONS
             </h4>
-            <ul className={`space-y-2 text-xs ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'}`}>
+            <ul className={`space-y-2 text-xs ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-800'}`}>
               <li><button onClick={() => navigate('for-organizations')} className="text-left hover:text-[#ff3b30] transition-colors">Corporate Training</button></li>
               <li><button onClick={() => navigate('for-organizations')} className="text-left hover:text-[#ff3b30] transition-colors">University Programs</button></li>
               <li><button onClick={() => navigate('for-organizations')} className="text-left hover:text-[#ff3b30] transition-colors">NGOs & Governments</button></li>
@@ -290,7 +290,7 @@ export const Footer: React.FC<FooterProps> = ({
             <h4 className={`text-[10px] font-bold uppercase tracking-[0.2em] ${theme === 'dark' ? 'text-neutral-300' : 'text-neutral-800'}`}>
               COMPANY
             </h4>
-            <ul className={`space-y-2 text-xs ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'}`}>
+            <ul className={`space-y-2 text-xs ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-800'}`}>
               <li><button onClick={() => navigate('about')} className="text-left hover:text-[#ff3b30] transition-colors">About CS Academy</button></li>
               <li><button onClick={() => navigate('resources')} className="text-left hover:text-[#ff3b30] transition-colors">Free Resources</button></li>
               <li><button onClick={() => navigate('blog')} className="text-left hover:text-[#ff3b30] transition-colors">Blog & Articles</button></li>
@@ -299,8 +299,8 @@ export const Footer: React.FC<FooterProps> = ({
           </div>
         </div>
 
-        <div className={`pt-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'}`}>
-          <div>© 2026 CS Academy. CyberSwahili Tech Ecosystem. All rights reserved.</div>
+        <div className={`pt-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'}`}>
+          <div>Â© 2026 CS Academy. CyberSwahili Tech Ecosystem. All rights reserved.</div>
           <div className="flex items-center gap-4">
             <span>Swahili Tech Learning</span>
             <span> | </span>

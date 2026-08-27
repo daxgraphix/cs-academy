@@ -46,7 +46,7 @@ export const ResourcesSection: React.FC<ResourcesSectionProps> = ({
     <section 
       id="resources-section" 
       className={`py-24 border-y transition-colors duration-300 ${
-        theme === 'dark' ? 'bg-[#0B0B0B] text-white border-neutral-800' : 'bg-white text-neutral-900 border-neutral-200'
+        theme === 'dark' ? 'bg-[#0B0B0B] text-white border-neutral-800' : 'bg-white text-neutral-900 border-neutral-300'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -63,7 +63,7 @@ export const ResourcesSection: React.FC<ResourcesSectionProps> = ({
               {t.resources.title}
             </h2>
             <p className={`text-base leading-relaxed ${
-              theme === 'dark' ? 'text-neutral-300' : 'text-neutral-600'
+              theme === 'dark' ? 'text-neutral-300' : 'text-neutral-800'
             }`}>
               {t.resources.subtitle}
             </p>
@@ -71,7 +71,7 @@ export const ResourcesSection: React.FC<ResourcesSectionProps> = ({
 
           {/* Search */}
           <div className="relative md:self-end">
-            <Search className={`w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 ${theme === 'dark' ? 'text-neutral-500' : 'text-neutral-400'}`} />
+            <Search className={`w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 ${theme === 'dark' ? 'text-neutral-500' : 'text-neutral-700'}`} />
             <input
               type="text"
               value={searchQuery}
@@ -79,7 +79,7 @@ export const ResourcesSection: React.FC<ResourcesSectionProps> = ({
               placeholder={'Search toolkits...'}
               aria-label={'Search toolkits'}
               className={`w-56 pl-9 pr-3 py-2 rounded-xl text-xs border focus:outline-none focus:border-[#DC2626] ${
-                theme === 'dark' ? 'bg-[#171717] border-neutral-800 text-white placeholder-neutral-500' : 'bg-neutral-100 border-neutral-200 text-neutral-900 placeholder-neutral-400'
+                theme === 'dark' ? 'bg-[#171717] border-neutral-800 text-white placeholder-neutral-500' : 'bg-neutral-100 border-neutral-300 text-neutral-900 placeholder-neutral-500'
               }`}
             />
           </div>
@@ -87,7 +87,7 @@ export const ResourcesSection: React.FC<ResourcesSectionProps> = ({
 
         {/* Category Filter */}
         <div className={`flex items-center gap-1.5 p-1 border rounded-2xl overflow-x-auto max-w-full mb-8 ${
-          theme === 'dark' ? 'bg-[#171717] border-neutral-800' : 'bg-neutral-100 border-neutral-200'
+          theme === 'dark' ? 'bg-[#171717] border-neutral-800' : 'bg-neutral-100 border-neutral-300'
         }`}>
           {categories.map((cat) => {
             const isSelected = activeCategory === cat;
@@ -99,11 +99,11 @@ export const ResourcesSection: React.FC<ResourcesSectionProps> = ({
                 className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold uppercase tracking-wider whitespace-nowrap transition-all ${
                   isSelected 
                     ? 'bg-[#B91C1C] text-white shadow-sm' 
-                    : theme === 'dark' ? 'text-neutral-400 hover:text-white' : 'text-neutral-600 hover:text-neutral-900'
+                    : theme === 'dark' ? 'text-neutral-400 hover:text-white' : 'text-neutral-800 hover:text-neutral-900'
                 }`}
               >
                 {cat === 'ALL' ? ('ALL') : cat}
-                <span className={`text-[10px] font-mono px-1.5 py-0.5 rounded-full ${isSelected ? 'bg-white/20' : theme === 'dark' ? 'bg-neutral-800 text-neutral-500' : 'bg-neutral-200 text-neutral-500'}`}>
+                <span className={`text-[10px] font-mono px-1.5 py-0.5 rounded-full ${isSelected ? 'bg-white/20' : theme === 'dark' ? 'bg-neutral-800 text-neutral-500' : 'bg-neutral-200 text-neutral-700'}`}>
                   {count}
                 </span>
               </button>
@@ -125,7 +125,7 @@ export const ResourcesSection: React.FC<ResourcesSectionProps> = ({
               className={`border rounded-3xl p-6 flex flex-col justify-between transition-all duration-200 hover:-translate-y-1 shadow-sm group ${
                 theme === 'dark'
                   ? 'bg-[#121212] border-neutral-800 hover:border-neutral-700'
-                  : 'bg-neutral-50 border-neutral-200 hover:border-red-200 hover:shadow-lg'
+                  : 'bg-neutral-50 border-neutral-300 hover:border-red-400 hover:shadow-lg'
               }`}
             >
               <div className="space-y-4">
@@ -137,7 +137,7 @@ export const ResourcesSection: React.FC<ResourcesSectionProps> = ({
                   }`}>
                     {resource.format}
                   </span>
-                  <span className={`flex items-center gap-1 text-[10px] font-mono ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'}`}>
+                  <span className={`flex items-center gap-1 text-[10px] font-mono ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'}`}>
                     <Clock className="w-3 h-3" />
                     {resource.readingTime}
                   </span>
@@ -153,7 +153,7 @@ export const ResourcesSection: React.FC<ResourcesSectionProps> = ({
                   }`}>
                     {resource.level}
                   </span>
-                  <span className={`text-[10px] font-medium ${theme === 'dark' ? 'text-neutral-500' : 'text-neutral-400'}`}>
+                  <span className={`text-[10px] font-medium ${theme === 'dark' ? 'text-neutral-500' : 'text-neutral-700'}`}>
                     {useCases.length} use cases
                   </span>
                 </div>
@@ -166,7 +166,7 @@ export const ResourcesSection: React.FC<ResourcesSectionProps> = ({
                     {title}
                   </h3>
                   <p className={`text-xs mt-2 line-clamp-2 leading-relaxed ${
-                    theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'
+                    theme === 'dark' ? 'text-neutral-400' : 'text-neutral-800'
                   }`}>
                     {description}
                   </p>
@@ -176,7 +176,7 @@ export const ResourcesSection: React.FC<ResourcesSectionProps> = ({
                 <div className="space-y-1 pt-2">
                   {keyHighlights.slice(0, 2).map((takeaway, tIdx) => (
                     <div key={tIdx} className={`flex items-start gap-1.5 text-[11px] ${
-                      theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'
+                      theme === 'dark' ? 'text-neutral-400' : 'text-neutral-800'
                     }`}>
                       <CheckCircle2 className="w-3 h-3 text-[#DC2626] shrink-0 mt-0.5" />
                       <span className="line-clamp-1">{takeaway}</span>
@@ -188,14 +188,14 @@ export const ResourcesSection: React.FC<ResourcesSectionProps> = ({
 
               {/* Action Buttons */}
               <div className={`pt-4 mt-4 border-t flex items-center gap-2 ${
-                theme === 'dark' ? 'border-neutral-800' : 'border-neutral-200'
+                theme === 'dark' ? 'border-neutral-800' : 'border-neutral-300'
               }`}>
                 <button
                   onClick={() => openResourceModal(resource)}
                   className={`flex-1 py-2 px-3 rounded-xl text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 transition-all ${
                     theme === 'dark'
                       ? 'bg-[#171717] hover:bg-[#B91C1C] text-neutral-200 hover:text-white border border-neutral-800'
-                      : 'bg-white hover:bg-[#B91C1C] text-neutral-800 hover:text-white border border-neutral-200 shadow-sm'
+                      : 'bg-white hover:bg-[#B91C1C] text-neutral-800 hover:text-white border border-neutral-300 shadow-sm'
                   }`}
                 >
                   <Eye className="w-3.5 h-3.5" />
@@ -217,7 +217,7 @@ export const ResourcesSection: React.FC<ResourcesSectionProps> = ({
         </div>
 
         {filteredResources.length === 0 && (
-          <div className={`text-center py-12 rounded-2xl border text-xs ${theme === 'dark' ? 'bg-[#171717] border-neutral-800 text-neutral-400' : 'bg-white border-neutral-200 text-neutral-600'}`}>
+          <div className={`text-center py-12 rounded-2xl border text-xs ${theme === 'dark' ? 'bg-[#171717] border-neutral-800 text-neutral-400' : 'bg-white border-neutral-300 text-neutral-800'}`}>
             No toolkits match your search.
           </div>
         )}

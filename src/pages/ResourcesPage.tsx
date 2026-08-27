@@ -52,7 +52,7 @@ export const ResourcesPage: React.FC<ResourcesPageProps> = ({
             FREE <span className="text-[#DC2626]">RESOURCES</span>
           </h1>
           <p className={`text-base sm:text-lg leading-relaxed ${
-            theme === 'dark' ? 'text-neutral-300' : 'text-neutral-600'
+            theme === 'dark' ? 'text-neutral-300' : 'text-neutral-800'
           }`}>
             Download practical prompt templates, cybersecurity checklists, and classroom guides designed to protect and accelerate African digital workers.
           </p>
@@ -60,11 +60,11 @@ export const ResourcesPage: React.FC<ResourcesPageProps> = ({
 
         {/* Search & Filter Controls */}
         <div className={`flex flex-col md:flex-row gap-4 items-center justify-between p-4 rounded-2xl border ${
-          theme === 'dark' ? 'bg-[#171717] border-neutral-800' : 'bg-neutral-50 border-neutral-200 shadow-sm'
+          theme === 'dark' ? 'bg-[#171717] border-neutral-800' : 'bg-neutral-50 border-neutral-300 shadow-sm'
         }`}>
           <div className="relative w-full md:w-80">
             <Search className={`w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 ${
-              theme === 'dark' ? 'text-neutral-500' : 'text-neutral-400'
+              theme === 'dark' ? 'text-neutral-500' : 'text-neutral-700'
             }`} />
             <input
               type="text"
@@ -74,7 +74,7 @@ export const ResourcesPage: React.FC<ResourcesPageProps> = ({
               className={`w-full pl-10 pr-4 py-2.5 rounded-xl text-xs focus:outline-none focus:border-[#DC2626] border ${
                 theme === 'dark'
                   ? 'bg-[#0B0B0B] border-neutral-800 text-white placeholder-neutral-500'
-                  : 'bg-white border-neutral-200 text-neutral-900 placeholder-neutral-400 shadow-sm'
+                  : 'bg-white border-neutral-300 text-neutral-900 placeholder-neutral-500 shadow-sm'
               }`}
             />
           </div>
@@ -89,7 +89,7 @@ export const ResourcesPage: React.FC<ResourcesPageProps> = ({
                     ? 'bg-[#B91C1C] text-white shadow-sm' 
                     : theme === 'dark'
                     ? 'text-neutral-400 hover:text-white bg-[#0B0B0B] border border-neutral-800'
-                    : 'text-neutral-600 hover:text-neutral-950 bg-white border border-neutral-200'
+                    : 'text-neutral-800 hover:text-neutral-950 bg-white border border-neutral-300'
                 }`}
               >
                 {cat === 'ALL' ? ('ALL') : cat}
@@ -106,7 +106,7 @@ export const ResourcesPage: React.FC<ResourcesPageProps> = ({
               className={`border rounded-3xl p-6 flex flex-col justify-between transition-all duration-200 hover:-translate-y-1 shadow-sm group ${
                 theme === 'dark'
                   ? 'bg-[#171717] border-neutral-800 hover:border-neutral-700'
-                  : 'bg-neutral-50 border-neutral-200 hover:border-red-200 hover:shadow-lg'
+                  : 'bg-neutral-50 border-neutral-300 hover:border-red-400 hover:shadow-lg'
               }`}
             >
               <div className="space-y-4">
@@ -116,7 +116,7 @@ export const ResourcesPage: React.FC<ResourcesPageProps> = ({
                   }`}>
                     {resource.format}
                   </span>
-                  <span className={`text-[11px] font-mono ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'}`}>
+                  <span className={`text-[11px] font-mono ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'}`}>
                     {resource.readingTime}
                   </span>
                 </div>
@@ -128,17 +128,17 @@ export const ResourcesPage: React.FC<ResourcesPageProps> = ({
                     {resource.title}
                   </h3>
                   <p className={`text-xs mt-2 leading-relaxed ${
-                    theme === 'dark' ? 'text-neutral-300' : 'text-neutral-600'
+                    theme === 'dark' ? 'text-neutral-300' : 'text-neutral-800'
                   }`}>
                     {resource.description}
                   </p>
                 </div>
 
                 <div className={`p-4 rounded-2xl border space-y-1.5 ${
-                  theme === 'dark' ? 'bg-[#0B0B0B] border-neutral-800' : 'bg-white border-neutral-200'
+                  theme === 'dark' ? 'bg-[#0B0B0B] border-neutral-800' : 'bg-white border-neutral-300'
                 }`}>
                   <div className={`text-[10px] font-mono font-bold uppercase tracking-wider ${
-                    theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'
+                    theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'
                   }`}>
                     Key Highlights:
                   </div>
@@ -154,14 +154,14 @@ export const ResourcesPage: React.FC<ResourcesPageProps> = ({
               </div>
 
               <div className={`pt-6 mt-6 border-t flex items-center gap-3 ${
-                theme === 'dark' ? 'border-neutral-800' : 'border-neutral-200'
+                theme === 'dark' ? 'border-neutral-800' : 'border-neutral-300'
               }`}>
                 <button
                   onClick={() => openResourceModal(resource)}
                   className={`flex-1 py-3 px-4 rounded-2xl text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-all ${
                     theme === 'dark'
                       ? 'bg-[#0B0B0B] hover:bg-[#B91C1C] text-neutral-200 hover:text-white border border-neutral-800'
-                      : 'bg-white hover:bg-[#B91C1C] text-neutral-800 hover:text-white border border-neutral-200 shadow-sm'
+                      : 'bg-white hover:bg-[#B91C1C] text-neutral-800 hover:text-white border border-neutral-300 shadow-sm'
                   }`}
                 >
                   <Eye className="w-4 h-4" />

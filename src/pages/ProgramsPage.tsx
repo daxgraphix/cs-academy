@@ -117,7 +117,7 @@ export const ProgramsPage: React.FC<ProgramsPageProps> = ({
             CS ACADEMY <span className="text-[#DC2626]">PROGRAMS</span>
           </h1>
           <p className={`text-base sm:text-lg leading-relaxed ${
-            theme === 'dark' ? 'text-neutral-300' : 'text-neutral-600'
+            theme === 'dark' ? 'text-neutral-300' : 'text-neutral-800'
           }`}>
             Explore our comprehensive academies designed for practical skill mastery, ethical technology application, and career empowerment across Africa.
           </p>
@@ -125,13 +125,13 @@ export const ProgramsPage: React.FC<ProgramsPageProps> = ({
 
         {/* SEARCH & FILTER BAR */}
         <div className={`p-6 sm:p-8 rounded-3xl border shadow-xl space-y-6 ${
-          theme === 'dark' ? 'bg-[#141414] border-neutral-800' : 'bg-white border-neutral-200'
+          theme === 'dark' ? 'bg-[#141414] border-neutral-800' : 'bg-white border-neutral-300'
         }`}>
           <div className="flex flex-col md:flex-row items-center gap-4">
             {/* Search Input */}
             <div className="relative flex-1 w-full">
               <Search className={`w-5 h-5 absolute left-4 top-1/2 -translate-y-1/2 ${
-                theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'
+                theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'
               }`} />
               <input
                 id="programs-search-input"
@@ -142,7 +142,7 @@ export const ProgramsPage: React.FC<ProgramsPageProps> = ({
                 className={`w-full pl-12 pr-10 py-3.5 text-sm rounded-2xl border focus:outline-none focus:border-[#DC2626] transition-colors ${
                   theme === 'dark'
                     ? 'bg-[#0B0B0B] border-neutral-800 text-white placeholder-neutral-500'
-                    : 'bg-neutral-50 border-neutral-300 text-neutral-900 placeholder-neutral-400 shadow-inner'
+                    : 'bg-neutral-50 border-neutral-300 text-neutral-900 placeholder-neutral-500 shadow-inner'
                 }`}
               />
               {searchQuery && (
@@ -150,7 +150,7 @@ export const ProgramsPage: React.FC<ProgramsPageProps> = ({
                   onClick={() => setSearchQuery('')}
                   className="absolute right-4 top-1/2 -translate-y-1/2 text-xs font-bold text-neutral-400 hover:text-[#DC2626] p-1"
                 >
-                  ✕
+                  Ã¢Å“â€¢
                 </button>
               )}
             </div>
@@ -169,7 +169,7 @@ export const ProgramsPage: React.FC<ProgramsPageProps> = ({
           {/* Category Filter Pills */}
           <div className="flex flex-wrap items-center gap-2 pt-1 border-t border-neutral-800/40">
             <span className={`text-xs font-bold uppercase tracking-wider mr-2 ${
-              theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'
+              theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'
             }`}>
               <Filter className="w-3.5 h-3.5 inline mr-1" />
               Category:
@@ -187,7 +187,7 @@ export const ProgramsPage: React.FC<ProgramsPageProps> = ({
                       ? 'bg-[#DC2626] text-white shadow-lg shadow-red-900/40 scale-[1.02]'
                       : theme === 'dark'
                       ? 'bg-[#0B0B0B] text-neutral-300 hover:text-white border border-neutral-800 hover:border-neutral-700'
-                      : 'bg-neutral-100 text-neutral-700 hover:text-neutral-900 border border-neutral-200 hover:bg-neutral-200'
+                      : 'bg-neutral-100 text-neutral-700 hover:text-neutral-900 border border-neutral-300 hover:bg-neutral-200'
                   }`}
                 >
                   <Icon className="w-3.5 h-3.5" />
@@ -216,7 +216,7 @@ export const ProgramsPage: React.FC<ProgramsPageProps> = ({
         {/* Empty State */}
         {totalResultsCount === 0 && (
           <div className={`p-12 text-center rounded-3xl border space-y-4 ${
-            theme === 'dark' ? 'bg-[#171717] border-neutral-800 text-neutral-400' : 'bg-white border-neutral-200 text-neutral-600'
+            theme === 'dark' ? 'bg-[#171717] border-neutral-800 text-neutral-400' : 'bg-white border-neutral-300 text-neutral-800'
           }`}>
             <BookOpen className="w-12 h-12 text-[#DC2626] mx-auto opacity-80" />
             <h3 className={`text-xl font-bold ${theme === 'dark' ? 'text-white' : 'text-neutral-900'}`}>
@@ -251,15 +251,15 @@ export const ProgramsPage: React.FC<ProgramsPageProps> = ({
                 key={pillar.id}
                 id={`programs-page-${pillar.id}`}
                 className={`border rounded-3xl p-8 sm:p-12 shadow-2xl space-y-8 transition-all ${
-                  theme === 'dark' ? 'bg-[#171717] border-neutral-800' : 'bg-white border-neutral-200'
+                  theme === 'dark' ? 'bg-[#171717] border-neutral-800' : 'bg-white border-neutral-300'
                 }`}
               >
                 <div className={`flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b ${
-                  theme === 'dark' ? 'border-neutral-800' : 'border-neutral-200'
+                  theme === 'dark' ? 'border-neutral-800' : 'border-neutral-300'
                 }`}>
                   <div className="flex items-center gap-4">
                     <div className={`w-14 h-14 rounded-2xl border flex items-center justify-center ${
-                      theme === 'dark' ? 'bg-[#0B0B0B] border-neutral-800' : 'bg-neutral-100 border-neutral-200'
+                      theme === 'dark' ? 'bg-[#0B0B0B] border-neutral-800' : 'bg-neutral-100 border-neutral-300'
                     }`}>
                       {getIcon(pillar.icon)}
                     </div>
@@ -281,7 +281,7 @@ export const ProgramsPage: React.FC<ProgramsPageProps> = ({
                       className={`px-5 py-2.5 rounded-xl text-xs font-bold transition-colors uppercase tracking-wider ${
                         theme === 'dark'
                           ? 'text-neutral-200 hover:text-white bg-[#0B0B0B] hover:bg-neutral-800 border border-neutral-800'
-                          : 'text-neutral-800 hover:text-black bg-neutral-100 hover:bg-neutral-200 border border-neutral-200'
+                          : 'text-neutral-800 hover:text-black bg-neutral-100 hover:bg-neutral-200 border border-neutral-300'
                       }`}
                     >
                       View Academy Page
@@ -302,7 +302,7 @@ export const ProgramsPage: React.FC<ProgramsPageProps> = ({
                       theme === 'dark' ? 'text-white' : 'text-neutral-900'
                     }`}>{pillar.tagline}</h3>
                     <p className={`text-sm leading-relaxed ${
-                      theme === 'dark' ? 'text-neutral-300' : 'text-neutral-600'
+                      theme === 'dark' ? 'text-neutral-300' : 'text-neutral-800'
                     }`}>
                       {pillar.extendedDescription}
                     </p>
@@ -318,7 +318,7 @@ export const ProgramsPage: React.FC<ProgramsPageProps> = ({
                             className={`text-xs px-2.5 py-1 rounded border ${
                               theme === 'dark'
                                 ? 'bg-[#0B0B0B] border-neutral-800 text-neutral-300'
-                                : 'bg-neutral-100 border-neutral-200 text-neutral-700'
+                                : 'bg-neutral-100 border-neutral-300 text-neutral-700'
                             }`}
                           >
                             {aud}
@@ -337,7 +337,7 @@ export const ProgramsPage: React.FC<ProgramsPageProps> = ({
                         <div 
                           key={mIdx} 
                           className={`p-3.5 rounded-xl border space-y-1 ${
-                            theme === 'dark' ? 'bg-[#0B0B0B] border-neutral-800' : 'bg-neutral-50 border-neutral-200'
+                            theme === 'dark' ? 'bg-[#0B0B0B] border-neutral-800' : 'bg-neutral-50 border-neutral-300'
                           }`}
                         >
                           <div className={`text-xs font-bold ${theme === 'dark' ? 'text-white' : 'text-neutral-900'}`}>
@@ -345,7 +345,7 @@ export const ProgramsPage: React.FC<ProgramsPageProps> = ({
                           </div>
                           <div className="text-[11px] text-neutral-400">{mod.description}</div>
                           <div className="text-[10px] text-[#DC2626] font-mono font-bold mt-1">
-                            ✦ {mod.practicalSkill}
+                            Ã¢Å“Â¦ {mod.practicalSkill}
                           </div>
                         </div>
                       ))}
@@ -355,7 +355,7 @@ export const ProgramsPage: React.FC<ProgramsPageProps> = ({
 
                 {/* Bottom Outcomes & Formats */}
                 <div className={`grid sm:grid-cols-2 gap-4 p-5 rounded-2xl border text-xs ${
-                  theme === 'dark' ? 'bg-[#0B0B0B] border-neutral-800' : 'bg-neutral-100 border-neutral-200'
+                  theme === 'dark' ? 'bg-[#0B0B0B] border-neutral-800' : 'bg-neutral-100 border-neutral-300'
                 }`}>
                   <div>
                     <div className={`font-bold uppercase tracking-wider mb-2 ${
@@ -379,11 +379,11 @@ export const ProgramsPage: React.FC<ProgramsPageProps> = ({
                     }`}>
                       Delivery & Duration:
                     </div>
-                    <div className={`space-y-1 ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'}`}>
+                    <div className={`space-y-1 ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-800'}`}>
                       <p>Formats: {pillar.deliveryFormats.join(', ')}</p>
                       <p>Duration: {pillar.durationOptions.join(', ')}</p>
                       <p className="text-[#DC2626] pt-1 font-semibold">
-                        ✓ Instructed in English & Kiswahili
+                        Ã¢Å“â€œ Instructed in English & Kiswahili
                       </p>
                     </div>
                   </div>
@@ -412,7 +412,7 @@ export const ProgramsPage: React.FC<ProgramsPageProps> = ({
                   key={course.id}
                   id={`course-card-${course.id}`}
                   className={`border rounded-3xl p-6 flex flex-col justify-between space-y-5 shadow-lg transition-all hover:scale-[1.01] ${
-                    theme === 'dark' ? 'bg-[#171717] border-neutral-800 hover:border-neutral-700' : 'bg-white border-neutral-200 hover:border-red-200'
+                    theme === 'dark' ? 'bg-[#171717] border-neutral-800 hover:border-neutral-700' : 'bg-white border-neutral-300 hover:border-red-400'
                   }`}
                 >
                   <div className="space-y-3">
@@ -421,7 +421,7 @@ export const ProgramsPage: React.FC<ProgramsPageProps> = ({
                         {course.category.toUpperCase()} | {course.level}
                       </span>
                       <span className={`text-[11px] font-mono flex items-center gap-1 ${
-                        theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'
+                        theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'
                       }`}>
                         <Clock className="w-3 h-3 text-[#DC2626]" />
                         {course.duration}
@@ -435,7 +435,7 @@ export const ProgramsPage: React.FC<ProgramsPageProps> = ({
                     </h3>
 
                     <p className={`text-xs leading-relaxed ${
-                      theme === 'dark' ? 'text-neutral-300' : 'text-neutral-600'
+                      theme === 'dark' ? 'text-neutral-300' : 'text-neutral-800'
                     }`}>
                       {course.description}
                     </p>
@@ -448,7 +448,7 @@ export const ProgramsPage: React.FC<ProgramsPageProps> = ({
                         {course.highlights.slice(0, 3).map((h, hIdx) => (
                           <li key={hIdx} className="flex items-start gap-1.5 text-[11px]">
                             <CheckCircle2 className="w-3.5 h-3.5 text-[#DC2626] shrink-0 mt-0.5" />
-                            <span className={theme === 'dark' ? 'text-neutral-300' : 'text-neutral-600'}>{h}</span>
+                            <span className={theme === 'dark' ? 'text-neutral-300' : 'text-neutral-800'}>{h}</span>
                           </li>
                         ))}
                       </ul>

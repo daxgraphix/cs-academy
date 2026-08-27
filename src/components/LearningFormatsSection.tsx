@@ -70,7 +70,7 @@ export const LearningFormatsSection: React.FC<LearningFormatsSectionProps> = ({
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
           <div className={`inline-flex items-center gap-2 px-3.5 py-1 rounded-full border text-xs font-mono font-bold uppercase tracking-wider ${
-            theme === 'dark' ? 'bg-[#171717] border-neutral-800 text-neutral-300' : 'bg-neutral-50 border-neutral-200 text-neutral-800'
+            theme === 'dark' ? 'bg-[#171717] border-neutral-800 text-neutral-300' : 'bg-neutral-50 border-neutral-300 text-neutral-800'
           }`}>
             <span>{t.formats.badge}</span>
           </div>
@@ -80,7 +80,7 @@ export const LearningFormatsSection: React.FC<LearningFormatsSectionProps> = ({
             {t.formats.title}
           </h2>
           <p className={`text-base sm:text-lg leading-relaxed ${
-            theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'
+            theme === 'dark' ? 'text-neutral-400' : 'text-neutral-800'
           }`}>
             {t.formats.subtitle}
           </p>
@@ -88,7 +88,7 @@ export const LearningFormatsSection: React.FC<LearningFormatsSectionProps> = ({
           {/* Currency Toggle */}
           <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
             <div className={`inline-flex items-center p-1 border rounded-2xl ${
-              theme === 'dark' ? 'bg-[#171717] border-neutral-800' : 'bg-neutral-100 border-neutral-200'
+              theme === 'dark' ? 'bg-[#171717] border-neutral-800' : 'bg-neutral-100 border-neutral-300'
             }`}>
               {(['TSH', 'KES', 'USD'] as const).map((curr) => (
                 <button
@@ -97,7 +97,7 @@ export const LearningFormatsSection: React.FC<LearningFormatsSectionProps> = ({
                   className={`px-4 py-1.5 rounded-xl text-xs font-mono font-bold tracking-wider transition-all ${
                     currency === curr 
                       ? 'bg-[#B91C1C] text-white shadow-md' 
-                      : theme === 'dark' ? 'text-neutral-400 hover:text-white' : 'text-neutral-600 hover:text-neutral-900'
+                      : theme === 'dark' ? 'text-neutral-400 hover:text-white' : 'text-neutral-800 hover:text-neutral-900'
                   }`}
                 >
                   {curr === 'TSH' ? 'TZS (Tsh)' : curr === 'KES' ? 'KES (KSh)' : 'USD ($)'}
@@ -106,7 +106,7 @@ export const LearningFormatsSection: React.FC<LearningFormatsSectionProps> = ({
             </div>
 
             <div className={`inline-flex items-center gap-1.5 text-xs font-mono ${
-              theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'
+              theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'
             }`}>
               <Smartphone className="w-3.5 h-3.5 text-emerald-500" />
               <span>M-Pesa, Airtel Money, Cards accepted</span>
@@ -123,7 +123,7 @@ export const LearningFormatsSection: React.FC<LearningFormatsSectionProps> = ({
               className={`border rounded-3xl p-7 flex flex-col justify-between transition-all duration-200 hover:-translate-y-1 shadow-lg group relative ${
                 theme === 'dark'
                   ? 'bg-[#171717] border-neutral-800 hover:border-neutral-700'
-                  : 'bg-white border-neutral-200 hover:border-red-200 hover:shadow-xl'
+                  : 'bg-white border-neutral-300 hover:border-red-400 hover:shadow-xl'
               }`}
             >
               <div className="space-y-4">
@@ -131,12 +131,12 @@ export const LearningFormatsSection: React.FC<LearningFormatsSectionProps> = ({
                 {/* Header with Number, Icon and Bandwidth */}
                 <div className="flex items-center justify-between">
                   <div className={`w-12 h-12 rounded-2xl border flex items-center justify-center group-hover:scale-105 transition-transform ${
-                    theme === 'dark' ? 'bg-[#0B0B0B] border-neutral-800' : 'bg-neutral-50 border-neutral-200'
+                    theme === 'dark' ? 'bg-[#0B0B0B] border-neutral-800' : 'bg-neutral-50 border-neutral-300'
                   }`}>
                     {getFormatIcon(format.icon)}
                   </div>
                   <span className={`text-xs font-mono font-bold px-3 py-1 rounded-full border ${
-                    theme === 'dark' ? 'bg-[#0B0B0B] border-neutral-800 text-neutral-400' : 'bg-neutral-100 border-neutral-200 text-neutral-600'
+                    theme === 'dark' ? 'bg-[#0B0B0B] border-neutral-800 text-neutral-400' : 'bg-neutral-100 border-neutral-300 text-neutral-800'
                   }`}>
                     Channel {format.number}
                   </span>
@@ -150,7 +150,7 @@ export const LearningFormatsSection: React.FC<LearningFormatsSectionProps> = ({
                     {format.title}
                   </h3>
                   <div className={`text-[11px] font-mono flex items-center gap-1.5 mt-1 ${
-                    theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'
+                    theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'
                   }`}>
                     <Wifi className="w-3 h-3 text-[#DC2626]" />
                     <span>{format.bandwidthLevel}</span>
@@ -159,11 +159,11 @@ export const LearningFormatsSection: React.FC<LearningFormatsSectionProps> = ({
 
                 {/* Price Box */}
                 <div className={`p-4 rounded-2xl border flex items-baseline justify-between gap-2 ${
-                  theme === 'dark' ? 'bg-[#0B0B0B] border-neutral-800/90' : 'bg-neutral-50 border-neutral-200'
+                  theme === 'dark' ? 'bg-[#0B0B0B] border-neutral-800/90' : 'bg-neutral-50 border-neutral-300'
                 }`}>
                   <div>
                     <span className={`text-[10px] font-mono uppercase block ${
-                      theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'
+                      theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'
                     }`}>
                       Delivery Investment
                     </span>
@@ -174,7 +174,7 @@ export const LearningFormatsSection: React.FC<LearningFormatsSectionProps> = ({
                     </div>
                   </div>
                   <span className={`text-[10px] font-mono text-right max-w-[120px] leading-tight ${
-                    theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'
+                    theme === 'dark' ? 'text-neutral-400' : 'text-neutral-800'
                   }`}>
                     {format.pricingLabel}
                   </span>
@@ -182,17 +182,17 @@ export const LearningFormatsSection: React.FC<LearningFormatsSectionProps> = ({
 
                 {/* Description */}
                 <p className={`text-xs leading-relaxed ${
-                  theme === 'dark' ? 'text-neutral-300' : 'text-neutral-600'
+                  theme === 'dark' ? 'text-neutral-300' : 'text-neutral-800'
                 }`}>
                   {format.description}
                 </p>
 
                 {/* Best For Pill */}
                 <div className={`p-3 rounded-2xl border ${
-                  theme === 'dark' ? 'bg-[#0B0B0B]/60 border-neutral-800/80' : 'bg-neutral-50 border-neutral-200'
+                  theme === 'dark' ? 'bg-[#0B0B0B]/60 border-neutral-800/80' : 'bg-neutral-50 border-neutral-300'
                 }`}>
                   <div className={`text-[10px] font-bold uppercase tracking-wider mb-1 ${
-                    theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'
+                    theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'
                   }`}>
                     Ideal Audience:
                   </div>
@@ -206,7 +206,7 @@ export const LearningFormatsSection: React.FC<LearningFormatsSectionProps> = ({
                 {/* Features List */}
                 <div className="space-y-2 pt-1">
                   <div className={`text-[11px] font-mono font-bold uppercase tracking-wider ${
-                    theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'
+                    theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'
                   }`}>
                     Key Channel Features:
                   </div>
@@ -224,7 +224,7 @@ export const LearningFormatsSection: React.FC<LearningFormatsSectionProps> = ({
 
               {/* Card CTA */}
               <div className={`mt-6 pt-4 border-t ${
-                theme === 'dark' ? 'border-neutral-800' : 'border-neutral-200'
+                theme === 'dark' ? 'border-neutral-800' : 'border-neutral-300'
               }`}>
                 <button
                   id={`btn-request-format-${format.id}`}
@@ -235,7 +235,7 @@ export const LearningFormatsSection: React.FC<LearningFormatsSectionProps> = ({
                   className={`w-full py-3 px-4 text-xs font-bold rounded-xl flex items-center justify-center gap-2 uppercase tracking-wider transition-all shadow ${
                     theme === 'dark'
                       ? 'text-neutral-200 hover:text-white bg-[#0B0B0B] hover:bg-[#B91C1C] border border-neutral-800 hover:border-transparent'
-                      : 'text-neutral-800 hover:text-white bg-neutral-100 hover:bg-[#B91C1C] border border-neutral-200 hover:border-transparent'
+                      : 'text-neutral-800 hover:text-white bg-neutral-100 hover:bg-[#B91C1C] border border-neutral-300 hover:border-transparent'
                   }`}
                 >
                   <span>{`Enroll in ${format.title}`}</span>

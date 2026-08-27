@@ -59,7 +59,7 @@ export const ProgramsOverview: React.FC<ProgramsOverviewProps> = ({
             {t.programsSection.title}
           </h2>
           <p className={`text-base sm:text-lg leading-relaxed ${
-            theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'
+            theme === 'dark' ? 'text-neutral-400' : 'text-neutral-800'
           }`}>
             {t.programsSection.subtitle}
           </p>
@@ -102,7 +102,7 @@ export const ProgramsOverview: React.FC<ProgramsOverviewProps> = ({
                     {pillar.tagline}
                   </p>
                   <p className={`mt-3 text-sm leading-relaxed ${
-                    theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'
+                    theme === 'dark' ? 'text-neutral-400' : 'text-neutral-800'
                   }`}>
                     {pillar.description}
                   </p>
@@ -110,7 +110,7 @@ export const ProgramsOverview: React.FC<ProgramsOverviewProps> = ({
 
                 <div>
                   <div className={`mb-3 flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-[0.18em] ${
-                    theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'
+                    theme === 'dark' ? 'text-neutral-400' : 'text-neutral-800'
                   }`}>
                     <Layers className="w-3.5 h-3.5 text-[#ff3b30]" />
                     <span>Curriculum Focus</span>
@@ -128,7 +128,7 @@ export const ProgramsOverview: React.FC<ProgramsOverviewProps> = ({
                     ))}
                     {pillar.topics.length > 6 && (
                       <span className={`text-[11px] font-medium px-2.5 py-1.5 rounded-full ${
-                        theme === 'dark' ? 'bg-white/5 text-neutral-300' : 'bg-neutral-100 text-neutral-600'
+                        theme === 'dark' ? 'bg-white/5 text-neutral-300' : 'bg-neutral-100 text-neutral-800'
                       }`}>
                         +{pillar.topics.length - 6} more
                       </span>
@@ -140,7 +140,7 @@ export const ProgramsOverview: React.FC<ProgramsOverviewProps> = ({
                   theme === 'dark' ? 'border-white/10' : 'border-neutral-200'
                 }`}>
                   <div className={`text-[10px] font-bold uppercase tracking-[0.18em] ${
-                    theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'
+                    theme === 'dark' ? 'text-neutral-400' : 'text-neutral-800'
                   }`}>
                     Key Practical Outcome:
                   </div>

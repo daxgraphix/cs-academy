@@ -62,7 +62,7 @@ export const ShareButtons: React.FC<ShareButtonsProps> = ({
         onClick={(e) => e.stopPropagation()}
       >
         <span className={`text-[11px] font-mono font-semibold mr-1 ${
-          theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'
+          theme === 'dark' ? 'text-neutral-400' : 'text-neutral-800'
         }`}>
           Share:
         </span>

@@ -56,7 +56,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
             )}
           </h1>
           <p className={`text-base sm:text-lg leading-relaxed ${
-            theme === 'dark' ? 'text-neutral-300' : 'text-neutral-600'
+            theme === 'dark' ? 'text-neutral-300' : 'text-neutral-800'
           }`}>
             {siteConfig.academyName} is on a mission to democratize technology education for Swahili-speaking learners, professionals, and future innovators.
           </p>
@@ -66,7 +66,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
         <div className="grid md:grid-cols-2 gap-8">
           {/* Mission Card */}
           <div className={`p-8 sm:p-10 rounded-3xl border space-y-4 shadow-xl relative overflow-hidden group transition-all ${
-            theme === 'dark' ? 'bg-[#171717] border-neutral-800 hover:border-neutral-700' : 'bg-neutral-50 border-neutral-200 hover:border-red-200'
+            theme === 'dark' ? 'bg-[#171717] border-neutral-800 hover:border-neutral-700' : 'bg-neutral-50 border-neutral-300 hover:border-red-400'
           }`}>
             <div className={`w-12 h-12 rounded-2xl border flex items-center justify-center text-[#DC2626] ${
               theme === 'dark' ? 'bg-red-950/70 border-red-900/50' : 'bg-red-50 border-red-200'
@@ -79,10 +79,10 @@ export const AboutPage: React.FC<AboutPageProps> = ({
             <h2 className={`text-2xl sm:text-3xl font-extrabold ${theme === 'dark' ? 'text-white' : 'text-neutral-900'}`}>
               Our Mission
             </h2>
-            <p className={`text-sm sm:text-base leading-relaxed ${theme === 'dark' ? 'text-neutral-300' : 'text-neutral-600'}`}>
+            <p className={`text-sm sm:text-base leading-relaxed ${theme === 'dark' ? 'text-neutral-300' : 'text-neutral-800'}`}>
               {siteConfig.tagline}
             </p>
-            <div className={`pt-2 text-xs flex items-center gap-2 ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'}`}>
+            <div className={`pt-2 text-xs flex items-center gap-2 ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-800'}`}>
               <CheckCircle2 className="w-4 h-4 text-[#DC2626]" />
               <span>Language should never be a barrier to learning technology.</span>
             </div>
@@ -90,7 +90,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
 
           {/* Vision Card */}
           <div className={`p-8 sm:p-10 rounded-3xl border space-y-4 shadow-xl relative overflow-hidden group transition-all ${
-            theme === 'dark' ? 'bg-[#171717] border-neutral-800 hover:border-neutral-700' : 'bg-neutral-50 border-neutral-200 hover:border-red-200'
+            theme === 'dark' ? 'bg-[#171717] border-neutral-800 hover:border-neutral-700' : 'bg-neutral-50 border-neutral-300 hover:border-red-400'
           }`}>
             <div className={`w-12 h-12 rounded-2xl border flex items-center justify-center text-[#DC2626] ${
               theme === 'dark' ? 'bg-red-950/70 border-red-900/50' : 'bg-red-50 border-red-200'
@@ -103,10 +103,10 @@ export const AboutPage: React.FC<AboutPageProps> = ({
             <h2 className={`text-2xl sm:text-3xl font-extrabold ${theme === 'dark' ? 'text-white' : 'text-neutral-900'}`}>
               Our Vision
             </h2>
-            <p className={`text-sm sm:text-base leading-relaxed ${theme === 'dark' ? 'text-neutral-300' : 'text-neutral-600'}`}>
+            <p className={`text-sm sm:text-base leading-relaxed ${theme === 'dark' ? 'text-neutral-300' : 'text-neutral-800'}`}>
               {siteConfig.vision}
             </p>
-            <div className={`pt-2 text-xs flex items-center gap-2 ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'}`}>
+            <div className={`pt-2 text-xs flex items-center gap-2 ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-800'}`}>
               <CheckCircle2 className="w-4 h-4 text-[#DC2626]" />
               <span>Equipping millions to thrive in the global digital economy.</span>
             </div>
@@ -115,11 +115,11 @@ export const AboutPage: React.FC<AboutPageProps> = ({
 
         {/* 3 Core Academies */}
         <div className={`p-8 sm:p-12 rounded-3xl border space-y-8 shadow-2xl ${
-          theme === 'dark' ? 'bg-[#121212] border-neutral-800' : 'bg-neutral-50 border-neutral-200'
+          theme === 'dark' ? 'bg-[#121212] border-neutral-800' : 'bg-neutral-50 border-neutral-300'
         }`}>
           <div className="max-w-3xl space-y-3">
             <div className={`inline-flex items-center gap-2 px-3 py-1 rounded border text-[11px] font-mono text-[#DC2626] font-bold uppercase ${
-              theme === 'dark' ? 'bg-[#0B0B0B] border-neutral-800' : 'bg-white border-neutral-200'
+              theme === 'dark' ? 'bg-[#0B0B0B] border-neutral-800' : 'bg-white border-neutral-300'
             }`}>
               Our Core Curriculum Pillars
             </div>
@@ -131,13 +131,13 @@ export const AboutPage: React.FC<AboutPageProps> = ({
           <div className="grid sm:grid-cols-3 gap-6">
             {siteConfig.pillars.map((pillar) => (
               <div key={pillar.id} className={`p-6 rounded-3xl border space-y-3 ${
-                theme === 'dark' ? 'bg-[#0B0B0B] border-neutral-800' : 'bg-white border-neutral-200 shadow-sm'
+                theme === 'dark' ? 'bg-[#0B0B0B] border-neutral-800' : 'bg-white border-neutral-300 shadow-sm'
               }`}>
                 <span className="text-[10px] font-mono font-bold text-[#DC2626] uppercase px-2.5 py-0.5 rounded-full bg-red-950/40 border border-red-800/40">
                   {pillar.badge}
                 </span>
                 <h3 className={`text-lg font-bold ${theme === 'dark' ? 'text-white' : 'text-neutral-900'}`}>{pillar.name}</h3>
-                <p className={`text-xs leading-relaxed ${theme === 'dark' ? 'text-neutral-300' : 'text-neutral-600'}`}>{pillar.desc}</p>
+                <p className={`text-xs leading-relaxed ${theme === 'dark' ? 'text-neutral-300' : 'text-neutral-800'}`}>{pillar.desc}</p>
               </div>
             ))}
           </div>
@@ -158,7 +158,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
               MEET OUR INSTRUCTORS
             </h2>
             <p className={`text-sm sm:text-base leading-relaxed ${
-              theme === 'dark' ? 'text-neutral-300' : 'text-neutral-600'
+              theme === 'dark' ? 'text-neutral-300' : 'text-neutral-800'
             }`}>
               Seasoned industry practitioners, ethical security researchers, and software architects passionate about making high-value tech skills accessible across Africa.
             </p>
@@ -170,7 +170,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                 key={instructor.id}
                 id={`instructor-card-${instructor.id}`}
                 className={`border rounded-3xl p-6 sm:p-8 flex flex-col justify-between space-y-6 shadow-xl transition-all hover:scale-[1.01] ${
-                  theme === 'dark' ? 'bg-[#171717] border-neutral-800 hover:border-neutral-700' : 'bg-white border-neutral-200 hover:border-red-200'
+                  theme === 'dark' ? 'bg-[#171717] border-neutral-800 hover:border-neutral-700' : 'bg-white border-neutral-300 hover:border-red-400'
                 }`}
               >
                 <div className="space-y-4">
@@ -189,21 +189,21 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                       <h3 className={`text-xl font-bold tracking-tight ${theme === 'dark' ? 'text-white' : 'text-neutral-900'}`}>
                         {instructor.name}
                       </h3>
-                      <p className={`text-xs font-medium ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'}`}>
+                      <p className={`text-xs font-medium ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'}`}>
                         {instructor.role}
                       </p>
                     </div>
                   </div>
 
                   {/* Bio */}
-                  <p className={`text-xs leading-relaxed ${theme === 'dark' ? 'text-neutral-300' : 'text-neutral-600'}`}>
+                  <p className={`text-xs leading-relaxed ${theme === 'dark' ? 'text-neutral-300' : 'text-neutral-800'}`}>
                     {instructor.bio}
                   </p>
 
                   {/* Expertise Tags */}
                   <div className="space-y-2 pt-1">
                     <div className={`text-[10px] font-mono font-bold uppercase tracking-wider ${
-                      theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'
+                      theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'
                     }`}>
                       Core Areas of Expertise:
                     </div>
@@ -214,7 +214,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                           className={`text-[11px] px-2.5 py-1 rounded-lg border font-medium ${
                             theme === 'dark'
                               ? 'bg-[#0B0B0B] border-neutral-800 text-neutral-300'
-                              : 'bg-neutral-50 border-neutral-200 text-neutral-700'
+                              : 'bg-neutral-50 border-neutral-300 text-neutral-700'
                           }`}
                         >
                           {exp}
@@ -226,7 +226,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                   {/* Featured Courses Taught */}
                   <div className="space-y-1.5 pt-1">
                     <div className={`text-[10px] font-mono font-bold uppercase tracking-wider ${
-                      theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'
+                      theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'
                     }`}>
                       Featured Courses:
                     </div>
@@ -234,7 +234,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                       {instructor.featuredCourses.map((fc, fcIdx) => (
                         <li key={fcIdx} className="flex items-center gap-1.5 text-[11px]">
                           <CheckCircle2 className="w-3 h-3 text-[#DC2626] shrink-0" />
-                          <span className={theme === 'dark' ? 'text-neutral-300' : 'text-neutral-600'}>{fc}</span>
+                          <span className={theme === 'dark' ? 'text-neutral-300' : 'text-neutral-800'}>{fc}</span>
                         </li>
                       ))}
                     </ul>
@@ -245,7 +245,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                 <div className={`pt-4 border-t flex items-center justify-between gap-3 ${
                   theme === 'dark' ? 'border-neutral-800' : 'border-neutral-100'
                 }`}>
-                  <span className={`text-[11px] font-mono ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'}`}>
+                  <span className={`text-[11px] font-mono ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'}`}>
                     {instructor.experience}
                   </span>
                   <button
@@ -263,7 +263,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
 
         {/* Founder Keynote & Speaking Profile */}
         <div className={`p-8 sm:p-12 rounded-3xl border shadow-xl ${
-          theme === 'dark' ? 'bg-[#171717] border-neutral-800' : 'bg-white border-neutral-200'
+          theme === 'dark' ? 'bg-[#171717] border-neutral-800' : 'bg-white border-neutral-300'
         }`}>
           <div className="grid md:grid-cols-12 gap-8 items-center">
             <div className="md:col-span-4 text-center md:text-left space-y-4">
@@ -287,7 +287,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                   "{siteConfig.founder.quote}"
                 </p>
               </div>
-              <p className={`text-xs sm:text-sm leading-relaxed ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'}`}>
+              <p className={`text-xs sm:text-sm leading-relaxed ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-800'}`}>
                 {siteConfig.founder.bio}
               </p>
               <div className="pt-2 flex flex-wrap items-center gap-3">

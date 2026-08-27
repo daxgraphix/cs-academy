@@ -64,7 +64,7 @@ export const ContactCTA: React.FC<ContactCTAProps> = ({
               </h2>
 
               <p className={`text-base sm:text-lg leading-relaxed ${
-                theme === 'dark' ? 'text-neutral-300' : 'text-neutral-600'
+                theme === 'dark' ? 'text-neutral-300' : 'text-neutral-800'
               }`}>
                 Tell us what you want to learn or the training your organization needs. Whether you need a 2-hour executive seminar or a workforce AI bootcamp, our team is ready to assist.
               </p>
@@ -83,7 +83,7 @@ export const ContactCTA: React.FC<ContactCTAProps> = ({
                     <Mail className="w-4 h-4" />
                   </div>
                   <div className="truncate">
-                    <div className={`text-[10px] font-mono uppercase ${theme === 'dark' ? 'text-neutral-500' : 'text-neutral-400'}`}>
+                    <div className={`text-[10px] font-mono uppercase ${theme === 'dark' ? 'text-neutral-500' : 'text-neutral-700'}`}>
                       Direct Email
                     </div>
                     <div className={`text-xs font-bold truncate group-hover:text-[#DC2626] transition-colors ${
@@ -106,7 +106,7 @@ export const ContactCTA: React.FC<ContactCTAProps> = ({
                     <MessageCircle className="w-4 h-4" />
                   </div>
                   <div className="truncate">
-                    <div className={`text-[10px] font-mono uppercase ${theme === 'dark' ? 'text-neutral-500' : 'text-neutral-400'}`}>
+                    <div className={`text-[10px] font-mono uppercase ${theme === 'dark' ? 'text-neutral-500' : 'text-neutral-700'}`}>
                       WhatsApp Inquiries
                     </div>
                     <div className={`text-xs font-bold truncate group-hover:text-emerald-500 transition-colors ${
@@ -128,7 +128,7 @@ export const ContactCTA: React.FC<ContactCTAProps> = ({
                 <h3 className={`text-xl font-extrabold ${theme === 'dark' ? 'text-white' : 'text-neutral-900'}`}>
                   How would you like to connect?
                 </h3>
-                <p className={`text-xs ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'}`}>
+                <p className={`text-xs ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-800'}`}>
                   Configure your training request in 60 seconds.
                 </p>
               </div>
@@ -160,7 +160,7 @@ export const ContactCTA: React.FC<ContactCTAProps> = ({
               </div>
 
               <div className="pt-2 text-center">
-                <p className={`text-[11px] font-mono ${theme === 'dark' ? 'text-neutral-500' : 'text-neutral-400'}`}>
+                <p className={`text-[11px] font-mono ${theme === 'dark' ? 'text-neutral-500' : 'text-neutral-700'}`}>
                   Tanzania  |  Kenya  |  Uganda  |  Rwanda  |  DRC
                 </p>
               </div>

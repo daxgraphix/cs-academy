@@ -55,12 +55,12 @@ export const SmartFramework: React.FC = () => {
             )}
           </h2>
           <p className={`text-base sm:text-lg leading-relaxed ${
-            theme === 'dark' ? 'text-neutral-300' : 'text-neutral-600'
+            theme === 'dark' ? 'text-neutral-300' : 'text-neutral-800'
           }`}>
             Our proprietary 5-step model guiding learners from curiosity to confident, safe technological output.
           </p>
           <div className={`mx-auto flex max-w-2xl items-center justify-center gap-2 rounded-full border px-4 py-2 text-[11px] font-bold uppercase tracking-[0.14em] ${
-            theme === 'dark' ? 'border-white/10 bg-white/5 text-neutral-400' : 'border-neutral-200 bg-white text-neutral-500'
+            theme === 'dark' ? 'border-white/10 bg-white/5 text-neutral-400' : 'border-neutral-200 bg-white text-neutral-700'
           }`}>
             <span className="h-1.5 w-1.5 rounded-full bg-[#DC2626]" />
             <span>Understand, Build, Verify, Apply safely</span>
@@ -95,7 +95,7 @@ export const SmartFramework: React.FC = () => {
                     <div className={`w-12 h-12 rounded-xl font-extrabold text-xl flex items-center justify-center transition-colors ${
                       isSelected
                         ? 'bg-[#B91C1C] text-white shadow-md'
-                        : theme === 'dark' ? 'bg-neutral-800 text-neutral-400 group-hover:text-white' : 'bg-neutral-100 text-neutral-600 group-hover:text-neutral-900'
+                        : theme === 'dark' ? 'bg-neutral-800 text-neutral-400 group-hover:text-white' : 'bg-neutral-100 text-neutral-800 group-hover:text-neutral-900'
                     }`}>
                       {step.letter}
                     </div>
@@ -110,7 +110,7 @@ export const SmartFramework: React.FC = () => {
                         </span>
                       </div>
                       <p className={`text-xs line-clamp-1 mt-0.5 ${
-                        theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'
+                        theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'
                       }`}>
                         {step.meaning}
                       </p>
@@ -118,7 +118,7 @@ export const SmartFramework: React.FC = () => {
                   </div>
 
                   <div className={`w-6 h-6 rounded-full flex items-center justify-center shrink-0 ${
-                    isSelected ? 'text-[#DC2626]' : 'text-neutral-400'
+                    isSelected ? 'text-[#DC2626]' : 'text-neutral-700'
                   }`}>
                     {getStepIcon(step.letter)}
                   </div>
@@ -173,7 +173,7 @@ export const SmartFramework: React.FC = () => {
               {/* Description */}
               <div className="space-y-2">
                 <h4 className={`text-xs font-mono font-bold uppercase tracking-wider ${
-                  theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'
+                  theme === 'dark' ? 'text-neutral-400' : 'text-neutral-800'
                 }`}>
                   What You Will Practice:
                 </h4>
@@ -203,7 +203,7 @@ export const SmartFramework: React.FC = () => {
 
             {/* Bottom Methodology Footnote */}
             <div className={`pt-6 mt-6 border-t flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs relative z-10 ${
-              theme === 'dark' ? 'border-neutral-800 text-neutral-400' : 'border-neutral-200 text-neutral-600'
+              theme === 'dark' ? 'border-neutral-800 text-neutral-400' : 'border-neutral-200 text-neutral-800'
             }`}>
               <span>Integrated into all CS Academy live courses and institutional workshops.</span>
               <span className="text-[#DC2626] font-bold">

@@ -30,7 +30,7 @@ export const TrainingPackages: React.FC<TrainingPackagesProps> = ({
     <section 
       id="training-packages-section" 
       className={`py-24 border-y transition-colors duration-300 ${
-        theme === 'dark' ? 'bg-[#121212] text-white border-neutral-800' : 'bg-neutral-50 text-neutral-900 border-neutral-200'
+        theme === 'dark' ? 'bg-[#121212] text-white border-neutral-800' : 'bg-neutral-50 text-neutral-900 border-neutral-300'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -47,7 +47,7 @@ export const TrainingPackages: React.FC<TrainingPackagesProps> = ({
               {t.packages.title}
             </h2>
             <p className={`text-base leading-relaxed ${
-              theme === 'dark' ? 'text-neutral-300' : 'text-neutral-600'
+              theme === 'dark' ? 'text-neutral-300' : 'text-neutral-800'
             }`}>
               {t.packages.subtitle}
             </p>
@@ -55,7 +55,7 @@ export const TrainingPackages: React.FC<TrainingPackagesProps> = ({
 
           {/* Category Tabs */}
           <div className={`flex items-center gap-1.5 p-1 border rounded-2xl self-start md:self-auto overflow-x-auto max-w-full ${
-            theme === 'dark' ? 'bg-[#0B0B0B] border-neutral-800' : 'bg-white border-neutral-200 shadow-sm'
+            theme === 'dark' ? 'bg-[#0B0B0B] border-neutral-800' : 'bg-white border-neutral-300 shadow-sm'
           }`}>
             {categories.map((cat) => (
               <button
@@ -64,7 +64,7 @@ export const TrainingPackages: React.FC<TrainingPackagesProps> = ({
                 className={`px-3 py-1.5 rounded-xl text-xs font-bold uppercase tracking-wider whitespace-nowrap transition-all ${
                   selectedCategory === cat 
                     ? 'bg-[#B91C1C] text-white shadow-sm' 
-                    : theme === 'dark' ? 'text-neutral-400 hover:text-white' : 'text-neutral-600 hover:text-neutral-900'
+                    : theme === 'dark' ? 'text-neutral-400 hover:text-white' : 'text-neutral-800 hover:text-neutral-900'
                 }`}
               >
                 {cat === 'ALL' ? ('ALL') : cat}
@@ -82,7 +82,7 @@ export const TrainingPackages: React.FC<TrainingPackagesProps> = ({
               className={`border rounded-3xl p-6 flex flex-col justify-between transition-all duration-200 hover:-translate-y-1 shadow-md group ${
                 theme === 'dark'
                   ? 'bg-[#0B0B0B] border-neutral-800 hover:border-neutral-700'
-                  : 'bg-white border-neutral-200 hover:border-red-200 hover:shadow-xl'
+                  : 'bg-white border-neutral-300 hover:border-red-400 hover:shadow-xl'
               }`}
             >
               <div className="space-y-4">
@@ -100,7 +100,7 @@ export const TrainingPackages: React.FC<TrainingPackagesProps> = ({
                     {pkg.title}
                   </h3>
                   <p className={`text-xs mt-1 leading-relaxed ${
-                    theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'
+                    theme === 'dark' ? 'text-neutral-400' : 'text-neutral-800'
                   }`}>
                     {pkg.tagline}
                   </p>
@@ -112,17 +112,17 @@ export const TrainingPackages: React.FC<TrainingPackagesProps> = ({
                 }`}>
                   <div className="flex items-center gap-2">
                     <Clock className="w-3.5 h-3.5 text-[#DC2626] shrink-0" />
-                    <span className={theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'}>Duration:</span>
+                    <span className={theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'}>Duration:</span>
                     <span className="font-semibold">{pkg.durations.join('  |  ')}</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <MapPin className="w-3.5 h-3.5 text-[#DC2626] shrink-0" />
-                    <span className={theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'}>Format:</span>
+                    <span className={theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'}>Format:</span>
                     <span className="font-semibold">{pkg.formats.join(' / ')}</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Users className="w-3.5 h-3.5 text-[#DC2626] shrink-0" />
-                    <span className={theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'}>Target:</span>
+                    <span className={theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'}>Target:</span>
                     <span className="font-semibold truncate">{pkg.targetAudience}</span>
                   </div>
                 </div>
@@ -130,7 +130,7 @@ export const TrainingPackages: React.FC<TrainingPackagesProps> = ({
                 {/* Key Deliverables / Outcomes */}
                 <div className="space-y-1.5 pt-1">
                   <span className={`text-[10px] font-mono font-bold uppercase tracking-wider ${
-                    theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'
+                    theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'
                   }`}>
                     Key Outcomes:
                   </span>
@@ -147,14 +147,14 @@ export const TrainingPackages: React.FC<TrainingPackagesProps> = ({
               </div>
 
               {/* Action Button */}
-              <div className={`pt-4 mt-4 border-t ${theme === 'dark' ? 'border-neutral-800' : 'border-neutral-200'}`}>
+              <div className={`pt-4 mt-4 border-t ${theme === 'dark' ? 'border-neutral-800' : 'border-neutral-300'}`}>
                 <button
                   id={`btn-request-${pkg.id}`}
                   onClick={() => openBookingModal({ program: pkg.title, duration: pkg.durations[0] })}
                   className={`w-full py-3 px-4 rounded-2xl text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-all ${
                     theme === 'dark'
                       ? 'bg-[#171717] hover:bg-[#B91C1C] text-neutral-200 hover:text-white border border-neutral-800'
-                      : 'bg-neutral-50 hover:bg-[#B91C1C] text-neutral-800 hover:text-white border border-neutral-200 shadow-sm'
+                      : 'bg-neutral-50 hover:bg-[#B91C1C] text-neutral-800 hover:text-white border border-neutral-300 shadow-sm'
                   }`}
                 >
                   <span>REQUEST PACKAGE DETAILS</span>

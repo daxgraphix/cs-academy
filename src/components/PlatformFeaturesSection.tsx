@@ -1,21 +1,20 @@
 import React, { useState } from 'react';
 import { platformFeaturesData } from '../data/platformFeatures';
 import { useApp } from '../context/AppContext';
-import { 
-  Video, 
-  CheckSquare, 
-  Award, 
-  ShoppingBag, 
-  Radio, 
-  Gift, 
-  ArrowRight, 
-  CheckCircle2, 
+import {
+  Video,
+  CheckSquare,
+  Award,
+  ShoppingBag,
+  Radio,
+  Gift,
+  ArrowRight,
+  CheckCircle2,
   QrCode,
-  Users, 
-  Building2, 
-  Layers, 
-  ShieldCheck, 
-  PlayCircle,
+  Users,
+  Building2,
+  Layers,
+  ShieldCheck,
   ChevronDown
 } from 'lucide-react';
 import { PlatformFeature } from '../types';
@@ -28,7 +27,7 @@ export const PlatformFeaturesSection: React.FC<PlatformFeaturesSectionProps> = (
   openBookingModal
 }) => {
   const { theme } = useApp();
-  const [activeFeatureId, setActiveFeatureId] = useState<string>('video-courses');
+  const [activeFeatureId, setActiveFeatureId] = useState<string>('quizzes-assessment');
 
   const getFeatureIcon = (iconName: string, className = "w-6 h-6") => {
     switch (iconName) {
@@ -58,43 +57,25 @@ export const PlatformFeaturesSection: React.FC<PlatformFeaturesSectionProps> = (
   };
 
   const renderFeatureVisual = (feature: PlatformFeature) => {
-    if (feature.id === 'video-courses') {
-      return (
-        <div className="space-y-3 text-center">
-          <div className="aspect-video bg-neutral-900 rounded-2xl border border-neutral-800 flex flex-col items-center justify-center p-4 relative group overflow-hidden">
-            <div className="w-14 h-14 rounded-full bg-[#DC2626] text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-              <PlayCircle className="w-8 h-8" />
-            </div>
-            <span className="text-xs font-bold text-neutral-200 mt-2">Kiswahili Tech Video Player</span>
-            <span className="text-[10px] text-neutral-400">HD Streaming  |  Low Data Mode</span>
-          </div>
-          <div className={`flex items-center justify-between text-xs px-1 ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'}`}>
-            <span>HD Video Streaming</span>
-            <span>100% Swahili Audio</span>
-          </div>
-        </div>
-      );
-    }
-
     if (feature.id === 'quizzes-assessment') {
       return (
         <div className="space-y-3">
           <div className={`p-4 rounded-2xl border space-y-2 ${
-            theme === 'dark' ? 'bg-[#171717] border-neutral-800' : 'bg-neutral-50 border-neutral-200'
+            theme === 'dark' ? 'bg-[#171717] border-neutral-800' : 'bg-neutral-50 border-neutral-300'
           }`}>
             <div className="flex items-center justify-between text-xs">
-              <span className="font-bold text-[#DC2626]">Moduli 3: Swahili AI & Prompting</span>
-              <span className={`font-mono ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'}`}>10/10 Score</span>
+              <span className="font-bold text-[#DC2626]">Module 3: AI & Prompting</span>
+              <span className={`font-mono ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'}`}>10/10 Score</span>
             </div>
-            <p className={`text-xs ${theme === 'dark' ? 'text-neutral-200' : 'text-neutral-800'}`}>Swali: Ni kigezo kipi cha msingi katika S.M.A.R.T. Framework ya CyberSwahili?</p>
+            <p className={`text-xs ${theme === 'dark' ? 'text-neutral-200' : 'text-neutral-800'}`}>Question: Which core pillar best describes the S.M.A.R.T. framework used at CS Academy?</p>
             <div className="space-y-1 text-xs">
               <div className="p-2 rounded-xl bg-emerald-950/60 border border-emerald-800 text-emerald-300 flex items-center gap-2">
                 <CheckCircle2 className="w-3.5 h-3.5" />
-                <span>A. Structure - Muundo thabiti wa muktadha (Sahihi)</span>
+                <span>A. Structure - Solid context scaffolding (Correct)</span>
               </div>
             </div>
           </div>
-          <div className={`text-[11px] text-center ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'}`}>
+          <div className={`text-[11px] text-center ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'}`}>
             Instant auto-scoring with explanations
           </div>
         </div>
@@ -106,7 +87,7 @@ export const PlatformFeaturesSection: React.FC<PlatformFeaturesSectionProps> = (
         <div className={`p-5 rounded-2xl border space-y-3 text-center ${
           theme === 'dark'
             ? 'bg-gradient-to-b from-[#171717] to-[#0E0E0E] border-neutral-800'
-            : 'bg-gradient-to-b from-neutral-50 to-white border-neutral-200 shadow-sm'
+            : 'bg-gradient-to-b from-neutral-50 to-white border-neutral-300 shadow-sm'
         }`}>
           <div className={`w-12 h-12 mx-auto rounded-2xl border flex items-center justify-center text-[#DC2626] ${
             theme === 'dark' ? 'bg-[#0B0B0B] border-neutral-800' : 'bg-red-50 border-red-100'
@@ -115,12 +96,12 @@ export const PlatformFeaturesSection: React.FC<PlatformFeaturesSectionProps> = (
           </div>
           <div>
             <h4 className={`text-xs font-bold uppercase tracking-wider ${theme === 'dark' ? 'text-white' : 'text-neutral-900'}`}>Certificate of Completion</h4>
-            <p className={`text-[11px] ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'}`}>Awarded to Learner  |  CS Academy</p>
+            <p className={`text-[11px] ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'}`}>Awarded to Learner  |  CS Academy</p>
           </div>
           <div className={`p-2 rounded-xl text-[10px] font-mono border ${
             theme === 'dark' ? 'bg-[#0B0B0B] text-emerald-400 border-emerald-900/40' : 'bg-emerald-50 text-emerald-700 border-emerald-200'
           }`}>
-            VERIFIED ID: CSA-2026-8942-SWAHILI
+            VERIFIED ID: CSA-2026-8942
           </div>
         </div>
       );
@@ -130,16 +111,16 @@ export const PlatformFeaturesSection: React.FC<PlatformFeaturesSectionProps> = (
       return (
         <div className="space-y-2">
           <div className={`p-3.5 rounded-2xl border flex items-center justify-between ${
-            theme === 'dark' ? 'bg-[#171717] border-neutral-800' : 'bg-neutral-50 border-neutral-200'
+            theme === 'dark' ? 'bg-[#171717] border-neutral-800' : 'bg-neutral-50 border-neutral-300'
           }`}>
             <div className="flex items-center gap-2.5">
               <ShoppingBag className="w-4 h-4 text-[#DC2626]" />
-              <span className={`text-xs font-bold ${theme === 'dark' ? 'text-white' : 'text-neutral-900'}`}>50+ Swahili Prompt Packs</span>
+              <span className={`text-xs font-bold ${theme === 'dark' ? 'text-white' : 'text-neutral-900'}`}>50+ Prompt Packs</span>
             </div>
             <span className="text-[10px] font-bold text-emerald-400 bg-emerald-950 px-2 py-0.5 rounded">FREE in Premium</span>
           </div>
           <div className={`p-3.5 rounded-2xl border flex items-center justify-between ${
-            theme === 'dark' ? 'bg-[#171717] border-neutral-800' : 'bg-neutral-50 border-neutral-200'
+            theme === 'dark' ? 'bg-[#171717] border-neutral-800' : 'bg-neutral-50 border-neutral-300'
           }`}>
             <div className="flex items-center gap-2.5">
               <ShoppingBag className="w-4 h-4 text-[#DC2626]" />
@@ -153,15 +134,15 @@ export const PlatformFeaturesSection: React.FC<PlatformFeaturesSectionProps> = (
 
     return (
       <div className={`p-6 rounded-2xl border text-center space-y-3 ${
-        theme === 'dark' ? 'bg-[#171717] border-neutral-800' : 'bg-neutral-50 border-neutral-200'
+        theme === 'dark' ? 'bg-[#171717] border-neutral-800' : 'bg-neutral-50 border-neutral-300'
       }`}>
         <div className={`w-12 h-12 mx-auto rounded-2xl border flex items-center justify-center text-[#DC2626] ${
-          theme === 'dark' ? 'bg-[#0B0B0B] border-neutral-800' : 'bg-white border-neutral-200'
+          theme === 'dark' ? 'bg-[#0B0B0B] border-neutral-800' : 'bg-white border-neutral-300'
         }`}>
           {getFeatureIcon(feature.icon)}
         </div>
         <h4 className={`text-sm font-bold ${theme === 'dark' ? 'text-white' : 'text-neutral-900'}`}>{feature.title}</h4>
-        <p className={`text-xs ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'}`}>{feature.shortDescription}</p>
+        <p className={`text-xs ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-800'}`}>{feature.shortDescription}</p>
       </div>
     );
   };
@@ -174,7 +155,7 @@ export const PlatformFeaturesSection: React.FC<PlatformFeaturesSectionProps> = (
     <section 
       id="platform-features" 
       className={`py-24 border-b transition-colors duration-300 ${
-        theme === 'dark' ? 'bg-[#0B0B0B] text-white border-neutral-800' : 'bg-white text-neutral-900 border-neutral-200'
+        theme === 'dark' ? 'bg-[#0B0B0B] text-white border-neutral-800' : 'bg-white text-neutral-900 border-neutral-300'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
@@ -192,7 +173,7 @@ export const PlatformFeaturesSection: React.FC<PlatformFeaturesSectionProps> = (
             )}
           </h2>
           <p className={`text-base sm:text-lg leading-relaxed ${
-            theme === 'dark' ? 'text-neutral-300' : 'text-neutral-600'
+            theme === 'dark' ? 'text-neutral-300' : 'text-neutral-800'
           }`}>
             Tap any capability below to expand and see exactly how it helps you learn, build, and grow.
           </p>
@@ -213,7 +194,7 @@ export const PlatformFeaturesSection: React.FC<PlatformFeaturesSectionProps> = (
                       : 'bg-white border-red-500 shadow-xl ring-2 ring-red-500/20'
                     : theme === 'dark'
                     ? 'bg-[#121212] border-neutral-800 hover:border-neutral-700'
-                    : 'bg-neutral-50 border-neutral-200 hover:border-red-200'
+                    : 'bg-neutral-50 border-neutral-300 hover:border-red-400'
                 }`}
               >
                 <button
@@ -239,18 +220,18 @@ export const PlatformFeaturesSection: React.FC<PlatformFeaturesSectionProps> = (
                           {feature.title}
                         </h3>
                         <span className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded-full border ${
-                          theme === 'dark' ? 'text-neutral-400 bg-[#0B0B0B] border-neutral-800' : 'text-neutral-700 bg-white border-neutral-200'
+                          theme === 'dark' ? 'text-neutral-400 bg-[#0B0B0B] border-neutral-800' : 'text-neutral-700 bg-white border-neutral-300'
                         }`}>
                           {feature.badge}
                         </span>
                       </div>
-                      <p className={`text-xs sm:text-sm leading-relaxed mt-1 ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'}`}>
+                      <p className={`text-xs sm:text-sm leading-relaxed mt-1 ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-800'}`}>
                         {feature.shortDescription}
                       </p>
                     </div>
                   </div>
                   <ChevronDown className={`w-5 h-5 shrink-0 transition-transform duration-300 ${
-                    isOpen ? 'rotate-180 text-[#DC2626]' : theme === 'dark' ? 'text-neutral-500' : 'text-neutral-400'
+                    isOpen ? 'rotate-180 text-[#DC2626]' : theme === 'dark' ? 'text-neutral-500' : 'text-neutral-700'
                   }`} />
                 </button>
 
@@ -259,7 +240,7 @@ export const PlatformFeaturesSection: React.FC<PlatformFeaturesSectionProps> = (
                     id={`feature-panel-${feature.id}`}
                     role="region"
                     className={`px-5 sm:px-6 pb-6 pt-2 border-t animate-[fadeIn_0.2s_ease-out] ${
-                      theme === 'dark' ? 'border-neutral-800/70' : 'border-neutral-200'
+                      theme === 'dark' ? 'border-neutral-800/70' : 'border-neutral-300'
                     }`}
                   >
                     <p className={`text-sm leading-relaxed ${theme === 'dark' ? 'text-neutral-300' : 'text-neutral-700'}`}>
@@ -267,7 +248,7 @@ export const PlatformFeaturesSection: React.FC<PlatformFeaturesSectionProps> = (
                     </p>
 
                     {feature.swahiliNote && (
-                      <p className={`mt-3 text-xs italic ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'}`}>
+                      <p className={`mt-3 text-xs italic ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'}`}>
                         {feature.swahiliNote}
                       </p>
                     )}
@@ -275,7 +256,7 @@ export const PlatformFeaturesSection: React.FC<PlatformFeaturesSectionProps> = (
                     <div className="grid sm:grid-cols-2 gap-3 pt-4">
                       {feature.points.map((point, idx) => (
                         <div key={idx} className={`flex items-start gap-2.5 p-3 rounded-2xl border ${
-                          theme === 'dark' ? 'bg-[#0B0B0B] border-neutral-800' : 'bg-white border-neutral-200 shadow-sm'
+                          theme === 'dark' ? 'bg-[#0B0B0B] border-neutral-800' : 'bg-white border-neutral-300 shadow-sm'
                         }`}>
                           <CheckCircle2 className="w-4 h-4 text-[#DC2626] shrink-0 mt-0.5" />
                           <span className={`text-xs leading-snug ${theme === 'dark' ? 'text-neutral-300' : 'text-neutral-700'}`}>{point}</span>
@@ -283,7 +264,7 @@ export const PlatformFeaturesSection: React.FC<PlatformFeaturesSectionProps> = (
                       ))}
                     </div>
 
-                    <div className={`mt-5 rounded-2xl border p-5 ${theme === 'dark' ? 'bg-[#0B0B0B] border-neutral-800' : 'bg-neutral-50 border-neutral-200'}`}>
+                    <div className={`mt-5 rounded-2xl border p-5 ${theme === 'dark' ? 'bg-[#0B0B0B] border-neutral-800' : 'bg-neutral-50 border-neutral-300'}`}>
                       {renderFeatureVisual(feature)}
                     </div>
 

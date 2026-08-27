@@ -74,7 +74,7 @@ export const LearningFormatsPage: React.FC<LearningFormatsPageProps> = ({
             LEARN ANYWHERE. <span className="text-[#DC2626]">CONNECT YOUR WAY.</span>
           </h1>
           <p className={`text-base sm:text-lg leading-relaxed ${
-            theme === 'dark' ? 'text-neutral-300' : 'text-neutral-600'
+            theme === 'dark' ? 'text-neutral-300' : 'text-neutral-800'
           }`}>
             Choose the instructional delivery channel that best aligns with your team\'s geography, bandwidth, and learning style. Pricing is transparently structured per delivery channel.
           </p>
@@ -88,7 +88,7 @@ export const LearningFormatsPage: React.FC<LearningFormatsPageProps> = ({
                 className={`px-4 py-1.5 rounded-xl text-xs font-mono font-bold tracking-wider transition-all ${
                   currency === curr 
                     ? 'bg-[#B91C1C] text-white shadow-md' 
-                    : theme === 'dark' ? 'text-neutral-400 hover:text-white' : 'text-neutral-600 hover:text-neutral-900'
+                    : theme === 'dark' ? 'text-neutral-400 hover:text-white' : 'text-neutral-800 hover:text-neutral-900'
                 }`}
               >
                 {curr === 'TSH' ? 'TZS (Tsh)' : curr === 'KES' ? 'KES (KSh)' : 'USD ($)'}
@@ -105,18 +105,18 @@ export const LearningFormatsPage: React.FC<LearningFormatsPageProps> = ({
               className={`border rounded-3xl p-8 flex flex-col justify-between shadow-lg space-y-6 group transition-all duration-200 ${
                 theme === 'dark' 
                   ? 'bg-[#171717] border-neutral-800 hover:border-neutral-700' 
-                  : 'bg-neutral-50 border-neutral-200 hover:border-red-200 hover:shadow-xl'
+                  : 'bg-neutral-50 border-neutral-300 hover:border-red-400 hover:shadow-xl'
               }`}
             >
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
                   <div className={`w-14 h-14 rounded-2xl border flex items-center justify-center group-hover:scale-105 transition-transform ${
-                    theme === 'dark' ? 'bg-[#0B0B0B] border-neutral-800' : 'bg-white border-neutral-200 shadow-sm'
+                    theme === 'dark' ? 'bg-[#0B0B0B] border-neutral-800' : 'bg-white border-neutral-300 shadow-sm'
                   }`}>
                     {getFormatIcon(format.icon)}
                   </div>
                   <span className={`text-[11px] font-mono font-bold px-3 py-1 rounded-full border ${
-                    theme === 'dark' ? 'bg-[#0B0B0B] text-neutral-400 border-neutral-800' : 'bg-white text-neutral-700 border-neutral-200'
+                    theme === 'dark' ? 'bg-[#0B0B0B] text-neutral-400 border-neutral-800' : 'bg-white text-neutral-700 border-neutral-300'
                   }`}>
                     {format.bestFor}
                   </span>
@@ -124,26 +124,26 @@ export const LearningFormatsPage: React.FC<LearningFormatsPageProps> = ({
 
                 <div className="space-y-1.5">
                   <h3 className={`text-2xl font-black ${theme === 'dark' ? 'text-white' : 'text-neutral-900'}`}>{format.title}</h3>
-                  <p className={`text-xs leading-relaxed ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'}`}>{format.description}</p>
+                  <p className={`text-xs leading-relaxed ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-800'}`}>{format.description}</p>
                 </div>
 
                 {/* Specs Box */}
                 <div className={`p-4 rounded-2xl border space-y-2 text-xs font-mono ${
-                  theme === 'dark' ? 'bg-[#0B0B0B] border-neutral-800 text-neutral-300' : 'bg-white border-neutral-200 text-neutral-700'
+                  theme === 'dark' ? 'bg-[#0B0B0B] border-neutral-800 text-neutral-300' : 'bg-white border-neutral-300 text-neutral-700'
                 }`}>
                   <div className="flex items-center justify-between">
-                    <span className={theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'}>Bandwidth:</span>
+                    <span className={theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'}>Bandwidth:</span>
                     <span className="font-bold flex items-center gap-1">
                       <Wifi className="w-3.5 h-3.5 text-[#DC2626]" />
                       {format.bandwidthLevel}
                     </span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className={theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'}>Channel:</span>
+                    <span className={theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'}>Channel:</span>
                     <span className="font-bold">{format.channelName}</span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className={theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'}>Pricing:</span>
+                    <span className={theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'}>Pricing:</span>
                     <span className="font-bold text-emerald-500">{format.pricingLabel}</span>
                   </div>
                 </div>
@@ -151,7 +151,7 @@ export const LearningFormatsPage: React.FC<LearningFormatsPageProps> = ({
                 {/* Key Features */}
                 <div className="space-y-2 pt-2">
                   <span className={`text-[10px] font-mono font-bold uppercase tracking-wider ${
-                    theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'
+                    theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'
                   }`}>
                     Key Capabilities:
                   </span>
@@ -168,10 +168,10 @@ export const LearningFormatsPage: React.FC<LearningFormatsPageProps> = ({
 
               {/* Bottom Price & Action */}
               <div className={`pt-6 border-t space-y-4 ${
-                theme === 'dark' ? 'border-neutral-800' : 'border-neutral-200'
+                theme === 'dark' ? 'border-neutral-800' : 'border-neutral-300'
               }`}>
                 <div>
-                  <div className={`text-[10px] font-mono uppercase ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'}`}>
+                  <div className={`text-[10px] font-mono uppercase ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'}`}>
                     Starting Tuition / Fee:
                   </div>
                   <div className={`text-2xl font-black ${theme === 'dark' ? 'text-white' : 'text-neutral-900'}`}>

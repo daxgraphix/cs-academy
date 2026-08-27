@@ -37,7 +37,7 @@ export const SocialProof: React.FC = () => {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-12">
           <div className={`inline-flex items-center gap-2 px-3.5 py-1 rounded-full border text-xs font-mono font-bold uppercase tracking-wider ${
-            theme === 'dark' ? 'bg-[#171717] border-neutral-800 text-neutral-300' : 'bg-white border-neutral-200 text-neutral-800 shadow-sm'
+            theme === 'dark' ? 'bg-[#171717] border-neutral-800 text-neutral-300' : 'bg-white border-neutral-300 text-neutral-800 shadow-sm'
           }`}>
             <span>{t.socialProof.badge}</span>
           </div>
@@ -47,7 +47,7 @@ export const SocialProof: React.FC = () => {
             {t.socialProof.title}
           </h2>
           <p className={`text-base leading-relaxed ${
-            theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'
+            theme === 'dark' ? 'text-neutral-400' : 'text-neutral-800'
           }`}>
             {t.socialProof.subtitle}
           </p>
@@ -56,38 +56,38 @@ export const SocialProof: React.FC = () => {
         {/* Quick Social Proof Metrics Banner */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12">
           <div className={`p-5 rounded-3xl border text-center space-y-1 ${
-            theme === 'dark' ? 'bg-[#171717] border-neutral-800' : 'bg-white border-neutral-200 shadow-sm'
+            theme === 'dark' ? 'bg-[#171717] border-neutral-800' : 'bg-white border-neutral-300 shadow-sm'
           }`}>
             <div className="flex items-center justify-center gap-1 text-amber-500 font-extrabold text-lg">
               <Star className="w-4 h-4 fill-amber-500 text-amber-500" />
               <span>4.9 / 5.0</span>
             </div>
-            <p className={`text-xs font-medium ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'}`}>
+            <p className={`text-xs font-medium ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-800'}`}>
               Average Student Rating
             </p>
           </div>
 
           <div className={`p-5 rounded-3xl border text-center space-y-1 ${
-            theme === 'dark' ? 'bg-[#171717] border-neutral-800' : 'bg-white border-neutral-200 shadow-sm'
+            theme === 'dark' ? 'bg-[#171717] border-neutral-800' : 'bg-white border-neutral-300 shadow-sm'
           }`}>
             <div className={`text-lg font-black ${theme === 'dark' ? 'text-white' : 'text-neutral-900'}`}>1,200+</div>
-            <p className={`text-xs font-medium ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'}`}>
+            <p className={`text-xs font-medium ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-800'}`}>
               East African Learners
             </p>
           </div>
 
           <div className={`p-5 rounded-3xl border text-center space-y-1 ${
-            theme === 'dark' ? 'bg-[#171717] border-neutral-800' : 'bg-white border-neutral-200 shadow-sm'
+            theme === 'dark' ? 'bg-[#171717] border-neutral-800' : 'bg-white border-neutral-300 shadow-sm'
           }`}>
             <div className="text-lg font-black text-[#DC2626]">Kiswahili + EN</div>
-            <p className={`text-xs font-medium ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'}`}>
+            <p className={`text-xs font-medium ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-800'}`}>
               Accessible Tech Learning
             </p>
           </div>
         </div>
 
         <div className={`mb-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-[11px] font-bold uppercase tracking-[0.16em] ${
-          theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'
+          theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'
         }`}>
           <span className="inline-flex items-center gap-2"><CheckCircle2 className="h-3.5 w-3.5 text-emerald-500" /> Project-based learning</span>
           <span className="inline-flex items-center gap-2"><ShieldCheck className="h-3.5 w-3.5 text-[#ff3b30]" /> Verified certificates</span>
@@ -97,7 +97,7 @@ export const SocialProof: React.FC = () => {
         {/* Filter Tabs */}
         <div className="flex items-center justify-center gap-2 flex-wrap mb-10">
           <div className={`inline-flex items-center gap-1.5 p-1 rounded-2xl border ${
-            theme === 'dark' ? 'bg-[#171717] border-neutral-800' : 'bg-white border-neutral-200 shadow-sm'
+            theme === 'dark' ? 'bg-[#171717] border-neutral-800' : 'bg-white border-neutral-300 shadow-sm'
           }`}>
             {filterOptions.map((opt) => (
               <button
@@ -106,7 +106,7 @@ export const SocialProof: React.FC = () => {
                 className={`px-4 py-2 rounded-xl text-xs font-bold transition-all duration-200 hover:-translate-y-0.5 ${
                   selectedFilter === opt.id
                     ? 'bg-[#B91C1C] text-white shadow-md'
-                    : theme === 'dark' ? 'text-neutral-400 hover:text-white' : 'text-neutral-600 hover:text-neutral-900'
+                    : theme === 'dark' ? 'text-neutral-400 hover:text-white' : 'text-neutral-800 hover:text-neutral-900'
                 }`}
               >
                 {opt.label}
@@ -123,7 +123,7 @@ export const SocialProof: React.FC = () => {
               className={`border rounded-3xl p-6 sm:p-7 flex flex-col justify-between relative shadow-lg hover:shadow-xl transition-all duration-200 hover:-translate-y-1 group ${
                 theme === 'dark' 
                   ? 'bg-[#171717] border-neutral-800 hover:border-neutral-700' 
-                  : 'bg-white border-neutral-200 hover:border-red-200'
+                  : 'bg-white border-neutral-300 hover:border-red-400'
               }`}
             >
               <div className="space-y-4">
@@ -136,7 +136,7 @@ export const SocialProof: React.FC = () => {
                   </div>
                   {item.courseTag && (
                     <span className={`text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-full border ${
-                      theme === 'dark' ? 'bg-[#0B0B0B] text-neutral-300 border-neutral-800' : 'bg-neutral-100 text-neutral-700 border-neutral-200'
+                      theme === 'dark' ? 'bg-[#0B0B0B] text-neutral-300 border-neutral-800' : 'bg-neutral-100 text-neutral-700 border-neutral-300'
                     }`}>
                       {item.courseTag}
                     </span>
@@ -165,7 +165,7 @@ export const SocialProof: React.FC = () => {
 
               {/* Author Footer */}
               <div className={`mt-6 pt-4 border-t flex items-center justify-between gap-3 ${
-                theme === 'dark' ? 'border-neutral-800' : 'border-neutral-200'
+                theme === 'dark' ? 'border-neutral-800' : 'border-neutral-300'
               }`}>
                 <div className="flex items-center gap-3">
                   <div className="w-11 h-11 rounded-2xl bg-gradient-to-tr from-[#B91C1C] to-neutral-800 p-0.5 shadow-md shrink-0">
@@ -184,10 +184,10 @@ export const SocialProof: React.FC = () => {
                         <ShieldCheck className="w-3.5 h-3.5 text-emerald-500" title="Verified Graduate" />
                       )}
                     </div>
-                    <div className={`text-xs ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'}`}>
+                    <div className={`text-xs ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'}`}>
                       {item.role}
                     </div>
-                    <div className={`text-[11px] font-mono ${theme === 'dark' ? 'text-neutral-500' : 'text-neutral-400'}`}>
+                    <div className={`text-[11px] font-mono ${theme === 'dark' ? 'text-neutral-500' : 'text-neutral-700'}`}>
                       {item.location}
                     </div>
                   </div>

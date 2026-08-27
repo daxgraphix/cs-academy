@@ -51,7 +51,7 @@ export const BlogPage: React.FC<BlogPageProps> = ({
             CS ACADEMY <span className="text-[#DC2626]">BLOG</span>
           </h1>
           <p className={`text-base sm:text-lg leading-relaxed ${
-            theme === 'dark' ? 'text-neutral-300' : 'text-neutral-600'
+            theme === 'dark' ? 'text-neutral-300' : 'text-neutral-800'
           }`}>
             Thought leadership, practical tutorials, and ethical considerations surrounding artificial intelligence and cybersecurity in Africa.
           </p>
@@ -59,11 +59,11 @@ export const BlogPage: React.FC<BlogPageProps> = ({
 
         {/* Search and Filter */}
         <div className={`flex flex-col md:flex-row gap-4 items-center justify-between p-4 rounded-2xl border ${
-          theme === 'dark' ? 'bg-[#171717] border-neutral-800' : 'bg-neutral-50 border-neutral-200 shadow-sm'
+          theme === 'dark' ? 'bg-[#171717] border-neutral-800' : 'bg-neutral-50 border-neutral-300 shadow-sm'
         }`}>
           <div className="relative w-full md:w-80">
             <Search className={`w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 ${
-              theme === 'dark' ? 'text-neutral-500' : 'text-neutral-400'
+              theme === 'dark' ? 'text-neutral-500' : 'text-neutral-700'
             }`} />
             <input
               type="text"
@@ -73,7 +73,7 @@ export const BlogPage: React.FC<BlogPageProps> = ({
               className={`w-full pl-10 pr-4 py-2.5 rounded-xl text-xs focus:outline-none focus:border-[#DC2626] border ${
                 theme === 'dark'
                   ? 'bg-[#0B0B0B] border-neutral-800 text-white placeholder-neutral-500'
-                  : 'bg-white border-neutral-200 text-neutral-900 placeholder-neutral-400 shadow-sm'
+                  : 'bg-white border-neutral-300 text-neutral-900 placeholder-neutral-500 shadow-sm'
               }`}
             />
           </div>
@@ -89,7 +89,7 @@ export const BlogPage: React.FC<BlogPageProps> = ({
                     ? 'bg-[#B91C1C] text-white shadow-sm' 
                     : theme === 'dark'
                     ? 'text-neutral-400 hover:text-white bg-[#0B0B0B] border border-neutral-800'
-                    : 'text-neutral-600 hover:text-neutral-950 bg-white border border-neutral-200'
+                    : 'text-neutral-800 hover:text-neutral-950 bg-white border border-neutral-300'
                 }`}
               >
                 {cat === 'ALL' ? ('ALL') : cat}
@@ -107,7 +107,7 @@ export const BlogPage: React.FC<BlogPageProps> = ({
               className={`border rounded-3xl p-6 flex flex-col justify-between cursor-pointer transition-all duration-200 hover:-translate-y-1 shadow-sm group ${
                 theme === 'dark'
                   ? 'bg-[#171717] border-neutral-800 hover:border-neutral-700'
-                  : 'bg-neutral-50 border-neutral-200 hover:border-red-200 hover:shadow-lg'
+                  : 'bg-neutral-50 border-neutral-300 hover:border-red-400 hover:shadow-lg'
               }`}
             >
               <div className="space-y-4">
@@ -118,7 +118,7 @@ export const BlogPage: React.FC<BlogPageProps> = ({
                     {post.category}
                   </span>
                   <div className={`flex items-center gap-1.5 font-mono text-[11px] ${
-                    theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'
+                    theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'
                   }`}>
                     <Clock className="w-3.5 h-3.5" />
                     <span>{post.readingTime}</span>
@@ -132,7 +132,7 @@ export const BlogPage: React.FC<BlogPageProps> = ({
                     {post.title}
                   </h3>
                   <p className={`text-xs mt-2 line-clamp-3 leading-relaxed ${
-                    theme === 'dark' ? 'text-neutral-300' : 'text-neutral-600'
+                    theme === 'dark' ? 'text-neutral-300' : 'text-neutral-800'
                   }`}>
                     {post.excerpt}
                   </p>
@@ -141,7 +141,7 @@ export const BlogPage: React.FC<BlogPageProps> = ({
                 <div className="flex flex-wrap gap-1.5 pt-2">
                   {post.tags.map((t, idx) => (
                     <span key={idx} className={`text-[10px] font-mono px-2 py-0.5 rounded border ${
-                      theme === 'dark' ? 'bg-[#0B0B0B] text-neutral-400 border-neutral-800' : 'bg-white text-neutral-600 border-neutral-200'
+                      theme === 'dark' ? 'bg-[#0B0B0B] text-neutral-400 border-neutral-800' : 'bg-white text-neutral-800 border-neutral-300'
                     }`}>
                       #{t}
                     </span>
@@ -150,7 +150,7 @@ export const BlogPage: React.FC<BlogPageProps> = ({
               </div>
 
               <div className={`pt-4 mt-4 border-t flex flex-col gap-3 ${
-                theme === 'dark' ? 'border-neutral-800 text-neutral-400' : 'border-neutral-200 text-neutral-600'
+                theme === 'dark' ? 'border-neutral-800 text-neutral-400' : 'border-neutral-300 text-neutral-800'
               }`}>
                 <div className="flex items-center justify-between text-xs">
                   <div className="flex items-center gap-2">

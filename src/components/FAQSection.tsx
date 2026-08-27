@@ -105,7 +105,7 @@ export const FAQSection: React.FC = () => {
             {t.faq.title}
           </h2>
           <p className={`max-w-2xl mx-auto text-base leading-relaxed ${
-            theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'
+            theme === 'dark' ? 'text-neutral-400' : 'text-neutral-800'
           }`}>
             Direct answers regarding course access, mobile money payments (M-Pesa, Tigo Pesa, Airtel Money), technical support, and QR certification.
           </p>
@@ -113,7 +113,7 @@ export const FAQSection: React.FC = () => {
           {/* FAQ Search Bar */}
           <div className="max-w-xl mx-auto pt-2 relative" role="search">
             <Search className={`w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 ${
-              theme === 'dark' ? 'text-neutral-500' : 'text-neutral-400'
+              theme === 'dark' ? 'text-neutral-500' : 'text-neutral-700'
             }`} />
             <input
               id="faq-search-input"
@@ -125,7 +125,7 @@ export const FAQSection: React.FC = () => {
               className={`w-full pl-10 pr-10 py-3 border rounded-2xl text-xs focus:outline-none focus:border-[#DC2626] transition-colors ${
                 theme === 'dark'
                   ? 'bg-[#171717] border-neutral-800 text-white placeholder-neutral-500'
-                  : 'bg-white border-neutral-200 text-neutral-900 placeholder-neutral-400 shadow-sm'
+                  : 'bg-white border-neutral-200 text-neutral-900 placeholder-neutral-500 shadow-sm'
               }`}
             />
             {searchQuery && (
@@ -157,13 +157,13 @@ export const FAQSection: React.FC = () => {
                       ? 'bg-[#B91C1C] text-white shadow-md'
                       : theme === 'dark'
                       ? 'bg-[#171717] text-neutral-400 hover:text-white border border-neutral-800 hover:border-neutral-700'
-                      : 'bg-white text-neutral-600 hover:text-neutral-900 border border-neutral-200 shadow-sm hover:border-neutral-300'
+                      : 'bg-white text-neutral-800 hover:text-neutral-900 border border-neutral-200 shadow-sm hover:border-neutral-300'
                   }`}
                 >
                   <Icon className="w-3.5 h-3.5" />
                   <span>{cat.label}</span>
                   <span className={`ml-0.5 text-[10px] font-mono px-1.5 py-0.5 rounded-full ${
-                    isSelected ? 'bg-white/20' : theme === 'dark' ? 'bg-neutral-800 text-neutral-500' : 'bg-neutral-100 text-neutral-500'
+                    isSelected ? 'bg-white/20' : theme === 'dark' ? 'bg-neutral-800 text-neutral-500' : 'bg-neutral-100 text-neutral-700'
                   }`}>
                     {count}
                   </span>
@@ -243,7 +243,7 @@ export const FAQSection: React.FC = () => {
                     </div>
                   </div>
                   <ChevronDown className={`w-4 h-4 shrink-0 transition-transform duration-200 mt-1 sm:mt-0 ${
-                    isOpen ? 'rotate-180 text-[#DC2626]' : theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'
+                    isOpen ? 'rotate-180 text-[#DC2626]' : theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'
                   }`} />
                 </button>
 
@@ -252,7 +252,7 @@ export const FAQSection: React.FC = () => {
                     id={`faq-panel-${item.id}`}
                     role="region"
                     className={`px-5 sm:px-6 pb-6 pt-3 text-xs sm:text-sm leading-relaxed border-t animate-[fadeIn_0.2s_ease-out] ${
-                      theme === 'dark' ? 'text-neutral-300 border-neutral-800/60' : 'text-neutral-600 border-neutral-100'
+                      theme === 'dark' ? 'text-neutral-300 border-neutral-800/60' : 'text-neutral-800 border-neutral-100'
                     }`}
                   >
                     <p className="mt-1 pl-11 leading-7 max-w-3xl">
@@ -266,7 +266,7 @@ export const FAQSection: React.FC = () => {
 
           {filteredFaq.length === 0 && (
             <div className={`text-center py-12 rounded-2xl border text-xs space-y-3 ${
-              theme === 'dark' ? 'bg-[#171717] border-neutral-800 text-neutral-400' : 'bg-white border-neutral-200 text-neutral-600'
+              theme === 'dark' ? 'bg-[#171717] border-neutral-800 text-neutral-400' : 'bg-white border-neutral-200 text-neutral-800'
             }`}>
               <p>No matching questions found for your query.</p>
               <button 
@@ -291,7 +291,7 @@ export const FAQSection: React.FC = () => {
               <div className={`text-sm font-bold ${theme === 'dark' ? 'text-white' : 'text-neutral-900'}`}>
                 Have more questions or need direct guidance?
               </div>
-              <div className={`text-xs ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'}`}>
+              <div className={`text-xs ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'}`}>
                 Chat directly with our learner support team on WhatsApp.
               </div>
             </div>

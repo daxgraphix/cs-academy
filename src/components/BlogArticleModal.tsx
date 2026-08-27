@@ -45,7 +45,7 @@ export const BlogArticleModal: React.FC<BlogArticleModalProps> = ({
               {post.category}
             </span>
             <div className={`flex items-center gap-1.5 text-xs font-mono ${
-              theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'
+              theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'
             }`}>
               <Clock className="w-3.5 h-3.5" />
               <span>{post.readingTime}</span>
@@ -56,7 +56,7 @@ export const BlogArticleModal: React.FC<BlogArticleModalProps> = ({
             className={`p-2 rounded-xl transition-colors ${
               theme === 'dark' 
                 ? 'bg-neutral-900 hover:bg-neutral-800 text-neutral-400 hover:text-white' 
-                : 'bg-neutral-100 hover:bg-neutral-200 text-neutral-600 hover:text-neutral-900'
+                : 'bg-neutral-100 hover:bg-neutral-200 text-neutral-800 hover:text-neutral-900'
             }`}
           >
             <X className="w-5 h-5" />
@@ -75,7 +75,7 @@ export const BlogArticleModal: React.FC<BlogArticleModalProps> = ({
             </h1>
             
             <div className={`flex flex-wrap items-center justify-between gap-4 text-xs pt-2 border-b pb-4 ${
-              theme === 'dark' ? 'border-neutral-800 text-neutral-400' : 'border-neutral-200 text-neutral-600'
+              theme === 'dark' ? 'border-neutral-800 text-neutral-400' : 'border-neutral-200 text-neutral-800'
             }`}>
               <div className="flex items-center gap-2">
                 <User className="w-3.5 h-3.5 text-[#DC2626]" />
@@ -110,7 +110,7 @@ export const BlogArticleModal: React.FC<BlogArticleModalProps> = ({
                   {sec.heading}
                 </h2>
                 <div className={`space-y-2 text-sm leading-relaxed ${
-                  theme === 'dark' ? 'text-neutral-300' : 'text-neutral-600'
+                  theme === 'dark' ? 'text-neutral-300' : 'text-neutral-800'
                 }`}>
                   {sec.body.map((paragraph, pIdx) => (
                     <p key={pIdx}>{paragraph}</p>
@@ -138,7 +138,7 @@ export const BlogArticleModal: React.FC<BlogArticleModalProps> = ({
               Summary & Next Steps
             </h3>
             <p className={`text-sm leading-relaxed ${
-              theme === 'dark' ? 'text-neutral-300' : 'text-neutral-600'
+              theme === 'dark' ? 'text-neutral-300' : 'text-neutral-800'
             }`}>
               {post.content.conclusion}
             </p>
@@ -176,7 +176,7 @@ export const BlogArticleModal: React.FC<BlogArticleModalProps> = ({
               <div className={`text-xs font-bold ${theme === 'dark' ? 'text-white' : 'text-neutral-900'}`}>
                 Want your team trained on this topic?
               </div>
-              <div className={`text-[11px] ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'}`}>
+              <div className={`text-[11px] ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'}`}>
                 Request a live workshop or executive briefing.
               </div>
             </div>

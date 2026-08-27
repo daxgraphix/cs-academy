@@ -62,7 +62,7 @@ export const ForOrganizationsSection: React.FC<ForOrganizationsSectionProps> = (
     <section 
       id="for-organizations-section" 
       className={`py-24 border-y transition-colors duration-300 relative ${
-        theme === 'dark' ? 'bg-[#0B0B0B] text-white border-neutral-800' : 'bg-[#FAFAFA] text-neutral-900 border-neutral-200'
+        theme === 'dark' ? 'bg-[#0B0B0B] text-white border-neutral-800' : 'bg-[#FAFAFA] text-neutral-900 border-neutral-300'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -79,7 +79,7 @@ export const ForOrganizationsSection: React.FC<ForOrganizationsSectionProps> = (
             {t.organizations.title}
           </h2>
           <p className={`text-base sm:text-lg leading-relaxed ${
-            theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'
+            theme === 'dark' ? 'text-neutral-400' : 'text-neutral-800'
           }`}>
             {t.organizations.subtitle}
           </p>
@@ -95,7 +95,7 @@ export const ForOrganizationsSection: React.FC<ForOrganizationsSectionProps> = (
                 className={`p-6 rounded-3xl border transition-all duration-200 hover:-translate-y-1 space-y-3 flex flex-col justify-between shadow-sm ${
                   theme === 'dark'
                     ? 'bg-[#171717] border-neutral-800 hover:border-neutral-700'
-                    : 'bg-white border-neutral-200 hover:border-red-200 hover:shadow-md'
+                    : 'bg-white border-neutral-300 hover:border-red-400 hover:shadow-md'
                 }`}
               >
                 <div className="space-y-2.5">
@@ -105,7 +105,7 @@ export const ForOrganizationsSection: React.FC<ForOrganizationsSectionProps> = (
                     <Icon className="w-5 h-5" />
                   </div>
                   <h3 className={`text-sm font-extrabold ${theme === 'dark' ? 'text-white' : 'text-neutral-900'}`}>{service.title}</h3>
-                  <p className={`text-xs leading-relaxed ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'}`}>{service.desc}</p>
+                  <p className={`text-xs leading-relaxed ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-800'}`}>{service.desc}</p>
                 </div>
                 <button
                   onClick={() => openBookingModal({ program: service.title, organizationType: 'Corporate/Enterprise' })}
@@ -174,7 +174,7 @@ export const ForOrganizationsSection: React.FC<ForOrganizationsSectionProps> = (
                 className={`w-full py-3 px-6 text-xs font-bold rounded-2xl border transition-colors uppercase tracking-wider text-center ${
                   theme === 'dark'
                     ? 'text-neutral-200 hover:text-white bg-[#0B0B0B] hover:bg-neutral-800 border-neutral-800'
-                    : 'text-neutral-800 hover:text-neutral-950 bg-white hover:bg-neutral-100 border-neutral-200'
+                    : 'text-neutral-800 hover:text-neutral-950 bg-white hover:bg-neutral-100 border-neutral-300'
                 }`}
               >
                 BOOK A CONSULTATION

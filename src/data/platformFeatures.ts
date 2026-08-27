@@ -2,21 +2,6 @@ import { PlatformFeature } from '../types';
 
 export const platformFeaturesData: PlatformFeature[] = [
   {
-    id: 'video-courses',
-    title: 'Video Courses',
-    shortDescription: 'Structured, Swahili-language video modules powered by YouTube and SproutVideo.',
-    fullDescription: 'Learn at your own pace with clear, step-by-step tutorials filmed in high definition. Every lesson is crafted in clear, accessible Swahili by experienced tech professionals, making programming, design, and AI easy to understand.',
-    icon: 'Video',
-    badge: '100% Swahili Instruction',
-    points: [
-      'High-definition video streaming powered by YouTube & SproutVideo',
-      'Step-by-step tutorials from beginner to job-ready builder',
-      'Learn at your own pace on any smartphone, tablet, or PC',
-      'Downloadable source code and project starter files'
-    ],
-    swahiliNote: 'Mafunzo ya video kwa lugha rahisi ya Kiswahili kuanzia mwanzo hadi ngazi ya juu.'
-  },
-  {
     id: 'quizzes-assessment',
     title: 'Quizzes & Assessment',
     shortDescription: 'Test your understanding with scored quizzes after each module.',

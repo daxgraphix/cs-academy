@@ -82,7 +82,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 <span className="w-1.5 h-1.5 rounded-full bg-[#ff3b30]" />
               </div>
               <p className={`hidden sm:block text-[9px] font-semibold tracking-[0.14em] uppercase ${
-                theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'
+                theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'
               }`}>
                 Tech Education
               </p>
@@ -97,7 +97,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               className={`px-3 py-2 rounded-full text-[11px] font-bold uppercase tracking-[0.18em] transition-all ${
                 currentRoute === 'home' 
                   ? theme === 'dark' ? 'text-white bg-white/5 border border-white/10' : 'text-neutral-900 bg-white border border-neutral-200'
-                  : theme === 'dark' ? 'text-neutral-300 hover:text-white hover:bg-white/5' : 'text-neutral-600 hover:text-neutral-900 hover:bg-white'
+                  : theme === 'dark' ? 'text-neutral-300 hover:text-white hover:bg-white/5' : 'text-neutral-800 hover:text-neutral-900 hover:bg-white'
               }`}
             >
               Home
@@ -109,7 +109,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all ${
                 currentRoute === 'features' 
                   ? theme === 'dark' ? 'text-white bg-neutral-900 border border-neutral-800' : 'text-neutral-900 bg-neutral-100 border border-neutral-200'
-                  : theme === 'dark' ? 'text-neutral-300 hover:text-white hover:bg-neutral-900/50' : 'text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100'
+                  : theme === 'dark' ? 'text-neutral-300 hover:text-white hover:bg-neutral-900/50' : 'text-neutral-800 hover:text-neutral-900 hover:bg-neutral-100'
               }`}
             >
                 <span>Features</span>
@@ -124,7 +124,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 className={`flex items-center gap-1 px-3 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all ${
                   currentRoute.startsWith('programs')
                     ? theme === 'dark' ? 'text-white bg-neutral-900 border border-neutral-800' : 'text-neutral-900 bg-neutral-100 border border-neutral-200'
-                    : theme === 'dark' ? 'text-neutral-300 hover:text-white hover:bg-neutral-900/50' : 'text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100'
+                    : theme === 'dark' ? 'text-neutral-300 hover:text-white hover:bg-neutral-900/50' : 'text-neutral-800 hover:text-neutral-900 hover:bg-neutral-100'
                 }`}
               >
                 <span>Programs</span>
@@ -164,7 +164,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                       <div className={`text-xs font-bold transition-colors group-hover/item:text-[#DC2626] ${
                         theme === 'dark' ? 'text-white' : 'text-neutral-900'
                       }`}>AI & Vibe Coding</div>
-                      <div className={`text-[11px] ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'}`}>
+                      <div className={`text-[11px] ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'}`}>
                         Prompting, LLMs, AI Safety & Swahili Prompts
                       </div>
                     </div>
@@ -181,7 +181,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                       <div className={`text-xs font-bold transition-colors group-hover/item:text-[#DC2626] ${
                         theme === 'dark' ? 'text-white' : 'text-neutral-900'
                       }`}>Cybersecurity Academy</div>
-                      <div className={`text-[11px] ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'}`}>
+                      <div className={`text-[11px] ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'}`}>
                         Digital Defense, Phishing Prevention & Data Safety
                       </div>
                     </div>
@@ -198,7 +198,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                       <div className={`text-xs font-bold transition-colors group-hover/item:text-[#DC2626] ${
                         theme === 'dark' ? 'text-white' : 'text-neutral-900'
                       }`}>Full-Stack & Digital Skills</div>
-                      <div className={`text-[11px] ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'}`}>
+                      <div className={`text-[11px] ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'}`}>
                         Web Dev, Figma UI/UX & Digital Marketing
                       </div>
                     </div>
@@ -213,7 +213,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               className={`px-3 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all ${
                 currentRoute === 'learning-formats' 
                   ? theme === 'dark' ? 'text-white bg-neutral-900 border border-neutral-800' : 'text-neutral-900 bg-neutral-100 border border-neutral-200'
-                  : theme === 'dark' ? 'text-neutral-300 hover:text-white hover:bg-neutral-900/50' : 'text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100'
+                  : theme === 'dark' ? 'text-neutral-300 hover:text-white hover:bg-neutral-900/50' : 'text-neutral-800 hover:text-neutral-900 hover:bg-neutral-100'
               }`}
             >
               Formats
@@ -225,7 +225,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               className={`flex items-center gap-1 px-3 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all ${
                 currentRoute === 'for-organizations' 
                   ? theme === 'dark' ? 'text-white bg-neutral-900 border border-neutral-800' : 'text-neutral-900 bg-neutral-100 border border-neutral-200'
-                  : theme === 'dark' ? 'text-neutral-300 hover:text-white hover:bg-neutral-900/50' : 'text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100'
+                  : theme === 'dark' ? 'text-neutral-300 hover:text-white hover:bg-neutral-900/50' : 'text-neutral-800 hover:text-neutral-900 hover:bg-neutral-100'
               }`}
             >
               <span>Teams</span>
@@ -237,7 +237,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               className={`px-3 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all ${
                 currentRoute === 'pricing' 
                   ? theme === 'dark' ? 'text-white bg-neutral-900 border border-neutral-800' : 'text-neutral-900 bg-neutral-100 border border-neutral-200'
-                  : theme === 'dark' ? 'text-neutral-300 hover:text-white hover:bg-neutral-900/50' : 'text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100'
+                  : theme === 'dark' ? 'text-neutral-300 hover:text-white hover:bg-neutral-900/50' : 'text-neutral-800 hover:text-neutral-900 hover:bg-neutral-100'
               }`}
             >
               Pricing
@@ -249,7 +249,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               className={`flex items-center gap-1 px-3 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all ${
                 currentRoute === 'resources' 
                   ? theme === 'dark' ? 'text-white bg-neutral-900 border border-neutral-800' : 'text-neutral-900 bg-neutral-100 border border-neutral-200'
-                  : theme === 'dark' ? 'text-neutral-300 hover:text-white hover:bg-neutral-900/50' : 'text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100'
+                  : theme === 'dark' ? 'text-neutral-300 hover:text-white hover:bg-neutral-900/50' : 'text-neutral-800 hover:text-neutral-900 hover:bg-neutral-100'
               }`}
             >
               <span>Resources</span>
@@ -261,7 +261,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               className={`px-3 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all ${
                 currentRoute === 'about' 
                   ? theme === 'dark' ? 'text-white bg-neutral-900 border border-neutral-800' : 'text-neutral-900 bg-neutral-100 border border-neutral-200'
-                  : theme === 'dark' ? 'text-neutral-300 hover:text-white hover:bg-neutral-900/50' : 'text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100'
+                  : theme === 'dark' ? 'text-neutral-300 hover:text-white hover:bg-neutral-900/50' : 'text-neutral-800 hover:text-neutral-900 hover:bg-neutral-100'
               }`}
             >
               About

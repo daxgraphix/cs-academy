@@ -93,7 +93,7 @@ export const WhyCSAcademy: React.FC<WhyCSAcademyProps> = ({
     <section 
       id="why-cs-academy-section" 
       className={`py-24 border-y transition-colors duration-300 ${
-        theme === 'dark' ? 'bg-[#121212] text-white border-neutral-800' : 'bg-neutral-50 text-neutral-900 border-neutral-200'
+        theme === 'dark' ? 'bg-[#121212] text-white border-neutral-800' : 'bg-neutral-50 text-neutral-900 border-neutral-300'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -109,7 +109,7 @@ export const WhyCSAcademy: React.FC<WhyCSAcademyProps> = ({
             {t.whyUs.title}
           </h2>
           <p className={`text-base sm:text-lg leading-relaxed ${
-            theme === 'dark' ? 'text-neutral-300' : 'text-neutral-600'
+            theme === 'dark' ? 'text-neutral-300' : 'text-neutral-800'
           }`}>
             {t.whyUs.subtitle}
           </p>
@@ -123,12 +123,12 @@ export const WhyCSAcademy: React.FC<WhyCSAcademyProps> = ({
             <div 
               key={i}
               className={`p-5 rounded-2xl border text-center ${
-                theme === 'dark' ? 'bg-[#0B0B0B] border-neutral-800' : 'bg-white border-neutral-200 shadow-sm'
+                theme === 'dark' ? 'bg-[#0B0B0B] border-neutral-800' : 'bg-white border-neutral-300 shadow-sm'
               }`}
             >
               <div className="text-2xl sm:text-3xl font-black tracking-tight text-[#DC2626]">{stat.value}</div>
               <div className={`mt-1 text-[11px] font-semibold uppercase tracking-wider ${
-                theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'
+                theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'
               }`}>{stat.label}</div>
             </div>
           ))}
@@ -144,7 +144,7 @@ export const WhyCSAcademy: React.FC<WhyCSAcademyProps> = ({
                 className={`p-5 rounded-3xl border transition-all duration-200 hover:-translate-y-1 space-y-2.5 flex flex-col justify-between shadow-sm ${
                   theme === 'dark'
                     ? 'bg-[#0B0B0B] border-neutral-800 hover:border-neutral-700'
-                    : 'bg-white border-neutral-200 hover:border-red-200 hover:shadow-md'
+                    : 'bg-white border-neutral-300 hover:border-red-400 hover:shadow-md'
                 }`}
               >
                 <div className="space-y-2">
@@ -157,7 +157,7 @@ export const WhyCSAcademy: React.FC<WhyCSAcademyProps> = ({
                     theme === 'dark' ? 'text-white' : 'text-neutral-900'
                   }`}>{item.title}</h3>
                   <p className={`text-xs leading-relaxed ${
-                    theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'
+                    theme === 'dark' ? 'text-neutral-400' : 'text-neutral-800'
                   }`}>{item.desc}</p>
                 </div>
               </div>
@@ -168,13 +168,13 @@ export const WhyCSAcademy: React.FC<WhyCSAcademyProps> = ({
         {/* Closing CTA */}
         {openBookingModal && (
           <div className={`mt-12 rounded-3xl border p-8 sm:p-10 flex flex-col sm:flex-row items-center justify-between gap-6 ${
-            theme === 'dark' ? 'bg-[#0B0B0B] border-neutral-800' : 'bg-white border-neutral-200 shadow-sm'
+            theme === 'dark' ? 'bg-[#0B0B0B] border-neutral-800' : 'bg-white border-neutral-300 shadow-sm'
           }`}>
             <div className="space-y-1 text-center sm:text-left">
               <h3 className={`text-xl font-extrabold ${theme === 'dark' ? 'text-white' : 'text-neutral-900'}`}>
                 Ready to start your journey?
               </h3>
-              <p className={`text-sm ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'}`}>
+              <p className={`text-sm ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-800'}`}>
                 Join the next hands-on, practical training cohort.
               </p>
             </div>

@@ -32,7 +32,7 @@ export const AudienceStrip: React.FC = () => {
           {/* Label */}
           <div className="text-center md:text-left">
             <span className={`text-xs font-mono font-bold tracking-wider uppercase ${
-              theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'
+              theme === 'dark' ? 'text-neutral-400' : 'text-neutral-800'
             }`}>
               PRACTICAL LEARNING FOR THE DIGITAL GENERATION ACROSS AFRICA
             </span>
