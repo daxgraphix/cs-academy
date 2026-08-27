@@ -1,0 +1,161 @@
+import React from 'react';
+import { siteConfig } from '../config/site';
+import { useApp } from '../context/AppContext';
+import { 
+  ShieldCheck, 
+  Sparkles, 
+  Globe2, 
+  ArrowRight,
+  CheckCircle2,
+  Users,
+  Award,
+  BookOpen
+} from 'lucide-react';
+
+interface AboutSectionProps {
+  openBookingModal: (prefill?: { program?: string }) => void;
+}
+
+export const AboutSection: React.FC<AboutSectionProps> = ({
+  openBookingModal
+}) => {
+  const { language, theme, t } = useApp();
+
+  return (
+    <section 
+      id="about-section" 
+      className={`py-24 border-y transition-colors duration-300 relative ${
+        theme === 'dark' ? 'bg-[#121212] text-white border-neutral-800' : 'bg-neutral-50 text-neutral-900 border-neutral-200'
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-red-950/40 border border-red-800/40 text-[#DC2626] text-xs font-mono font-bold uppercase tracking-wider">
+            <BookOpen className="w-3.5 h-3.5" />
+            <span>{t.about.badge}</span>
+          </div>
+          <h2 className={`text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight ${
+            theme === 'dark' ? 'text-white' : 'text-neutral-950'
+          }`}>
+            {t.about.title}
+          </h2>
+          <p className={`text-base sm:text-lg leading-relaxed ${
+            theme === 'dark' ? 'text-neutral-300' : 'text-neutral-600'
+          }`}>
+            {t.about.subtitle}
+          </p>
+        </div>
+
+        {/* 2-Column Story & Purpose */}
+        <div className="grid lg:grid-cols-12 gap-12 items-center mb-16">
+          
+          {/* Left Text (7 cols) */}
+          <div className="lg:col-span-7 space-y-6">
+            <div className={`space-y-4 text-sm sm:text-base leading-relaxed ${
+              theme === 'dark' ? 'text-neutral-300' : 'text-neutral-700'
+            }`}>
+              <p>
+                {language === 'sw'
+                  ? 'CS Academy ni jukwaa la elimu ya teknolojia lililobuniwa kuondoa vikwazo vya lugha na kuwajengea vijana, wafanyakazi na wafanyabiashara ujuzi wa vitendo katika Akili Mnemba (AI), Usalama wa Kidijitali na Mifumo ya Kisasa.'
+                  : 'CS Academy was founded to bridge the digital skills gap for learners across East and Central Africa. We believe that technical jargon and foreign languages should never be a barrier to mastering transformative technologies.'}
+              </p>
+              <p>
+                {language === 'sw'
+                  ? 'Tunatoa mafunzo kwa njia rahisi ya sauti ya WhatsApp, vipindi vya moja kwa moja mtandaoni (Zoom), pamoja na warsha za ana kwa ana katika ofisi na vyuo vikuu.'
+                  : 'We offer structured curricula in AI prompting, vibe coding, defensive cybersecurity, and workplace productivity—all delivered through flexible multi-channel formats.'}
+              </p>
+            </div>
+
+            {/* Core Values Badges */}
+            <div className="grid sm:grid-cols-2 gap-3 pt-2">
+              {siteConfig.values.map((val, idx) => (
+                <div 
+                  key={idx} 
+                  className={`p-4 rounded-2xl border space-y-1 ${
+                    theme === 'dark' ? 'bg-[#0B0B0B] border-neutral-800' : 'bg-white border-neutral-200 shadow-sm'
+                  }`}
+                >
+                  <div className="flex items-center gap-2 text-xs font-extrabold text-[#DC2626] uppercase">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#DC2626]" />
+                    <span>{val.title}</span>
+                  </div>
+                  <p className={`text-xs leading-relaxed ${
+                    theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'
+                  }`}>{val.description}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="pt-2">
+              <button
+                id="btn-work-with-academy"
+                onClick={() => openBookingModal({ program: 'Web Development & Digital Skills Cohort' })}
+                className="inline-flex items-center gap-2 px-8 py-4 text-xs font-extrabold text-white bg-[#B91C1C] hover:bg-[#DC2626] rounded-2xl shadow-lg uppercase tracking-wider transition-all"
+              >
+                <span>{language === 'sw' ? 'JIUNGE NA COHORT IJAYO' : 'JOIN NEXT COHORT'}</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            </div>
+          </div>
+
+          {/* Right: Vision & Accessibility Card (5 cols) */}
+          <div className={`lg:col-span-5 border rounded-3xl p-8 shadow-2xl space-y-6 ${
+            theme === 'dark' ? 'bg-[#0B0B0B] border-neutral-800' : 'bg-white border-neutral-200 shadow-neutral-200'
+          }`}>
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#B91C1C] to-black p-0.5 shadow-md flex items-center justify-center">
+                <div className={`w-full h-full rounded-[14px] flex items-center justify-center font-black text-base ${
+                  theme === 'dark' ? 'bg-[#0B0B0B] text-white' : 'bg-white text-neutral-950'
+                }`}>
+                  <span className="text-[#DC2626]">C</span>S
+                </div>
+              </div>
+              <div>
+                <h3 className={`text-lg font-extrabold ${
+                  theme === 'dark' ? 'text-white' : 'text-neutral-900'
+                }`}>CS ACADEMY</h3>
+                <p className={`text-xs font-mono ${
+                  theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'
+                }`}>CyberSwahili Tech Ecosystem</p>
+              </div>
+            </div>
+
+            <div className={`p-4 rounded-2xl border space-y-2 ${
+              theme === 'dark' ? 'bg-[#171717] border-neutral-800' : 'bg-neutral-50 border-neutral-200'
+            }`}>
+              <span className="text-[10px] font-mono uppercase font-bold text-[#DC2626]">
+                {language === 'sw' ? 'Maono Yetu' : 'Our Vision'}
+              </span>
+              <p className={`text-xs leading-relaxed font-medium ${
+                theme === 'dark' ? 'text-neutral-200' : 'text-neutral-800'
+              }`}>
+                {siteConfig.vision}
+              </p>
+            </div>
+
+            <div className={`space-y-2.5 pt-1 text-xs ${
+              theme === 'dark' ? 'text-neutral-300' : 'text-neutral-700'
+            }`}>
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-[#DC2626] shrink-0" />
+                <span>{language === 'sw' ? 'Maudhui yenye viwango vya kimataifa kwa Kiswahili' : 'Curricula taught in clear Swahili & English'}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-[#DC2626] shrink-0" />
+                <span>{language === 'sw' ? 'Malipo rahisi ya simu (M-Pesa, Tigo, Airtel Money)' : 'Instant mobile money integration (M-Pesa & Airtel)'}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-[#DC2626] shrink-0" />
+                <span>{language === 'sw' ? 'Jumuiya hai ya WhatsApp ya msaada na mentorship' : 'Active WhatsApp community of 1,200+ tech learners'}</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  );
+};

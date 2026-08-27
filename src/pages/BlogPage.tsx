@@ -1,0 +1,186 @@
+import React, { useState } from 'react';
+import { blogPostsData } from '../data/blog';
+import { BlogPost } from '../types';
+import { useApp } from '../context/AppContext';
+import { ShareButtons } from '../components/ShareButtons';
+import { 
+  Clock, 
+  User, 
+  ArrowRight, 
+  Search, 
+  BookOpen, 
+  Tag,
+  Sparkles
+} from 'lucide-react';
+
+interface BlogPageProps {
+  openBlogArticleModal: (post: BlogPost) => void;
+}
+
+export const BlogPage: React.FC<BlogPageProps> = ({
+  openBlogArticleModal
+}) => {
+  const { language, theme } = useApp();
+  const [selectedCategory, setSelectedCategory] = useState<string>('ALL');
+  const [search, setSearch] = useState<string>('');
+
+  const categories = ['ALL', 'AI Literacy', 'Cybersecurity', 'Education', 'Business', 'Swahili AI'];
+
+  const filtered = blogPostsData.filter(post => {
+    const matchCat = selectedCategory === 'ALL' || post.category === selectedCategory;
+    const matchSearch = search === '' || 
+      post.title.toLowerCase().includes(search.toLowerCase()) || 
+      post.excerpt.toLowerCase().includes(search.toLowerCase()) ||
+      post.tags.some(t => t.toLowerCase().includes(search.toLowerCase()));
+    return matchCat && matchSearch;
+  });
+
+  return (
+    <div className={`pt-28 pb-20 min-h-screen transition-colors duration-300 ${
+      theme === 'dark' ? 'bg-[#0B0B0B] text-white' : 'bg-white text-neutral-900'
+    }`}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+        
+        {/* Header */}
+        <div className="text-center max-w-3xl mx-auto space-y-4 pt-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-red-950/40 border border-red-800/40 text-[#DC2626] text-xs font-mono font-bold uppercase tracking-wider">
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>{language === 'sw' ? 'Makala & Ufahamu wa Kidijitali' : 'Essays, Insights & Practical Analysis'}</span>
+          </div>
+          <h1 className={`text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight ${
+            theme === 'dark' ? 'text-white' : 'text-neutral-950'
+          }`}>
+            CS ACADEMY <span className="text-[#DC2626]">BLOG</span>
+          </h1>
+          <p className={`text-base sm:text-lg leading-relaxed ${
+            theme === 'dark' ? 'text-neutral-300' : 'text-neutral-600'
+          }`}>
+            {language === 'sw'
+              ? 'Makala za kitaalamu, mafunzo ya vitendo, na uchambuzi wa kina kuhusu AI na usalama wa kimtandao Afrika.'
+              : 'Thought leadership, practical tutorials, and ethical considerations surrounding artificial intelligence and cybersecurity in Africa.'}
+          </p>
+        </div>
+
+        {/* Search and Filter */}
+        <div className={`flex flex-col md:flex-row gap-4 items-center justify-between p-4 rounded-2xl border ${
+          theme === 'dark' ? 'bg-[#171717] border-neutral-800' : 'bg-neutral-50 border-neutral-200 shadow-sm'
+        }`}>
+          <div className="relative w-full md:w-80">
+            <Search className={`w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 ${
+              theme === 'dark' ? 'text-neutral-500' : 'text-neutral-400'
+            }`} />
+            <input
+              type="text"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              placeholder={language === 'sw' ? 'Tafuta makala, mada...' : 'Search articles, topics...'}
+              className={`w-full pl-10 pr-4 py-2.5 rounded-xl text-xs focus:outline-none focus:border-[#DC2626] border ${
+                theme === 'dark'
+                  ? 'bg-[#0B0B0B] border-neutral-800 text-white placeholder-neutral-500'
+                  : 'bg-white border-neutral-200 text-neutral-900 placeholder-neutral-400 shadow-sm'
+              }`}
+            />
+          </div>
+
+          {/* Category Tabs */}
+          <div className="flex items-center gap-1.5 overflow-x-auto w-full md:w-auto">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setSelectedCategory(cat)}
+                className={`px-3 py-1.5 rounded-xl text-xs font-bold uppercase tracking-wider whitespace-nowrap transition-all ${
+                  selectedCategory === cat 
+                    ? 'bg-[#B91C1C] text-white shadow-sm' 
+                    : theme === 'dark'
+                    ? 'text-neutral-400 hover:text-white bg-[#0B0B0B] border border-neutral-800'
+                    : 'text-neutral-600 hover:text-neutral-950 bg-white border border-neutral-200'
+                }`}
+              >
+                {cat === 'ALL' ? (language === 'sw' ? 'ZOTE' : 'ALL') : cat}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Articles Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {filtered.map((post) => (
+            <article
+              key={post.id}
+              onClick={() => openBlogArticleModal(post)}
+              className={`border rounded-3xl p-6 flex flex-col justify-between cursor-pointer transition-all duration-200 hover:-translate-y-1 shadow-sm group ${
+                theme === 'dark'
+                  ? 'bg-[#171717] border-neutral-800 hover:border-neutral-700'
+                  : 'bg-neutral-50 border-neutral-200 hover:border-red-200 hover:shadow-lg'
+              }`}
+            >
+              <div className="space-y-4">
+                <div className="flex items-center justify-between text-xs">
+                  <span className={`font-mono text-[10px] font-bold px-2.5 py-0.5 rounded border ${
+                    theme === 'dark' ? 'text-[#DC2626] bg-red-950/60 border-red-900/40' : 'text-[#DC2626] bg-red-50 border-red-200'
+                  }`}>
+                    {post.category}
+                  </span>
+                  <div className={`flex items-center gap-1.5 font-mono text-[11px] ${
+                    theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'
+                  }`}>
+                    <Clock className="w-3.5 h-3.5" />
+                    <span>{post.readingTime}</span>
+                  </div>
+                </div>
+
+                <div>
+                  <h3 className={`text-xl font-bold tracking-tight group-hover:text-[#DC2626] transition-colors leading-snug ${
+                    theme === 'dark' ? 'text-white' : 'text-neutral-900'
+                  }`}>
+                    {post.title}
+                  </h3>
+                  <p className={`text-xs mt-2 line-clamp-3 leading-relaxed ${
+                    theme === 'dark' ? 'text-neutral-300' : 'text-neutral-600'
+                  }`}>
+                    {post.excerpt}
+                  </p>
+                </div>
+
+                <div className="flex flex-wrap gap-1.5 pt-2">
+                  {post.tags.map((t, idx) => (
+                    <span key={idx} className={`text-[10px] font-mono px-2 py-0.5 rounded border ${
+                      theme === 'dark' ? 'bg-[#0B0B0B] text-neutral-400 border-neutral-800' : 'bg-white text-neutral-600 border-neutral-200'
+                    }`}>
+                      #{t}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className={`pt-4 mt-4 border-t flex flex-col gap-3 ${
+                theme === 'dark' ? 'border-neutral-800 text-neutral-400' : 'border-neutral-200 text-neutral-600'
+              }`}>
+                <div className="flex items-center justify-between text-xs">
+                  <div className="flex items-center gap-2">
+                    <User className="w-4 h-4 text-[#DC2626]" />
+                    <span className="font-semibold">{post.author}</span>
+                  </div>
+                  <div className="flex items-center gap-1 font-bold text-[#DC2626] group-hover:translate-x-1 transition-transform">
+                    <span>{language === 'sw' ? 'Soma Makala' : 'Read Article'}</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </div>
+                </div>
+
+                {/* Social Share Buttons */}
+                <div className="pt-2 border-t border-dashed border-neutral-800/40 dark:border-neutral-800/80 flex items-center justify-between">
+                  <ShareButtons
+                    title={post.title}
+                    description={post.excerpt}
+                    variant="compact"
+                  />
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+
+      </div>
+    </div>
+  );
+};
