@@ -4,12 +4,7 @@ import { useApp } from '../context/AppContext';
 import {
   ArrowRight,
   CheckCircle2,
-  Sparkles,
-  ShieldCheck,
-  Smartphone,
-  Terminal,
-  Star,
-  MessageSquareText
+  Smartphone
 } from 'lucide-react';
 
 interface HeroProps {
@@ -21,19 +16,7 @@ export const Hero: React.FC<HeroProps> = ({
   setCurrentRoute,
   openBookingModal
 }) => {
-  const { language, theme, t } = useApp();
-
-  const steps = language === 'sw'
-    ? [
-      { number: '01', title: 'Eleza wazo', text: 'Eleza unachotaka kwa lugha rahisi.' },
-      { number: '02', title: 'Jenga kwa AI', text: 'Tengeneza mwonekano, mantiki na mtiririko.' },
-      { number: '03', title: 'Anza kutumia', text: 'Jenga ujuzi na bidhaa za matumizi halisi.' }
-    ]
-    : [
-      { number: '01', title: 'Describe it', text: 'Explain your idea in plain language.' },
-      { number: '02', title: 'Build with AI', text: 'Create the UI, logic, and product flow.' },
-      { number: '03', title: 'Put it to work', text: 'Ship real apps and skills with confidence.' }
-    ];
+  const { theme, t } = useApp();
 
   return (
     <section
@@ -50,25 +33,16 @@ export const Hero: React.FC<HeroProps> = ({
       <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:42px_42px] [mask-image:radial-gradient(ellipse_80%_60%_at_45%_40%,#000_55%,transparent_100%)] opacity-40" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-10 lg:gap-12 items-center">
+        <div className="max-w-4xl">
           <div className="space-y-8">
-            <div className={`inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border ${
-              theme === 'dark'
-                ? 'bg-white/5 border-white/10 text-neutral-300'
-                : 'bg-white/80 border-neutral-200 text-neutral-700'
-            }`}>
-              <span className="h-2 w-2 rounded-full bg-[#ff3b30]" />
-              <span className="text-[10px] font-bold uppercase tracking-[0.22em]">{t.hero.badgeHighlight}</span>
-            </div>
-
             <div className="space-y-5">
               <h1 className={`text-4xl sm:text-6xl lg:text-[5.2rem] lg:leading-[0.94] font-black tracking-[-0.06em] break-words ${
                 theme === 'dark' ? 'text-white' : 'text-neutral-950'
               }`}>
-                {t.hero.headlineMain}{' '}
+                {t.hero.headlineMain} 
                 <span className="text-[#ff3b30]">{t.hero.headlineHighlight}</span>
                 <br className="hidden sm:block" />
-                {language === 'sw' ? 'kwa kazi, biashara na maisha.' : 'for work, business, and life.'}
+                for work, business, and life.
               </h1>
 
               <p className={`max-w-xl text-lg leading-relaxed ${
@@ -81,8 +55,8 @@ export const Hero: React.FC<HeroProps> = ({
             <div className={`flex flex-wrap items-center gap-x-5 gap-y-2 text-[11px] font-semibold ${
               theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'
             }`}>
-              <span className="inline-flex items-center gap-1.5"><CheckCircle2 className="h-3.5 w-3.5 text-emerald-500" /> {language === 'sw' ? 'Huhitaji uzoefu wa awali' : 'No prior experience required'}</span>
-              <span className="inline-flex items-center gap-1.5"><Smartphone className="h-3.5 w-3.5 text-[#ff3b30]" /> {language === 'sw' ? 'Jifunze kwa simu au kompyuta' : 'Learn on phone or computer'}</span>
+              <span className="inline-flex items-center gap-1.5"><CheckCircle2 className="h-3.5 w-3.5 text-emerald-500" /> No prior experience required</span>
+              <span className="inline-flex items-center gap-1.5"><Smartphone className="h-3.5 w-3.5 text-[#ff3b30]" /> Learn on phone or computer</span>
             </div>
 
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
@@ -129,108 +103,12 @@ export const Hero: React.FC<HeroProps> = ({
               ))}
             </div>
           </div>
-
-          <div className="relative flex items-center justify-center">
-            <div className={`relative w-full max-w-[520px] rounded-[2rem] border p-4 sm:p-5 shadow-[0_25px_80px_rgba(0,0,0,0.45)] ${
-              theme === 'dark'
-                ? 'bg-[#111111] border-white/10 text-white'
-                : 'bg-[#fffdfb] border-neutral-200 text-neutral-900'
-            }`}>
-              <div className="absolute inset-0 rounded-[2rem] bg-[radial-gradient(circle_at_top,_rgba(255,59,48,0.14),transparent_38%)]" />
-
-              <div className="relative z-10 space-y-4">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-2.5 py-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-neutral-300">
-                    <Terminal className="h-3.5 w-3.5 text-[#ff3b30]" />
-                    Speak.AI
-                  </div>
-
-                  <div className="flex items-center gap-2 rounded-full border border-[#ff3b30]/30 bg-[#ff3b30]/10 px-2.5 py-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-[#ff9e95]">
-                    <span className="h-2 w-2 rounded-full bg-[#ff3b30] animate-pulse" />
-                    Live
-                  </div>
-                </div>
-
-                <div className={`rounded-[1.5rem] border p-4 shadow-inner ${
-                  theme === 'dark' ? 'border-white/10 bg-[#0c0c0c]' : 'border-neutral-200 bg-neutral-100'
-                }`}>
-                  <div className="mb-4 flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-neutral-400">
-                    <MessageSquareText className="h-3.5 w-3.5 text-[#ff3b30]" />
-                    Prompt
-                  </div>
-
-                  <div className={`rounded-2xl border border-[#ff3b30]/30 p-4 text-sm ${
-                    theme === 'dark' ? 'bg-[#151515] text-neutral-200' : 'bg-white text-neutral-700'
-                  }`}>
-                    {language === 'sw' ? 'Nataka programu ya kufuatilia mauzo na bidhaa za duka langu la matunda.' : 'I want an app for my fruit stall to track sales and inventory.'}
-                  </div>
-
-                  <div className="mt-4 space-y-3">
-                    <div className="flex items-center justify-between text-[10px] font-bold uppercase tracking-[0.18em] text-neutral-500">
-                      <span>{language === 'sw' ? 'Programu iliyojengwa' : 'Generated app'}</span>
-                      <span>09:41</span>
-                    </div>
-
-                    <div className={`rounded-2xl border p-3 ${
-                      theme === 'dark' ? 'border-white/10 bg-[#151515]' : 'border-neutral-200 bg-white'
-                    }`}>
-                      <div className={`mb-3 flex items-center gap-2 text-xs ${theme === 'dark' ? 'text-neutral-300' : 'text-neutral-700'}`}>
-                        <span className="h-2 w-2 rounded-full bg-[#ff3b30]" />
-                        Fresh Market
-                      </div>
-                      <div className="space-y-2 text-xs text-neutral-400">
-                        <div className="flex items-center justify-between rounded-xl bg-white/5 px-3 py-2">
-                          <span>{language === 'sw' ? 'Tikiti maji' : 'Watermelon'}</span>
-                          <span>TZS 25/kg</span>
-                        </div>
-                        <div className="flex items-center justify-between rounded-xl bg-white/5 px-3 py-2">
-                          <span>{language === 'sw' ? 'Machungwa' : 'Oranges'}</span>
-                          <span>TZS 8/kg</span>
-                        </div>
-                        <div className="flex items-center justify-between rounded-xl bg-white/5 px-3 py-2">
-                          <span>{language === 'sw' ? 'Maembe' : 'Mangoes'}</span>
-                          <span>TZS 12/kg</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-3 gap-3">
-                  {steps.map((step) => (
-                    <div key={step.number} className={`rounded-2xl border p-3 ${
-                      theme === 'dark'
-                        ? 'border-white/10 bg-white/5'
-                        : 'border-neutral-200 bg-neutral-50'
-                    }`}>
-                      <div className="mb-2 text-[10px] font-bold uppercase tracking-[0.2em] text-[#ff3b30]">{step.number}</div>
-                      <div className={`text-sm font-semibold ${theme === 'dark' ? 'text-white/90' : 'text-neutral-900'}`}>{step.title}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            <div className={`mt-4 max-w-[220px] rounded-2xl border p-3 shadow-2xl sm:absolute sm:-left-4 sm:bottom-6 sm:mt-0 ${
-              theme === 'dark'
-                ? 'border-[#ff3b30]/30 bg-[#171515] text-white'
-                : 'border-red-200 bg-white text-neutral-900'
-            }`}>
-              <div className="mb-2 flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.18em] text-[#ff3b30]">
-                <ShieldCheck className="h-3.5 w-3.5" />
-                AI + Safety
-              </div>
-              <p className={`text-xs leading-relaxed ${theme === 'dark' ? 'text-neutral-300' : 'text-neutral-600'}`}>
-                {language === 'sw' ? 'Mitaala yenye ulinzi wa data na matumizi salama.' : 'Built with safety and practical outcomes.'}
-              </p>
-            </div>
-          </div>
         </div>
 
         <div className={`mt-14 grid gap-4 md:grid-cols-3 ${theme === 'dark' ? 'text-white' : 'text-neutral-900'}`}>
           {[
             { icon: CheckCircle2, text: 'Learn in English, Swahili, and your local language.' },
-            { icon: Sparkles, text: 'Build real apps, automations, and digital skills fast.' },
+            { icon: Smartphone, text: 'Build real apps, automations, and digital skills fast.' },
             { icon: Smartphone, text: 'Work from anywhere with mobile-friendly, practical learning.' }
           ].map(({ icon: Icon, text }) => (
             <div key={text} className={`flex items-start gap-3 rounded-3xl border p-4 ${
@@ -239,7 +117,7 @@ export const Hero: React.FC<HeroProps> = ({
               <div className="mt-0.5 flex h-10 w-10 items-center justify-center rounded-2xl bg-[#ff3b30]/10 text-[#ff3b30]">
                 <Icon className="h-5 w-5" />
               </div>
-              <p className={`text-sm leading-relaxed ${theme === 'dark' ? 'text-neutral-200' : 'text-neutral-700'}`}>{language === 'sw' ? text.replace('Learn in English, Swahili, and your local language.', 'Jifunze kwa Kiswahili, Kiingereza na lugha yako ya karibu.').replace('Build real apps, automations, and digital skills fast.', 'Jenga programu, otomatiki na ujuzi wa kidijitali haraka.').replace('Work from anywhere with mobile-friendly, practical learning.', 'Jifunze popote kupitia mafunzo rahisi kwa simu.') : text}</p>
+              <p className={`text-sm leading-relaxed ${theme === 'dark' ? 'text-neutral-200' : 'text-neutral-700'}`}>{text}</p>
             </div>
           ))}
         </div>

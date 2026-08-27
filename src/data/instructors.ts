@@ -8,7 +8,6 @@ export const instructorsData: Instructor[] = [
     specialtyBadge: 'AI & Cybersecurity Lead',
     experience: '10+ Years Experience',
     bio: 'Pioneer of Swahili-first technology education, cybersecurity strategist, and AI educator. Alex leads CS Academy curricula, advising regional organizations on AI adoption, digital trust, and practical technological literacy.',
-    bioSw: 'Mwanzilishi wa CS Academy na mtaalamu wa usalama wa mtandao na AI. Alex anaongoza mitaala ya Kiswahili ya kiteknolojia na kushauri mashirika Afrika Mashariki kuhusu matumizi salama ya AI na usalama wa taarifa.',
     avatarInitials: 'AR',
     avatarGradient: 'from-[#DC2626] to-[#7F1D1D]',
     expertise: [
@@ -36,7 +35,6 @@ export const instructorsData: Instructor[] = [
     specialtyBadge: 'Web & Cloud Architecture',
     experience: '8+ Years Experience',
     bio: 'Software engineer and cloud solutions architect with extensive experience building scalable web applications. Passionate about mentoring upcoming African developers and turning technical jargon into intuitive concepts.',
-    bioSw: 'Mhandisi wa programu na usanifu wa mifumo ya wingu (Cloud). Ana uzoefu wa miaka 8 katika kujenga tovuti, mifumo ya API, na kufundisha wanafunzi kuunda programu bila ugumu.',
     avatarInitials: 'FM',
     avatarGradient: 'from-amber-600 to-red-800',
     expertise: [
@@ -64,7 +62,6 @@ export const instructorsData: Instructor[] = [
     specialtyBadge: 'Defensive Security & Threat Hunting',
     experience: '7+ Years Experience',
     bio: 'Certified ethical hacker and information security analyst. David trains enterprise teams and learners in defense-in-depth, mobile money fraud prevention, phishing resilience, and compliance standards.',
-    bioSw: 'Mtaalamu wa usalama wa mifumo ya kidijitali na ukaguzi wa kimtandao. Anafundisha ulinzi wa fedha za simu, kuzuia utapeli mtandaoni (phishing), na mbinu za kulinda mifumo ya makampuni.',
     avatarInitials: 'DO',
     avatarGradient: 'from-red-700 to-neutral-900',
     expertise: [
@@ -92,7 +89,6 @@ export const instructorsData: Instructor[] = [
     specialtyBadge: 'Design Systems & Creative Tech',
     experience: '6+ Years Experience',
     bio: 'Visual designer, brand strategist, and Figma educator helping African startups and digital creators design intuitive user interfaces and impactful marketing assets using modern design workflows.',
-    bioSw: 'Mbunifu wa picha na mifumo ya tovuti na programu za simu (UI/UX). Anaongoza mafunzo ya Figma, usanifu wa chapa, na matumizi ya AI katika kutengeneza picha na mabango ya biashara.',
     avatarInitials: 'NK',
     avatarGradient: 'from-rose-600 to-red-950',
     expertise: [
@@ -119,7 +115,6 @@ export const instructorsData: Instructor[] = [
     specialtyBadge: 'Machine Learning & Swahili NLP',
     experience: '9+ Years Experience',
     bio: 'Data scientist and machine learning engineer researching local language NLP models. Baraka teaches practical data analysis, predictive automation, and business intelligence for corporate and academic institutions.',
-    bioSw: 'Mhandisi wa Data na Akili Mnemba (AI) anayefanya utafiti wa mifumo ya lugha ya asili ya Kiswahili (NLP). Anafundisha uchambuzi wa data, otomatiki ya biashara, na zana za kisasa za AI.',
     avatarInitials: 'BM',
     avatarGradient: 'from-red-900 to-amber-900',
     expertise: [

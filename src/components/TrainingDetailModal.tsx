@@ -1,15 +1,14 @@
 import React from 'react';
 import { TrainingProgram } from '../types';
-import { 
-  X, 
-  CheckCircle2, 
-  Clock, 
-  MapPin, 
-  Users, 
+import {
+  X,
+  CheckCircle2,
+  Clock,
+  MapPin,
+  Users,
   ArrowRight,
   BookOpen
 } from 'lucide-react';
-import { useApp } from '../context/AppContext';
 
 interface TrainingDetailModalProps {
   training: TrainingProgram | null;
@@ -22,7 +21,6 @@ export const TrainingDetailModal: React.FC<TrainingDetailModalProps> = ({
   onClose,
   openBookingModal
 }) => {
-  const { language } = useApp();
   if (!training) return null;
 
   return (
@@ -35,7 +33,7 @@ export const TrainingDetailModal: React.FC<TrainingDetailModalProps> = ({
         <div className="sticky top-0 bg-[#171717]/95 backdrop-blur-md px-6 sm:px-8 py-5 border-b border-neutral-800 flex items-center justify-between z-10">
           <div className="min-w-0">
             <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-red-950/80 border border-red-800/80 text-[#DC2626] uppercase">
-              {training.level} {language === 'sw' ? 'Kiwango' : 'Level'}
+              {training.level} Level
             </span>
             <h3 className="break-words text-xl font-extrabold text-white mt-1">{training.title}</h3>
           </div>
@@ -57,17 +55,17 @@ export const TrainingDetailModal: React.FC<TrainingDetailModalProps> = ({
           <div className="grid sm:grid-cols-2 gap-3 p-4 rounded-xl bg-[#0B0B0B] border border-neutral-800 text-xs">
             <div className="flex min-w-0 flex-wrap items-start gap-2">
               <Users className="w-4 h-4 text-[#DC2626]" />
-              <span className="text-neutral-400">{language === 'sw' ? 'Walengwa:' : 'Audience:'}</span>
+              <span className="text-neutral-400">Audience:</span>
               <span className="min-w-0 break-words font-semibold text-neutral-200">{training.audience}</span>
             </div>
             <div className="flex min-w-0 flex-wrap items-start gap-2">
               <MapPin className="w-4 h-4 text-[#DC2626]" />
-              <span className="text-neutral-400">{language === 'sw' ? 'Njia:' : 'Format:'}</span>
+              <span className="text-neutral-400">Format:</span>
               <span className="min-w-0 break-words font-semibold text-neutral-200">{training.format}</span>
             </div>
             <div className="flex items-center gap-2">
               <Clock className="w-4 h-4 text-[#DC2626]" />
-              <span className="text-neutral-400">{language === 'sw' ? 'Muda:' : 'Duration:'}</span>
+              <span className="text-neutral-400">Duration:</span>
               <span className="font-semibold text-neutral-200">{training.duration}</span>
             </div>
           </div>
@@ -76,7 +74,7 @@ export const TrainingDetailModal: React.FC<TrainingDetailModalProps> = ({
           <div className="space-y-3">
             <h5 className="text-xs font-bold uppercase tracking-wider text-neutral-400 flex items-center gap-2">
               <BookOpen className="w-4 h-4 text-[#DC2626]" />
-              <span>{language === 'sw' ? 'Mambo Muhimu ya Mtaala' : 'Curriculum Highlights'}</span>
+              <span>Curriculum Highlights</span>
             </h5>
             <div className="space-y-2">
               {training.curriculum.map((item, idx) => (
@@ -91,7 +89,7 @@ export const TrainingDetailModal: React.FC<TrainingDetailModalProps> = ({
           {/* Key Advantages */}
           <div className="space-y-2">
             <h5 className="text-xs font-bold uppercase tracking-wider text-neutral-400">
-              {language === 'sw' ? 'Kwa nini timu huchagua kozi hii?' : 'Why Teams Choose This Track'}
+              Why Teams Choose This Track
             </h5>
             <div className="grid sm:grid-cols-2 gap-2">
               {training.highlights.map((h, i) => (
@@ -104,7 +102,7 @@ export const TrainingDetailModal: React.FC<TrainingDetailModalProps> = ({
 
           {/* Footer */}
           <div className="pt-4 border-t border-neutral-800 flex flex-col sm:flex-row items-center justify-between gap-3">
-            <span className="text-xs text-neutral-400 italic">{language === 'sw' ? 'Inapatikana kwa Kiingereza na Kiswahili' : 'Available in English & Kiswahili'}</span>
+            <span className="text-xs text-neutral-400 italic">Available in English & Kiswahili</span>
             <button
               onClick={() => {
                 onClose();
@@ -112,7 +110,7 @@ export const TrainingDetailModal: React.FC<TrainingDetailModalProps> = ({
               }}
               className="w-full sm:w-auto px-8 py-3 rounded-xl font-extrabold text-xs text-white bg-[#B91C1C] hover:bg-[#DC2626] uppercase tracking-wider shadow-lg flex items-center justify-center gap-2"
             >
-              <span>{language === 'sw' ? 'OMBA KOZI HII' : 'BOOK THIS COURSE'}</span>
+              <span>BOOK THIS COURSE</span>
               <ArrowRight className="w-4 h-4" />
             </button>
           </div>

@@ -2,20 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { PageRoute } from '../types';
 import { siteConfig } from '../config/site';
 import { useApp } from '../context/AppContext';
-import { 
-  Menu, 
-  X, 
-  ChevronDown, 
-  Sparkles, 
-  ShieldCheck, 
-  Laptop, 
-  ArrowRight, 
+import {
+  Menu,
+  X,
+  ChevronDown,
+  ArrowRight,
   MessageCircle,
-  Building2,
-  BookOpen,
   Sun,
-  Moon,
-  Globe
+  Moon
 } from 'lucide-react';
 
 interface NavbarProps {
@@ -29,7 +23,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   setCurrentRoute,
   openBookingModal
 }) => {
-  const { language, toggleLanguage, theme, toggleTheme, t } = useApp();
+  const { theme, toggleTheme, t } = useApp();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [programsDropdownOpen, setProgramsDropdownOpen] = useState(false);
@@ -90,7 +84,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               <p className={`hidden sm:block text-[9px] font-semibold tracking-[0.14em] uppercase ${
                 theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'
               }`}>
-                {language === 'sw' ? 'Elimu ya Teknolojia' : 'Tech Education'}
+                Tech Education
               </p>
             </div>
           </button>
@@ -106,7 +100,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   : theme === 'dark' ? 'text-neutral-300 hover:text-white hover:bg-white/5' : 'text-neutral-600 hover:text-neutral-900 hover:bg-white'
               }`}
             >
-              {language === 'sw' ? 'Nyumbani' : 'Home'}
+              Home
             </button>
 
             <button
@@ -118,8 +112,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   : theme === 'dark' ? 'text-neutral-300 hover:text-white hover:bg-neutral-900/50' : 'text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100'
               }`}
             >
-              <Sparkles className="w-3.5 h-3.5 text-[#DC2626]" />
-                <span>{language === 'sw' ? 'Vipengele' : 'Features'}</span>
+                <span>Features</span>
             </button>
 
             {/* Programs Dropdown */}
@@ -134,7 +127,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                     : theme === 'dark' ? 'text-neutral-300 hover:text-white hover:bg-neutral-900/50' : 'text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100'
                 }`}
               >
-                <span>{language === 'sw' ? 'Kozi' : 'Programs'}</span>
+                <span>Programs</span>
                 <ChevronDown className="w-3.5 h-3.5 opacity-70 group-hover:rotate-180 transition-transform duration-200" />
               </button>
 
@@ -167,15 +160,12 @@ export const Navbar: React.FC<NavbarProps> = ({
                       theme === 'dark' ? 'hover:bg-neutral-800' : 'hover:bg-neutral-100'
                     }`}
                   >
-                    <div className="w-8 h-8 rounded-xl bg-red-950/40 border border-red-800/40 flex items-center justify-center text-[#DC2626] shrink-0 mt-0.5">
-                      <Sparkles className="w-4 h-4" />
-                    </div>
                     <div>
                       <div className={`text-xs font-bold transition-colors group-hover/item:text-[#DC2626] ${
                         theme === 'dark' ? 'text-white' : 'text-neutral-900'
-                      }`}>{language === 'sw' ? 'AI & Vibe Coding' : 'AI & Vibe Coding'}</div>
+                      }`}>AI & Vibe Coding</div>
                       <div className={`text-[11px] ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'}`}>
-                        {language === 'sw' ? 'Prompting, LLMs, AI Safety & Kiswahili Prompts' : 'Prompting, LLMs, AI Safety & Swahili Prompts'}
+                        Prompting, LLMs, AI Safety & Swahili Prompts
                       </div>
                     </div>
                   </button>
@@ -187,15 +177,12 @@ export const Navbar: React.FC<NavbarProps> = ({
                       theme === 'dark' ? 'hover:bg-neutral-800' : 'hover:bg-neutral-100'
                     }`}
                   >
-                    <div className="w-8 h-8 rounded-xl bg-red-950/40 border border-red-800/40 flex items-center justify-center text-[#DC2626] shrink-0 mt-0.5">
-                      <ShieldCheck className="w-4 h-4" />
-                    </div>
                     <div>
                       <div className={`text-xs font-bold transition-colors group-hover/item:text-[#DC2626] ${
                         theme === 'dark' ? 'text-white' : 'text-neutral-900'
-                      }`}>{language === 'sw' ? 'Chuo cha Usalama Mtandaoni' : 'Cybersecurity Academy'}</div>
+                      }`}>Cybersecurity Academy</div>
                       <div className={`text-[11px] ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'}`}>
-                        {language === 'sw' ? 'Ulinzi Mtandaoni, Phishing & Usalama wa Data' : 'Digital Defense, Phishing Prevention & Data Safety'}
+                        Digital Defense, Phishing Prevention & Data Safety
                       </div>
                     </div>
                   </button>
@@ -207,15 +194,12 @@ export const Navbar: React.FC<NavbarProps> = ({
                       theme === 'dark' ? 'hover:bg-neutral-800' : 'hover:bg-neutral-100'
                     }`}
                   >
-                    <div className="w-8 h-8 rounded-xl bg-red-950/40 border border-red-800/40 flex items-center justify-center text-[#DC2626] shrink-0 mt-0.5">
-                      <Laptop className="w-4 h-4" />
-                    </div>
                     <div>
                       <div className={`text-xs font-bold transition-colors group-hover/item:text-[#DC2626] ${
                         theme === 'dark' ? 'text-white' : 'text-neutral-900'
-                      }`}>{language === 'sw' ? 'Ujuzi wa Wavuti na Dijitali' : 'Full-Stack & Digital Skills'}</div>
+                      }`}>Full-Stack & Digital Skills</div>
                       <div className={`text-[11px] ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'}`}>
-                        {language === 'sw' ? 'Web Dev, Figma UI/UX & Digital Marketing' : 'Web Dev, Figma UI/UX & Digital Marketing'}
+                        Web Dev, Figma UI/UX & Digital Marketing
                       </div>
                     </div>
                   </button>
@@ -232,7 +216,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   : theme === 'dark' ? 'text-neutral-300 hover:text-white hover:bg-neutral-900/50' : 'text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100'
               }`}
             >
-              {language === 'sw' ? 'Njia' : 'Formats'}
+              Formats
             </button>
 
             <button
@@ -244,8 +228,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   : theme === 'dark' ? 'text-neutral-300 hover:text-white hover:bg-neutral-900/50' : 'text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100'
               }`}
             >
-              <Building2 className="w-3.5 h-3.5 text-[#DC2626]" />
-              <span>{language === 'sw' ? 'Mashirika' : 'Teams'}</span>
+              <span>Teams</span>
             </button>
 
             <button
@@ -257,7 +240,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   : theme === 'dark' ? 'text-neutral-300 hover:text-white hover:bg-neutral-900/50' : 'text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100'
               }`}
             >
-              {language === 'sw' ? 'Bei' : 'Pricing'}
+              Pricing
             </button>
 
             <button
@@ -269,8 +252,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   : theme === 'dark' ? 'text-neutral-300 hover:text-white hover:bg-neutral-900/50' : 'text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100'
               }`}
             >
-              <BookOpen className="w-3.5 h-3.5 text-neutral-400" />
-              <span>{language === 'sw' ? 'Rasilimali' : 'Resources'}</span>
+              <span>Resources</span>
             </button>
 
             <button
@@ -282,27 +264,12 @@ export const Navbar: React.FC<NavbarProps> = ({
                   : theme === 'dark' ? 'text-neutral-300 hover:text-white hover:bg-neutral-900/50' : 'text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100'
               }`}
             >
-              {language === 'sw' ? 'Kuhusu' : 'About'}
+              About
             </button>
           </nav>
 
-          {/* Desktop Right Controls: Language Switcher, Theme Switcher & Book CTA */}
+          {/* Desktop Right Controls: Theme Switcher & Book CTA */}
           <div className="hidden xl:flex items-center gap-2">
-            
-            {/* Language Switcher */}
-            <button
-              id="header-lang-switch-btn"
-              onClick={toggleLanguage}
-              title={t.nav.switchLang}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-mono font-bold transition-all border ${
-                theme === 'dark'
-                  ? 'bg-[#171717] hover:bg-neutral-800 text-neutral-200 border-neutral-800'
-                  : 'bg-neutral-100 hover:bg-neutral-200 text-neutral-800 border-neutral-200'
-              }`}
-            >
-              <Globe className="w-3.5 h-3.5 text-[#DC2626]" />
-              <span>{language === 'sw' ? 'SW | EN' : 'EN | SW'}</span>
-            </button>
 
             {/* Theme Toggle (Light / Dark) */}
             <button
@@ -331,16 +298,6 @@ export const Navbar: React.FC<NavbarProps> = ({
 
           {/* Mobile Menu & Quick Controls */}
           <div className="flex items-center gap-2 xl:hidden">
-            {/* Quick Lang Switch */}
-            <button
-              onClick={toggleLanguage}
-              className={`px-2.5 py-1.5 rounded-lg text-[11px] font-mono font-bold border ${
-                theme === 'dark' ? 'bg-[#171717] text-white border-neutral-800' : 'bg-neutral-100 text-neutral-900 border-neutral-200'
-              }`}
-            >
-              {language === 'sw' ? 'SW' : 'EN'}
-            </button>
-
             {/* Quick Theme Toggle */}
             <button
               onClick={toggleTheme}
@@ -364,7 +321,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               className={`p-2 rounded-lg border focus:outline-none ${
                 theme === 'dark' ? 'bg-neutral-900 text-neutral-300 border-neutral-800' : 'bg-neutral-100 text-neutral-800 border-neutral-200'
               }`}
-              aria-label={language === 'sw' ? 'Fungua menyu ya urambazaji' : 'Toggle navigation menu'}
+              aria-label={'Toggle navigation menu'}
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -425,22 +382,19 @@ export const Navbar: React.FC<NavbarProps> = ({
                   onClick={() => navigateTo('programs/ai')}
                   className="w-full text-left py-2 px-2 text-xs font-medium flex items-center gap-2"
                 >
-                  <Sparkles className="w-3.5 h-3.5 text-[#DC2626]" />
-                  <span>{language === 'sw' ? 'Chuo cha AI & Vibe Coding' : 'AI & Vibe Coding Academy'}</span>
+                  <span>AI & Vibe Coding Academy</span>
                 </button>
                 <button
                   onClick={() => navigateTo('programs/cybersecurity')}
                   className="w-full text-left py-2 px-2 text-xs font-medium flex items-center gap-2"
                 >
-                  <ShieldCheck className="w-3.5 h-3.5 text-[#DC2626]" />
-                  <span>{language === 'sw' ? 'Chuo cha Usalama Mtandaoni' : 'Cybersecurity Academy'}</span>
+                  <span>Cybersecurity Academy</span>
                 </button>
                 <button
                   onClick={() => navigateTo('programs/digital-skills')}
                   className="w-full text-left py-2 px-2 text-xs font-medium flex items-center gap-2"
                 >
-                  <Laptop className="w-3.5 h-3.5 text-[#DC2626]" />
-                  <span>{language === 'sw' ? 'Ujuzi wa Dijitali na Uundaji wa Wavuti' : 'Digital Skills & Web Development'}</span>
+                  <span>Digital Skills & Web Development</span>
                 </button>
               </div>
             </div>

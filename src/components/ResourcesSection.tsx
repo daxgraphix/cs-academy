@@ -1,17 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { resourcesData } from '../data/resources';
 import { ResourceItem } from '../types';
 import { useApp } from '../context/AppContext';
 import { 
-  FileText, 
   Download, 
   Eye, 
   CheckCircle2, 
   Clock, 
-  ArrowRight,
-  BookOpen,
-  Sparkles
+  Search
 } from 'lucide-react';
+import { downloadResource } from '../utils/download';
 
 interface ResourcesSectionProps {
   openResourceModal: (resource: ResourceItem) => void;
@@ -20,15 +18,29 @@ interface ResourcesSectionProps {
 export const ResourcesSection: React.FC<ResourcesSectionProps> = ({
   openResourceModal
 }) => {
-  const { language, theme, t } = useApp();
+  const { theme, t } = useApp();
   const [activeCategory, setActiveCategory] = useState<string>('ALL');
+  const [searchQuery, setSearchQuery] = useState('');
 
-  const categories = ['ALL', 'AI Productivity', 'Cybersecurity', 'Cyber Safety', 'Education', 'AI Governance', 'Privacy'];
+  // Derive categories from data so every toolkit is discoverable
+  const categories = useMemo(() => {
+    const set = new Set(resourcesData.map((r) => r.category));
+    return ['ALL', ...Array.from(set)];
+  }, []);
 
-  const filteredResources = resourcesData.filter((r) => {
-    if (activeCategory === 'ALL') return true;
-    return r.category.toLowerCase().includes(activeCategory.toLowerCase());
-  });
+  const filteredResources = useMemo(() => {
+    const q = searchQuery.trim().toLowerCase();
+    return resourcesData.filter((r) => {
+      const matchesCat = activeCategory === 'ALL' || r.category === activeCategory;
+      const matchesSearch =
+        !q ||
+        r.title.toLowerCase().includes(q) ||
+        r.description.toLowerCase().includes(q) ||
+        r.category.toLowerCase().includes(q) ||
+        r.keyHighlights.some((h) => h.toLowerCase().includes(q));
+      return matchesCat && matchesSearch;
+    });
+  }, [activeCategory, searchQuery]);
 
   return (
     <section 
@@ -40,10 +52,9 @@ export const ResourcesSection: React.FC<ResourcesSectionProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
           <div className="max-w-2xl space-y-3">
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-red-950/40 border border-red-800/40 text-[#DC2626] text-xs font-mono font-bold uppercase tracking-wider">
-              <Sparkles className="w-3.5 h-3.5" />
               <span>{t.resources.badge}</span>
             </div>
             <h2 className={`text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight ${
@@ -58,29 +69,56 @@ export const ResourcesSection: React.FC<ResourcesSectionProps> = ({
             </p>
           </div>
 
-          {/* Category Filter */}
-          <div className={`flex items-center gap-1.5 p-1 border rounded-2xl self-start md:self-auto overflow-x-auto max-w-full ${
-            theme === 'dark' ? 'bg-[#171717] border-neutral-800' : 'bg-neutral-100 border-neutral-200'
-          }`}>
-            {categories.slice(0, 5).map((cat) => (
+          {/* Search */}
+          <div className="relative md:self-end">
+            <Search className={`w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 ${theme === 'dark' ? 'text-neutral-500' : 'text-neutral-400'}`} />
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder={'Search toolkits...'}
+              aria-label={'Search toolkits'}
+              className={`w-56 pl-9 pr-3 py-2 rounded-xl text-xs border focus:outline-none focus:border-[#DC2626] ${
+                theme === 'dark' ? 'bg-[#171717] border-neutral-800 text-white placeholder-neutral-500' : 'bg-neutral-100 border-neutral-200 text-neutral-900 placeholder-neutral-400'
+              }`}
+            />
+          </div>
+        </div>
+
+        {/* Category Filter */}
+        <div className={`flex items-center gap-1.5 p-1 border rounded-2xl overflow-x-auto max-w-full mb-8 ${
+          theme === 'dark' ? 'bg-[#171717] border-neutral-800' : 'bg-neutral-100 border-neutral-200'
+        }`}>
+          {categories.map((cat) => {
+            const isSelected = activeCategory === cat;
+            const count = cat === 'ALL' ? resourcesData.length : resourcesData.filter((r) => r.category === cat).length;
+            return (
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`px-3 py-1.5 rounded-xl text-xs font-bold uppercase tracking-wider whitespace-nowrap transition-all ${
-                  activeCategory === cat 
+                className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold uppercase tracking-wider whitespace-nowrap transition-all ${
+                  isSelected 
                     ? 'bg-[#B91C1C] text-white shadow-sm' 
                     : theme === 'dark' ? 'text-neutral-400 hover:text-white' : 'text-neutral-600 hover:text-neutral-900'
                 }`}
               >
-                {cat === 'ALL' ? (language === 'sw' ? 'ZOTE' : 'ALL') : cat}
+                {cat === 'ALL' ? ('ALL') : cat}
+                <span className={`text-[10px] font-mono px-1.5 py-0.5 rounded-full ${isSelected ? 'bg-white/20' : theme === 'dark' ? 'bg-neutral-800 text-neutral-500' : 'bg-neutral-200 text-neutral-500'}`}>
+                  {count}
+                </span>
               </button>
-            ))}
-          </div>
+            );
+          })}
         </div>
 
         {/* Resources Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {filteredResources.map((resource) => (
+          {filteredResources.map((resource) => {
+            const title = resource.title;
+            const description = resource.description;
+            const keyHighlights = resource.keyHighlights;
+            const useCases = resource.useCases;
+            return (
             <div
               key={resource.id}
               id={`resource-card-${resource.id}`}
@@ -93,14 +131,30 @@ export const ResourcesSection: React.FC<ResourcesSectionProps> = ({
               <div className="space-y-4">
                 
                 {/* Header Badge */}
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between gap-2">
                   <span className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded border ${
                     theme === 'dark' ? 'text-[#DC2626] bg-red-950/60 border-red-900/40' : 'text-[#DC2626] bg-red-50 border-red-200'
                   }`}>
                     {resource.format}
                   </span>
-                  <span className={`text-[10px] font-mono ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'}`}>
+                  <span className={`flex items-center gap-1 text-[10px] font-mono ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'}`}>
+                    <Clock className="w-3 h-3" />
                     {resource.readingTime}
+                  </span>
+                </div>
+
+                <div className="flex items-center gap-1.5">
+                  <span className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full border ${
+                    resource.level === 'Beginner'
+                      ? theme === 'dark' ? 'text-emerald-400 bg-emerald-950/40 border-emerald-900/40' : 'text-emerald-700 bg-emerald-50 border-emerald-200'
+                      : resource.level === 'Intermediate'
+                      ? theme === 'dark' ? 'text-amber-400 bg-amber-950/40 border-amber-900/40' : 'text-amber-700 bg-amber-50 border-amber-200'
+                      : theme === 'dark' ? 'text-red-400 bg-red-950/40 border-red-900/40' : 'text-red-700 bg-red-50 border-red-200'
+                  }`}>
+                    {resource.level}
+                  </span>
+                  <span className={`text-[10px] font-medium ${theme === 'dark' ? 'text-neutral-500' : 'text-neutral-400'}`}>
+                    {useCases.length} use cases
                   </span>
                 </div>
 
@@ -109,18 +163,18 @@ export const ResourcesSection: React.FC<ResourcesSectionProps> = ({
                   <h3 className={`text-base font-bold tracking-tight group-hover:text-[#DC2626] transition-colors leading-snug ${
                     theme === 'dark' ? 'text-white' : 'text-neutral-900'
                   }`}>
-                    {resource.title}
+                    {title}
                   </h3>
                   <p className={`text-xs mt-2 line-clamp-2 leading-relaxed ${
                     theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'
                   }`}>
-                    {resource.description}
+                    {description}
                   </p>
                 </div>
 
                 {/* Key Takeaways Preview */}
                 <div className="space-y-1 pt-2">
-                  {resource.keyHighlights.slice(0, 2).map((takeaway, tIdx) => (
+                  {keyHighlights.slice(0, 2).map((takeaway, tIdx) => (
                     <div key={tIdx} className={`flex items-start gap-1.5 text-[11px] ${
                       theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'
                     }`}>
@@ -145,20 +199,28 @@ export const ResourcesSection: React.FC<ResourcesSectionProps> = ({
                   }`}
                 >
                   <Eye className="w-3.5 h-3.5" />
-                  <span>{language === 'sw' ? 'Soma' : 'Preview'}</span>
+                  <span>Preview</span>
                 </button>
                 <button
-                  onClick={() => openResourceModal(resource)}
+                  onClick={() => downloadResource(resource)}
+                  title={'Download toolkit'}
+                  aria-label={`Download ${title}`}
                   className="py-2 px-3 rounded-xl text-xs font-bold text-white bg-[#B91C1C] hover:bg-[#DC2626] flex items-center justify-center transition-colors shadow-sm"
-                  title="Download Resource"
                 >
                   <Download className="w-3.5 h-3.5" />
                 </button>
               </div>
 
             </div>
-          ))}
+            );
+          })}
         </div>
+
+        {filteredResources.length === 0 && (
+          <div className={`text-center py-12 rounded-2xl border text-xs ${theme === 'dark' ? 'bg-[#171717] border-neutral-800 text-neutral-400' : 'bg-white border-neutral-200 text-neutral-600'}`}>
+            No toolkits match your search.
+          </div>
+        )}
 
       </div>
     </section>

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { featuredTrainingData } from '../data/training';
-import { trainingSwahili } from '../data/catalogTranslations';
 import { TrainingProgram } from '../types';
 import { useApp } from '../context/AppContext';
 import { 
@@ -8,7 +7,6 @@ import {
   MapPin, 
   ArrowRight, 
   CheckCircle2, 
-  Sparkles,
   Shield,
   Laptop
 } from 'lucide-react';
@@ -22,7 +20,7 @@ export const FeaturedTraining: React.FC<FeaturedTrainingProps> = ({
   openBookingModal,
   openTrainingDetailModal
 }) => {
-  const { language, theme, t } = useApp();
+  const { theme, t } = useApp();
   const [filter, setFilter] = useState<'ALL' | 'AI' | 'CYBER' | 'DIGITAL'>('ALL');
 
   const filteredTrainings = featuredTrainingData.filter((item) => {
@@ -35,7 +33,7 @@ export const FeaturedTraining: React.FC<FeaturedTrainingProps> = ({
   const getCategoryIcon = (category: string) => {
     switch (category) {
       case 'ai':
-        return <Sparkles className="w-3.5 h-3.5 text-[#DC2626]" />;
+        return <Laptop className="w-3.5 h-3.5 text-[#DC2626]" />;
       case 'cybersecurity':
         return <Shield className="w-3.5 h-3.5 text-[#DC2626]" />;
       default:
@@ -58,24 +56,19 @@ export const FeaturedTraining: React.FC<FeaturedTrainingProps> = ({
             <div className={`inline-flex items-center gap-2 px-3.5 py-1 rounded-full border text-xs font-mono font-bold uppercase tracking-wider ${
               theme === 'dark' ? 'bg-[#171717] border-neutral-800 text-neutral-300' : 'bg-white border-neutral-200 text-neutral-800 shadow-sm'
             }`}>
-              <Sparkles className="w-3.5 h-3.5 text-[#DC2626]" />
-              <span>{language === 'sw' ? 'Mitaala Teule ya Mafunzo' : 'Featured Training Tracks'}</span>
+              <span>Featured Training Tracks</span>
             </div>
             <h2 className={`text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight ${
               theme === 'dark' ? 'text-white' : 'text-neutral-950'
             }`}>
-              {language === 'sw' ? (
-                <>ANZA NA PROGRAMU <span className="text-[#DC2626]">ILIYOANDALIWA KWA AJILI YAKO</span></>
-              ) : (
+              {(
                 <>START WITH A PROGRAMME <span className="text-[#DC2626]">BUILT FOR YOU</span></>
               )}
             </h2>
             <p className={`text-base leading-relaxed ${
               theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'
             }`}>
-              {language === 'sw'
-                ? 'Mafunzo ya vitendo na wakufunzi waliobobea yaliyoboreshwa kwa makundi tofauti, kuanzia wanaoanza hadi watendaji wa makampuni.'
-                : 'Interactive, instructor-led training tracks tailored for distinct roles, from students to corporate executives.'}
+              Interactive, instructor-led training tracks tailored for distinct roles, from students to corporate executives.
             </p>
           </div>
 
@@ -91,7 +84,7 @@ export const FeaturedTraining: React.FC<FeaturedTrainingProps> = ({
                   : theme === 'dark' ? 'text-neutral-400 hover:text-white' : 'text-neutral-600 hover:text-neutral-900'
               }`}
             >
-              {language === 'sw' ? 'Zote' : 'All Programs'}
+              All Programs
             </button>
             <button
               onClick={() => setFilter('AI')}
@@ -101,7 +94,7 @@ export const FeaturedTraining: React.FC<FeaturedTrainingProps> = ({
                   : theme === 'dark' ? 'text-neutral-400 hover:text-white' : 'text-neutral-600 hover:text-neutral-900'
               }`}
             >
-              {language === 'sw' ? 'AI & Vibe' : 'AI Tracks'}
+              AI Tracks
             </button>
             <button
               onClick={() => setFilter('CYBER')}
@@ -129,7 +122,6 @@ export const FeaturedTraining: React.FC<FeaturedTrainingProps> = ({
         {/* 6 Training Cards Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredTrainings.map((course) => {
-            const localized = language === 'sw' ? trainingSwahili[course.id] : undefined;
             return (
             <div
               key={course.id}
@@ -142,7 +134,7 @@ export const FeaturedTraining: React.FC<FeaturedTrainingProps> = ({
             >
               {course.isPopular && (
                 <div className="absolute top-0 right-0 bg-[#B91C1C] text-white text-[10px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-bl-xl shadow">
-                  {language === 'sw' ? 'Inayopendwa Zaidi' : 'Most Requested'}
+                  Most Requested
                 </div>
               )}
 
@@ -159,7 +151,7 @@ export const FeaturedTraining: React.FC<FeaturedTrainingProps> = ({
                   <span className={`text-[11px] font-semibold px-2 py-0.5 rounded-md ${
                     theme === 'dark' ? 'text-neutral-400 bg-neutral-900' : 'text-neutral-600 bg-neutral-100'
                   }`}>
-                    {localized?.level ?? course.level}
+                    {course.level}
                   </span>
                 </div>
 
@@ -167,14 +159,14 @@ export const FeaturedTraining: React.FC<FeaturedTrainingProps> = ({
                 <h3 className={`text-xl font-extrabold tracking-tight group-hover:text-[#DC2626] transition-colors ${
                   theme === 'dark' ? 'text-white' : 'text-neutral-900'
                 }`}>
-                  {localized?.title ?? course.title}
+                  {course.title}
                 </h3>
 
                 {/* Description */}
                 <p className={`text-xs leading-relaxed line-clamp-3 ${
                   theme === 'dark' ? 'text-neutral-300' : 'text-neutral-600'
                 }`}>
-                  {localized?.description ?? course.description}
+                  {course.description}
                 </p>
 
                 {/* Meta details list */}
@@ -184,16 +176,16 @@ export const FeaturedTraining: React.FC<FeaturedTrainingProps> = ({
                   <div className="flex items-center gap-2">
                     <Users className="w-3.5 h-3.5 text-[#DC2626] shrink-0" />
                     <span className={theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'}>
-                      {language === 'sw' ? 'Walengwa:' : 'Audience:'}
+                      Audience:
                     </span>
-                    <span className={`font-semibold truncate ${theme === 'dark' ? 'text-neutral-200' : 'text-neutral-800'}`}>{localized?.audience ?? course.audience}</span>
+                    <span className={`font-semibold truncate ${theme === 'dark' ? 'text-neutral-200' : 'text-neutral-800'}`}>{course.audience}</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <MapPin className="w-3.5 h-3.5 text-[#DC2626] shrink-0" />
                     <span className={theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'}>
-                      {language === 'sw' ? 'Njia ya Mafunzo:' : 'Format:'}
+                      Format:
                     </span>
-                    <span className={`font-semibold ${theme === 'dark' ? 'text-neutral-200' : 'text-neutral-800'}`}>{localized?.format ?? course.format}</span>
+                    <span className={`font-semibold ${theme === 'dark' ? 'text-neutral-200' : 'text-neutral-800'}`}>{course.format}</span>
                   </div>
                 </div>
 
@@ -202,9 +194,9 @@ export const FeaturedTraining: React.FC<FeaturedTrainingProps> = ({
                   <span className={`text-[11px] font-mono font-bold uppercase tracking-wider ${
                     theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'
                   }`}>
-                    {language === 'sw' ? 'Matokeo Muhimu:' : 'Core Takeaways:'}
+                    Core Takeaways:
                   </span>
-                  {(localized?.highlights ?? course.highlights).slice(0, 2).map((highlight, idx) => (
+                  {course.highlights.slice(0, 2).map((highlight, idx) => (
                     <div key={idx} className={`flex items-start gap-2 text-xs ${
                       theme === 'dark' ? 'text-neutral-300' : 'text-neutral-700'
                     }`}>
@@ -229,7 +221,7 @@ export const FeaturedTraining: React.FC<FeaturedTrainingProps> = ({
                       : 'text-neutral-700 hover:text-neutral-900 bg-neutral-100 hover:bg-neutral-200 border-neutral-200'
                   }`}
                 >
-                  {language === 'sw' ? 'Maelezo Zaidi' : 'Learn More'}
+                  Learn More
                 </button>
                 <button
                   id={`btn-book-${course.id}`}

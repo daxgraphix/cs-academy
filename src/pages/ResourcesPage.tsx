@@ -8,7 +8,6 @@ import {
   Eye, 
   Clock, 
   Search, 
-  Sparkles, 
   ShieldCheck, 
   ArrowRight,
   BookOpen
@@ -21,7 +20,7 @@ interface ResourcesPageProps {
 export const ResourcesPage: React.FC<ResourcesPageProps> = ({
   openResourceModal
 }) => {
-  const { language, theme } = useApp();
+  const { theme } = useApp();
   const [selectedCat, setSelectedCat] = useState<string>('ALL');
   const [search, setSearch] = useState<string>('');
 
@@ -45,8 +44,7 @@ export const ResourcesPage: React.FC<ResourcesPageProps> = ({
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4 pt-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-red-950/40 border border-red-800/40 text-[#DC2626] text-xs font-mono font-bold uppercase tracking-wider">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>{language === 'sw' ? 'Miongozo & Vifurushi vya Bure' : 'Open Educational Toolkits'}</span>
+            <span>Open Educational Toolkits</span>
           </div>
           <h1 className={`text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight ${
             theme === 'dark' ? 'text-white' : 'text-neutral-950'
@@ -56,9 +54,7 @@ export const ResourcesPage: React.FC<ResourcesPageProps> = ({
           <p className={`text-base sm:text-lg leading-relaxed ${
             theme === 'dark' ? 'text-neutral-300' : 'text-neutral-600'
           }`}>
-            {language === 'sw'
-              ? 'Pakua vitini vya vitendo vya AI, orodha za usalama wa kimtandao, na violezo vya kuanzisha kazi mtandaoni kwa Kiswahili na Kiingereza.'
-              : 'Download practical prompt templates, cybersecurity checklists, and classroom guides designed to protect and accelerate African digital workers.'}
+            Download practical prompt templates, cybersecurity checklists, and classroom guides designed to protect and accelerate African digital workers.
           </p>
         </div>
 
@@ -74,7 +70,7 @@ export const ResourcesPage: React.FC<ResourcesPageProps> = ({
               type="text"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              placeholder={language === 'sw' ? 'Tafuta miongozo, violezo...' : 'Search guides, templates, topics...'}
+              placeholder={'Search guides, templates, topics...'}
               className={`w-full pl-10 pr-4 py-2.5 rounded-xl text-xs focus:outline-none focus:border-[#DC2626] border ${
                 theme === 'dark'
                   ? 'bg-[#0B0B0B] border-neutral-800 text-white placeholder-neutral-500'
@@ -96,7 +92,7 @@ export const ResourcesPage: React.FC<ResourcesPageProps> = ({
                     : 'text-neutral-600 hover:text-neutral-950 bg-white border border-neutral-200'
                 }`}
               >
-                {cat === 'ALL' ? (language === 'sw' ? 'ZOTE' : 'ALL') : cat}
+                {cat === 'ALL' ? ('ALL') : cat}
               </button>
             ))}
           </div>
@@ -144,7 +140,7 @@ export const ResourcesPage: React.FC<ResourcesPageProps> = ({
                   <div className={`text-[10px] font-mono font-bold uppercase tracking-wider ${
                     theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'
                   }`}>
-                    {language === 'sw' ? 'Mambo Muhimu:' : 'Key Highlights:'}
+                    Key Highlights:
                   </div>
                   {resource.keyHighlights.map((takeaway, idx) => (
                     <div key={idx} className={`flex items-start gap-2 text-xs ${
@@ -169,7 +165,7 @@ export const ResourcesPage: React.FC<ResourcesPageProps> = ({
                   }`}
                 >
                   <Eye className="w-4 h-4" />
-                  <span>{language === 'sw' ? 'Hakiki Mwongozo' : 'Preview Guide'}</span>
+                  <span>Preview Guide</span>
                 </button>
                 <button
                   onClick={() => openResourceModal(resource)}

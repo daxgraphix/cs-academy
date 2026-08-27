@@ -1,7 +1,7 @@
 import React from 'react';
 import { PlatformFeaturesSection } from '../components/PlatformFeaturesSection';
 import { PageRoute } from '../types';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 interface FeaturesPageProps {
   setCurrentRoute: (route: PageRoute) => void;

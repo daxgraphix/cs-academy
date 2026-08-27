@@ -6,9 +6,7 @@ import {
   MapPin, 
   Users, 
   CheckCircle2, 
-  ArrowRight, 
-  Layers,
-  Sparkles
+  ArrowRight
 } from 'lucide-react';
 
 interface TrainingPackagesProps {
@@ -18,7 +16,7 @@ interface TrainingPackagesProps {
 export const TrainingPackages: React.FC<TrainingPackagesProps> = ({
   openBookingModal
 }) => {
-  const { language, theme, t } = useApp();
+  const { theme, t } = useApp();
   const [selectedCategory, setSelectedCategory] = useState<string>('ALL');
 
   const categories = ['ALL', 'AI', 'Cybersecurity', 'Digital Skills', 'Executive', 'Institutional'];
@@ -41,7 +39,6 @@ export const TrainingPackages: React.FC<TrainingPackagesProps> = ({
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div className="max-w-2xl space-y-3">
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-red-950/40 border border-red-800/40 text-[#DC2626] text-xs font-mono font-bold uppercase tracking-wider">
-              <Sparkles className="w-3.5 h-3.5" />
               <span>{t.packages.badge}</span>
             </div>
             <h2 className={`text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight ${
@@ -70,7 +67,7 @@ export const TrainingPackages: React.FC<TrainingPackagesProps> = ({
                     : theme === 'dark' ? 'text-neutral-400 hover:text-white' : 'text-neutral-600 hover:text-neutral-900'
                 }`}
               >
-                {cat === 'ALL' ? (language === 'sw' ? 'ZOTE' : 'ALL') : cat}
+                {cat === 'ALL' ? ('ALL') : cat}
               </button>
             ))}
           </div>
@@ -116,7 +113,7 @@ export const TrainingPackages: React.FC<TrainingPackagesProps> = ({
                   <div className="flex items-center gap-2">
                     <Clock className="w-3.5 h-3.5 text-[#DC2626] shrink-0" />
                     <span className={theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'}>Duration:</span>
-                    <span className="font-semibold">{pkg.durations.join(' • ')}</span>
+                    <span className="font-semibold">{pkg.durations.join('  |  ')}</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <MapPin className="w-3.5 h-3.5 text-[#DC2626] shrink-0" />
@@ -135,7 +132,7 @@ export const TrainingPackages: React.FC<TrainingPackagesProps> = ({
                   <span className={`text-[10px] font-mono font-bold uppercase tracking-wider ${
                     theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'
                   }`}>
-                    {language === 'sw' ? 'Mambo Utakayojifunza:' : 'Key Outcomes:'}
+                    Key Outcomes:
                   </span>
                   {pkg.keyOutcomes.slice(0, 3).map((item, dIdx) => (
                     <div key={dIdx} className={`flex items-start gap-2 text-xs ${
@@ -160,7 +157,7 @@ export const TrainingPackages: React.FC<TrainingPackagesProps> = ({
                       : 'bg-neutral-50 hover:bg-[#B91C1C] text-neutral-800 hover:text-white border border-neutral-200 shadow-sm'
                   }`}
                 >
-                  <span>{language === 'sw' ? 'OMBA MAELEZO YA KOZI' : 'REQUEST PACKAGE DETAILS'}</span>
+                  <span>REQUEST PACKAGE DETAILS</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </div>

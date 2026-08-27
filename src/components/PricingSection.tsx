@@ -5,8 +5,7 @@ import { useApp } from '../context/AppContext';
 import { 
   CheckCircle2, 
   X, 
-  Sparkles, 
-  ArrowRight, 
+  ArrowRight,
   ShieldCheck, 
   Smartphone,
   Gift,
@@ -27,22 +26,22 @@ interface PricingSectionProps {
 export const PricingSection: React.FC<PricingSectionProps> = ({
   openBookingModal
 }) => {
-  const { language, theme, currency, setCurrency, t } = useApp();
+  const { theme, currency, setCurrency, t } = useApp();
   const [activeChannelFilter, setActiveChannelFilter] = useState<'all' | 'mobile' | 'self-paced' | 'virtual-live' | 'in-person'>('all');
 
   const formatPrice = (plan: typeof pricingPlansData[0]) => {
     if (currency === 'TSH') {
       return plan.priceTsh === 'Custom' || plan.priceTsh === '0' 
-        ? plan.priceTsh === '0' ? (language === 'sw' ? 'Bure' : 'Free') : (language === 'sw' ? 'Omba Bei' : 'Custom Quote')
+        ? plan.priceTsh === '0' ? ('Free') : ('Custom Quote')
         : `${plan.priceTsh} Tsh`;
     }
     if (currency === 'KES') {
       return plan.priceKes === 'Custom' || plan.priceKes === '0' 
-        ? plan.priceKes === '0' ? (language === 'sw' ? 'Bure' : 'Free') : (language === 'sw' ? 'Omba Bei' : 'Custom Quote')
+        ? plan.priceKes === '0' ? ('Free') : ('Custom Quote')
         : `${plan.priceKes} KSh`;
     }
     return plan.priceUsd === 'Custom' || plan.priceUsd === '0' 
-      ? plan.priceUsd === '0' ? '$0' : (language === 'sw' ? 'Omba Bei' : 'Custom Quote')
+      ? plan.priceUsd === '0' ? '$0' : ('Custom Quote')
       : `$${plan.priceUsd}`;
   };
 
@@ -61,7 +60,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({
       case 'keynote':
         return <Mic className="w-4 h-4 text-rose-500" />;
       default:
-        return <Sparkles className="w-4 h-4 text-[#DC2626]" />;
+        return <HelpCircle className="w-4 h-4 text-[#DC2626]" />;
     }
   };
 
@@ -84,7 +83,6 @@ export const PricingSection: React.FC<PricingSectionProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
         <div className="text-center max-w-3xl mx-auto space-y-5">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#ff3b30]/30 bg-[#ff3b30]/10 text-[#ff3b30] text-[10px] font-bold uppercase tracking-[0.22em]">
-            <Sparkles className="w-3.5 h-3.5" />
             <span>{t.pricing.badge}</span>
           </div>
           <h2 className={`text-3xl sm:text-4xl lg:text-5xl font-black tracking-[-0.06em] ${
@@ -100,11 +98,11 @@ export const PricingSection: React.FC<PricingSectionProps> = ({
 
           <div className="pt-4 flex flex-wrap items-center justify-center gap-2">
             {[
-              { id: 'all', label: language === 'sw' ? 'Njia Zote za Mafunzo' : 'All Delivery Channels' },
-              { id: 'mobile', label: language === 'sw' ? 'WhatsApp Mobile (Data Ndogo)' : 'WhatsApp Mobile (Data Saver)' },
-              { id: 'self-paced', label: language === 'sw' ? 'Jukwaa la Video (Self-Paced)' : 'On-Demand Video Platform' },
-              { id: 'virtual-live', label: language === 'sw' ? 'Zoom & Meet Moja kwa Moja' : 'Zoom & Meet Live Cohorts' },
-              { id: 'in-person', label: language === 'sw' ? 'Warsha & Ana kwa Ana' : 'Workshops & On-Site (In-Person)' }
+              { id: 'all', label: 'All Delivery Channels'},
+              { id: 'mobile', label: 'WhatsApp Mobile (Data Saver)'},
+              { id: 'self-paced', label: 'On-Demand Video Platform'},
+              { id: 'virtual-live', label: 'Zoom & Meet Live Cohorts'},
+              { id: 'in-person', label: 'Workshops & On-Site (In-Person)'}
             ].map((tab) => (
               <button
                 key={tab.id}
@@ -144,9 +142,9 @@ export const PricingSection: React.FC<PricingSectionProps> = ({
             theme === 'dark' ? 'text-neutral-300' : 'text-neutral-700'
           }`}>
             {[
-              { title: language === 'sw' ? 'Chagua kiwango chako' : 'Choose your access level', text: language === 'sw' ? 'Kuanzia kujifunza kwa simu hadi ushiriki wa moja kwa moja.' : 'From mobile-first learning to live instructor access.' },
-              { title: language === 'sw' ? 'Lipa kwa njia salama' : 'Plan with confidence', text: language === 'sw' ? 'Bei ni mwongozo; timu inathibitisha ratiba na maelezo kabla ya kujiunga.' : 'Prices are guidance; we confirm schedule and details before enrollment.' },
-              { title: language === 'sw' ? 'Pata msaada wa kuchagua' : 'Get a human recommendation', text: language === 'sw' ? 'Tuma ombi na tutakupendekezea njia inayokufaa.' : 'Send an inquiry and we will recommend the best fit.' }
+              { title: 'Choose your access level', text: 'From mobile-first learning to live instructor access.'},
+              { title: 'Plan with confidence', text: 'Prices are guidance; we confirm schedule and details before enrollment.'},
+              { title: 'Get a human recommendation', text: 'Send an inquiry and we will recommend the best fit.'}
             ].map((item) => (
               <div key={item.title} className={`rounded-2xl border p-4 ${
                 theme === 'dark' ? 'border-white/10 bg-white/[0.03]' : 'border-neutral-200 bg-white/70'
@@ -173,14 +171,14 @@ export const PricingSection: React.FC<PricingSectionProps> = ({
           {filteredPlans.map((plan) => {
             const isPopular = plan.popular;
             const membershipLabel = plan.deliveryType === 'mobile-first'
-              ? (language === 'sw' ? 'Mwanzo wa simu' : 'Mobile starter')
+              ? ('Mobile starter')
               : plan.deliveryType === 'self-paced'
-              ? (language === 'sw' ? 'Jifunze kwa ratiba yako' : 'Self-paced access')
+              ? ('Self-paced access')
               : plan.deliveryType === 'virtual-live'
-              ? (language === 'sw' ? 'Ushiriki wa moja kwa moja' : 'Live cohort access')
+              ? ('Live cohort access')
               : plan.deliveryType === 'keynote'
-              ? (language === 'sw' ? 'Kwa matukio na viongozi' : 'Events and leadership')
-              : (language === 'sw' ? 'Kwa timu na mashirika' : 'Teams and organizations');
+              ? ('Events and leadership')
+              : ('Teams and organizations');
             return (
               <div
                 key={plan.id}
@@ -224,7 +222,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({
                       {formatPrice(plan)}
                     </div>
                     <div className={`mt-1 text-[10px] font-bold uppercase tracking-[0.18em] ${theme === 'dark' ? 'text-neutral-500' : 'text-neutral-500'}`}>
-                      {language === 'sw' ? plan.billingPeriod.replace('per month', 'kwa mwezi').replace('per year', 'kwa mwaka').replace('per workshop session', 'kwa warsha').replace('per corporate cohort', 'kwa kundi la kampuni').replace('per keynote address', 'kwa hotuba') : plan.billingPeriod}
+                      {plan.billingPeriod}
                     </div>
 
                     {plan.bandwidthRequirement && (
@@ -232,7 +230,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({
                         theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'
                       }`}>
                         <Wifi className="w-3 h-3 text-[#ff3b30]" />
-                        <span className="min-w-0 break-words">{language === 'sw' ? 'Data: ' : 'Bandwidth: '}{plan.bandwidthRequirement}</span>
+                        <span className="min-w-0 break-words">Bandwidth: {plan.bandwidthRequirement}</span>
                       </div>
                     )}
                   </div>
@@ -241,7 +239,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({
                     <span className={`text-[10px] font-bold uppercase tracking-[0.18em] ${
                       theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'
                     }`}>
-                      {language === 'sw' ? 'Vilivyojumuishwa kwenye Njia Hii:' : 'Included in this Delivery Option:'}
+                      Included in this Delivery Option:
                     </span>
                     {plan.features.map((feat, idx) => (
                       <div key={idx} className={`flex items-start gap-2 text-sm ${
@@ -291,5 +289,4 @@ export const PricingSection: React.FC<PricingSectionProps> = ({
     </section>
   );
 };
-
 

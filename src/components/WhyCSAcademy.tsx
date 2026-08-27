@@ -1,71 +1,91 @@
 import React from 'react';
 import { useApp } from '../context/AppContext';
+import { siteConfig } from '../config/site';
 import { 
   Zap, 
   Globe2, 
   Languages, 
   Award, 
   MonitorSmartphone, 
-  Sparkles, 
   ShieldCheck, 
   Sliders, 
   Building2, 
-  Users
+  Users,
+  ArrowRight,
+  BadgeCheck
 } from 'lucide-react';
 
-export const WhyCSAcademy: React.FC = () => {
-  const { language, theme, t } = useApp();
+interface WhyCSAcademyProps {
+  openBookingModal?: (prefill?: { program?: string }) => void;
+}
+
+export const WhyCSAcademy: React.FC<WhyCSAcademyProps> = ({
+  openBookingModal
+}) => {
+  const { theme, t } = useApp();
+
+  const stats = [
+    { value: siteConfig.stats.learnersTrained, label: 'Learners Trained'},
+    { value: siteConfig.stats.institutionsServed, label: 'Institutions Served'},
+    { value: siteConfig.stats.hoursDelivered, label: 'Hours Delivered'},
+    { value: siteConfig.stats.satisfactionRate, label: 'Satisfaction Rate'},
+  ];
 
   const benefits = [
     { 
-      title: language === 'sw' ? 'Mafunzo ya Vitendo' : 'Practical Learning', 
-      desc: language === 'sw' ? 'Hakuna nadharia tupu. Unatengeneza kazi halisi, kuandika maelekezo ya AI na kufanya ukaguzi wa mifumo kuanzia siku ya kwanza.' : 'No abstract theory. You build functional prompts, audit security settings, and create deliverables on day one.', 
+      title: 'Practical Learning', 
+      desc: 'No abstract theory. You build functional prompts, audit security settings, and create deliverables on day one.', 
       icon: Zap 
     },
     { 
-      title: language === 'sw' ? 'Muktadha wa Kiafrika' : 'Africa-Focused Context', 
-      desc: language === 'sw' ? 'Mifano na mazingira halisi ya biashara za Kitanzania na Afrika Mashariki.' : 'Case studies, workflows, and economic realities rooted in the East & Central African business ecosystem.', 
+      title: 'Africa-Focused Context', 
+      desc: 'Case studies, workflows, and economic realities rooted in the East & Central African business ecosystem.', 
       icon: Globe2 
     },
     { 
-      title: language === 'sw' ? 'Kiswahili & Kiingereza' : 'English & Kiswahili', 
-      desc: language === 'sw' ? 'Lugha si kikwazo tena. Jifunze teknolojia tata kwa lugha inayoeleweka na kuzungumzwa na mamilioni.' : 'Bilingual accessibility ensuring language is never an obstacle to mastering high-impact technologies.', 
+      title: 'English & Kiswahili', 
+      desc: 'Bilingual accessibility ensuring language is never an obstacle to mastering high-impact technologies.', 
       icon: Languages 
     },
     { 
-      title: language === 'sw' ? 'Wakufunzi Waliobobea' : 'Expert-Led Sessions', 
-      desc: language === 'sw' ? 'Mafunzo yanaongozwa na wataalamu wenye uzoefu wa vitendo katika usalama na AI.' : 'Instruction delivered by seasoned cybersecurity professionals, tech educators, and AI practitioners.', 
+      title: 'Expert-Led Sessions', 
+      desc: 'Instruction delivered by seasoned cybersecurity professionals, tech educators, and AI practitioners.', 
       icon: Award 
     },
     { 
-      title: language === 'sw' ? 'Mtandaoni na Ana kwa Ana' : 'Online & Physical Delivery', 
-      desc: language === 'sw' ? 'Urahisi wa kuchagua kati ya vipindi vya Zoom, WhatsApp micro-learning, au madarasa ya ana kwa ana.' : 'Seamless choice between live Zoom/Meet classes, WhatsApp micro-learning, and on-site physical workshops.', 
+      title: 'Online & Physical Delivery', 
+      desc: 'Seamless choice between live Zoom/Meet classes, WhatsApp micro-learning, and on-site physical workshops.', 
       icon: MonitorSmartphone 
     },
     { 
-      title: language === 'sw' ? 'Matokeo Yanayoonekana' : 'Real-World Deliverables', 
-      desc: language === 'sw' ? 'Fanya kazi kwenye nyaraka zako halisi, ripoti za ofisi, au miradi ya wateja.' : 'Work directly on your team\'s actual documents, reports, proposals, and security policies.', 
-      icon: Sparkles 
+      title: 'Real-World Deliverables', 
+      desc: 'Work directly on your team\'s actual documents, reports, proposals, and security policies.', 
+      icon: BadgeCheck 
     },
     { 
-      title: language === 'sw' ? 'Usalama wa Data & AI' : 'AI Safety Built In', 
-      desc: language === 'sw' ? 'Ulinzi wa siri, utambuzi wa taarifa za uongo (deepfakes) na maadili vimejumuishwa katika kila kozi.' : 'Data privacy, hallucination verification, and deepfake defense are baked into every module.', 
+      title: 'AI Safety Built In', 
+      desc: 'Data privacy, hallucination verification, and deepfake defense are baked into every module.', 
       icon: ShieldCheck 
     },
     { 
-      title: language === 'sw' ? 'Ratiba Rahisi' : 'Flexible Formats', 
-      desc: language === 'sw' ? 'Kuanzia vipindi fupi vya masaa machache hadi mafunzo marefu ya wiki kadhaa.' : 'From 90-minute executive briefings to multi-week cohort intensives that fit your demanding schedule.', 
+      title: 'Flexible Formats', 
+      desc: 'From 90-minute executive briefings to multi-week cohort intensives that fit your demanding schedule.', 
       icon: Sliders 
     },
     { 
-      title: language === 'sw' ? 'Mafunzo Maalum ya Taasisi' : 'Custom Corporate Training', 
-      desc: language === 'sw' ? 'Mitaala maalum inayoundwa kulingana na malengo ya kampuni, chuo au shirika lako.' : 'Tailored curricula co-designed for universities, banks, NGOs, and government ministries.', 
+      title: 'Custom Corporate Training', 
+      desc: 'Tailored curricula co-designed for universities, banks, NGOs, and government ministries.', 
       icon: Building2 
     },
     { 
-      title: language === 'sw' ? 'Jumuiya Endelevu ya CyberSwahili' : 'Community-Driven Learning', 
-      desc: language === 'sw' ? 'Msaada wa kila siku, majadiliano ya kiteknolojia na fursa za kazi kupitia jamii yetu.' : 'Continuous alumni support, daily resource drops, and ongoing mentorship via CyberSwahili communities.', 
+      title: 'Community-Driven Learning', 
+      desc: 'Continuous alumni support, daily resource drops, and ongoing mentorship via CyberSwahili communities.', 
       icon: Users 
+    },
+    { 
+      title: 'Recognized Certificates', 
+      desc: 'QR-verifiable digital certificates trusted by East African employers and institutions.', 
+      icon: BadgeCheck 
     }
   ];
 
@@ -79,9 +99,8 @@ export const WhyCSAcademy: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
+        <div className="text-center max-w-3xl mx-auto space-y-4 mb-12">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-red-950/40 border border-red-800/40 text-[#DC2626] text-xs font-mono font-bold uppercase tracking-wider">
-            <Sparkles className="w-3.5 h-3.5" />
             <span>{t.whyUs.badge}</span>
           </div>
           <h2 className={`text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight ${
@@ -96,8 +115,27 @@ export const WhyCSAcademy: React.FC = () => {
           </p>
         </div>
 
-        {/* 10 Benefits Bento Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
+        {/* Impact Stats Strip */}
+        <div className={`grid grid-cols-2 sm:grid-cols-4 gap-4 mb-12 ${
+          theme === 'dark' ? 'text-white' : 'text-neutral-900'
+        }`}>
+          {stats.map((stat, i) => (
+            <div 
+              key={i}
+              className={`p-5 rounded-2xl border text-center ${
+                theme === 'dark' ? 'bg-[#0B0B0B] border-neutral-800' : 'bg-white border-neutral-200 shadow-sm'
+              }`}
+            >
+              <div className="text-2xl sm:text-3xl font-black tracking-tight text-[#DC2626]">{stat.value}</div>
+              <div className={`mt-1 text-[11px] font-semibold uppercase tracking-wider ${
+                theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'
+              }`}>{stat.label}</div>
+            </div>
+          ))}
+        </div>
+
+        {/* 11 Benefits Bento Grid */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {benefits.map((item, idx) => {
             const Icon = item.icon;
             return (
@@ -126,6 +164,29 @@ export const WhyCSAcademy: React.FC = () => {
             );
           })}
         </div>
+
+        {/* Closing CTA */}
+        {openBookingModal && (
+          <div className={`mt-12 rounded-3xl border p-8 sm:p-10 flex flex-col sm:flex-row items-center justify-between gap-6 ${
+            theme === 'dark' ? 'bg-[#0B0B0B] border-neutral-800' : 'bg-white border-neutral-200 shadow-sm'
+          }`}>
+            <div className="space-y-1 text-center sm:text-left">
+              <h3 className={`text-xl font-extrabold ${theme === 'dark' ? 'text-white' : 'text-neutral-900'}`}>
+                Ready to start your journey?
+              </h3>
+              <p className={`text-sm ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'}`}>
+                Join the next hands-on, practical training cohort.
+              </p>
+            </div>
+            <button
+              onClick={() => openBookingModal({ program: 'Next Practical Cohort' })}
+              className="inline-flex items-center gap-2 px-8 py-4 text-xs font-extrabold text-white bg-[#B91C1C] hover:bg-[#DC2626] rounded-2xl shadow-lg uppercase tracking-wider transition-all whitespace-nowrap"
+            >
+              <span>JOIN NEXT COHORT</span>
+              <ArrowRight className="w-4 h-4" />
+            </button>
+          </div>
+        )}
 
       </div>
     </section>

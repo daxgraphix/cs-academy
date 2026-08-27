@@ -10,7 +10,6 @@ import {
   Mail,
   Send,
   CheckCircle2,
-  Sparkles,
   ShieldCheck,
   Bell
 } from 'lucide-react';
@@ -24,21 +23,27 @@ export const Footer: React.FC<FooterProps> = ({
   setCurrentRoute,
   openBookingModal
 }) => {
-  const { language, theme } = useApp();
+  const { theme } = useApp();
   const [email, setEmail] = useState('');
   const [interest, setInterest] = useState<'all' | 'ai' | 'cybersecurity' | 'web'>('all');
   const [isSubscribed, setIsSubscribed] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [emailError, setEmailError] = useState('');
 
   const navigate = (route: PageRoute) => {
     setCurrentRoute(route);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const emailValid = (value: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
+
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email.trim() || !email.includes('@')) return;
-
+    if (!emailValid(email)) {
+      setEmailError('Please enter a valid email address.');
+      return;
+    }
+    setEmailError('');
     setIsLoading(true);
     setTimeout(() => {
       setIsLoading(false);
@@ -65,23 +70,19 @@ export const Footer: React.FC<FooterProps> = ({
             <div className="lg:col-span-6 space-y-4">
               <div className="inline-flex items-center gap-2 rounded-full border border-[#ff3b30]/30 bg-[#ff3b30]/10 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.2em] text-[#ff3b30]">
                 <Bell className="w-3.5 h-3.5" />
-                <span>{language === 'sw' ? 'Jarida la CS Academy' : 'CS Academy Dispatch'}</span>
+                <span>CS Academy Dispatch</span>
               </div>
               <h3 className={`text-2xl sm:text-3xl font-black tracking-[-0.05em] ${
                 theme === 'dark' ? 'text-white' : 'text-neutral-900'
               }`}>
-                {language === 'sw' ? (
-                  <>PATA TAARIFA ZA <span className="text-[#ff3b30]">KOZI MPYA & AI</span></>
-                ) : (
+                {(
                   <>STAY AHEAD IN <span className="text-[#ff3b30]">TECH, AI & SECURITY</span></>
                 )}
               </h3>
               <p className={`text-sm leading-relaxed ${
                 theme === 'dark' ? 'text-neutral-300' : 'text-neutral-600'
               }`}>
-                {language === 'sw'
-                  ? 'Jiunge na maelfu ya wanafunzi wanaopokea miongozo ya bure ya Kiswahili ya AI Prompts, tarehe za madarasa ya moja kwa moja, na mbinu za ulinzi mtandaoni.'
-                  : 'Subscribe for weekly Swahili & English tech guides, free prompt cheat sheets, live cohort announcements, and East African cybersecurity insights.'}
+                Subscribe for weekly Swahili & English tech guides, free prompt cheat sheets, live cohort announcements, and East African cybersecurity insights.
               </p>
             </div>
 
@@ -93,18 +94,16 @@ export const Footer: React.FC<FooterProps> = ({
                   <CheckCircle2 className="mt-0.5 h-6 w-6 shrink-0 text-emerald-500" />
                   <div>
                     <div className="text-sm font-bold">
-                      {language === 'sw' ? 'Asante kwa Kujiunga!' : 'Successfully Subscribed!'}
+                      Successfully Subscribed!
                     </div>
                     <div className={`mt-1 text-xs ${theme === 'dark' ? 'text-neutral-300' : 'text-neutral-600'}`}>
-                      {language === 'sw' 
-                        ? 'Tumekutumia mwongozo wa bure wa "Swahili Prompt Engineering Starter Pack" kwenye barua pepe yako.'
-                        : 'We have dispatched your free Swahili Prompt Starter Pack PDF. Stay tuned for our next masterclass alert!'}
+                      We have dispatched your free Swahili Prompt Starter Pack PDF. Stay tuned for our next masterclass alert!
                     </div>
                     <button
                       onClick={() => setIsSubscribed(false)}
                       className="mt-3 text-[11px] font-bold text-[#ff3b30] hover:underline"
                     >
-                      {language === 'sw' ? 'Jiunge na barua pepe nyingine' : 'Register another email'}
+                      Register another email
                     </button>
                   </div>
                 </div>
@@ -120,15 +119,21 @@ export const Footer: React.FC<FooterProps> = ({
                         type="email"
                         required
                         value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        placeholder={language === 'sw' ? 'Weka barua pepe yako...' : 'Enter your email address...'}
+                        onChange={(e) => { setEmail(e.target.value); if (emailError) setEmailError(''); }}
+                        aria-invalid={!!emailError}
+                        placeholder={'Enter your email address...'}
                         className={`w-full rounded-full border pl-10 pr-4 py-3 text-xs focus:outline-none focus:border-[#ff3b30] ${
-                          theme === 'dark'
+                          emailError
+                            ? 'border-red-500'
+                            : theme === 'dark'
                             ? 'bg-[#0d0d0d] border-white/10 text-white placeholder-neutral-500'
                             : 'bg-white border-neutral-200 text-neutral-900 placeholder-neutral-400 shadow-sm'
                         }`}
                       />
                     </div>
+                    {emailError && (
+                      <p className="text-[10px] font-semibold text-red-500">{emailError}</p>
+                    )}
                     <button
                       type="submit"
                       disabled={isLoading}
@@ -138,7 +143,7 @@ export const Footer: React.FC<FooterProps> = ({
                         <span>...</span>
                       ) : (
                         <span className="inline-flex items-center gap-2">
-                          <span>{language === 'sw' ? 'Jiunge Bure' : 'Subscribe Free'}</span>
+                          <span>Subscribe Free</span>
                           <Send className="w-3.5 h-3.5" />
                         </span>
                       )}
@@ -147,10 +152,10 @@ export const Footer: React.FC<FooterProps> = ({
 
                   <div className="flex flex-wrap items-center gap-2 text-[10px]">
                     <span className={theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'}>
-                      {language === 'sw' ? 'Unapendelea zaidi:' : 'Preferred topics:'}
+                      Preferred topics:
                     </span>
                     {[
-                      { id: 'all', label: language === 'sw' ? 'Zote' : 'All Updates' },
+                      { id: 'all', label: 'All Updates'},
                       { id: 'ai', label: 'AI & Vibe Coding' },
                       { id: 'cybersecurity', label: 'Cybersecurity' },
                       { id: 'web', label: 'Web & Digital' },
@@ -174,7 +179,7 @@ export const Footer: React.FC<FooterProps> = ({
 
                   <div className={`flex items-center gap-1.5 text-[10px] ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'}`}>
                     <ShieldCheck className="h-3 w-3 text-[#ff3b30]" />
-                    <span>{language === 'sw' ? 'Hatutumi barua taka (spam). Unaweza kujiondoa wakati wowote.' : 'Zero spam. Unsubscribe at any time with 1-click.'}</span>
+                    <span>Zero spam. Unsubscribe at any time with 1-click.</span>
                   </div>
                 </form>
               )}
@@ -203,21 +208,19 @@ export const Footer: React.FC<FooterProps> = ({
                 <p className={`text-[10px] font-medium tracking-[0.18em] uppercase ${
                   theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'
                 }`}>
-                  {language === 'sw' ? 'ELIMU YA TEKNOLOJIA KWA KISWAHILI' : 'SWAHILI TECH EDUCATION'}
+                  SWAHILI TECH EDUCATION
                 </p>
               </div>
             </div>
 
             <p className="text-[11px] font-black uppercase tracking-[0.14em] text-[#ff3b30]">
-              AI • CYBERSECURITY • DIGITAL SKILLS • VIBE CODING
+              AI  |  CYBERSECURITY  |  DIGITAL SKILLS  |  VIBE CODING
             </p>
 
             <p className={`max-w-sm text-xs leading-relaxed ${
               theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'
             }`}>
-              {language === 'sw'
-                ? 'Mitaala ya vitendo ya Akili Mnemba, Usalama wa Kimtandao na Ujuzi wa Kidijitali kwa Kiswahili na Kiingereza kote Afrika Mashariki.'
-                : 'Practical training in Artificial Intelligence, Cybersecurity, and Digital Skills across East and Central Africa.'}
+              Practical training in Artificial Intelligence, Cybersecurity, and Digital Skills across East and Central Africa.
             </p>
 
             <div className={`space-y-1.5 text-xs ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'}`}>
@@ -249,49 +252,49 @@ export const Footer: React.FC<FooterProps> = ({
 
           <div className="col-span-1 md:col-span-2 space-y-3">
             <h4 className={`text-[10px] font-bold uppercase tracking-[0.2em] ${theme === 'dark' ? 'text-neutral-300' : 'text-neutral-800'}`}>
-              {language === 'sw' ? 'MITAALA' : 'PROGRAMS'}
+              PROGRAMS
             </h4>
             <ul className={`space-y-2 text-xs ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'}`}>
               <li><button onClick={() => navigate('programs/ai')} className="text-left hover:text-[#ff3b30] transition-colors">AI & Vibe Coding</button></li>
               <li><button onClick={() => navigate('programs/cybersecurity')} className="text-left hover:text-[#ff3b30] transition-colors">Cybersecurity</button></li>
               <li><button onClick={() => navigate('programs/digital-skills')} className="text-left hover:text-[#ff3b30] transition-colors">Digital Skills</button></li>
-              <li><button onClick={() => navigate('programs')} className="text-left font-semibold text-[#ff3b30] hover:text-[#ff564d]">{language === 'sw' ? 'Mitaala Yote →' : 'All Curricula →'}</button></li>
+              <li><button onClick={() => navigate('programs')} className="text-left font-semibold text-[#ff3b30] hover:text-[#ff564d]">All Curricula →</button></li>
             </ul>
           </div>
 
           <div className="col-span-1 md:col-span-2 space-y-3">
             <h4 className={`text-[10px] font-bold uppercase tracking-[0.2em] ${theme === 'dark' ? 'text-neutral-300' : 'text-neutral-800'}`}>
-              {language === 'sw' ? 'NJIA ZA MAFUNZO' : 'DELIVERY'}
+              DELIVERY
             </h4>
             <ul className={`space-y-2 text-xs ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'}`}>
-              <li><button onClick={() => navigate('learning-formats')} className="text-left hover:text-[#ff3b30] transition-colors">{language === 'sw' ? 'Njia 6 za Mafunzo' : '6 Delivery Formats'}</button></li>
-              <li><button onClick={() => navigate('pricing')} className="text-left font-semibold text-emerald-500 hover:text-emerald-400">{language === 'sw' ? 'Bei & Ada (M-Pesa)' : 'Pricing & Plans (M-Pesa)'}</button></li>
+              <li><button onClick={() => navigate('learning-formats')} className="text-left hover:text-[#ff3b30] transition-colors">6 Delivery Formats</button></li>
+              <li><button onClick={() => navigate('pricing')} className="text-left font-semibold text-emerald-500 hover:text-emerald-400">Pricing & Plans (M-Pesa)</button></li>
               <li><button onClick={() => navigate('learning-formats')} className="text-left hover:text-[#ff3b30] transition-colors">WhatsApp Micro-Course</button></li>
-              <li><button onClick={() => navigate('features')} className="text-left hover:text-[#ff3b30] transition-colors">{language === 'sw' ? 'Sifa za Jukwaa' : 'Platform Features'}</button></li>
+              <li><button onClick={() => navigate('features')} className="text-left hover:text-[#ff3b30] transition-colors">Platform Features</button></li>
             </ul>
           </div>
 
           <div className="col-span-1 md:col-span-2 space-y-3">
             <h4 className={`text-[10px] font-bold uppercase tracking-[0.2em] ${theme === 'dark' ? 'text-neutral-300' : 'text-neutral-800'}`}>
-              {language === 'sw' ? 'MASHIRIKA' : 'ORGANIZATIONS'}
+              ORGANIZATIONS
             </h4>
             <ul className={`space-y-2 text-xs ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'}`}>
-              <li><button onClick={() => navigate('for-organizations')} className="text-left hover:text-[#ff3b30] transition-colors">{language === 'sw' ? 'Mafunzo ya Makampuni' : 'Corporate Training'}</button></li>
-              <li><button onClick={() => navigate('for-organizations')} className="text-left hover:text-[#ff3b30] transition-colors">{language === 'sw' ? 'Vyuo Vikuu' : 'University Programs'}</button></li>
+              <li><button onClick={() => navigate('for-organizations')} className="text-left hover:text-[#ff3b30] transition-colors">Corporate Training</button></li>
+              <li><button onClick={() => navigate('for-organizations')} className="text-left hover:text-[#ff3b30] transition-colors">University Programs</button></li>
               <li><button onClick={() => navigate('for-organizations')} className="text-left hover:text-[#ff3b30] transition-colors">NGOs & Governments</button></li>
-              <li><button onClick={() => openBookingModal()} className="text-left font-semibold hover:text-[#ff3b30]">{language === 'sw' ? 'Omba Waraka' : 'Request Proposal'}</button></li>
+              <li><button onClick={() => openBookingModal()} className="text-left font-semibold hover:text-[#ff3b30]">Request Proposal</button></li>
             </ul>
           </div>
 
           <div className="col-span-1 md:col-span-2 space-y-3">
             <h4 className={`text-[10px] font-bold uppercase tracking-[0.2em] ${theme === 'dark' ? 'text-neutral-300' : 'text-neutral-800'}`}>
-              {language === 'sw' ? 'KUHUSU SISI' : 'COMPANY'}
+              COMPANY
             </h4>
             <ul className={`space-y-2 text-xs ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'}`}>
-              <li><button onClick={() => navigate('about')} className="text-left hover:text-[#ff3b30] transition-colors">{language === 'sw' ? 'Kuhusu CS Academy' : 'About CS Academy'}</button></li>
-              <li><button onClick={() => navigate('resources')} className="text-left hover:text-[#ff3b30] transition-colors">{language === 'sw' ? 'Nyaraka za Bure' : 'Free Resources'}</button></li>
-              <li><button onClick={() => navigate('blog')} className="text-left hover:text-[#ff3b30] transition-colors">{language === 'sw' ? 'Makala & Blogu' : 'Blog & Articles'}</button></li>
-              <li><button onClick={() => navigate('contact')} className="text-left hover:text-[#ff3b30] transition-colors">{language === 'sw' ? 'Mawasiliano' : 'Contact & Book'}</button></li>
+              <li><button onClick={() => navigate('about')} className="text-left hover:text-[#ff3b30] transition-colors">About CS Academy</button></li>
+              <li><button onClick={() => navigate('resources')} className="text-left hover:text-[#ff3b30] transition-colors">Free Resources</button></li>
+              <li><button onClick={() => navigate('blog')} className="text-left hover:text-[#ff3b30] transition-colors">Blog & Articles</button></li>
+              <li><button onClick={() => navigate('contact')} className="text-left hover:text-[#ff3b30] transition-colors">Contact & Book</button></li>
             </ul>
           </div>
         </div>
@@ -300,8 +303,8 @@ export const Footer: React.FC<FooterProps> = ({
           <div>© 2026 CS Academy. CyberSwahili Tech Ecosystem. All rights reserved.</div>
           <div className="flex items-center gap-4">
             <span>Swahili Tech Learning</span>
-            <span>•</span>
-            <span>Tanzania • Kenya • Uganda • East Africa</span>
+            <span> | </span>
+            <span>Tanzania  |  Kenya  |  Uganda  |  East Africa</span>
           </div>
         </div>
       </div>

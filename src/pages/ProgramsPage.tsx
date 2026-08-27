@@ -4,7 +4,6 @@ import { programsData } from '../data/programs';
 import { featuredTrainingData } from '../data/training';
 import { useApp } from '../context/AppContext';
 import { 
-  Sparkles, 
   ShieldCheck, 
   Laptop, 
   ArrowRight, 
@@ -30,21 +29,21 @@ export const ProgramsPage: React.FC<ProgramsPageProps> = ({
   openProgramModal,
   openBookingModal
 }) => {
-  const { language, theme } = useApp();
+  const { theme } = useApp();
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [selectedCategory, setSelectedCategory] = useState<string>('ALL');
 
   const categories = [
-    { id: 'ALL', label: language === 'sw' ? 'Mitaala Yote' : 'All Programs', icon: Layers },
-    { id: 'ai', label: language === 'sw' ? 'Akili Mnemba (AI) & Vibe Coding' : 'AI & Vibe Coding', icon: Sparkles },
-    { id: 'cybersecurity', label: language === 'sw' ? 'Usalama Mtandaoni' : 'Cybersecurity & Defense', icon: ShieldCheck },
-    { id: 'digital-skills', label: language === 'sw' ? 'Ujuzi wa Dijitali & Wavuti' : 'Digital Skills & Web', icon: Laptop },
+    { id: 'ALL', label: 'All Programs', icon: Layers },
+    { id: 'ai', label: 'AI & Vibe Coding', icon: Laptop },
+    { id: 'cybersecurity', label: 'Cybersecurity & Defense', icon: ShieldCheck },
+    { id: 'digital-skills', label: 'Digital Skills & Web', icon: Laptop },
   ];
 
   const getIcon = (iconName: string) => {
     switch (iconName) {
       case 'Sparkles':
-        return <Sparkles className="w-6 h-6 text-[#DC2626]" />;
+        return <Laptop className="w-6 h-6 text-[#DC2626]" />;
       case 'ShieldCheck':
         return <ShieldCheck className="w-6 h-6 text-[#DC2626]" />;
       default:
@@ -110,8 +109,7 @@ export const ProgramsPage: React.FC<ProgramsPageProps> = ({
           <div className={`inline-flex items-center gap-2 px-3.5 py-1 rounded-full border text-xs font-mono font-bold uppercase tracking-wider ${
             theme === 'dark' ? 'bg-red-950/60 border-red-900/60 text-[#DC2626]' : 'bg-red-50 border-red-200 text-[#DC2626]'
           }`}>
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>{language === 'sw' ? 'Mkusanyiko Kamili wa Mitaala' : 'Comprehensive Curriculum Directory'}</span>
+            <span>Comprehensive Curriculum Directory</span>
           </div>
           <h1 className={`text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight ${
             theme === 'dark' ? 'text-white' : 'text-neutral-950'
@@ -121,9 +119,7 @@ export const ProgramsPage: React.FC<ProgramsPageProps> = ({
           <p className={`text-base sm:text-lg leading-relaxed ${
             theme === 'dark' ? 'text-neutral-300' : 'text-neutral-600'
           }`}>
-            {language === 'sw'
-              ? 'Chagua kozi na mitaala ya vitendo ya Akili Mnemba, Usalama wa Kimtandao, na Ujuzi wa Kidijitali kwa Kiswahili na Kiingereza.'
-              : 'Explore our comprehensive academies designed for practical skill mastery, ethical technology application, and career empowerment across Africa.'}
+            Explore our comprehensive academies designed for practical skill mastery, ethical technology application, and career empowerment across Africa.
           </p>
         </div>
 
@@ -142,9 +138,7 @@ export const ProgramsPage: React.FC<ProgramsPageProps> = ({
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder={language === 'sw' 
-                  ? 'Tafuta kozi kwa jina au ujuzi (mfano: Prompt, Vibe Coding, Phishing, React, Python)...' 
-                  : 'Search courses by title or skill category (e.g. Prompt Engineering, React, Cybersecurity, Phishing)...'}
+                placeholder={'Search courses by title or skill category (e.g. Prompt Engineering, React, Cybersecurity, Phishing)...'}
                 className={`w-full pl-12 pr-10 py-3.5 text-sm rounded-2xl border focus:outline-none focus:border-[#DC2626] transition-colors ${
                   theme === 'dark'
                     ? 'bg-[#0B0B0B] border-neutral-800 text-white placeholder-neutral-500'
@@ -167,7 +161,7 @@ export const ProgramsPage: React.FC<ProgramsPageProps> = ({
                 onClick={() => { setSearchQuery(''); setSelectedCategory('ALL'); }}
                 className="px-4 py-3 text-xs font-bold text-[#DC2626] hover:bg-red-500/10 rounded-2xl border border-red-500/20 transition-colors shrink-0"
               >
-                {language === 'sw' ? 'Futa Vichungi' : 'Clear Filters'}
+                Clear Filters
               </button>
             )}
           </div>
@@ -178,7 +172,7 @@ export const ProgramsPage: React.FC<ProgramsPageProps> = ({
               theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'
             }`}>
               <Filter className="w-3.5 h-3.5 inline mr-1" />
-              {language === 'sw' ? 'Chagua Sekta:' : 'Category:'}
+              Category:
             </span>
             {categories.map(cat => {
               const Icon = cat.icon;
@@ -208,15 +202,11 @@ export const ProgramsPage: React.FC<ProgramsPageProps> = ({
             <div>
               {searchQuery ? (
                 <span>
-                  {language === 'sw' 
-                    ? `Matokeo ya "${searchQuery}": mitaala ${filteredPillars.length} & kozi ${filteredCourses.length}`
-                    : `Showing results for "${searchQuery}": ${filteredPillars.length} academies & ${filteredCourses.length} modular courses`}
+                  {`Showing results for "${searchQuery}": ${filteredPillars.length} academies & ${filteredCourses.length} modular courses`}
                 </span>
               ) : (
                 <span>
-                  {language === 'sw' 
-                    ? `Inaonyesha mitaala mikuu 3 na kozi za kina 6+ za vitendo`
-                    : `Displaying 3 comprehensive academies & specialized training courses`}
+                  {`Displaying 3 comprehensive academies & specialized training courses`}
                 </span>
               )}
             </div>
@@ -230,18 +220,16 @@ export const ProgramsPage: React.FC<ProgramsPageProps> = ({
           }`}>
             <BookOpen className="w-12 h-12 text-[#DC2626] mx-auto opacity-80" />
             <h3 className={`text-xl font-bold ${theme === 'dark' ? 'text-white' : 'text-neutral-900'}`}>
-              {language === 'sw' ? 'Hakuna kozi zilizopatikana' : 'No matching courses found'}
+              No matching courses found
             </h3>
             <p className="text-sm max-w-md mx-auto">
-              {language === 'sw' 
-                ? 'Jaribu kutafuta kwa maneno mengine kama "AI", "Cybersecurity", "Prompt", "Web", au "Workplace".' 
-                : 'Try searching with different terms like "AI", "Cybersecurity", "Prompt", "Web", or "Digital".'}
+              Try searching with different terms like "AI", "Cybersecurity", "Prompt", "Web", or "Digital".
             </p>
             <button
               onClick={() => { setSearchQuery(''); setSelectedCategory('ALL'); }}
               className="px-6 py-2.5 rounded-xl bg-[#DC2626] text-white text-xs font-bold hover:bg-red-700 transition-colors shadow"
             >
-              {language === 'sw' ? 'Onyesha Mitaala Yote' : 'Reset All Filters'}
+              Reset All Filters
             </button>
           </div>
         )}
@@ -254,7 +242,7 @@ export const ProgramsPage: React.FC<ProgramsPageProps> = ({
               <h2 className={`text-xl sm:text-2xl font-black uppercase tracking-tight ${
                 theme === 'dark' ? 'text-white' : 'text-neutral-900'
               }`}>
-                {language === 'sw' ? 'Mitaala Mikuu ya Taaluma' : 'Core Academy Tracks'}
+                Core Academy Tracks
               </h2>
             </div>
 
@@ -296,13 +284,13 @@ export const ProgramsPage: React.FC<ProgramsPageProps> = ({
                           : 'text-neutral-800 hover:text-black bg-neutral-100 hover:bg-neutral-200 border border-neutral-200'
                       }`}
                     >
-                      {language === 'sw' ? 'Tazama Ukurasa wa Chuo' : 'View Academy Page'}
+                      View Academy Page
                     </button>
                     <button
                       onClick={() => openBookingModal({ program: pillar.title })}
                       className="px-6 py-2.5 rounded-xl text-xs font-extrabold text-white bg-[#B91C1C] hover:bg-[#DC2626] uppercase tracking-wider shadow-lg transition-all"
                     >
-                      {language === 'sw' ? 'Jiunge na Mafunzo' : 'Book Training'}
+                      Book Training
                     </button>
                   </div>
                 </div>
@@ -321,7 +309,7 @@ export const ProgramsPage: React.FC<ProgramsPageProps> = ({
 
                     <div className="space-y-2 pt-2">
                       <h4 className="text-xs font-bold uppercase tracking-wider text-neutral-400">
-                        {language === 'sw' ? 'Walengwa:' : 'Target Audiences:'}
+                        Target Audiences:
                       </h4>
                       <div className="flex flex-wrap gap-2">
                         {pillar.audience.map((aud, aIdx) => (
@@ -342,7 +330,7 @@ export const ProgramsPage: React.FC<ProgramsPageProps> = ({
 
                   <div className="lg:col-span-6 space-y-4">
                     <h4 className="text-xs font-bold uppercase tracking-wider text-neutral-400">
-                      {language === 'sw' ? 'Moduli za Mafunzo & Ujuzi wa Vitendo:' : 'Core Curriculum Modules & Hands-on Skills:'}
+                      Core Curriculum Modules & Hands-on Skills:
                     </h4>
                     <div className="space-y-3">
                       {pillar.modules.map((mod, mIdx) => (
@@ -373,7 +361,7 @@ export const ProgramsPage: React.FC<ProgramsPageProps> = ({
                     <div className={`font-bold uppercase tracking-wider mb-2 ${
                       theme === 'dark' ? 'text-neutral-300' : 'text-neutral-800'
                     }`}>
-                      {language === 'sw' ? 'Matokeo Yanayothibitishwa:' : 'Verified Outcomes:'}
+                      Verified Outcomes:
                     </div>
                     <ul className="space-y-1.5 text-neutral-400">
                       {pillar.outcomes.map((out, oIdx) => (
@@ -389,13 +377,13 @@ export const ProgramsPage: React.FC<ProgramsPageProps> = ({
                     <div className={`font-bold uppercase tracking-wider mb-2 ${
                       theme === 'dark' ? 'text-neutral-300' : 'text-neutral-800'
                     }`}>
-                      {language === 'sw' ? 'Njia & Muda wa Masomo:' : 'Delivery & Duration:'}
+                      Delivery & Duration:
                     </div>
                     <div className={`space-y-1 ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'}`}>
-                      <p>• {language === 'sw' ? 'Njia:' : 'Formats:'} {pillar.deliveryFormats.join(' • ')}</p>
-                      <p>• {language === 'sw' ? 'Muda:' : 'Duration:'} {pillar.durationOptions.join(' • ')}</p>
+                      <p>Formats: {pillar.deliveryFormats.join(', ')}</p>
+                      <p>Duration: {pillar.durationOptions.join(', ')}</p>
                       <p className="text-[#DC2626] pt-1 font-semibold">
-                        ✓ {language === 'sw' ? 'Mafunzo kwa Kiswahili na Kiingereza' : 'Instructed in English & Kiswahili'}
+                        ✓ Instructed in English & Kiswahili
                       </p>
                     </div>
                   </div>
@@ -414,7 +402,7 @@ export const ProgramsPage: React.FC<ProgramsPageProps> = ({
               <h2 className={`text-xl sm:text-2xl font-black uppercase tracking-tight ${
                 theme === 'dark' ? 'text-white' : 'text-neutral-900'
               }`}>
-                {language === 'sw' ? 'Kozi Maalum za Vitendo & Warsha' : 'Specialized Cohort Bootcamps & Masterclasses'}
+                Specialized Cohort Bootcamps & Masterclasses
               </h2>
             </div>
 
@@ -430,7 +418,7 @@ export const ProgramsPage: React.FC<ProgramsPageProps> = ({
                   <div className="space-y-3">
                     <div className="flex items-center justify-between gap-2">
                       <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#DC2626] px-2.5 py-0.5 rounded-full bg-red-950/40 border border-red-900/40">
-                        {course.category.toUpperCase()} • {course.level}
+                        {course.category.toUpperCase()} | {course.level}
                       </span>
                       <span className={`text-[11px] font-mono flex items-center gap-1 ${
                         theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'
@@ -454,7 +442,7 @@ export const ProgramsPage: React.FC<ProgramsPageProps> = ({
 
                     <div className="space-y-1.5 pt-2">
                       <div className="text-[11px] font-bold uppercase tracking-wider text-neutral-400">
-                        {language === 'sw' ? 'Muhtasari wa Mafunzo:' : 'Key Highlights:'}
+                        Key Highlights:
                       </div>
                       <ul className="space-y-1 text-xs">
                         {course.highlights.slice(0, 3).map((h, hIdx) => (
@@ -477,7 +465,7 @@ export const ProgramsPage: React.FC<ProgramsPageProps> = ({
                       onClick={() => openBookingModal({ program: course.title })}
                       className="px-4 py-2 rounded-xl bg-[#DC2626] hover:bg-red-700 text-white text-xs font-bold tracking-wider uppercase transition-colors shadow flex items-center gap-1.5"
                     >
-                      <span>{language === 'sw' ? 'Jiunge Sasa' : 'Enroll'}</span>
+                      <span>Enroll</span>
                       <ArrowRight className="w-3.5 h-3.5" />
                     </button>
                   </div>

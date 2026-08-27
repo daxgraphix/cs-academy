@@ -1,10 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { Language, Theme, Currency, translations, Translations } from '../data/translations';
+import { Theme, Currency, translations, Translations } from '../data/translations';
 
 interface AppContextType {
-  language: Language;
-  setLanguage: (lang: Language) => void;
-  toggleLanguage: () => void;
   theme: Theme;
   setTheme: (theme: Theme) => void;
   toggleTheme: () => void;
@@ -16,18 +13,6 @@ interface AppContextType {
 const AppContext = createContext<AppContextType | undefined>(undefined);
 
 export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  // Initialize Language from localStorage or default to 'sw' (Swahili first)
-  const [language, setLanguageState] = useState<Language>(() => {
-    try {
-      const savedLang = localStorage.getItem('cs_academy_lang');
-      if (savedLang === 'sw' || savedLang === 'en') return savedLang;
-    } catch (e) {
-      // ignore
-    }
-    return 'sw';
-  });
-
-  // Initialize Theme from localStorage or system preference, default to 'dark'
   const [theme, setThemeState] = useState<Theme>(() => {
     try {
       const savedTheme = localStorage.getItem('cs_academy_theme');
@@ -35,10 +20,9 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     } catch (e) {
       // ignore
     }
-    return 'dark';
+    return 'light';
   });
 
-  // Initialize Currency
   const [currency, setCurrencyState] = useState<Currency>(() => {
     try {
       const savedCurr = localStorage.getItem('cs_academy_currency');
@@ -49,12 +33,10 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     return 'TSH';
   });
 
-  // Update HTML class on theme change
   useEffect(() => {
     try {
       const root = document.documentElement;
-      root.lang = language;
-      root.dataset.language = language;
+      root.lang = 'en';
       root.classList.add('notranslate');
       if (theme === 'dark') {
         root.classList.add('dark');
@@ -67,23 +49,8 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     } catch (e) {
       // ignore
     }
-  }, [language, theme]);
+  }, [theme]);
 
-  // Persist language
-  const setLanguage = (lang: Language) => {
-    setLanguageState(lang);
-    try {
-      localStorage.setItem('cs_academy_lang', lang);
-    } catch (e) {
-      // ignore
-    }
-  };
-
-  const toggleLanguage = () => {
-    setLanguage(language === 'sw' ? 'en' : 'sw');
-  };
-
-  // Persist theme
   const setTheme = (t: Theme) => {
     setThemeState(t);
   };
@@ -92,7 +59,6 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     setTheme(theme === 'dark' ? 'light' : 'dark');
   };
 
-  // Persist currency
   const setCurrency = (c: Currency) => {
     setCurrencyState(c);
     try {
@@ -102,14 +68,11 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     }
   };
 
-  const t = translations[language];
+  const t = translations;
 
   return (
     <AppContext.Provider
       value={{
-        language,
-        setLanguage,
-        toggleLanguage,
         theme,
         setTheme,
         toggleTheme,

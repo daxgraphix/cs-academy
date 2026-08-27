@@ -11,7 +11,6 @@ import {
   CheckCircle2, 
   ArrowRight, 
   Wifi, 
-  Sparkles,
   Smartphone
 } from 'lucide-react';
 
@@ -22,21 +21,21 @@ interface LearningFormatsSectionProps {
 export const LearningFormatsSection: React.FC<LearningFormatsSectionProps> = ({
   openBookingModal
 }) => {
-  const { language, theme, currency, setCurrency, t } = useApp();
+  const { theme, currency, setCurrency, t } = useApp();
 
   const getFormatPrice = (format: typeof learningFormatsData[0]) => {
     if (currency === 'TSH') {
       return format.priceStartingTsh === 'Custom' 
-        ? (language === 'sw' ? 'Bei Maalum' : 'Custom Quote') 
+        ? ('Custom Quote') 
         : `${format.priceStartingTsh} Tsh`;
     }
     if (currency === 'KES') {
       return format.priceStartingKes === 'Custom' 
-        ? (language === 'sw' ? 'Bei Maalum' : 'Custom Quote') 
+        ? ('Custom Quote') 
         : `${format.priceStartingKes} KSh`;
     }
     return format.priceStartingUsd === 'Custom' 
-      ? (language === 'sw' ? 'Bei Maalum' : 'Custom Quote') 
+      ? ('Custom Quote') 
       : `$${format.priceStartingUsd}`;
   };
 
@@ -73,7 +72,6 @@ export const LearningFormatsSection: React.FC<LearningFormatsSectionProps> = ({
           <div className={`inline-flex items-center gap-2 px-3.5 py-1 rounded-full border text-xs font-mono font-bold uppercase tracking-wider ${
             theme === 'dark' ? 'bg-[#171717] border-neutral-800 text-neutral-300' : 'bg-neutral-50 border-neutral-200 text-neutral-800'
           }`}>
-            <Sparkles className="w-3.5 h-3.5 text-[#DC2626]" />
             <span>{t.formats.badge}</span>
           </div>
           <h2 className={`text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight ${
@@ -111,7 +109,7 @@ export const LearningFormatsSection: React.FC<LearningFormatsSectionProps> = ({
               theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'
             }`}>
               <Smartphone className="w-3.5 h-3.5 text-emerald-500" />
-              <span>{language === 'sw' ? 'M-Pesa / Airtel / Tigo / Kadi' : 'M-Pesa, Airtel Money, Cards accepted'}</span>
+              <span>M-Pesa, Airtel Money, Cards accepted</span>
             </div>
           </div>
         </div>
@@ -140,7 +138,7 @@ export const LearningFormatsSection: React.FC<LearningFormatsSectionProps> = ({
                   <span className={`text-xs font-mono font-bold px-3 py-1 rounded-full border ${
                     theme === 'dark' ? 'bg-[#0B0B0B] border-neutral-800 text-neutral-400' : 'bg-neutral-100 border-neutral-200 text-neutral-600'
                   }`}>
-                    {language === 'sw' ? 'Njia' : 'Channel'} {format.number}
+                    Channel {format.number}
                   </span>
                 </div>
 
@@ -167,7 +165,7 @@ export const LearningFormatsSection: React.FC<LearningFormatsSectionProps> = ({
                     <span className={`text-[10px] font-mono uppercase block ${
                       theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'
                     }`}>
-                      {language === 'sw' ? 'Gharama ya Kuanzia' : 'Delivery Investment'}
+                      Delivery Investment
                     </span>
                     <div className={`text-xl font-black ${
                       theme === 'dark' ? 'text-white' : 'text-neutral-950'
@@ -196,7 +194,7 @@ export const LearningFormatsSection: React.FC<LearningFormatsSectionProps> = ({
                   <div className={`text-[10px] font-bold uppercase tracking-wider mb-1 ${
                     theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'
                   }`}>
-                    {language === 'sw' ? 'Inafaa Zaidi:' : 'Ideal Audience:'}
+                    Ideal Audience:
                   </div>
                   <div className={`text-xs leading-snug ${
                     theme === 'dark' ? 'text-neutral-300' : 'text-neutral-700'
@@ -210,7 +208,7 @@ export const LearningFormatsSection: React.FC<LearningFormatsSectionProps> = ({
                   <div className={`text-[11px] font-mono font-bold uppercase tracking-wider ${
                     theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'
                   }`}>
-                    {language === 'sw' ? 'Sifa Kuu za Njia Hii:' : 'Key Channel Features:'}
+                    Key Channel Features:
                   </div>
                   {format.features.map((feat, i) => (
                     <div key={i} className={`flex items-center gap-2 text-xs ${
@@ -240,7 +238,7 @@ export const LearningFormatsSection: React.FC<LearningFormatsSectionProps> = ({
                       : 'text-neutral-800 hover:text-white bg-neutral-100 hover:bg-[#B91C1C] border border-neutral-200 hover:border-transparent'
                   }`}
                 >
-                  <span>{language === 'sw' ? `Chagua ${format.title}` : `Enroll in ${format.title}`}</span>
+                  <span>{`Enroll in ${format.title}`}</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </div>

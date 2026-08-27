@@ -123,8 +123,10 @@ export interface ResourceItem {
   format: 'PDF Guide' | 'Checklist' | 'Toolkit' | 'Cheat Sheet';
   description: string;
   readingTime: string;
+  level: 'Beginner' | 'Intermediate' | 'Advanced';
   targetAudience: string;
   keyHighlights: string[];
+  useCases: string[];
   previewContent?: string[];
   downloadName: string;
 }
@@ -133,7 +135,7 @@ export interface BlogPost {
   id: string;
   slug: string;
   title: string;
-  category: 'AI Literacy' | 'Cybersecurity' | 'Education' | 'Business' | 'Swahili AI' | 'Productivity';
+  category: 'AI Literacy' | 'Cybersecurity' | 'Education' | 'Business' | 'Productivity';
   readingTime: string;
   publishedDate: string;
   author: string;
@@ -154,7 +156,7 @@ export interface FAQItem {
   id: string;
   question: string;
   answer: string;
-  category: 'General' | 'Enrollment' | 'Organizations' | 'Languages' | 'Delivery' | 'Course Access' | 'Payment & Mobile Money' | 'Technical Support';
+  category: 'General' | 'Enrollment' | 'Organizations' | 'Delivery' | 'Course Access' | 'Payment & Mobile Money' | 'Technical Support';
 }
 
 export interface Instructor {
@@ -164,7 +166,6 @@ export interface Instructor {
   specialtyBadge: string;
   experience: string;
   bio: string;
-  bioSw?: string;
   avatarInitials: string;
   avatarGradient?: string;
   avatarImage?: string;

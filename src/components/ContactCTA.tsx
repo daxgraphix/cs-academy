@@ -5,8 +5,7 @@ import {
   Mail, 
   MessageCircle, 
   ArrowRight, 
-  Calendar,
-  Sparkles
+  Calendar
 } from 'lucide-react';
 
 interface ContactCTAProps {
@@ -16,16 +15,13 @@ interface ContactCTAProps {
 export const ContactCTA: React.FC<ContactCTAProps> = ({
   openBookingModal
 }) => {
-  const { language, theme } = useApp();
+  const { theme } = useApp();
 
   const whatsappUrl = `https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(
-    language === 'sw'
-      ? "Habari CS Academy, naomba maelezo kuhusu kujiunga na mafunzo / kuandaa mafunzo kwa taasisi yetu."
-      : "Hello CS Academy, I would like to inquire about training programs for myself / my organization."
-  )}`;
+    "Hello CS Academy, I would like to inquire about training programs for myself / my organization.")}`;
 
   const mailtoUrl = `mailto:${siteConfig.email}?subject=${encodeURIComponent(
-    "Training Inquiry — CS Academy"
+    "Training Inquiry | CS Academy"
   )}&body=${encodeURIComponent(
     "Hello CS Academy Team,\n\nI am interested in exploring training programs. Please share more details on your curriculum, scheduling, and proposals.\n\nName:\nOrganization/Role:\nPreferred Program:\nLocation:\n\nThank you."
   )}`;
@@ -56,16 +52,13 @@ export const ContactCTA: React.FC<ContactCTAProps> = ({
               <div className={`inline-flex items-center gap-2 px-3.5 py-1 rounded-full border text-xs font-mono font-bold uppercase tracking-wider ${
                 theme === 'dark' ? 'bg-red-950/60 border-red-900/60 text-[#DC2626]' : 'bg-red-50 border-red-200 text-[#DC2626]'
               }`}>
-                <Sparkles className="w-3.5 h-3.5" />
-                <span>{language === 'sw' ? 'Wasiliana Nasi Moja kwa Moja' : 'Direct Lead & Training Inquiries'}</span>
+                <span>Direct Lead & Training Inquiries</span>
               </div>
 
               <h2 className={`text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight ${
                 theme === 'dark' ? 'text-white' : 'text-neutral-950'
               }`}>
-                {language === 'sw' ? (
-                  <>ANZA SAFARI YAKO YA <span className="text-[#DC2626]">KIDIITALI LEO</span></>
-                ) : (
+                {(
                   <>START YOUR <span className="text-[#DC2626]">DIGITAL JOURNEY</span></>
                 )}
               </h2>
@@ -73,9 +66,7 @@ export const ContactCTA: React.FC<ContactCTAProps> = ({
               <p className={`text-base sm:text-lg leading-relaxed ${
                 theme === 'dark' ? 'text-neutral-300' : 'text-neutral-600'
               }`}>
-                {language === 'sw'
-                  ? 'Tueleze kile unachotaka kujifunza au mahitaji ya mafunzo ya taasisi yako. Kuanzia semina fupi ya masaa 2 hadi programu endelevu ya mafunzo, timu yetu iko tayari kukusaidia.'
-                  : 'Tell us what you want to learn or the training your organization needs. Whether you need a 2-hour executive seminar or a workforce AI bootcamp, our team is ready to assist.'}
+                Tell us what you want to learn or the training your organization needs. Whether you need a 2-hour executive seminar or a workforce AI bootcamp, our team is ready to assist.
               </p>
 
               {/* Quick direct contact links */}
@@ -93,7 +84,7 @@ export const ContactCTA: React.FC<ContactCTAProps> = ({
                   </div>
                   <div className="truncate">
                     <div className={`text-[10px] font-mono uppercase ${theme === 'dark' ? 'text-neutral-500' : 'text-neutral-400'}`}>
-                      {language === 'sw' ? 'Barua Pepe' : 'Direct Email'}
+                      Direct Email
                     </div>
                     <div className={`text-xs font-bold truncate group-hover:text-[#DC2626] transition-colors ${
                       theme === 'dark' ? 'text-neutral-200' : 'text-neutral-800'
@@ -132,13 +123,13 @@ export const ContactCTA: React.FC<ContactCTAProps> = ({
             }`}>
               <div className="space-y-1">
                 <span className="text-xs font-mono font-bold text-[#DC2626] uppercase">
-                  {language === 'sw' ? 'Fomu ya Haraka ya Kujiandikisha' : 'Instant Interactive Booking'}
+                  Instant Interactive Booking
                 </span>
                 <h3 className={`text-xl font-extrabold ${theme === 'dark' ? 'text-white' : 'text-neutral-900'}`}>
-                  {language === 'sw' ? 'Ungependa kuanza vipi?' : 'How would you like to connect?'}
+                  How would you like to connect?
                 </h3>
                 <p className={`text-xs ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'}`}>
-                  {language === 'sw' ? 'Tuma maombi ya mafunzo ndani ya sekunde 60.' : 'Configure your training request in 60 seconds.'}
+                  Configure your training request in 60 seconds.
                 </p>
               </div>
 
@@ -149,7 +140,7 @@ export const ContactCTA: React.FC<ContactCTAProps> = ({
                   className="w-full py-4 px-5 text-xs font-extrabold text-white bg-[#B91C1C] hover:bg-[#DC2626] active:scale-[0.99] rounded-2xl shadow-lg hover:shadow-red-900/30 uppercase tracking-wider transition-all duration-200 hover:-translate-y-0.5 flex items-center justify-center gap-2"
                 >
                   <Calendar className="w-4 h-4" />
-                  <span>{language === 'sw' ? 'JIUNGE NA MAFUNZO SASA' : 'BOOK TRAINING NOW'}</span>
+                  <span>BOOK TRAINING NOW</span>
                 </button>
 
                 <a
@@ -164,13 +155,13 @@ export const ContactCTA: React.FC<ContactCTAProps> = ({
                   }`}
                 >
                   <MessageCircle className="w-4 h-4 text-emerald-500" />
-                  <span>{language === 'sw' ? 'ONGEA NASI KWA WHATSAPP' : 'WHATSAPP US DIRECTLY'}</span>
+                  <span>WHATSAPP US DIRECTLY</span>
                 </a>
               </div>
 
               <div className="pt-2 text-center">
                 <p className={`text-[11px] font-mono ${theme === 'dark' ? 'text-neutral-500' : 'text-neutral-400'}`}>
-                  Tanzania • Kenya • Uganda • Rwanda • DRC
+                  Tanzania  |  Kenya  |  Uganda  |  Rwanda  |  DRC
                 </p>
               </div>
             </div>

@@ -6,7 +6,6 @@ import {
   Phone, 
   MapPin, 
   Calendar, 
-  Sparkles, 
   Clock, 
   Send, 
   CheckCircle2 
@@ -29,10 +28,10 @@ export const ContactPage: React.FC<ContactPageProps> = ({
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const mailtoBody = `Hello CS Academy Team,\n\nI would like to inquire about training:\n• Name: ${name}\n• Email: ${email}\n• Organization: ${org || 'N/A'}\n• Program Interest: ${interest}\n• Preferred Format: ${delivery}\n• Message / Objectives: ${message}\n\nPlease share availability and enrollment details.`;
+    const mailtoBody = `Hello CS Academy Team,\n\nI would like to inquire about training:\nName: ${name}\nEmail: ${email}\nOrganization: ${org || 'N/A'}\nProgram Interest: ${interest}\nPreferred Format: ${delivery}\nMessage / Objectives: ${message}\n\nPlease share availability and enrollment details.`;
     
     const mailtoUrl = `mailto:${siteConfig.email}?subject=${encodeURIComponent(
-      `Training Request: ${interest} — ${name}`
+      `Training Request: ${interest} | ${name}`
     )}&body=${encodeURIComponent(mailtoBody)}`;
 
     window.location.href = mailtoUrl;

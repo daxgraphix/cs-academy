@@ -15,8 +15,7 @@ import {
   ArrowRight, 
   CheckCircle2, 
   Clock,
-  Layers,
-  Sparkles
+  Layers
 } from 'lucide-react';
 
 interface ForOrganizationsPageProps {
@@ -133,9 +132,9 @@ export const ForOrganizationsPage: React.FC<ForOrganizationsPageProps> = ({
                   
                   <div className="p-3 rounded-xl bg-[#0B0B0B] border border-neutral-800 text-xs text-neutral-300 space-y-1">
                     <span className="text-[10px] font-bold uppercase tracking-wider text-neutral-400">Critical Needs:</span>
-                    <ul className="space-y-1 text-[11px] text-neutral-400">
+                    <ul className="space-y-1 text-[11px] text-neutral-400 list-disc list-inside pl-1 marker:text-[#DC2626]">
                       {sol.criticalNeeds.slice(0, 3).map((need, nIdx) => (
-                        <li key={nIdx}>• {need}</li>
+                        <li key={nIdx}>{need}</li>
                       ))}
                     </ul>
                   </div>
@@ -177,8 +176,8 @@ export const ForOrganizationsPage: React.FC<ForOrganizationsPageProps> = ({
                   <p className="text-xs text-neutral-300 leading-relaxed">{pkg.tagline}</p>
                   
                   <div className="space-y-1 text-xs text-neutral-400 pt-1">
-                    <div>• <strong>Duration:</strong> {pkg.durations.join(' or ')}</div>
-                    <div>• <strong>Formats:</strong> {pkg.formats.join(', ')}</div>
+                    <div><strong>Duration:</strong> {pkg.durations.join(' or ')}</div>
+                    <div><strong>Formats:</strong> {pkg.formats.join(', ')}</div>
                   </div>
 
                   <div className="space-y-1.5 pt-2">

@@ -17,7 +17,7 @@ export const ShareButtons: React.FC<ShareButtonsProps> = ({
   className = '',
   variant = 'inline'
 }) => {
-  const { language, theme } = useApp();
+  const { theme } = useApp();
   const [copied, setCopied] = useState(false);
 
   const shareUrl = url || (typeof window !== 'undefined' ? window.location.href : 'https://csacademy.africa');
@@ -64,13 +64,13 @@ export const ShareButtons: React.FC<ShareButtonsProps> = ({
         <span className={`text-[11px] font-mono font-semibold mr-1 ${
           theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'
         }`}>
-          {language === 'sw' ? 'Shiriki:' : 'Share:'}
+          Share:
         </span>
         
         {/* WhatsApp */}
         <button
           onClick={handleWhatsApp}
-          title={language === 'sw' ? 'Shiriki kupitia WhatsApp' : 'Share on WhatsApp'}
+          title={'Share on WhatsApp'}
           aria-label="Share on WhatsApp"
           className="p-1.5 rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-500 transition-colors"
         >
@@ -80,7 +80,7 @@ export const ShareButtons: React.FC<ShareButtonsProps> = ({
         {/* Twitter / X */}
         <button
           onClick={handleTwitter}
-          title={language === 'sw' ? 'Shiriki kupitia X (Twitter)' : 'Share on X (Twitter)'}
+          title={'Share on X (Twitter)'}
           aria-label="Share on X (Twitter)"
           className={`p-1.5 rounded-lg transition-colors ${
             theme === 'dark' 
@@ -94,7 +94,7 @@ export const ShareButtons: React.FC<ShareButtonsProps> = ({
         {/* LinkedIn */}
         <button
           onClick={handleLinkedIn}
-          title={language === 'sw' ? 'Shiriki kupitia LinkedIn' : 'Share on LinkedIn'}
+          title={'Share on LinkedIn'}
           aria-label="Share on LinkedIn"
           className="p-1.5 rounded-lg bg-sky-500/10 hover:bg-sky-500/20 text-sky-500 transition-colors"
         >
@@ -104,7 +104,7 @@ export const ShareButtons: React.FC<ShareButtonsProps> = ({
         {/* Copy Link */}
         <button
           onClick={handleCopyLink}
-          title={language === 'sw' ? 'Nakili kiungo' : 'Copy link'}
+          title={'Copy link'}
           aria-label="Copy link"
           className={`p-1.5 rounded-lg transition-colors ${
             copied
@@ -130,7 +130,7 @@ export const ShareButtons: React.FC<ShareButtonsProps> = ({
         theme === 'dark' ? 'text-neutral-300' : 'text-neutral-700'
       }`}>
         <Share2 className="w-3.5 h-3.5 text-[#DC2626]" />
-        <span>{language === 'sw' ? 'Shiriki Mafunzo Haya:' : 'Share This Content:'}</span>
+        <span>Share This Content:</span>
       </div>
 
       <div className="flex items-center gap-2">
@@ -183,12 +183,12 @@ export const ShareButtons: React.FC<ShareButtonsProps> = ({
           {copied ? (
             <>
               <Check className="w-3.5 h-3.5 text-emerald-400" />
-              <span>{language === 'sw' ? 'Imenakiliwa!' : 'Copied!'}</span>
+              <span>Copied!</span>
             </>
           ) : (
             <>
               <Link2 className="w-3.5 h-3.5" />
-              <span>{language === 'sw' ? 'Nakili Kiungo' : 'Copy Link'}</span>
+              <span>Copy Link</span>
             </>
           )}
         </button>

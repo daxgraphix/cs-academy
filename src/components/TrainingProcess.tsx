@@ -7,12 +7,11 @@ import {
   Send, 
   RefreshCw, 
   BarChart3, 
-  ArrowRight,
-  Sparkles
+  ArrowRight
 } from 'lucide-react';
 
 export const TrainingProcess: React.FC = () => {
-  const { language, theme, t } = useApp();
+  const { theme, t } = useApp();
 
   const getStepIcon = (idx: number) => {
     switch (idx) {
@@ -45,7 +44,6 @@ export const TrainingProcess: React.FC = () => {
           <div className={`inline-flex items-center gap-2 px-3.5 py-1 rounded-full border text-xs font-mono font-bold uppercase tracking-wider ${
             theme === 'dark' ? 'bg-[#171717] border-neutral-800 text-neutral-300' : 'bg-white border-neutral-200 text-neutral-800 shadow-sm'
           }`}>
-            <Sparkles className="w-3.5 h-3.5 text-[#DC2626]" />
             <span>{t.process.badge}</span>
           </div>
           <h2 className={`text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight ${
@@ -81,7 +79,7 @@ export const TrainingProcess: React.FC = () => {
                 <span className={`text-xs font-mono font-bold px-2.5 py-0.5 rounded-full border ${
                   theme === 'dark' ? 'text-[#DC2626] bg-red-950/40 border-red-900/30' : 'text-[#DC2626] bg-red-50 border-red-200'
                 }`}>
-                  {language === 'sw' ? 'Hatua' : 'Step'} {step.step}
+                  Step {step.step}
                 </span>
               </div>
 

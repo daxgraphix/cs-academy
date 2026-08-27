@@ -6,8 +6,7 @@ import {
   MessageCircle, 
   Mail, 
   CheckCircle2, 
-  Sparkles, 
-  Calendar, 
+  Calendar,
   Building2, 
   User, 
   MapPin,
@@ -31,7 +30,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
   onClose,
   prefill
 }) => {
-  const { language, theme } = useApp();
+  const { theme } = useApp();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [organization, setOrganization] = useState('');
@@ -41,6 +40,9 @@ export const BookingModal: React.FC<BookingModalProps> = ({
   const [location, setLocation] = useState('Tanzania');
   const [notes, setNotes] = useState('');
   const [copied, setCopied] = useState(false);
+  const [errors, setErrors] = useState<{ name?: string; email?: string }>({});
+
+  const emailValid = (value: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
 
   useEffect(() => {
     if (prefill) {
@@ -50,21 +52,43 @@ export const BookingModal: React.FC<BookingModalProps> = ({
     }
   }, [prefill, isOpen]);
 
+  // Close on Escape for accessibility
+  useEffect(() => {
+    if (!isOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [isOpen, onClose]);
+
+  const validate = (): boolean => {
+    const next: { name?: string; email?: string } = {};
+    if (!name.trim()) {
+      next.name = 'Please enter your name.';
+    }
+    if (!emailValid(email)) {
+      next.email = 'Please enter a valid email address.';
+    }
+    setErrors(next);
+    return Object.keys(next).length === 0;
+  };
+
   if (!isOpen) return null;
 
   const constructMessageText = () => {
-    return language === 'sw'
-      ? `Habari timu ya CS Academy,\n\nNinaomba maelezo kuhusu programu ya mafunzo:\n• Jina: ${name || '[Jina lako]'}\n• Barua pepe: ${email || '[Barua pepe yako]'}\n• Shirika / Wajibu: ${organization || '[Mtu binafsi/Kampuni]'}\n• Programu: ${program}\n• Njia ninayopendelea: ${format}\n• Kundi la walengwa: ${audienceType}\n• Eneo: ${location}\n${notes ? `• Malengo/Maelezo: ${notes}\n` : ''}\nTafadhali nitumie maelezo ya mtaala na ratiba zinazopatikana.`
-      : `Hello CS Academy Team,\n\nI would like to inquire about a training program:\n• Name: ${name || '[Your Name]'}\n• Email: ${email || '[Your Email]'}\n• Organization / Role: ${organization || '[Individual/Company]'}\n• Program: ${program}\n• Preferred Format: ${format}\n• Audience Segment: ${audienceType}\n• Location: ${location}\n${notes ? `• Specific Goals/Notes: ${notes}\n` : ''}\nPlease provide curriculum details and scheduling availability.`;
+    return `Hello CS Academy Team,\n\nI would like to inquire about a training program:\nName: ${name || '[Your Name]'}\nEmail: ${email || '[Your Email]'}\nOrganization / Role: ${organization || '[Individual/Company]'}\nProgram: ${program}\nPreferred Format: ${format}\nAudience Segment: ${audienceType}\nLocation: ${location}\n${notes ? `Specific Goals/Notes: ${notes}\n` : ''}\nPlease provide curriculum details and scheduling availability.`;
   };
 
   const handleWhatsAppSend = () => {
+    if (!validate()) return;
     const text = encodeURIComponent(constructMessageText());
     window.open(`https://wa.me/${siteConfig.whatsapp}?text=${text}`, '_blank');
   };
 
   const handleEmailSend = () => {
-    const subject = encodeURIComponent(`Training Inquiry: ${program} — CS Academy`);
+    if (!validate()) return;
+    const subject = encodeURIComponent(`Training Inquiry: ${program} | CS Academy`);
     const body = encodeURIComponent(constructMessageText());
     window.location.href = `mailto:${siteConfig.email}?subject=${subject}&body=${body}`;
   };
@@ -76,10 +100,16 @@ export const BookingModal: React.FC<BookingModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200">
+    <div 
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200"
+      onClick={onClose}
+    >
       <div 
         className={`${theme === 'dark' ? 'bg-[#171717] border-neutral-800 text-white' : 'bg-white border-neutral-200 text-neutral-900'} border rounded-3xl w-full max-w-2xl max-h-[90vh] overflow-y-auto shadow-2xl relative`}
         onClick={(e) => e.stopPropagation()}
+        role="dialog"
+        aria-modal="true"
+        aria-label={'Book Training'}
       >
         {/* Modal Header */}
         <div className={`sticky top-0 backdrop-blur-md px-6 sm:px-8 py-5 border-b flex items-center justify-between z-10 ${theme === 'dark' ? 'bg-[#171717]/95 border-neutral-800' : 'bg-white/95 border-neutral-200'}`}>
@@ -88,8 +118,8 @@ export const BookingModal: React.FC<BookingModalProps> = ({
               <Calendar className="w-5 h-5" />
             </div>
             <div>
-              <h3 className={`text-lg font-extrabold ${theme === 'dark' ? 'text-white' : 'text-neutral-900'}`}>{language === 'sw' ? 'OMBA MAFUNZO / ULIZA' : 'BOOK TRAINING / INQUIRY'}</h3>
-              <p className="text-xs text-neutral-400">{language === 'sw' ? 'Wasiliana na wakufunzi na washauri wa CS Academy' : 'Connect with CS Academy instructors & advisors'}</p>
+              <h3 className={`text-lg font-extrabold ${theme === 'dark' ? 'text-white' : 'text-neutral-900'}`}>BOOK TRAINING / INQUIRY</h3>
+              <p className="text-xs text-neutral-400">Connect with CS Academy instructors & advisors</p>
             </div>
           </div>
           <button
@@ -104,37 +134,46 @@ export const BookingModal: React.FC<BookingModalProps> = ({
         <div className="p-6 sm:p-8 space-y-5">
           
           <div className="grid sm:grid-cols-2 gap-4">
-            <div className="space-y-1.5">
-              <label className="text-xs font-bold uppercase tracking-wider text-neutral-300">
-                {language === 'sw' ? 'Jina lako' : 'Your Name'}
-              </label>
-              <input
-                type="text"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                placeholder="e.g. Maria Joseph"
-                className="w-full px-4 py-2.5 bg-[#0B0B0B] border border-neutral-800 rounded-xl text-xs text-white placeholder-neutral-500 focus:outline-none focus:border-[#DC2626]"
-              />
-            </div>
+              <div className="space-y-1.5">
+                <label className="text-xs font-bold uppercase tracking-wider text-neutral-300">
+                  Your Name
+                </label>
+                <input
+                  type="text"
+                  autoFocus
+                  value={name}
+                  onChange={(e) => { setName(e.target.value); if (errors.name) setErrors((p) => ({ ...p, name: undefined })); }}
+                  placeholder="e.g. Maria Joseph"
+                  aria-invalid={!!errors.name}
+                  className={`w-full px-4 py-2.5 bg-[#0B0B0B] border rounded-xl text-xs text-white placeholder-neutral-500 focus:outline-none focus:border-[#DC2626] ${
+                    errors.name ? 'border-red-500' : 'border-neutral-800'
+                  }`}
+                />
+                {errors.name && <p className="text-[10px] font-semibold text-red-500">{errors.name}</p>}
+              </div>
 
-            <div className="space-y-1.5">
-              <label className="text-xs font-bold uppercase tracking-wider text-neutral-300">
-                {language === 'sw' ? 'Barua pepe' : 'Email Address'}
-              </label>
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="e.g. maria@company.com"
-                className="w-full px-4 py-2.5 bg-[#0B0B0B] border border-neutral-800 rounded-xl text-xs text-white placeholder-neutral-500 focus:outline-none focus:border-[#DC2626]"
-              />
-            </div>
+              <div className="space-y-1.5">
+                <label className="text-xs font-bold uppercase tracking-wider text-neutral-300">
+                  Email Address
+                </label>
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => { setEmail(e.target.value); if (errors.email) setErrors((p) => ({ ...p, email: undefined })); }}
+                  placeholder="e.g. maria@company.com"
+                  aria-invalid={!!errors.email}
+                  className={`w-full px-4 py-2.5 bg-[#0B0B0B] border rounded-xl text-xs text-white placeholder-neutral-500 focus:outline-none focus:border-[#DC2626] ${
+                    errors.email ? 'border-red-500' : 'border-neutral-800'
+                  }`}
+                />
+                {errors.email && <p className="text-[10px] font-semibold text-red-500">{errors.email}</p>}
+              </div>
           </div>
 
           <div className="grid sm:grid-cols-2 gap-4">
             <div className="space-y-1.5">
               <label className="text-xs font-bold uppercase tracking-wider text-neutral-300">
-                {language === 'sw' ? 'Shirika / Taasisi (au mtu binafsi)' : 'Organization / Institution (or Individual)'}
+                Organization / Institution (or Individual)
               </label>
               <input
                 type="text"
@@ -147,7 +186,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
 
             <div className="space-y-1.5">
               <label className="text-xs font-bold uppercase tracking-wider text-neutral-300">
-                {language === 'sw' ? 'Eneo / Nchi' : 'Location / Country'}
+                Location / Country
               </label>
               <select
                 value={location}
@@ -170,7 +209,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
           {/* Program Select */}
           <div className="space-y-1.5">
             <label className="text-xs font-bold uppercase tracking-wider text-neutral-300">
-              {language === 'sw' ? 'Programu ya Mafunzo Uliyochagua' : 'Selected Training Program'}
+              Selected Training Program
             </label>
             <select
               value={program}
@@ -203,7 +242,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
             {/* Preferred Delivery Format */}
             <div className="space-y-1.5">
               <label className="text-xs font-bold uppercase tracking-wider text-neutral-300">
-                {language === 'sw' ? 'Njia Unayopendelea' : 'Preferred Format'}
+                Preferred Format
               </label>
               <select
                 value={format}
@@ -221,7 +260,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
             {/* Audience Segment */}
             <div className="space-y-1.5">
               <label className="text-xs font-bold uppercase tracking-wider text-neutral-300">
-                {language === 'sw' ? 'Kundi la Walengwa' : 'Audience Segment'}
+                Audience Segment
               </label>
               <select
                 value={audienceType}
@@ -241,7 +280,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
           {/* Notes / Special requirements */}
           <div className="space-y-1.5">
             <label className="text-xs font-bold uppercase tracking-wider text-neutral-300">
-              {language === 'sw' ? 'Malengo Maalum au Idadi ya Timu (Si lazima)' : 'Specific Objectives or Team Size (Optional)'}
+              Specific Objectives or Team Size (Optional)
             </label>
             <textarea
               rows={2}
@@ -255,13 +294,13 @@ export const BookingModal: React.FC<BookingModalProps> = ({
           {/* Message Preview Box */}
           <div className="p-3.5 rounded-xl bg-[#0B0B0B] border border-neutral-800/80 space-y-1 text-xs">
             <div className="flex items-center justify-between text-neutral-400 text-[10px] font-mono uppercase">
-              <span>{language === 'sw' ? 'Hakiki ya Ujumbe wa Moja kwa Moja:' : 'Automated Message Preview:'}</span>
+              <span>Automated Message Preview:</span>
               <button
                 type="button"
                 onClick={handleCopyInquiry}
                 className="text-[#DC2626] hover:text-white font-bold transition-colors"
               >
-                {copied ? (language === 'sw' ? 'Imenakiliwa!' : 'Copied to Clipboard!') : (language === 'sw' ? 'Nakili Ujumbe' : 'Copy Text')}
+                {copied ? ('Copied to Clipboard!') : ('Copy Text')}
               </button>
             </div>
             <p className="text-neutral-300 line-clamp-3 text-[11px] font-mono">
@@ -277,7 +316,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
               className="w-full py-3.5 px-4 rounded-xl font-extrabold text-xs text-white bg-[#B91C1C] hover:bg-[#DC2626] flex items-center justify-center gap-2 uppercase tracking-wider shadow-lg transition-all"
             >
               <MessageCircle className="w-4 h-4" />
-              <span>{language === 'sw' ? 'Tuma kupitia WhatsApp' : 'Send via WhatsApp'}</span>
+              <span>Send via WhatsApp</span>
             </button>
 
             <button
@@ -286,7 +325,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
               className="w-full py-3.5 px-4 rounded-xl font-bold text-xs text-neutral-200 hover:text-white bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 flex items-center justify-center gap-2 uppercase tracking-wider transition-colors"
             >
               <Mail className="w-4 h-4" />
-              <span>{language === 'sw' ? 'Tuma kupitia Barua Pepe' : 'Send via Email'}</span>
+              <span>Send via Email</span>
             </button>
           </div>
 

@@ -9,8 +9,7 @@ import {
   ArrowRight, 
   Search, 
   BookOpen, 
-  Tag,
-  Sparkles
+  Tag
 } from 'lucide-react';
 
 interface BlogPageProps {
@@ -20,7 +19,7 @@ interface BlogPageProps {
 export const BlogPage: React.FC<BlogPageProps> = ({
   openBlogArticleModal
 }) => {
-  const { language, theme } = useApp();
+  const { theme } = useApp();
   const [selectedCategory, setSelectedCategory] = useState<string>('ALL');
   const [search, setSearch] = useState<string>('');
 
@@ -44,8 +43,7 @@ export const BlogPage: React.FC<BlogPageProps> = ({
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4 pt-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-red-950/40 border border-red-800/40 text-[#DC2626] text-xs font-mono font-bold uppercase tracking-wider">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>{language === 'sw' ? 'Makala & Ufahamu wa Kidijitali' : 'Essays, Insights & Practical Analysis'}</span>
+            <span>Essays, Insights & Practical Analysis</span>
           </div>
           <h1 className={`text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight ${
             theme === 'dark' ? 'text-white' : 'text-neutral-950'
@@ -55,9 +53,7 @@ export const BlogPage: React.FC<BlogPageProps> = ({
           <p className={`text-base sm:text-lg leading-relaxed ${
             theme === 'dark' ? 'text-neutral-300' : 'text-neutral-600'
           }`}>
-            {language === 'sw'
-              ? 'Makala za kitaalamu, mafunzo ya vitendo, na uchambuzi wa kina kuhusu AI na usalama wa kimtandao Afrika.'
-              : 'Thought leadership, practical tutorials, and ethical considerations surrounding artificial intelligence and cybersecurity in Africa.'}
+            Thought leadership, practical tutorials, and ethical considerations surrounding artificial intelligence and cybersecurity in Africa.
           </p>
         </div>
 
@@ -73,7 +69,7 @@ export const BlogPage: React.FC<BlogPageProps> = ({
               type="text"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              placeholder={language === 'sw' ? 'Tafuta makala, mada...' : 'Search articles, topics...'}
+              placeholder={'Search articles, topics...'}
               className={`w-full pl-10 pr-4 py-2.5 rounded-xl text-xs focus:outline-none focus:border-[#DC2626] border ${
                 theme === 'dark'
                   ? 'bg-[#0B0B0B] border-neutral-800 text-white placeholder-neutral-500'
@@ -96,7 +92,7 @@ export const BlogPage: React.FC<BlogPageProps> = ({
                     : 'text-neutral-600 hover:text-neutral-950 bg-white border border-neutral-200'
                 }`}
               >
-                {cat === 'ALL' ? (language === 'sw' ? 'ZOTE' : 'ALL') : cat}
+                {cat === 'ALL' ? ('ALL') : cat}
               </button>
             ))}
           </div>
@@ -162,7 +158,7 @@ export const BlogPage: React.FC<BlogPageProps> = ({
                     <span className="font-semibold">{post.author}</span>
                   </div>
                   <div className="flex items-center gap-1 font-bold text-[#DC2626] group-hover:translate-x-1 transition-transform">
-                    <span>{language === 'sw' ? 'Soma Makala' : 'Read Article'}</span>
+                    <span>Read Article</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </div>
                 </div>

@@ -19,7 +19,7 @@ export const smartFrameworkSteps: SmartFrameworkStep[] = [
     letter: 'A',
     word: 'APPLY',
     meaning: 'Apply technology to real-world problems.',
-    description: 'Translate theoretical knowledge into concrete daily outputs—writing business proposals, summarizing long reports, designing lesson plans, or analyzing data.',
+    description: 'Translate theoretical knowledge into concrete daily outputs, writing business proposals, summarizing long reports, designing lesson plans, or analyzing data.',
     practicalExample: 'Drafting a 5-page project monitoring framework in under 15 minutes with structured AI collaboration.'
   },
   {

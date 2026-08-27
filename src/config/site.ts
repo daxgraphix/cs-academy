@@ -5,11 +5,11 @@ export const siteConfig = {
   tagline: "Bridging Digital Skills Through Practical Swahili & English Tech Education",
   establishedYear: 2026,
   email: "cyberswahili@gmail.com",
-  phone: "+255672062020",
-  phoneDisplay: "+255 672 062 020",
-  whatsapp: "255672062020",
-  whatsappDisplay: "+255 672 062 020",
-  location: "Dar es Salaam, Tanzania • Nairobi, Kenya • East Africa",
+  phone: "+255753969379",
+  phoneDisplay: "+255 753 969 379",
+  whatsapp: "255753969379",
+  whatsappDisplay: "+255 753 969 379",
+  location: "Dar es Salaam, Tanzania  |  Nairobi, Kenya  |  East Africa",
   
   // Quick stats
   stats: {
@@ -90,7 +90,7 @@ export const siteConfig = {
       quote: "Nilikuwa nikihisi programming ni ngumu mno kwa sababu ya maelezo ya Kiingereza yenye misamiati mikubwa. Kupitia CS Academy kwa Kiswahili, niliweza kujifunza React na Tailwind kwa urahisi sana. Wiki iliyopita nimepata mradi wangu wa kwanza wa kutengeneza tovuti ya biashara Kariakoo na kulipwa kwa M-Pesa!",
       courseTag: "Full-Stack Web Dev",
       rating: 5,
-      outcome: "Built 1st Client Website • Earned via M-Pesa",
+      outcome: "Built 1st Client Website  |  Earned via M-Pesa",
       verified: true
     },
     {
@@ -186,7 +186,7 @@ export const siteConfig = {
       name: "Emmanuel Mugisha",
       role: "Computer Science Undergraduate",
       location: "Kampala, Uganda",
-      quote: "University gave me theory, but CS Academy taught me actual modern developer workflows—building with modern AI assistants, writing clean TypeScript, and securing API endpoints. It is the best practical supplement for any tech student.",
+      quote: "University gave me theory, but CS Academy taught me actual modern developer workflows, building with modern AI assistants, writing clean TypeScript, and securing API endpoints. It is the best practical supplement for any tech student.",
       courseTag: "Vibe Coding & Full-Stack",
       rating: 5,
       outcome: "Built 3 Live GitHub Repositories",
@@ -232,6 +232,6 @@ export const siteConfig = {
     linkedin: "https://linkedin.com/company/cyberswahili",
     twitter: "https://twitter.com/cyberswahili",
     youtube: "https://youtube.com/@cyberswahili",
-    whatsappCommunity: "https://wa.me/255672062020"
+    whatsappCommunity: "https://wa.me/255753969379"
   }
 };

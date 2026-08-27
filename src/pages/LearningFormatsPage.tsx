@@ -10,7 +10,6 @@ import {
   Building2, 
   CheckCircle2, 
   ArrowRight,
-  Sparkles,
   Wifi
 } from 'lucide-react';
 
@@ -21,21 +20,21 @@ interface LearningFormatsPageProps {
 export const LearningFormatsPage: React.FC<LearningFormatsPageProps> = ({
   openBookingModal
 }) => {
-  const { language, theme, currency, setCurrency } = useApp();
+  const { theme, currency, setCurrency } = useApp();
 
   const getFormatPrice = (format: typeof learningFormatsData[0]) => {
     if (currency === 'TSH') {
       return format.priceStartingTsh === 'Custom' 
-        ? (language === 'sw' ? 'Omba Bei' : 'Custom Quote') 
+        ? ('Custom Quote') 
         : `${format.priceStartingTsh} Tsh`;
     }
     if (currency === 'KES') {
       return format.priceStartingKes === 'Custom' 
-        ? (language === 'sw' ? 'Omba Bei' : 'Custom Quote') 
+        ? ('Custom Quote') 
         : `${format.priceStartingKes} KSh`;
     }
     return format.priceStartingUsd === 'Custom' 
-      ? (language === 'sw' ? 'Omba Bei' : 'Custom Quote') 
+      ? ('Custom Quote') 
       : `$${format.priceStartingUsd}`;
   };
 
@@ -67,8 +66,7 @@ export const LearningFormatsPage: React.FC<LearningFormatsPageProps> = ({
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4 pt-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-red-950/40 border border-red-800/40 text-[#DC2626] text-xs font-mono font-bold uppercase tracking-wider">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>{language === 'sw' ? 'Njia 6 za Mafunzo ya Kisasa' : 'Flexible Multi-Channel Delivery'}</span>
+            <span>Flexible Multi-Channel Delivery</span>
           </div>
           <h1 className={`text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight ${
             theme === 'dark' ? 'text-white' : 'text-neutral-950'
@@ -78,9 +76,7 @@ export const LearningFormatsPage: React.FC<LearningFormatsPageProps> = ({
           <p className={`text-base sm:text-lg leading-relaxed ${
             theme === 'dark' ? 'text-neutral-300' : 'text-neutral-600'
           }`}>
-            {language === 'sw'
-              ? 'Chagua njia inayofaa mazingira yako, kifurushi chako cha data na ratiba yako. Kuanzia WhatsApp ya data ndogo hadi warsha za ana kwa ana.'
-              : 'Choose the instructional delivery channel that best aligns with your team\'s geography, bandwidth, and learning style. Pricing is transparently structured per delivery channel.'}
+            Choose the instructional delivery channel that best aligns with your team\'s geography, bandwidth, and learning style. Pricing is transparently structured per delivery channel.
           </p>
 
           {/* Currency Toggle */}
@@ -136,18 +132,18 @@ export const LearningFormatsPage: React.FC<LearningFormatsPageProps> = ({
                   theme === 'dark' ? 'bg-[#0B0B0B] border-neutral-800 text-neutral-300' : 'bg-white border-neutral-200 text-neutral-700'
                 }`}>
                   <div className="flex items-center justify-between">
-                    <span className={theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'}>{language === 'sw' ? 'Mtandao:' : 'Bandwidth:'}</span>
+                    <span className={theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'}>Bandwidth:</span>
                     <span className="font-bold flex items-center gap-1">
                       <Wifi className="w-3.5 h-3.5 text-[#DC2626]" />
                       {format.bandwidthLevel}
                     </span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className={theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'}>{language === 'sw' ? 'Aina ya Njia:' : 'Channel:'}</span>
+                    <span className={theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'}>Channel:</span>
                     <span className="font-bold">{format.channelName}</span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className={theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'}>{language === 'sw' ? 'Njia ya Malipo:' : 'Pricing:'}</span>
+                    <span className={theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'}>Pricing:</span>
                     <span className="font-bold text-emerald-500">{format.pricingLabel}</span>
                   </div>
                 </div>
@@ -157,7 +153,7 @@ export const LearningFormatsPage: React.FC<LearningFormatsPageProps> = ({
                   <span className={`text-[10px] font-mono font-bold uppercase tracking-wider ${
                     theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'
                   }`}>
-                    {language === 'sw' ? 'Sifa Kuu:' : 'Key Capabilities:'}
+                    Key Capabilities:
                   </span>
                   {format.features.map((feat, fIdx) => (
                     <div key={fIdx} className={`flex items-start gap-2 text-xs ${
@@ -176,7 +172,7 @@ export const LearningFormatsPage: React.FC<LearningFormatsPageProps> = ({
               }`}>
                 <div>
                   <div className={`text-[10px] font-mono uppercase ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'}`}>
-                    {language === 'sw' ? 'Bei Kuanzia:' : 'Starting Tuition / Fee:'}
+                    Starting Tuition / Fee:
                   </div>
                   <div className={`text-2xl font-black ${theme === 'dark' ? 'text-white' : 'text-neutral-900'}`}>
                     {getFormatPrice(format)}
@@ -190,7 +186,7 @@ export const LearningFormatsPage: React.FC<LearningFormatsPageProps> = ({
                   })}
                   className="w-full py-3.5 px-4 rounded-2xl text-xs font-extrabold uppercase tracking-wider text-white bg-[#B91C1C] hover:bg-[#DC2626] shadow-lg flex items-center justify-center gap-2 transition-all"
                 >
-                  <span>{language === 'sw' ? 'CHAGUA NJIA HII' : 'SELECT THIS DELIVERY TRACK'}</span>
+                  <span>SELECT THIS DELIVERY TRACK</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>
               </div>

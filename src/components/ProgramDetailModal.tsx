@@ -1,17 +1,15 @@
 import React from 'react';
 import { ProgramPillar } from '../types';
-import { 
-  X, 
-  CheckCircle2, 
-  Sparkles, 
-  Clock, 
-  MapPin, 
-  Users, 
+import {
+  X,
+  CheckCircle2,
+  Clock,
+  MapPin,
+  Users,
   ArrowRight,
   BookOpen,
   Layers
 } from 'lucide-react';
-import { useApp } from '../context/AppContext';
 
 interface ProgramDetailModalProps {
   program: ProgramPillar | null;
@@ -24,7 +22,6 @@ export const ProgramDetailModal: React.FC<ProgramDetailModalProps> = ({
   onClose,
   openBookingModal
 }) => {
-  const { language } = useApp();
   if (!program) return null;
 
   return (
@@ -64,7 +61,7 @@ export const ProgramDetailModal: React.FC<ProgramDetailModalProps> = ({
           <div className="space-y-3">
             <h5 className="text-xs font-bold uppercase tracking-wider text-neutral-400 flex items-center gap-2">
               <Users className="w-4 h-4 text-[#DC2626]" />
-              <span>{language === 'sw' ? 'Programu hii ni kwa nani?' : 'Who This Program Is For'}</span>
+              <span>Who This Program Is For</span>
             </h5>
             <div className="flex flex-wrap gap-2">
               {program.audience.map((aud, i) => (
@@ -79,7 +76,7 @@ export const ProgramDetailModal: React.FC<ProgramDetailModalProps> = ({
           <div className="space-y-4">
             <h5 className="text-xs font-bold uppercase tracking-wider text-neutral-400 flex items-center gap-2">
               <BookOpen className="w-4 h-4 text-[#DC2626]" />
-              <span>{language === 'sw' ? 'Mtaala na Ujuzi wa Vitendo' : 'Structured Curriculum & Practical Skills'}</span>
+              <span>Structured Curriculum & Practical Skills</span>
             </h5>
             <div className="space-y-3">
               {program.modules.map((mod, idx) => (
@@ -88,7 +85,7 @@ export const ProgramDetailModal: React.FC<ProgramDetailModalProps> = ({
                   <p className="text-xs text-neutral-300 leading-relaxed">{mod.description}</p>
                   <div className="flex items-start gap-1.5 text-xs text-[#DC2626] font-medium pt-1">
                     <CheckCircle2 className="w-3.5 h-3.5 shrink-0 mt-0.5" />
-                    <span>{language === 'sw' ? 'Ujuzi wa Vitendo: ' : 'Applied Skill: '}{mod.practicalSkill}</span>
+                    <span>Applied Skill: {mod.practicalSkill}</span>
                   </div>
                 </div>
               ))}
@@ -100,11 +97,11 @@ export const ProgramDetailModal: React.FC<ProgramDetailModalProps> = ({
             <div className="space-y-1.5">
               <div className="font-bold text-neutral-400 uppercase tracking-wider flex items-center gap-1.5">
                 <MapPin className="w-3.5 h-3.5 text-[#DC2626]" />
-                <span>{language === 'sw' ? 'Njia za Mafunzo' : 'Delivery Formats'}</span>
+                <span>Delivery Formats</span>
               </div>
-              <ul className="space-y-1 text-neutral-300">
+              <ul className="space-y-1 text-neutral-300 list-disc list-inside pl-1 marker:text-[#DC2626]">
                 {program.deliveryFormats.map((f, i) => (
-                  <li key={i}>• {f}</li>
+                  <li key={i}>{f}</li>
                 ))}
               </ul>
             </div>
@@ -112,11 +109,11 @@ export const ProgramDetailModal: React.FC<ProgramDetailModalProps> = ({
             <div className="space-y-1.5">
               <div className="font-bold text-neutral-400 uppercase tracking-wider flex items-center gap-1.5">
                 <Clock className="w-3.5 h-3.5 text-[#DC2626]" />
-                <span>{language === 'sw' ? 'Chaguo za Muda' : 'Duration Options'}</span>
+                <span>Duration Options</span>
               </div>
-              <ul className="space-y-1 text-neutral-300">
+              <ul className="space-y-1 text-neutral-300 list-disc list-inside pl-1 marker:text-[#DC2626]">
                 {program.durationOptions.map((d, i) => (
-                  <li key={i}>• {d}</li>
+                  <li key={i}>{d}</li>
                 ))}
               </ul>
             </div>
@@ -125,7 +122,7 @@ export const ProgramDetailModal: React.FC<ProgramDetailModalProps> = ({
           {/* Learning Outcomes */}
           <div className="space-y-2.5">
             <h5 className="text-xs font-bold uppercase tracking-wider text-neutral-400">
-              {language === 'sw' ? 'Matokeo ya Mafunzo Yaliyothibitishwa' : 'Verified Learning Outcomes'}
+              Verified Learning Outcomes
             </h5>
             <div className="space-y-2">
               {program.outcomes.map((outcome, i) => (
@@ -140,7 +137,7 @@ export const ProgramDetailModal: React.FC<ProgramDetailModalProps> = ({
           {/* Footer CTAs */}
           <div className="pt-4 border-t border-neutral-800 flex flex-col sm:flex-row items-center justify-between gap-3">
             <span className="text-xs text-neutral-400 italic">
-              {language === 'sw' ? 'Mafunzo kwa Kiingereza na Kiswahili' : 'Taught in English & Kiswahili'}
+              Taught in English & Kiswahili
             </span>
             <button
               onClick={() => {
@@ -149,7 +146,7 @@ export const ProgramDetailModal: React.FC<ProgramDetailModalProps> = ({
               }}
               className="w-full sm:w-auto px-8 py-3.5 rounded-xl font-extrabold text-xs text-white bg-[#B91C1C] hover:bg-[#DC2626] uppercase tracking-wider shadow-lg flex items-center justify-center gap-2"
             >
-              <span>{language === 'sw' ? 'OMBA PROGRAMU HII' : 'BOOK THIS PROGRAM'}</span>
+              <span>BOOK THIS PROGRAM</span>
               <ArrowRight className="w-4 h-4" />
             </button>
           </div>

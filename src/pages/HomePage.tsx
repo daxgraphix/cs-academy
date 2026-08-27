@@ -5,7 +5,6 @@ import { AudienceStrip } from '../components/AudienceStrip';
 import { ProgramsOverview } from '../components/ProgramsOverview';
 import { SmartFramework } from '../components/SmartFramework';
 import { FeaturedTraining } from '../components/FeaturedTraining';
-import { SwahiliAISection } from '../components/SwahiliAISection';
 import { PlatformFeaturesSection } from '../components/PlatformFeaturesSection';
 import { LearningFormatsSection } from '../components/LearningFormatsSection';
 import { ForOrganizationsSection } from '../components/ForOrganizationsSection';
@@ -66,56 +65,53 @@ export const HomePage: React.FC<HomePageProps> = ({
       {/* 6. Social Proof / Decision Confidence */}
       <SocialProof />
 
-      {/* 7. AI for Swahili Community (Strategic Differentiator) */}
-      <SwahiliAISection 
-        openBookingModal={openBookingModal}
-      />
-
-      {/* 8. Platform Features (Everything You Need to Succeed) */}
+      {/* 7. Platform Features (Everything You Need to Succeed) */}
       <PlatformFeaturesSection 
         openBookingModal={openBookingModal}
       />
 
-      {/* 9. Learning Formats (6 Formats) */}
-      <LearningFormatsSection 
+      {/* 7. Learning Formats (6 Formats) */}
+      <LearningFormatsSection
         openBookingModal={openBookingModal}
       />
 
-      {/* 11. For Organizations (Corporate AI, Governance, Briefings) */}
+      {/* 8. For Organizations (Corporate AI, Governance, Briefings) */}
       <ForOrganizationsSection 
         openBookingModal={openBookingModal}
       />
 
-      {/* 12. Training Packages (Modular engagement tiers) */}
+      {/* 8. Training Packages (Modular engagement tiers) */}
       <TrainingPackages 
         openBookingModal={openBookingModal}
       />
 
-      {/* 13. Training Process (How We Work - 5 Steps) */}
+      {/* 9. Training Process (How We Work - 5 Steps) */}
       <TrainingProcess />
 
-      {/* 14. Why CS Academy (10 Differentiators) */}
-      <WhyCSAcademy />
+      {/* 10. Why CS Academy (10 Differentiators) */}
+      <WhyCSAcademy 
+        openBookingModal={openBookingModal}
+      />
 
-      {/* 15. Free Resources (8 Downloadable Guides & Checklists) */}
+      {/* 11. Free Resources (8 Downloadable Guides & Checklists) */}
       <ResourcesSection 
         openResourceModal={openResourceModal}
       />
 
-      {/* 16. Blog & Articles (7 Educational Pieces) */}
+      {/* 12. Blog & Articles (7 Educational Pieces) */}
       <BlogSection 
         openBlogArticleModal={openBlogArticleModal}
       />
 
-      {/* 17. About CS Academy & Founder Profile */}
+      {/* 13. About CS Academy & Founder Profile */}
       <AboutSection 
         openBookingModal={openBookingModal}
       />
 
-      {/* 18. FAQ Section */}
+      {/* 14. FAQ Section */}
       <FAQSection />
 
-      {/* 19. Final Conversion Contact CTA */}
+      {/* 15. Final Conversion Contact CTA */}
       <ContactCTA 
         openBookingModal={() => openBookingModal()}
       />

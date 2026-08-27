@@ -12,7 +12,7 @@ export const learningFormatsData: LearningFormat[] = [
     priceStartingTsh: '5,000',
     priceStartingKes: '250',
     priceStartingUsd: '2',
-    pricingLabel: 'per month • Data Saver',
+    pricingLabel: 'per month  |  Data Saver',
     bandwidthLevel: 'Ultra-Low Data (Works on 2G/3G/4G)',
     features: [
       'Zero-barrier mobile access via WhatsApp',
@@ -33,7 +33,7 @@ export const learningFormatsData: LearningFormat[] = [
     priceStartingTsh: '35,000',
     priceStartingKes: '1,900',
     priceStartingUsd: '14',
-    pricingLabel: 'per month • Live Interactive',
+    pricingLabel: 'per month  |  Live Interactive',
     bandwidthLevel: 'Standard Broadband / 4G (HD Live)',
     features: [
       'HD live video walkthroughs & coding demonstrations',

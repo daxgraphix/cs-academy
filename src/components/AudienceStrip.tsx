@@ -9,14 +9,14 @@ import {
 } from 'lucide-react';
 
 export const AudienceStrip: React.FC = () => {
-  const { language, theme } = useApp();
+  const { theme } = useApp();
 
   const audiences = [
-    { label: language === 'sw' ? 'WANAFUNZI' : 'STUDENTS', icon: GraduationCap },
-    { label: language === 'sw' ? 'WALEZI & WALIMU' : 'EDUCATORS', icon: BookOpen },
-    { label: language === 'sw' ? 'WAFANYABIASHARA' : 'BUSINESSES', icon: Briefcase },
-    { label: language === 'sw' ? 'VYUO VIKUU' : 'UNIVERSITIES', icon: Building2 },
-    { label: language === 'sw' ? 'MASHIRIKA & NGO' : 'ORGANIZATIONS', icon: Users }
+    { label: 'STUDENTS', icon: GraduationCap },
+    { label: 'EDUCATORS', icon: BookOpen },
+    { label: 'BUSINESSES', icon: Briefcase },
+    { label: 'UNIVERSITIES', icon: Building2 },
+    { label: 'ORGANIZATIONS', icon: Users }
   ];
 
   return (
@@ -34,9 +34,7 @@ export const AudienceStrip: React.FC = () => {
             <span className={`text-xs font-mono font-bold tracking-wider uppercase ${
               theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'
             }`}>
-              {language === 'sw' 
-                ? 'ELIMU YA VITENDO KWA KIZAZI CHA KIDIJITALI AFRIKA' 
-                : 'PRACTICAL LEARNING FOR THE DIGITAL GENERATION ACROSS AFRICA'}
+              PRACTICAL LEARNING FOR THE DIGITAL GENERATION ACROSS AFRICA
             </span>
           </div>
 

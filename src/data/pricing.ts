@@ -28,7 +28,7 @@ export const pricingPlansData: PricingPlan[] = [
       'Live Zoom/Google Meet video screen-sharing'
     ],
     ctaText: 'Join WhatsApp Cohort',
-    highlightNote: 'Zero internet friction • Pay with M-Pesa / Tigo Pesa'
+    highlightNote: 'Zero internet friction  |  Pay with M-Pesa / Tigo Pesa'
   },
   {
     id: 'self-paced-platform',
@@ -63,7 +63,7 @@ export const pricingPlansData: PricingPlan[] = [
     name: 'Zoom & Meet Live Cohorts',
     deliveryChannel: 'Zoom & Google Meet Live Virtual',
     deliveryType: 'virtual-live',
-    badge: 'MOST POPULAR • LIVE INTERACTION',
+    badge: 'MOST POPULAR  |  LIVE INTERACTION',
     tagline: 'Live interactive classes with real-time screen sharing and Vibe Coding.',
     priceTsh: '35,000',
     priceKes: '1,900',
@@ -105,7 +105,7 @@ export const pricingPlansData: PricingPlan[] = [
       'Direct WhatsApp instructor mentor channel'
     ],
     ctaText: 'Get VIP 1-Year Pass',
-    highlightNote: 'Save 60,000 Tsh • Complete Career Transformation'
+    highlightNote: 'Save 60,000 Tsh  |  Complete Career Transformation'
   },
   {
     id: 'workshops-delivery',

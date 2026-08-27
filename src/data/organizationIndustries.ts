@@ -102,7 +102,7 @@ export const trainingProcessSteps = [
     step: '03',
     name: 'DELIVER',
     title: 'Deliver & Engage',
-    description: 'Our expert facilitators lead highly interactive live sessions—online via Zoom/Meet, on-site at your offices, or through blended hybrid formats.'
+    description: 'Our expert facilitators lead highly interactive live sessions, online via Zoom/Meet, on-site at your offices, or through blended hybrid formats.'
   },
   {
     step: '04',

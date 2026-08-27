@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { PageRoute, ProgramPillar, TrainingProgram, ResourceItem, BlogPost } from './types';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
+import { BackToTop } from './components/BackToTop';
 
 // Pages
 import { HomePage } from './pages/HomePage';
@@ -234,6 +235,8 @@ export default function App() {
         onClose={() => setSelectedBlogArticle(null)}
         openBookingModal={handleOpenBooking}
       />
+
+      <BackToTop />
     </div>
   );
 }

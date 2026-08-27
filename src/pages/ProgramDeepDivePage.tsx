@@ -4,7 +4,6 @@ import { programsData } from '../data/programs';
 import { useApp } from '../context/AppContext';
 import { ShareButtons } from '../components/ShareButtons';
 import { 
-  Sparkles, 
   ShieldCheck, 
   Laptop, 
   ArrowRight, 
@@ -28,13 +27,13 @@ export const ProgramDeepDivePage: React.FC<ProgramDeepDivePageProps> = ({
   setCurrentRoute,
   openBookingModal
 }) => {
-  const { language, theme } = useApp();
+  const { theme } = useApp();
   const program = programsData.find(p => p.slug === slug) || programsData[0];
 
   const getIcon = (iconName: string) => {
     switch (iconName) {
       case 'Sparkles':
-        return <Sparkles className="w-8 h-8 text-[#DC2626]" />;
+        return <Laptop className="w-8 h-8 text-[#DC2626]" />;
       case 'ShieldCheck':
         return <ShieldCheck className="w-8 h-8 text-[#DC2626]" />;
       default:
@@ -60,7 +59,7 @@ export const ProgramDeepDivePage: React.FC<ProgramDeepDivePageProps> = ({
             }`}
           >
             <ArrowLeft className="w-4 h-4" />
-            <span>{language === 'sw' ? 'Rudi kwenye Mitaala Yote' : 'Back to All Programmes'}</span>
+            <span>Back to All Programmes</span>
           </button>
 
           <ShareButtons
@@ -105,7 +104,7 @@ export const ProgramDeepDivePage: React.FC<ProgramDeepDivePageProps> = ({
                   className="px-8 py-4 rounded-xl font-extrabold text-xs text-white bg-[#B91C1C] hover:bg-[#DC2626] uppercase tracking-wider shadow-lg flex items-center gap-2 transition-all"
                 >
                   <Calendar className="w-4 h-4" />
-                  <span>{language === 'sw' ? `JIUNGE NA ${program.title}` : `BOOK ${program.title}`}</span>
+                  <span>{`BOOK ${program.title}`}</span>
                 </button>
                 <button
                   onClick={() => openBookingModal({ program: `${program.title} - Custom Corporate In-House` })}
@@ -115,7 +114,7 @@ export const ProgramDeepDivePage: React.FC<ProgramDeepDivePageProps> = ({
                       : 'text-neutral-800 hover:text-neutral-950 bg-white hover:bg-neutral-100 border-neutral-300 shadow-sm'
                   }`}
                 >
-                  {language === 'sw' ? 'Omba Pendekezo la Kampuni' : 'Request Corporate Proposal'}
+                  Request Corporate Proposal
                 </button>
               </div>
 
@@ -146,12 +145,10 @@ export const ProgramDeepDivePage: React.FC<ProgramDeepDivePageProps> = ({
         <div className="space-y-8">
           <div className="text-center max-w-2xl mx-auto space-y-2">
             <h2 className={`text-2xl sm:text-3xl font-extrabold ${theme === 'dark' ? 'text-white' : 'text-neutral-950'}`}>
-              {language === 'sw' ? 'Mtaala & Moduli za Umahiri wa Vitendo' : 'Syllabus & Practical Competency Modules'}
+              Syllabus & Practical Competency Modules
             </h2>
             <p className={`text-sm ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'}`}>
-              {language === 'sw'
-                ? 'Kila moduli inajumuisha mafundisho ya moja kwa moja, maonyesho ya vitendo, mazoezi, na miradi halisi.'
-                : 'Each module combines direct instruction, live demonstrations, guided practice, and real-world exercises.'}
+              Each module combines direct instruction, live demonstrations, guided practice, and real-world exercises.
             </p>
           </div>
 
@@ -176,7 +173,7 @@ export const ProgramDeepDivePage: React.FC<ProgramDeepDivePageProps> = ({
                   theme === 'dark' ? 'bg-[#0B0B0B] border-neutral-800/80 text-neutral-200' : 'bg-white border-neutral-200 text-neutral-800'
                 }`}>
                   <CheckCircle2 className="w-3.5 h-3.5 text-[#DC2626] shrink-0 mt-0.5" />
-                  <span><strong>{language === 'sw' ? 'Matokeo ya Vitendo:' : 'Hands-on Output:'}</strong> {mod.practicalSkill}</span>
+                  <span><strong>Hands-on Output:</strong> {mod.practicalSkill}</span>
                 </div>
               </div>
             ))}
@@ -191,10 +188,10 @@ export const ProgramDeepDivePage: React.FC<ProgramDeepDivePageProps> = ({
           }`}>
             <div className="flex items-center gap-2 text-xs font-bold text-[#DC2626] uppercase font-mono">
               <Users className="w-4 h-4" />
-              <span>{language === 'sw' ? 'Walengwa wa Mafunzo' : 'Target Audience'}</span>
+              <span>Target Audience</span>
             </div>
             <h3 className={`text-xl font-bold ${theme === 'dark' ? 'text-white' : 'text-neutral-900'}`}>
-              {language === 'sw' ? 'Nani Anayepaswa Kuchukua Programu Hii' : 'Who Should Take This Program'}
+              Who Should Take This Program
             </h3>
             <div className="space-y-2">
               {program.audience.map((aud, i) => (
@@ -214,10 +211,10 @@ export const ProgramDeepDivePage: React.FC<ProgramDeepDivePageProps> = ({
           }`}>
             <div className="flex items-center gap-2 text-xs font-bold text-[#DC2626] uppercase font-mono">
               <Clock className="w-4 h-4" />
-              <span>{language === 'sw' ? 'Muundo & Chaguo za Muda' : 'Format & Duration Options'}</span>
+              <span>Format & Duration Options</span>
             </div>
             <h3 className={`text-xl font-bold ${theme === 'dark' ? 'text-white' : 'text-neutral-900'}`}>
-              {language === 'sw' ? 'Ratiba Inayoweza Kubadilika' : 'Flexible Scheduling'}
+              Flexible Scheduling
             </h3>
             <div className="space-y-2">
               {program.durationOptions.map((dur, i) => (
@@ -230,9 +227,7 @@ export const ProgramDeepDivePage: React.FC<ProgramDeepDivePageProps> = ({
               ))}
             </div>
             <p className={`text-xs pt-2 ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'}`}>
-              {language === 'sw' 
-                ? 'Inapatikana kupitia madarasa ya video mtandaoni, mafunzo ya WhatsApp, au darasa la ana kwa ana kwenye ofisi/taasisi yako.'
-                : 'Available in live online video classes, WhatsApp cohort micro-learning, or physical on-site delivery at your facility.'}
+              Available in live online video classes, WhatsApp cohort micro-learning, or physical on-site delivery at your facility.
             </p>
           </div>
         </div>
@@ -244,21 +239,17 @@ export const ProgramDeepDivePage: React.FC<ProgramDeepDivePageProps> = ({
             : 'bg-gradient-to-r from-red-50 via-neutral-50 to-red-50 border-red-200'
         }`}>
           <h3 className={`text-2xl sm:text-3xl font-extrabold ${theme === 'dark' ? 'text-white' : 'text-neutral-900'}`}>
-            {language === 'sw'
-              ? `Uko tayari kujiunga au kupanga mafunzo ya ${program.title}?`
-              : `Ready to enroll or schedule ${program.title}?`}
+            {`Ready to enroll or schedule ${program.title}?`}
           </h3>
           <p className={`text-sm max-w-xl mx-auto ${theme === 'dark' ? 'text-neutral-300' : 'text-neutral-600'}`}>
-            {language === 'sw'
-              ? 'Wasiliana nasi kwa tarehe za darasa linalofuata au omba pendekezo maalum kwa ajili ya shirika lako.'
-              : 'Contact us for upcoming cohort dates or request a customized proposal for your organization.'}
+            Contact us for upcoming cohort dates or request a customized proposal for your organization.
           </p>
           <div className="pt-2 flex flex-col sm:flex-row justify-center items-center gap-3">
             <button
               onClick={() => openBookingModal({ program: program.title })}
               className="px-8 py-4 rounded-xl font-extrabold text-xs text-white bg-[#B91C1C] hover:bg-[#DC2626] uppercase tracking-wider shadow-lg flex items-center gap-2 transition-all"
             >
-              <span>{language === 'sw' ? 'ULIZA & WEKA NAFASI SASA' : 'INQUIRE & BOOK NOW'}</span>
+              <span>INQUIRE & BOOK NOW</span>
               <ArrowRight className="w-4 h-4" />
             </button>
           </div>

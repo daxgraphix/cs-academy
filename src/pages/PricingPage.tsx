@@ -14,7 +14,7 @@ export const PricingPage: React.FC<PricingPageProps> = ({
   setCurrentRoute,
   openBookingModal
 }) => {
-  const { language, theme } = useApp();
+  const { theme } = useApp();
 
   return (
     <div className={`pt-20 min-h-screen transition-colors duration-300 ${
@@ -31,28 +31,23 @@ export const PricingPage: React.FC<PricingPageProps> = ({
           <h3 className={`text-2xl sm:text-3xl font-extrabold ${
             theme === 'dark' ? 'text-white' : 'text-neutral-900'
           }`}>
-            {language === 'sw' ? 'Unahitaji Ufafanuzi au Punguzo la Kikundi?' : 'Need Help Choosing a Plan or Group Discount?'}
+            Need Help Choosing a Plan or Group Discount?
           </h3>
           <p className={`text-sm max-w-xl mx-auto leading-relaxed ${
             theme === 'dark' ? 'text-neutral-300' : 'text-neutral-600'
           }`}>
-            {language === 'sw'
-              ? 'Washauri wetu wa mafunzo Dar es Salaam na Nairobi wako tayari kukusaidia kwa WhatsApp au barua pepe kuhusu njia za malipo, ankara (invoices) au mafunzo ya taasisi.'
-              : 'Our admissions advisors in Dar es Salaam and Nairobi are available on WhatsApp and email to assist you with payment, invoice requests, or customized team packages.'}
+            Our admissions advisors in Dar es Salaam and Nairobi are available on WhatsApp and email to assist you with payment, invoice requests, or customized team packages.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
             <a
               href={`https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(
-                language === 'sw'
-                  ? "Habari, naomba msaada kuhusu malipo na kujiunga na CS Academy."
-                  : "Hello, I need assistance regarding payments and enrolling in CS Academy."
-              )}`}
+                "Hello, I need assistance regarding payments and enrolling in CS Academy.")}`}
               target="_blank"
               rel="noopener noreferrer"
               className="px-6 py-3.5 rounded-2xl font-extrabold text-xs text-white bg-emerald-600 hover:bg-emerald-500 uppercase tracking-wider shadow-lg inline-flex items-center gap-2"
             >
               <MessageCircle className="w-4 h-4" />
-              <span>{language === 'sw' ? 'Msaada wa WhatsApp' : 'Chat on WhatsApp'} ({siteConfig.phoneDisplay})</span>
+              <span>Chat on WhatsApp ({siteConfig.phoneDisplay})</span>
             </a>
             <button
               onClick={() => setCurrentRoute('contact')}
@@ -62,7 +57,7 @@ export const PricingPage: React.FC<PricingPageProps> = ({
                   : 'text-neutral-800 hover:text-neutral-950 bg-white hover:bg-neutral-100 border-neutral-200 shadow-sm'
               }`}
             >
-              <span>{language === 'sw' ? 'Wasiliana na Timu' : 'Contact Admissions Team'}</span>
+              <span>Contact Admissions Team</span>
             </button>
           </div>
         </div>

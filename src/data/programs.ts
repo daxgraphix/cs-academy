@@ -151,7 +151,7 @@ export const programsData: ProgramPillar[] = [
     modules: [
       {
         title: 'Module 1: The Human Firewall & Threat Landscape',
-        description: 'Understand the most prevalent attack vectors targeting African users—mobile money scams, fake banking alerts, SIM swap alerts, and urgent fraud emails.',
+        description: 'Understand the most prevalent attack vectors targeting African users, mobile money scams, fake banking alerts, SIM swap alerts, and urgent fraud emails.',
         practicalSkill: 'Spot psychological manipulation and deceptive cues in under 10 seconds.'
       },
       {
@@ -247,7 +247,7 @@ export const programsData: ProgramPillar[] = [
     title: 'DIGITAL SKILLS ACADEMY',
     badge: 'Workforce Ready',
     tagline: 'Practical technology skills for work, education and entrepreneurship.',
-    description: 'Empower students, educators, and enterprise staff with core workplace digital capabilities—cloud collaboration, office suites, data organization, digital communication, and remote productivity.',
+    description: 'Empower students, educators, and enterprise staff with core workplace digital capabilities, cloud collaboration, office suites, data organization, digital communication, and remote productivity.',
     extendedDescription: 'Bridging the digital divide requires more than hardware; it requires the fluency to use standard cloud tools, modern collaborative ecosystems, and structured digital workflows. Our Digital Skills Academy transforms basic users into agile digital contributors ready for high-performing modern workplaces.',
     audience: [
       'University Students & Job Seekers',

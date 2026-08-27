@@ -3,8 +3,7 @@ import { useApp } from '../context/AppContext';
 import { 
   Building2, 
   ShieldCheck, 
-  Sparkles, 
-  GraduationCap, 
+  GraduationCap,
   HeartHandshake, 
   Landmark, 
   FileText, 
@@ -22,49 +21,41 @@ interface ForOrganizationsSectionProps {
 export const ForOrganizationsSection: React.FC<ForOrganizationsSectionProps> = ({
   openBookingModal
 }) => {
-  const { language, theme, t } = useApp();
+  const { theme, t } = useApp();
 
   const corporateServices = [
     { 
-      title: language === 'sw' ? 'Mafunzo ya AI kwa Makampuni' : 'Corporate AI Training', 
-      icon: Sparkles, 
-      desc: language === 'sw' ? 'Kuongeza tija ya wafanyakazi katika uzalishaji, uchambuzi wa nyaraka na prompting.' : 'Upskill departments on daily generative productivity, data synthesis, and prompting.' 
-    },
+      title: 'Corporate AI Training',
+      icon: Award,
+      desc: 'Upskill departments on daily generative productivity, data synthesis, and prompting.'},
     { 
-      title: language === 'sw' ? 'Ulinzi wa Kimtandao kwa Wafanyakazi' : 'Cybersecurity Awareness', 
+      title: 'Cybersecurity Awareness', 
       icon: ShieldCheck, 
-      desc: language === 'sw' ? 'Kujenga uwezo wa kuzuia wizi wa data, phishing na udanganyifu wa malipo ya simu.' : 'Train staff to neutralize phishing, credential compromise, and mobile fraud.' 
-    },
+      desc: 'Train staff to neutralize phishing, credential compromise, and mobile fraud.'},
     { 
-      title: language === 'sw' ? 'Semina Maalum za Wakurugenzi (C-Suite)' : 'Executive AI Briefings', 
+      title: 'Executive AI Briefings', 
       icon: Award, 
-      desc: language === 'sw' ? 'Muhtasari wa dakika 90 wa kimkakati kwa bodi za wakurugenzi na wakuu wa taasisi.' : 'Strategic 90-minute briefings for C-Suite, Boards, and Permanent Secretaries.' 
-    },
+      desc: 'Strategic 90-minute briefings for C-Suite, Boards, and Permanent Secretaries.'},
     { 
-      title: language === 'sw' ? 'Ujuzi wa AI kwa Vyuo Vikuu' : 'University Capacity Building', 
+      title: 'University Capacity Building', 
       icon: GraduationCap, 
-      desc: language === 'sw' ? 'Kujumuisha zana za AI na maadili ya utafiti kwa wanataaluma na walimu.' : 'Integrate practical AI tools and ethical research standards for academic faculty.' 
-    },
+      desc: 'Integrate practical AI tools and ethical research standards for academic faculty.'},
     { 
-      title: language === 'sw' ? 'Ujuzi wa Kidijitali kwa Mashirika na NGO' : 'NGO Digital Skills', 
+      title: 'NGO Digital Skills', 
       icon: HeartHandshake, 
-      desc: language === 'sw' ? 'Kurahisisha uandishi wa ripoti za wafadhili, mapendekezo ya miradi na uratibu.' : 'Accelerate donor reporting, proposal drafting, and field coordination.' 
-    },
+      desc: 'Accelerate donor reporting, proposal drafting, and field coordination.'},
     { 
-      title: language === 'sw' ? 'Warsha za Sekta ya Umma na Serikali' : 'Government Workshops', 
+      title: 'Government Workshops', 
       icon: Landmark, 
-      desc: language === 'sw' ? 'Kujenga uwezo wa watumishi wa umma katika usimamizi wa data na mifumo ya kisasa.' : 'Equip civil servants with digital public administration and data governance skills.' 
-    },
+      desc: 'Equip civil servants with digital public administration and data governance skills.'},
     { 
-      title: language === 'sw' ? 'Sera na Mwongozo wa AI Kazini' : 'AI Policy & Governance', 
+      title: 'AI Policy & Governance', 
       icon: FileText, 
-      desc: language === 'sw' ? 'Kutayarisha miongozo na sera za ndani za matumizi salama ya AI kwa taasisi yako.' : 'Help your leadership formulate clear, legally compliant internal AI usage policies.' 
-    },
+      desc: 'Help your leadership formulate clear, legally compliant internal AI usage policies.'},
     { 
-      title: language === 'sw' ? 'Ulinzi Endelevu (Cyber Retainers)' : 'Digital Safety Retainers', 
+      title: 'Digital Safety Retainers', 
       icon: Lock, 
-      desc: language === 'sw' ? 'Ukaguzi wa kila robo mwaka, majaribio ya dharura ya usalama na mafunzo endelevu.' : 'Continuous quarterly cyber hygiene drills and deepfake readiness briefings.' 
-    }
+      desc: 'Continuous quarterly cyber hygiene drills and deepfake readiness briefings.'}
   ];
 
   return (
@@ -120,7 +111,7 @@ export const ForOrganizationsSection: React.FC<ForOrganizationsSectionProps> = (
                   onClick={() => openBookingModal({ program: service.title, organizationType: 'Corporate/Enterprise' })}
                   className="text-left text-xs font-bold text-[#DC2626] hover:text-red-700 flex items-center gap-1 pt-2 transition-colors"
                 >
-                  <span>{language === 'sw' ? 'Omba Muhtasari' : 'Request Outline'}</span>
+                  <span>Request Outline</span>
                   <ArrowRight className="w-3 h-3" />
                 </button>
               </div>
@@ -138,33 +129,31 @@ export const ForOrganizationsSection: React.FC<ForOrganizationsSectionProps> = (
             
             <div className="lg:col-span-8 space-y-4">
               <span className="text-xs font-mono font-bold text-[#DC2626] uppercase">
-                {language === 'sw' ? 'Ushirikiano wa Kitaasisi' : 'Institutional Partnership'}
+                Institutional Partnership
               </span>
               <h3 className={`text-2xl sm:text-3xl font-extrabold ${
                 theme === 'dark' ? 'text-white' : 'text-neutral-900'
               }`}>
-                {language === 'sw'
-                  ? 'Ipe taasisi yako ujuzi thabiti wa vitendo, AI na usalama wa kimtandao.'
-                  : 'Equip your organization with practical, safe AI & cybersecurity competencies.'}
+                Equip your organization with practical, safe AI & cybersecurity competencies.
               </h3>
               <div className={`grid sm:grid-cols-2 gap-3 pt-2 text-xs ${
                 theme === 'dark' ? 'text-neutral-300' : 'text-neutral-700'
               }`}>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-[#DC2626] shrink-0" />
-                  <span>{language === 'sw' ? 'Mtaala unaolenga mifumo ya ndani ya taasisi' : 'Customized to your internal tech stack'}</span>
+                  <span>Customized to your internal tech stack</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-[#DC2626] shrink-0" />
-                  <span>{language === 'sw' ? 'Tathmini ya kabla na baada ya mafunzo' : 'Pre & Post training impact assessments'}</span>
+                  <span>Pre & Post training impact assessments</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-[#DC2626] shrink-0" />
-                  <span>{language === 'sw' ? 'Uzingatiaji wa siri na makubaliano ya NDA' : 'Confidentiality & NDA compliance'}</span>
+                  <span>Confidentiality & NDA compliance</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-[#DC2626] shrink-0" />
-                  <span>{language === 'sw' ? 'Vyeti rasmi vya utambuzi kwa washiriki' : 'Official Certificates of Completion'}</span>
+                  <span>Official Certificates of Completion</span>
                 </div>
               </div>
             </div>
@@ -175,7 +164,7 @@ export const ForOrganizationsSection: React.FC<ForOrganizationsSectionProps> = (
                 onClick={() => openBookingModal({ program: 'Corporate AI & Security Workforce Training' })}
                 className="w-full py-4 px-6 text-xs font-extrabold text-white bg-[#B91C1C] hover:bg-[#DC2626] rounded-2xl shadow-lg hover:shadow-red-900/40 uppercase tracking-wider transition-all flex items-center justify-center gap-2 text-center"
               >
-                <span>{language === 'sw' ? 'OMBA WARAKA WA TAASISI' : 'REQUEST CORPORATE PROPOSAL'}</span>
+                <span>REQUEST CORPORATE PROPOSAL</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
 
@@ -188,7 +177,7 @@ export const ForOrganizationsSection: React.FC<ForOrganizationsSectionProps> = (
                     : 'text-neutral-800 hover:text-neutral-950 bg-white hover:bg-neutral-100 border-neutral-200'
                 }`}
               >
-                {language === 'sw' ? 'PANGA MAZUNGUMZO' : 'BOOK A CONSULTATION'}
+                BOOK A CONSULTATION
               </button>
             </div>
 

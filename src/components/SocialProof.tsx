@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
-import { Quote, Award, Users, Star, CheckCircle2, Sparkles, ShieldCheck, TrendingUp, Filter } from 'lucide-react';
+import { Quote, Award, Users, Star, CheckCircle2, ShieldCheck, TrendingUp, Filter } from 'lucide-react';
 import { siteConfig } from '../config/site';
 import { useApp } from '../context/AppContext';
 
 export const SocialProof: React.FC = () => {
-  const { language, theme, t } = useApp();
+  const { theme, t } = useApp();
   const [selectedFilter, setSelectedFilter] = useState<string>('all');
 
   const filterOptions = [
-    { id: 'all', label: language === 'sw' ? 'Maoni Yote' : 'All Reviews' },
-    { id: 'web', label: language === 'sw' ? 'Web & Coding' : 'Web & Coding' },
-    { id: 'ai', label: language === 'sw' ? 'AI & Vibe Coding' : 'AI & Vibe Coding' },
-    { id: 'security', label: language === 'sw' ? 'Cybersecurity' : 'Cybersecurity' },
-    { id: 'design', label: language === 'sw' ? 'Design & UI/UX' : 'Design & UI/UX' },
+    { id: 'all', label: 'All Reviews'},
+    { id: 'web', label: 'Web & Coding'},
+    { id: 'ai', label: 'AI & Vibe Coding'},
+    { id: 'security', label: 'Cybersecurity'},
+    { id: 'design', label: 'Design & UI/UX'},
   ];
 
   const filteredTestimonials = siteConfig.testimonials.filter((item) => {
@@ -39,7 +39,6 @@ export const SocialProof: React.FC = () => {
           <div className={`inline-flex items-center gap-2 px-3.5 py-1 rounded-full border text-xs font-mono font-bold uppercase tracking-wider ${
             theme === 'dark' ? 'bg-[#171717] border-neutral-800 text-neutral-300' : 'bg-white border-neutral-200 text-neutral-800 shadow-sm'
           }`}>
-            <Sparkles className="w-3.5 h-3.5 text-[#DC2626]" />
             <span>{t.socialProof.badge}</span>
           </div>
           <h2 className={`text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight ${
@@ -55,7 +54,7 @@ export const SocialProof: React.FC = () => {
         </div>
 
         {/* Quick Social Proof Metrics Banner */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12">
           <div className={`p-5 rounded-3xl border text-center space-y-1 ${
             theme === 'dark' ? 'bg-[#171717] border-neutral-800' : 'bg-white border-neutral-200 shadow-sm'
           }`}>
@@ -64,7 +63,7 @@ export const SocialProof: React.FC = () => {
               <span>4.9 / 5.0</span>
             </div>
             <p className={`text-xs font-medium ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'}`}>
-              {language === 'sw' ? 'Wastani wa Ukadiriaji' : 'Average Student Rating'}
+              Average Student Rating
             </p>
           </div>
 
@@ -73,19 +72,7 @@ export const SocialProof: React.FC = () => {
           }`}>
             <div className={`text-lg font-black ${theme === 'dark' ? 'text-white' : 'text-neutral-900'}`}>1,200+</div>
             <p className={`text-xs font-medium ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'}`}>
-              {language === 'sw' ? 'Wahitimu Afrika Mashariki' : 'East African Learners'}
-            </p>
-          </div>
-
-          <div className={`p-5 rounded-3xl border text-center space-y-1 ${
-            theme === 'dark' ? 'bg-[#171717] border-neutral-800' : 'bg-white border-neutral-200 shadow-sm'
-          }`}>
-            <div className="text-lg font-extrabold text-emerald-500 flex items-center justify-center gap-1">
-              <CheckCircle2 className="w-4 h-4 text-emerald-500" />
-              <span>QR Verified</span>
-            </div>
-            <p className={`text-xs font-medium ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'}`}>
-              {language === 'sw' ? 'Vyeti vya PDF Vyenye Uthibitisho' : 'PDF Certificates Awarded'}
+              East African Learners
             </p>
           </div>
 
@@ -94,7 +81,7 @@ export const SocialProof: React.FC = () => {
           }`}>
             <div className="text-lg font-black text-[#DC2626]">Kiswahili + EN</div>
             <p className={`text-xs font-medium ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'}`}>
-              {language === 'sw' ? 'Maudhui Yanayoeleweka' : 'Accessible Tech Learning'}
+              Accessible Tech Learning
             </p>
           </div>
         </div>
@@ -102,9 +89,9 @@ export const SocialProof: React.FC = () => {
         <div className={`mb-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-[11px] font-bold uppercase tracking-[0.16em] ${
           theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'
         }`}>
-          <span className="inline-flex items-center gap-2"><CheckCircle2 className="h-3.5 w-3.5 text-emerald-500" /> {language === 'sw' ? 'Mafunzo yenye miradi' : 'Project-based learning'}</span>
-          <span className="inline-flex items-center gap-2"><ShieldCheck className="h-3.5 w-3.5 text-[#ff3b30]" /> {language === 'sw' ? 'Vyeti vinavyothibitishwa' : 'Verified certificates'}</span>
-          <span className="inline-flex items-center gap-2"><Users className="h-3.5 w-3.5 text-[#ff3b30]" /> {language === 'sw' ? 'Jamii ya Afrika Mashariki' : 'East African community'}</span>
+          <span className="inline-flex items-center gap-2"><CheckCircle2 className="h-3.5 w-3.5 text-emerald-500" /> Project-based learning</span>
+          <span className="inline-flex items-center gap-2"><ShieldCheck className="h-3.5 w-3.5 text-[#ff3b30]" /> Verified certificates</span>
+          <span className="inline-flex items-center gap-2"><Users className="h-3.5 w-3.5 text-[#ff3b30]" /> East African community</span>
         </div>
 
         {/* Filter Tabs */}

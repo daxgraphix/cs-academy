@@ -1,11 +1,9 @@
 import React from 'react';
 import { PageRoute, ProgramPillar } from '../types';
 import { programsData } from '../data/programs';
-import { programSwahili } from '../data/catalogTranslations';
 import { useApp } from '../context/AppContext';
 import { 
-  Sparkles, 
-  ShieldCheck, 
+  ShieldCheck,
   Laptop, 
   ArrowRight, 
   CheckCircle,
@@ -24,12 +22,12 @@ export const ProgramsOverview: React.FC<ProgramsOverviewProps> = ({
   openProgramModal,
   openBookingModal
 }) => {
-  const { language, theme, t } = useApp();
+  const { theme, t } = useApp();
 
   const getIcon = (iconName: string) => {
     switch (iconName) {
       case 'Sparkles':
-        return <Sparkles className="w-6 h-6 text-[#DC2626]" />;
+        return <Laptop className="w-6 h-6 text-[#DC2626]" />;
       case 'ShieldCheck':
         return <ShieldCheck className="w-6 h-6 text-[#DC2626]" />;
       default:
@@ -53,7 +51,6 @@ export const ProgramsOverview: React.FC<ProgramsOverviewProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto space-y-5 mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#ff3b30]/30 bg-[#ff3b30]/10 text-[#ff3b30] text-[10px] font-bold uppercase tracking-[0.22em]">
-            <Sparkles className="w-3.5 h-3.5" />
             <span>{t.programsSection.badge}</span>
           </div>
           <h2 className={`text-3xl sm:text-4xl lg:text-5xl font-black tracking-[-0.06em] ${
@@ -70,7 +67,6 @@ export const ProgramsOverview: React.FC<ProgramsOverviewProps> = ({
 
         <div className="grid md:grid-cols-3 gap-8">
           {programsData.map((pillar) => {
-            const localized = language === 'sw' ? programSwahili[pillar.slug] : undefined;
             return (
             <div
               key={pillar.id}
@@ -90,7 +86,7 @@ export const ProgramsOverview: React.FC<ProgramsOverviewProps> = ({
                   <span className={`text-[10px] font-bold uppercase tracking-[0.18em] px-2.5 py-1.5 rounded-full border ${
                     theme === 'dark' ? 'bg-white/5 border-white/10 text-neutral-300' : 'bg-neutral-100 border-neutral-200 text-neutral-700'
                   }`}>
-                    {localized?.badge ?? pillar.badge}
+                    {pillar.badge}
                   </span>
                 </div>
 
@@ -98,17 +94,17 @@ export const ProgramsOverview: React.FC<ProgramsOverviewProps> = ({
                   <h3 className={`text-2xl font-black tracking-[-0.05em] mb-2 group-hover:text-[#ff3b30] transition-colors ${
                     theme === 'dark' ? 'text-white' : 'text-neutral-900'
                   }`}>
-                    {localized?.title ?? pillar.title}
+                    {pillar.title}
                   </h3>
                   <p className={`text-sm font-semibold ${
                     theme === 'dark' ? 'text-neutral-300' : 'text-neutral-700'
                   }`}>
-                    {localized?.tagline ?? pillar.tagline}
+                    {pillar.tagline}
                   </p>
                   <p className={`mt-3 text-sm leading-relaxed ${
                     theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'
                   }`}>
-                    {localized?.description ?? pillar.description}
+                    {pillar.description}
                   </p>
                 </div>
 
@@ -117,7 +113,7 @@ export const ProgramsOverview: React.FC<ProgramsOverviewProps> = ({
                     theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'
                   }`}>
                     <Layers className="w-3.5 h-3.5 text-[#ff3b30]" />
-                    <span>{language === 'sw' ? 'Mada za Mtaala' : 'Curriculum Focus'}</span>
+                    <span>Curriculum Focus</span>
                   </div>
                   <div className="flex flex-wrap gap-2">
                     {pillar.topics.slice(0, 6).map((topic, i) => (
@@ -134,7 +130,7 @@ export const ProgramsOverview: React.FC<ProgramsOverviewProps> = ({
                       <span className={`text-[11px] font-medium px-2.5 py-1.5 rounded-full ${
                         theme === 'dark' ? 'bg-white/5 text-neutral-300' : 'bg-neutral-100 text-neutral-600'
                       }`}>
-                        +{pillar.topics.length - 6} {language === 'sw' ? 'zaidi' : 'more'}
+                        +{pillar.topics.length - 6} more
                       </span>
                     )}
                   </div>
@@ -146,13 +142,13 @@ export const ProgramsOverview: React.FC<ProgramsOverviewProps> = ({
                   <div className={`text-[10px] font-bold uppercase tracking-[0.18em] ${
                     theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'
                   }`}>
-                    {language === 'sw' ? 'Matokeo Muhimu ya Vitendo:' : 'Key Practical Outcome:'}
+                    Key Practical Outcome:
                   </div>
                   <div className={`flex items-start gap-2 text-sm ${
                     theme === 'dark' ? 'text-neutral-300' : 'text-neutral-700'
                   }`}>
                     <CheckCircle className="w-4 h-4 text-[#ff3b30] shrink-0 mt-0.5" />
-                    <span>{localized?.outcome ?? pillar.outcomes[0]}</span>
+                    <span>{pillar.outcomes[0]}</span>
                   </div>
                 </div>
               </div>
@@ -165,7 +161,7 @@ export const ProgramsOverview: React.FC<ProgramsOverviewProps> = ({
                   onClick={() => handlePillarNavigation(pillar.slug)}
                   className="w-full py-3.5 px-4 text-[11px] font-black uppercase tracking-[0.18em] text-white bg-[#ff3b30] hover:-translate-y-0.5 hover:bg-[#ff564d] rounded-full flex items-center justify-center gap-2 transition-all duration-200 shadow-[0_18px_40px_rgba(255,59,48,0.3)]"
                 >
-                  <span>{language === 'sw' ? `Chunguza ${pillar.title}` : pillar.ctaText}</span>
+                  <span>{pillar.ctaText}</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </button>
 
@@ -179,7 +175,7 @@ export const ProgramsOverview: React.FC<ProgramsOverviewProps> = ({
                         : 'text-neutral-700 hover:text-neutral-900 bg-neutral-100 hover:bg-neutral-200 border-neutral-200'
                     }`}
                   >
-                    {language === 'sw' ? 'Muhtasari wa Kozi' : 'View Syllabus'}
+                    View Syllabus
                   </button>
                   <button
                     id={`btn-book-pillar-${pillar.slug}`}

@@ -4,7 +4,6 @@ import { useApp } from '../context/AppContext';
 import { instructorsData } from '../data/instructors';
 import { 
   ShieldCheck, 
-  Sparkles, 
   Globe2, 
   Quote, 
   Mail, 
@@ -36,7 +35,7 @@ interface AboutPageProps {
 export const AboutPage: React.FC<AboutPageProps> = ({
   openBookingModal
 }) => {
-  const { language, theme, t } = useApp();
+  const { theme, t } = useApp();
 
   return (
     <div className={`pt-28 pb-20 min-h-screen transition-colors duration-300 ${
@@ -47,24 +46,19 @@ export const AboutPage: React.FC<AboutPageProps> = ({
         {/* Hero / Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4 pt-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-red-950/40 border border-red-800/40 text-[#DC2626] text-xs font-mono font-bold uppercase tracking-wider">
-            <Sparkles className="w-3.5 h-3.5" />
             <span>{t.about.badge}</span>
           </div>
           <h1 className={`text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight ${
             theme === 'dark' ? 'text-white' : 'text-neutral-950'
           }`}>
-            {language === 'sw' ? (
-              <>KUWEZESHA AFRIKA MASHARIKI KWA <span className="text-[#DC2626]">UJUZI WA KIDIITALI</span></>
-            ) : (
+            {(
               <>EMPOWERING EAST AFRICA WITH <span className="text-[#DC2626]">DIGITAL SKILLS</span></>
             )}
           </h1>
           <p className={`text-base sm:text-lg leading-relaxed ${
             theme === 'dark' ? 'text-neutral-300' : 'text-neutral-600'
           }`}>
-            {siteConfig.academyName} {language === 'sw' 
-              ? 'ina lengo la kufanya elimu ya teknolojia ifikiwe kwa urahisi na kila anayeongea Kiswahili Afrika Mashariki.'
-              : 'is on a mission to democratize technology education for Swahili-speaking learners, professionals, and future innovators.'}
+            {siteConfig.academyName} is on a mission to democratize technology education for Swahili-speaking learners, professionals, and future innovators.
           </p>
         </div>
 
@@ -77,20 +71,20 @@ export const AboutPage: React.FC<AboutPageProps> = ({
             <div className={`w-12 h-12 rounded-2xl border flex items-center justify-center text-[#DC2626] ${
               theme === 'dark' ? 'bg-red-950/70 border-red-900/50' : 'bg-red-50 border-red-200'
             }`}>
-              <Sparkles className="w-6 h-6" />
+              <GraduationCap className="w-6 h-6" />
             </div>
             <span className="text-xs font-mono font-bold text-[#DC2626] uppercase tracking-wider">
-              {language === 'sw' ? 'Kusudi Letu' : 'Our Purpose'}
+              Our Purpose
             </span>
             <h2 className={`text-2xl sm:text-3xl font-extrabold ${theme === 'dark' ? 'text-white' : 'text-neutral-900'}`}>
-              {language === 'sw' ? 'Dhamira Yetu' : 'Our Mission'}
+              Our Mission
             </h2>
             <p className={`text-sm sm:text-base leading-relaxed ${theme === 'dark' ? 'text-neutral-300' : 'text-neutral-600'}`}>
               {siteConfig.tagline}
             </p>
             <div className={`pt-2 text-xs flex items-center gap-2 ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'}`}>
               <CheckCircle2 className="w-4 h-4 text-[#DC2626]" />
-              <span>{language === 'sw' ? 'Lugha isiwe kikwazo cha kujifunza teknolojia.' : 'Language should never be a barrier to learning technology.'}</span>
+              <span>Language should never be a barrier to learning technology.</span>
             </div>
           </div>
 
@@ -104,17 +98,17 @@ export const AboutPage: React.FC<AboutPageProps> = ({
               <Globe2 className="w-6 h-6" />
             </div>
             <span className="text-xs font-mono font-bold text-[#DC2626] uppercase tracking-wider">
-              {language === 'sw' ? 'Mustakabali Tunaoujenga' : 'The Future We Build'}
+              The Future We Build
             </span>
             <h2 className={`text-2xl sm:text-3xl font-extrabold ${theme === 'dark' ? 'text-white' : 'text-neutral-900'}`}>
-              {language === 'sw' ? 'Maono Yetu' : 'Our Vision'}
+              Our Vision
             </h2>
             <p className={`text-sm sm:text-base leading-relaxed ${theme === 'dark' ? 'text-neutral-300' : 'text-neutral-600'}`}>
               {siteConfig.vision}
             </p>
             <div className={`pt-2 text-xs flex items-center gap-2 ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'}`}>
               <CheckCircle2 className="w-4 h-4 text-[#DC2626]" />
-              <span>{language === 'sw' ? 'Kuwezesha maelfu kufanikiwa katika uchumi wa kidijitali.' : 'Equipping millions to thrive in the global digital economy.'}</span>
+              <span>Equipping millions to thrive in the global digital economy.</span>
             </div>
           </div>
         </div>
@@ -127,10 +121,10 @@ export const AboutPage: React.FC<AboutPageProps> = ({
             <div className={`inline-flex items-center gap-2 px-3 py-1 rounded border text-[11px] font-mono text-[#DC2626] font-bold uppercase ${
               theme === 'dark' ? 'bg-[#0B0B0B] border-neutral-800' : 'bg-white border-neutral-200'
             }`}>
-              {language === 'sw' ? 'Mitaala Yetu Mikuu' : 'Our Core Curriculum Pillars'}
+              Our Core Curriculum Pillars
             </div>
             <h2 className={`text-2xl sm:text-3xl font-extrabold ${theme === 'dark' ? 'text-white' : 'text-neutral-900'}`}>
-              {language === 'sw' ? 'Nguzo 3 za Ujuzi wa CS Academy' : 'The 3 Pillars of CS Academy'}
+              The 3 Pillars of CS Academy
             </h2>
           </div>
 
@@ -156,19 +150,17 @@ export const AboutPage: React.FC<AboutPageProps> = ({
               theme === 'dark' ? 'bg-red-950/40 border-red-800/40 text-[#DC2626]' : 'bg-red-50 border-red-200 text-[#DC2626]'
             }`}>
               <GraduationCap className="w-3.5 h-3.5" />
-              <span>{language === 'sw' ? 'Wakufunzi & Wasanifu wa Kozi' : 'Our Expert Instructors'}</span>
+              <span>Our Expert Instructors</span>
             </div>
             <h2 className={`text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight ${
               theme === 'dark' ? 'text-white' : 'text-neutral-950'
             }`}>
-              {language === 'sw' ? 'KUTANA NA WALIMU WETU' : 'MEET OUR INSTRUCTORS'}
+              MEET OUR INSTRUCTORS
             </h2>
             <p className={`text-sm sm:text-base leading-relaxed ${
               theme === 'dark' ? 'text-neutral-300' : 'text-neutral-600'
             }`}>
-              {language === 'sw'
-                ? 'Wataalamu wa kiteknolojia walio na uzoefu wa miaka mingi katika AI, Usalama wa Kimtandao, Uundaji wa Mifumo ya Mtandao, na Ubunifu wa Kidijitali.'
-                : 'Seasoned industry practitioners, ethical security researchers, and software architects passionate about making high-value tech skills accessible across Africa.'}
+              Seasoned industry practitioners, ethical security researchers, and software architects passionate about making high-value tech skills accessible across Africa.
             </p>
           </div>
 
@@ -205,7 +197,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
 
                   {/* Bio */}
                   <p className={`text-xs leading-relaxed ${theme === 'dark' ? 'text-neutral-300' : 'text-neutral-600'}`}>
-                    {language === 'sw' && instructor.bioSw ? instructor.bioSw : instructor.bio}
+                    {instructor.bio}
                   </p>
 
                   {/* Expertise Tags */}
@@ -213,7 +205,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                     <div className={`text-[10px] font-mono font-bold uppercase tracking-wider ${
                       theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'
                     }`}>
-                      {language === 'sw' ? 'Utaalamu Mkuu:' : 'Core Areas of Expertise:'}
+                      Core Areas of Expertise:
                     </div>
                     <div className="flex flex-wrap gap-1.5">
                       {instructor.expertise.map((exp, eIdx) => (
@@ -236,7 +228,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                     <div className={`text-[10px] font-mono font-bold uppercase tracking-wider ${
                       theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'
                     }`}>
-                      {language === 'sw' ? 'Kozi Anazofundisha:' : 'Featured Courses:'}
+                      Featured Courses:
                     </div>
                     <ul className="space-y-1 text-xs">
                       {instructor.featuredCourses.map((fc, fcIdx) => (
@@ -260,7 +252,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                     onClick={() => openBookingModal({ program: `Training with ${instructor.name}` })}
                     className="px-3.5 py-1.5 rounded-xl bg-[#DC2626] hover:bg-red-700 text-white text-xs font-bold transition-colors shadow flex items-center gap-1"
                   >
-                    <span>{language === 'sw' ? 'Omba Mafunzo' : 'Book Session'}</span>
+                    <span>Book Session</span>
                     <ArrowRight className="w-3 h-3" />
                   </button>
                 </div>
@@ -303,7 +295,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                   onClick={() => openBookingModal({ program: 'Speaking Engagement with Alex Rweyemamu' })}
                   className="px-5 py-2.5 rounded-xl font-bold text-xs text-white bg-[#B91C1C] hover:bg-[#DC2626] uppercase tracking-wider transition-colors shadow-md flex items-center gap-2"
                 >
-                  <span>{language === 'sw' ? 'Omba Mafunzo / Hotuba' : 'Book Keynote / Training'}</span>
+                  <span>Book Keynote / Training</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </div>

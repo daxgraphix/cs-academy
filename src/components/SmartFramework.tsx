@@ -4,7 +4,6 @@ import { useApp } from '../context/AppContext';
 import { 
   CheckCircle2, 
   Lightbulb, 
-  Sparkles, 
   Shield, 
   Layers, 
   Search, 
@@ -12,7 +11,7 @@ import {
 } from 'lucide-react';
 
 export const SmartFramework: React.FC = () => {
-  const { language, theme } = useApp();
+  const { theme } = useApp();
   const [activeLetter, setActiveLetter] = useState<string>('S');
 
   const activeStep = smartFrameworkSteps.find(s => s.letter === activeLetter) || smartFrameworkSteps[0];
@@ -30,7 +29,7 @@ export const SmartFramework: React.FC = () => {
       case 'T':
         return <Shield className="w-5 h-5" />;
       default:
-        return <Sparkles className="w-5 h-5" />;
+        return <Shield className="w-5 h-5" />;
     }
   };
 
@@ -46,30 +45,25 @@ export const SmartFramework: React.FC = () => {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-red-950/40 border border-red-800/40 text-[#DC2626] text-xs font-mono font-bold uppercase tracking-wider">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>{language === 'sw' ? 'MFUMO WA KIFUNDISHAJI WA CS ACADEMY' : 'THE CS ACADEMY METHOD'}</span>
+            <span>THE CS ACADEMY METHOD</span>
           </div>
           <h2 className={`text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight ${
             theme === 'dark' ? 'text-white' : 'text-neutral-950'
           }`}>
-            {language === 'sw' ? (
-              <>MFUMO WA <span className="text-[#DC2626]">S.M.A.R.T.</span> WA AKILI MNEMBA</>
-            ) : (
+            {(
               <>THE AI <span className="text-[#DC2626]">S.M.A.R.T.</span> FRAMEWORK</>
             )}
           </h2>
           <p className={`text-base sm:text-lg leading-relaxed ${
             theme === 'dark' ? 'text-neutral-300' : 'text-neutral-600'
           }`}>
-            {language === 'sw'
-              ? 'Muundo wetu wa hatua 5 unaomwezesha kila mwanafunzi na mfanyakazi kutoka hatua ya udadisi hadi kufikia umahiri kamili wa kiteknolojia na ulinzi wa data.'
-              : 'Our proprietary 5-step model guiding learners from curiosity to confident, safe technological output.'}
+            Our proprietary 5-step model guiding learners from curiosity to confident, safe technological output.
           </p>
           <div className={`mx-auto flex max-w-2xl items-center justify-center gap-2 rounded-full border px-4 py-2 text-[11px] font-bold uppercase tracking-[0.14em] ${
             theme === 'dark' ? 'border-white/10 bg-white/5 text-neutral-400' : 'border-neutral-200 bg-white text-neutral-500'
           }`}>
             <span className="h-1.5 w-1.5 rounded-full bg-[#DC2626]" />
-            <span>{language === 'sw' ? 'Elewa • Jenga • Thibitisha • Tumia kwa usalama' : 'Understand • Build • Verify • Apply safely'}</span>
+            <span>Understand, Build, Verify, Apply safely</span>
           </div>
         </div>
 
@@ -153,7 +147,7 @@ export const SmartFramework: React.FC = () => {
                   </div>
                   <div>
                     <span className="text-xs font-mono font-bold text-[#DC2626] uppercase">
-                      {language === 'sw' ? 'Nguzo ya Umahiri' : 'Core Competency Pillar'}
+                      Core Competency Pillar
                     </span>
                     <h3 className={`text-2xl sm:text-3xl font-extrabold ${
                       theme === 'dark' ? 'text-white' : 'text-neutral-900'
@@ -163,7 +157,7 @@ export const SmartFramework: React.FC = () => {
                 <div className={`text-xs font-mono px-3 py-1 border rounded-lg ${
                   theme === 'dark' ? 'bg-neutral-900 border-neutral-800 text-neutral-400' : 'bg-neutral-100 border-neutral-200 text-neutral-700'
                 }`}>
-                  {language === 'sw' ? 'Hatua' : 'Step'} {activeStep.letter === 'S' ? '1' : activeStep.letter === 'M' ? '2' : activeStep.letter === 'A' ? '3' : activeStep.letter === 'R' ? '4' : '5'} / 5
+                  Step {activeStep.letter === 'S' ? '1' : activeStep.letter === 'M' ? '2' : activeStep.letter === 'A' ? '3' : activeStep.letter === 'R' ? '4' : '5'} / 5
                 </div>
               </div>
 
@@ -181,7 +175,7 @@ export const SmartFramework: React.FC = () => {
                 <h4 className={`text-xs font-mono font-bold uppercase tracking-wider ${
                   theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'
                 }`}>
-                  {language === 'sw' ? 'Utakachojifunza & Kufanya:' : 'What You Will Practice:'}
+                  What You Will Practice:
                 </h4>
                 <p className={`text-sm sm:text-base leading-relaxed ${
                   theme === 'dark' ? 'text-neutral-300' : 'text-neutral-700'
@@ -196,7 +190,7 @@ export const SmartFramework: React.FC = () => {
               }`}>
                 <div className="flex items-center gap-2 text-xs font-extrabold text-[#DC2626] uppercase tracking-wider">
                   <CheckCircle2 className="w-4 h-4" />
-                  <span>{language === 'sw' ? 'Mfano Halisi wa Kiutendaji:' : 'Real-World Application in Action:'}</span>
+                  <span>Real-World Application in Action:</span>
                 </div>
                 <p className={`text-xs sm:text-sm italic ${
                   theme === 'dark' ? 'text-neutral-300' : 'text-neutral-800'
@@ -211,9 +205,9 @@ export const SmartFramework: React.FC = () => {
             <div className={`pt-6 mt-6 border-t flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs relative z-10 ${
               theme === 'dark' ? 'border-neutral-800 text-neutral-400' : 'border-neutral-200 text-neutral-600'
             }`}>
-              <span>{language === 'sw' ? 'Imejumuishwa katika kozi zote za moja kwa moja za CS Academy.' : 'Integrated into all CS Academy live courses and institutional workshops.'}</span>
+              <span>Integrated into all CS Academy live courses and institutional workshops.</span>
               <span className="text-[#DC2626] font-bold">
-                {language === 'sw' ? 'Mfumo Maalum wa CS Academy' : 'CS Academy Method'}
+                CS Academy Method
               </span>
             </div>
 
