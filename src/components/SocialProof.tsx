@@ -10,11 +10,11 @@ export const SocialProof: React.FC = () => {
   const gridRef = useReveal<HTMLDivElement>();
 
   const filterOptions = [
-    { id: 'all', label: 'All Reviews'},
-    { id: 'web', label: 'Web & Coding'},
-    { id: 'ai', label: 'AI & Vibe Coding'},
-    { id: 'security', label: 'Cybersecurity'},
-    { id: 'design', label: 'Design & UI/UX'},
+    { id: 'all', label: t('socialProof.filters.all', { defaultValue: 'All Reviews' })},
+    { id: 'web', label: t('socialProof.filters.web', { defaultValue: 'Web & Coding' })},
+    { id: 'ai', label: t('socialProof.filters.ai', { defaultValue: 'AI & Vibe Coding' })},
+    { id: 'security', label: t('socialProof.filters.security', { defaultValue: 'Cybersecurity' })},
+    { id: 'design', label: t('socialProof.filters.design', { defaultValue: 'Design & UI/UX' })},
   ];
 
   const filteredTestimonials = siteConfig.testimonials.filter((item) => {
@@ -41,17 +41,17 @@ export const SocialProof: React.FC = () => {
           <div className={`inline-flex items-center gap-2 px-3.5 py-1 rounded-full border text-xs font-mono font-bold uppercase tracking-wider ${
             theme === 'dark' ? 'bg-[#171717] border-neutral-800 text-neutral-300' : 'bg-white border-neutral-300 text-neutral-800 shadow-sm'
           }`}>
-            <span>{t.socialProof.badge}</span>
+            <span>{t('socialProof.badge', { defaultValue: 'LEARNER SUCCESS' })}</span>
           </div>
           <h2 className={`text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight ${
             theme === 'dark' ? 'text-white' : 'text-neutral-950'
           }`}>
-            {t.socialProof.title}
+            {t('socialProof.title', { defaultValue: 'Trusted by hundreds of East African professionals.' })}
           </h2>
           <p className={`text-base leading-relaxed ${
             theme === 'dark' ? 'text-neutral-400' : 'text-neutral-800'
           }`}>
-            {t.socialProof.subtitle}
+            {t('socialProof.subtitle', { defaultValue: 'From prompt engineering to digital defense, see how our practical training changes careers.' })}
           </p>
         </div>
 
@@ -65,25 +65,25 @@ export const SocialProof: React.FC = () => {
               <span>4.9 / 5.0</span>
             </div>
             <p className={`text-xs font-medium ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-800'}`}>
-              Average Student Rating
+              {t('socialProof.stats.rating', { defaultValue: 'Average Student Rating' })}
             </p>
           </div>
 
           <div className={`p-5 rounded-3xl border text-center space-y-1 ${
             theme === 'dark' ? 'bg-[#171717] border-neutral-800' : 'bg-white border-neutral-300 shadow-sm'
           }`}>
-            <div className={`text-lg font-black ${theme === 'dark' ? 'text-white' : 'text-neutral-900'}`}>1,200+</div>
+            <div className={`text-lg font-black ${theme === 'dark' ? 'text-white' : 'text-neutral-900'}`}>{siteConfig.stats.learnersTrained}+</div>
             <p className={`text-xs font-medium ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-800'}`}>
-              East African Learners
+              {t('socialProof.stats.learners', { defaultValue: 'East African Learners' })}
             </p>
           </div>
 
           <div className={`p-5 rounded-3xl border text-center space-y-1 ${
             theme === 'dark' ? 'bg-[#171717] border-neutral-800' : 'bg-white border-neutral-300 shadow-sm'
           }`}>
-            <div className="text-lg font-black text-[#DC2626]">Kiswahili + EN</div>
+            <div className="text-lg font-black text-[#DC2626]">{t('socialProof.stats.languages', { defaultValue: 'Kiswahili + EN' })}</div>
             <p className={`text-xs font-medium ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-800'}`}>
-              Accessible Tech Learning
+              {t('socialProof.stats.accessible', { defaultValue: 'Accessible Tech Learning' })}
             </p>
           </div>
         </div>
@@ -91,9 +91,9 @@ export const SocialProof: React.FC = () => {
         <div className={`mb-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-[11px] font-bold uppercase tracking-[0.16em] ${
           theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'
         }`}>
-          <span className="inline-flex items-center gap-2"><CheckCircle2 className="h-3.5 w-3.5 text-emerald-500" /> Project-based learning</span>
-          <span className="inline-flex items-center gap-2"><ShieldCheck className="h-3.5 w-3.5 text-[#ff3b30]" /> Verified certificates</span>
-          <span className="inline-flex items-center gap-2"><Users className="h-3.5 w-3.5 text-[#ff3b30]" /> East African community</span>
+          <span className="inline-flex items-center gap-2"><CheckCircle2 className="h-3.5 w-3.5 text-emerald-500" /> {t('socialProof.pillars.project', { defaultValue: 'Project-based learning' })}</span>
+          <span className="inline-flex items-center gap-2"><ShieldCheck className="h-3.5 w-3.5 text-[#ff3b30]" /> {t('socialProof.pillars.verified', { defaultValue: 'Verified certificates' })}</span>
+          <span className="inline-flex items-center gap-2"><Users className="h-3.5 w-3.5 text-[#ff3b30]" /> {t('socialProof.pillars.community', { defaultValue: 'East African community' })}</span>
         </div>
 
         {/* Filter Tabs */}

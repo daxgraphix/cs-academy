@@ -35,57 +35,68 @@ export const WhyCSAcademy: React.FC<WhyCSAcademyProps> = ({
 
   const benefits = [
     { 
-      title: 'Practical Learning', 
+      key: 'practical',
+      title: 'Practical Learning',
       desc: 'No abstract theory. You build functional prompts, audit security settings, and create deliverables on day one.', 
       icon: Zap 
     },
     { 
-      title: 'Africa-Focused Context', 
+      key: 'africa',
+      title: 'Africa-Focused Context',
       desc: 'Case studies, workflows, and economic realities rooted in the East & Central African business ecosystem.', 
       icon: Globe2 
     },
     { 
-      title: 'English & Kiswahili', 
+      key: 'bilingual',
+      title: 'English & Kiswahili',
       desc: 'Bilingual accessibility ensuring language is never an obstacle to mastering high-impact technologies.', 
       icon: Languages 
     },
     { 
-      title: 'Expert-Led Sessions', 
+      key: 'expert',
+      title: 'Expert-Led Sessions',
       desc: 'Instruction delivered by seasoned cybersecurity professionals, tech educators, and AI practitioners.', 
       icon: Award 
     },
     { 
-      title: 'Online & Physical Delivery', 
+      key: 'delivery',
+      title: 'Online & Physical Delivery',
       desc: 'Seamless choice between live Zoom/Meet classes, WhatsApp micro-learning, and on-site physical workshops.', 
       icon: MonitorSmartphone 
     },
     { 
-      title: 'Real-World Deliverables', 
+      key: 'deliverables',
+      title: 'Real-World Deliverables',
       desc: 'Work directly on your team\'s actual documents, reports, proposals, and security policies.', 
       icon: BadgeCheck 
     },
     { 
-      title: 'AI Safety Built In', 
+      key: 'safety',
+      title: 'AI Safety Built In',
       desc: 'Data privacy, hallucination verification, and deepfake defense are baked into every module.', 
       icon: ShieldCheck 
     },
     { 
-      title: 'Flexible Formats', 
+      key: 'flexible',
+      title: 'Flexible Formats',
       desc: 'From 90-minute executive briefings to multi-week cohort intensives that fit your demanding schedule.', 
       icon: Sliders 
     },
     { 
-      title: 'Custom Corporate Training', 
+      key: 'corporate',
+      title: 'Custom Corporate Training',
       desc: 'Tailored curricula co-designed for universities, banks, NGOs, and government ministries.', 
       icon: Building2 
     },
     { 
-      title: 'Community-Driven Learning', 
+      key: 'community',
+      title: 'Community-Driven Learning',
       desc: 'Continuous alumni support, daily resource drops, and ongoing mentorship via CyberSwahili communities.', 
       icon: Users 
     },
     { 
-      title: 'Recognized Certificates', 
+      key: 'certificates',
+      title: 'Recognized Certificates',
       desc: 'QR-verifiable digital certificates trusted by East African employers and institutions.', 
       icon: BadgeCheck 
     }
@@ -103,17 +114,17 @@ export const WhyCSAcademy: React.FC<WhyCSAcademyProps> = ({
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-12">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-red-950/40 border border-red-800/40 text-[#DC2626] text-xs font-mono font-bold uppercase tracking-wider">
-            <span>{t.whyUs.badge}</span>
+            <span>{t('whyUs.badge', { defaultValue: 'WHY CHOOSE US' })}</span>
           </div>
           <h2 className={`text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight ${
             theme === 'dark' ? 'text-white' : 'text-neutral-950'
           }`}>
-            {t.whyUs.title}
+            {t('whyUs.title', { defaultValue: 'The leading choice for practical tech education.' })}
           </h2>
           <p className={`text-base sm:text-lg leading-relaxed ${
             theme === 'dark' ? 'text-neutral-300' : 'text-neutral-800'
           }`}>
-            {t.whyUs.subtitle}
+            {t('whyUs.subtitle', { defaultValue: 'We bridge the gap between global technology and local context through bilingual, hands-on, and accessible instruction.' })}
           </p>
         </div>
 
@@ -131,7 +142,7 @@ export const WhyCSAcademy: React.FC<WhyCSAcademyProps> = ({
               <div className="text-2xl sm:text-3xl font-black tracking-tight text-[#DC2626]">{stat.value}</div>
               <div className={`mt-1 text-[11px] font-semibold uppercase tracking-wider ${
                 theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'
-              }`}>{stat.label}</div>
+              }`}>{t(`whyUs.stats.${i}`, { defaultValue: stat.label })}</div>
             </div>
           ))}
         </div>
@@ -140,6 +151,8 @@ export const WhyCSAcademy: React.FC<WhyCSAcademyProps> = ({
         <div ref={benefitsRef} className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 reveal-stagger">
           {benefits.map((item, idx) => {
             const Icon = item.icon;
+            const title = t(`whyUs.benefits.${item.key}.title`, { defaultValue: item.title });
+            const desc = t(`whyUs.benefits.${item.key}.desc`, { defaultValue: item.desc });
             return (
               <div
                 key={idx}
@@ -157,10 +170,10 @@ export const WhyCSAcademy: React.FC<WhyCSAcademyProps> = ({
                   </div>
                   <h3 className={`text-sm font-extrabold tracking-tight ${
                     theme === 'dark' ? 'text-white' : 'text-neutral-900'
-                  }`}>{item.title}</h3>
+                  }`}>{title}</h3>
                   <p className={`text-xs leading-relaxed ${
                     theme === 'dark' ? 'text-neutral-400' : 'text-neutral-800'
-                  }`}>{item.desc}</p>
+                  }`}>{desc}</p>
                 </div>
               </div>
             );
@@ -174,17 +187,17 @@ export const WhyCSAcademy: React.FC<WhyCSAcademyProps> = ({
           }`}>
             <div className="space-y-1 text-center sm:text-left">
               <h3 className={`text-xl font-extrabold ${theme === 'dark' ? 'text-white' : 'text-neutral-900'}`}>
-                Ready to start your journey?
+                {t('whyUs.ctaTitle', { defaultValue: 'Ready to start your journey?' })}
               </h3>
               <p className={`text-sm ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-800'}`}>
-                Join the next hands-on, practical training cohort.
+                {t('whyUs.ctaDesc', { defaultValue: 'Join the next hands-on, practical training cohort.' })}
               </p>
             </div>
             <button
               onClick={() => openBookingModal({ program: 'Next Practical Cohort' })}
               className="inline-flex items-center gap-2 px-8 py-4 text-xs font-extrabold text-white bg-[#B91C1C] hover:bg-[#DC2626] active:scale-[0.98] rounded-2xl shadow-lg uppercase tracking-wider transition-all whitespace-nowrap"
             >
-              <span>JOIN NEXT COHORT</span>
+              <span>{t('whyUs.ctaBtn', { defaultValue: 'JOIN NEXT COHORT' })}</span>
               <ArrowRight className="w-4 h-4" />
             </button>
           </div>

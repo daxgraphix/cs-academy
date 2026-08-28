@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { platformFeaturesData } from '../data/platformFeatures';
 import { useApp } from '../context/AppContext';
 import { useReveal } from '../hooks/useReveal';
@@ -28,6 +29,7 @@ export const PlatformFeaturesSection: React.FC<PlatformFeaturesSectionProps> = (
   openBookingModal
 }) => {
   const { theme } = useApp();
+  const { t } = useTranslation();
   const [activeFeatureId, setActiveFeatureId] = useState<string>('quizzes-assessment');
   const contentRef = useReveal<HTMLDivElement>();
 
@@ -62,22 +64,20 @@ export const PlatformFeaturesSection: React.FC<PlatformFeaturesSectionProps> = (
     if (feature.id === 'quizzes-assessment') {
       return (
         <div className="space-y-3">
-          <div className={`p-4 rounded-2xl border space-y-2 ${
-            theme === 'dark' ? 'bg-[#171717] border-neutral-800' : 'bg-neutral-50 border-neutral-300'
-          }`}>
+          <div className="p-5 rounded-[1.5rem] sm:rounded-[2rem] border border-[var(--border-color)] space-y-3 bg-[var(--bg-tertiary)] glass-card">
             <div className="flex items-center justify-between text-xs">
-              <span className="font-bold text-[#DC2626]">Module 3: AI & Prompting</span>
-              <span className={`font-mono ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'}`}>10/10 Score</span>
+              <span className="font-bold text-[var(--accent-red-strong)]">Module 3: AI & Prompting</span>
+              <span className="font-mono text-[var(--text-muted)]">10/10 Score</span>
             </div>
-            <p className={`text-xs ${theme === 'dark' ? 'text-neutral-200' : 'text-neutral-800'}`}>Question: Which core pillar best describes the S.M.A.R.T. framework used at CS Academy?</p>
+            <p className="text-xs text-[var(--text-secondary)]">Question: Which core pillar best describes the S.M.A.R.T. framework used at CS Academy?</p>
             <div className="space-y-1 text-xs">
-              <div className="p-2 rounded-xl bg-emerald-950/60 border border-emerald-800 text-emerald-300 flex items-center gap-2">
+              <div className="p-2.5 rounded-xl bg-[var(--success-subtle)] border border-[var(--success-safe)]/20 text-[var(--success-strong)] flex items-center gap-2">
                 <CheckCircle2 className="w-3.5 h-3.5" />
                 <span>A. Structure - Solid context scaffolding (Correct)</span>
               </div>
             </div>
           </div>
-          <div className={`text-[11px] text-center ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'}`}>
+          <div className="text-[11px] text-center text-[var(--text-muted)]">
             Instant auto-scoring with explanations
           </div>
         </div>
@@ -86,23 +86,15 @@ export const PlatformFeaturesSection: React.FC<PlatformFeaturesSectionProps> = (
 
     if (feature.id === 'pdf-certificates') {
       return (
-        <div className={`p-5 rounded-2xl border space-y-3 text-center ${
-          theme === 'dark'
-            ? 'bg-gradient-to-b from-[#171717] to-[#0E0E0E] border-neutral-800'
-            : 'bg-gradient-to-b from-neutral-50 to-white border-neutral-300 shadow-sm'
-        }`}>
-          <div className={`w-12 h-12 mx-auto rounded-2xl border flex items-center justify-center text-[#DC2626] ${
-            theme === 'dark' ? 'bg-[#0B0B0B] border-neutral-800' : 'bg-red-50 border-red-100'
-          }`}>
-            <QrCode className="w-7 h-7" />
+        <div className="p-6 rounded-[1.5rem] sm:rounded-[2rem] border border-[var(--border-color)] space-y-4 text-center bg-[var(--bg-tertiary)] glass-card">
+          <div className="w-14 h-14 mx-auto rounded-2xl border border-[var(--border-subtle)] flex items-center justify-center text-[var(--accent-red-safe)] bg-[var(--bg-primary)]">
+            <QrCode className="w-8 h-8" />
           </div>
           <div>
-            <h4 className={`text-xs font-bold uppercase tracking-wider ${theme === 'dark' ? 'text-white' : 'text-neutral-900'}`}>Certificate of Completion</h4>
-            <p className={`text-[11px] ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'}`}>Awarded to Learner  |  CS Academy</p>
+            <h4 className="text-xs font-bold uppercase tracking-wider text-[var(--text-primary)]">Certificate of Completion</h4>
+            <p className="text-[11px] text-[var(--text-muted)]">Awarded to Learner  |  CS Academy</p>
           </div>
-          <div className={`p-2 rounded-xl text-[10px] font-mono border ${
-            theme === 'dark' ? 'bg-[#0B0B0B] text-emerald-400 border-emerald-900/40' : 'bg-emerald-50 text-emerald-700 border-emerald-200'
-          }`}>
+          <div className="p-2.5 rounded-xl text-[10px] font-mono border border-[var(--success-safe)]/20 bg-[var(--success-subtle)] text-[var(--success-strong)]">
             VERIFIED ID: CSA-2026-8942
           </div>
         </div>
@@ -111,40 +103,32 @@ export const PlatformFeaturesSection: React.FC<PlatformFeaturesSectionProps> = (
 
     if (feature.id === 'digital-shop') {
       return (
-        <div className="space-y-2">
-          <div className={`p-3.5 rounded-2xl border flex items-center justify-between ${
-            theme === 'dark' ? 'bg-[#171717] border-neutral-800' : 'bg-neutral-50 border-neutral-300'
-          }`}>
+        <div className="space-y-3">
+          <div className="p-4 rounded-[1.5rem] border border-[var(--border-color)] flex items-center justify-between bg-[var(--bg-tertiary)] glass-card">
             <div className="flex items-center gap-2.5">
-              <ShoppingBag className="w-4 h-4 text-[#DC2626]" />
-              <span className={`text-xs font-bold ${theme === 'dark' ? 'text-white' : 'text-neutral-900'}`}>50+ Prompt Packs</span>
+              <ShoppingBag className="w-4 h-4 text-[var(--accent-red-safe)]" />
+              <span className="text-xs font-bold text-[var(--text-primary)]">50+ Prompt Packs</span>
             </div>
-            <span className="text-[10px] font-bold text-emerald-400 bg-emerald-950 px-2 py-0.5 rounded">FREE in Premium</span>
+            <span className="text-[10px] font-bold text-emerald-500 bg-emerald-500/10 px-2 py-0.5 rounded-lg border border-emerald-500/20">FREE in Premium</span>
           </div>
-          <div className={`p-3.5 rounded-2xl border flex items-center justify-between ${
-            theme === 'dark' ? 'bg-[#171717] border-neutral-800' : 'bg-neutral-50 border-neutral-300'
-          }`}>
+          <div className="p-4 rounded-[1.5rem] border border-[var(--border-color)] flex items-center justify-between bg-[var(--bg-tertiary)] glass-card">
             <div className="flex items-center gap-2.5">
-              <ShoppingBag className="w-4 h-4 text-[#DC2626]" />
-              <span className={`text-xs font-bold ${theme === 'dark' ? 'text-white' : 'text-neutral-900'}`}>Web Starter UI Kit (React)</span>
+              <ShoppingBag className="w-4 h-4 text-[var(--accent-red-safe)]" />
+              <span className="text-xs font-bold text-[var(--text-primary)]">Web Starter UI Kit (React)</span>
             </div>
-            <span className="text-[10px] font-bold text-emerald-400 bg-emerald-950 px-2 py-0.5 rounded">FREE in Premium</span>
+            <span className="text-[10px] font-bold text-[var(--success-strong)] bg-[var(--success-subtle)] px-2 py-0.5 rounded-lg border border-[var(--success-safe)]/20">FREE in Premium</span>
           </div>
         </div>
       );
     }
 
     return (
-      <div className={`p-6 rounded-2xl border text-center space-y-3 ${
-        theme === 'dark' ? 'bg-[#171717] border-neutral-800' : 'bg-neutral-50 border-neutral-300'
-      }`}>
-        <div className={`w-12 h-12 mx-auto rounded-2xl border flex items-center justify-center text-[#DC2626] ${
-          theme === 'dark' ? 'bg-[#0B0B0B] border-neutral-800' : 'bg-white border-neutral-300'
-        }`}>
-          {getFeatureIcon(feature.icon)}
+      <div className="p-7 rounded-[2rem] border border-[var(--border-color)] text-center space-y-4 bg-[var(--bg-tertiary)] glass-card">
+        <div className="w-14 h-14 mx-auto rounded-2xl border border-[var(--border-subtle)] flex items-center justify-center text-[var(--accent-red-safe)] bg-[var(--bg-primary)]">
+          {getFeatureIcon(feature.icon, "w-7 h-7")}
         </div>
-        <h4 className={`text-sm font-bold ${theme === 'dark' ? 'text-white' : 'text-neutral-900'}`}>{feature.title}</h4>
-        <p className={`text-xs ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-800'}`}>{feature.shortDescription}</p>
+        <h4 className="text-sm font-bold text-[var(--text-primary)]">{feature.title}</h4>
+        <p className="text-xs text-[var(--text-secondary)]">{feature.shortDescription}</p>
       </div>
     );
   };
@@ -156,47 +140,49 @@ export const PlatformFeaturesSection: React.FC<PlatformFeaturesSectionProps> = (
   return (
     <section 
       id="platform-features" 
-      className={`py-24 border-b transition-colors duration-300 ${
-        theme === 'dark' ? 'bg-[#0B0B0B] text-white border-neutral-800' : 'bg-white text-neutral-900 border-neutral-300'
-      }`}
+      className="py-24 border-b border-[var(--border-color)] bg-[var(--bg-primary)] text-[var(--text-primary)] transition-colors duration-300"
     >
-      <div ref={contentRef} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 reveal">
+      <div ref={contentRef} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16 reveal">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-red-950/40 border border-red-800/40 text-[#DC2626] text-xs font-mono font-bold uppercase tracking-wider">
-            <span>Platform Features</span>
+        <div className="text-center max-w-3xl mx-auto space-y-6">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--accent-red-subtle)] border border-[var(--accent-red-safe)]/20 text-[var(--accent-red-strong)] text-xs font-mono font-bold uppercase tracking-widest">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--accent-red)] opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-[var(--accent-red)]"></span>
+            </span>
+            <span>{t('features.badge', { defaultValue: 'Platform Features' })}</span>
           </div>
-          <h2 className={`text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight ${
-            theme === 'dark' ? 'text-white' : 'text-neutral-950'
-          }`}>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[var(--text-primary)]">
             {(
-              <>EVERYTHING YOU NEED TO <span className="text-[#DC2626]">SUCCEED</span></>
+              <>
+                {t('features.titlePart1', { defaultValue: 'EVERYTHING YOU NEED TO ' })}
+                <span className="text-[var(--accent-red-safe)]">{t('features.titleHighlight', { defaultValue: 'SUCCEED' })}</span>
+              </>
             )}
           </h2>
-          <p className={`text-base sm:text-lg leading-relaxed ${
-            theme === 'dark' ? 'text-neutral-300' : 'text-neutral-800'
-          }`}>
-            Tap any capability below to expand and see exactly how it helps you learn, build, and grow.
+          <p className="text-lg sm:text-xl leading-relaxed text-[var(--text-secondary)]">
+            {t('features.subtitle', { defaultValue: 'Tap any capability below to expand and see exactly how it helps you learn, build, and grow.' })}
           </p>
         </div>
 
         {/* Expandable Feature Accordion */}
-        <div className="max-w-4xl mx-auto space-y-3">
+        <div className="max-w-4xl mx-auto space-y-4">
           {platformFeaturesData.map((feature) => {
             const isOpen = activeFeatureId === feature.id;
+            const featureTitle = t(`features.items.${feature.id}.title`, { defaultValue: feature.title });
+            const featureBadge = t(`features.items.${feature.id}.badge`, { defaultValue: feature.badge });
+            const featureShortDesc = t(`features.items.${feature.id}.shortDesc`, { defaultValue: feature.shortDescription });
+            const featureFullDesc = t(`features.items.${feature.id}.fullDesc`, { defaultValue: feature.fullDescription });
+
             return (
               <div
                 key={feature.id}
                 id={`feature-${feature.id}`}
-                className={`border rounded-3xl overflow-hidden transition-all duration-300 shadow-sm ${
+                className={`border rounded-[2rem] sm:rounded-[2.5rem] overflow-hidden transition-all duration-500 group ${
                   isOpen
-                    ? theme === 'dark'
-                      ? 'bg-[#171717] border-[#DC2626] shadow-2xl ring-1 ring-[#DC2626]/40'
-                      : 'bg-white border-red-500 shadow-xl ring-2 ring-red-500/20'
-                    : theme === 'dark'
-                    ? 'bg-[#121212] border-neutral-800 hover:border-neutral-700'
-                    : 'bg-neutral-50 border-neutral-300 hover:border-red-400'
+                    ? 'bg-[var(--bg-secondary)] border-[var(--accent-red-safe)]/50 shadow-2xl glass-card'
+                    : 'bg-[var(--bg-secondary)]/50 border-[var(--border-color)] hover:border-[var(--accent-red-safe)]/30'
                 }`}
               >
                 <button
@@ -204,80 +190,87 @@ export const PlatformFeaturesSection: React.FC<PlatformFeaturesSectionProps> = (
                   onClick={() => toggleFeature(feature.id)}
                   aria-expanded={isOpen}
                   aria-controls={`feature-panel-${feature.id}`}
-                  className="w-full p-5 sm:p-6 flex items-center justify-between gap-4 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#DC2626]"
+                  className="w-full p-6 sm:p-8 flex items-center justify-between gap-6 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-red)]"
                 >
-                  <div className="flex items-center gap-4 min-w-0">
-                    <div className={`w-12 h-12 shrink-0 rounded-2xl flex items-center justify-center transition-colors ${
+                  <div className="flex items-center gap-6 min-w-0">
+                    <div className={`w-14 h-14 shrink-0 rounded-2xl flex items-center justify-center transition-all duration-300 ${
                       isOpen 
-                        ? 'bg-[#DC2626] text-white shadow-lg shadow-red-900/40' 
-                        : theme === 'dark'
-                        ? 'bg-[#0B0B0B] border border-neutral-800 text-[#DC2626]'
-                        : 'bg-red-50 border border-red-100 text-[#DC2626]'
+                        ? 'bg-[var(--accent-red)] text-white shadow-lg shadow-[var(--accent-red)]/20'
+                        : 'bg-[var(--bg-tertiary)] border border-[var(--border-subtle)] text-[var(--accent-red-safe)]'
                     }`}>
-                      {getFeatureIcon(feature.icon)}
+                      {getFeatureIcon(feature.icon, "w-7 h-7")}
                     </div>
                     <div className="min-w-0">
-                      <div className="flex items-center gap-2 flex-wrap">
-                        <h3 className={`text-base sm:text-lg font-bold tracking-tight ${theme === 'dark' ? 'text-white' : 'text-neutral-900'}`}>
-                          {feature.title}
+                      <div className="flex items-center gap-3 flex-wrap">
+                        <h3 className="text-lg sm:text-xl font-bold tracking-tight text-[var(--text-primary)]">
+                          {featureTitle}
                         </h3>
-                        <span className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded-full border ${
-                          theme === 'dark' ? 'text-neutral-400 bg-[#0B0B0B] border-neutral-800' : 'text-neutral-700 bg-white border-neutral-300'
-                        }`}>
-                          {feature.badge}
+                        <span className="text-[10px] font-mono font-bold px-2.5 py-1 rounded-lg border border-[var(--border-subtle)] text-[var(--text-muted)] bg-[var(--bg-primary)]">
+                          {featureBadge}
                         </span>
                       </div>
-                      <p className={`text-xs sm:text-sm leading-relaxed mt-1 ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-800'}`}>
-                        {feature.shortDescription}
+                      <p className="text-sm sm:text-base leading-relaxed mt-1.5 text-[var(--text-secondary)]">
+                        {featureShortDesc}
                       </p>
                     </div>
                   </div>
-                  <ChevronDown className={`w-5 h-5 shrink-0 transition-transform duration-300 ${
-                    isOpen ? 'rotate-180 text-[#DC2626]' : theme === 'dark' ? 'text-neutral-500' : 'text-neutral-700'
-                  }`} />
+                  <div className={`w-10 h-10 rounded-full border border-[var(--border-subtle)] flex items-center justify-center transition-all duration-300 ${
+                    isOpen ? 'bg-[var(--accent-red)] border-[var(--accent-red)] text-white' : 'text-[var(--text-muted)] group-hover:text-[var(--text-primary)]'
+                  }`}>
+                    <ChevronDown className={`w-5 h-5 transition-transform duration-500 ${isOpen ? 'rotate-180' : ''}`} />
+                  </div>
                 </button>
 
                 {isOpen && (
                   <div
                     id={`feature-panel-${feature.id}`}
                     role="region"
-                    className={`px-5 sm:px-6 pb-6 pt-2 border-t animate-[fadeIn_0.2s_ease-out] ${
-                      theme === 'dark' ? 'border-neutral-800/70' : 'border-neutral-300'
-                    }`}
+                    className="px-6 sm:px-8 pb-8 pt-2 border-t border-[var(--border-color)] animate-[fadeIn_0.3s_ease-out]"
                   >
-                    <p className={`text-sm leading-relaxed ${theme === 'dark' ? 'text-neutral-300' : 'text-neutral-700'}`}>
-                      {feature.fullDescription}
-                    </p>
+                    <div className="grid lg:grid-cols-2 gap-8">
+                      <div className="space-y-6">
+                        <div className="space-y-4">
+                          <p className="text-base leading-relaxed text-[var(--text-secondary)]">
+                            {featureFullDesc}
+                          </p>
 
-                    {feature.swahiliNote && (
-                      <p className={`mt-3 text-xs italic ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'}`}>
-                        {feature.swahiliNote}
-                      </p>
-                    )}
-
-                    <div className="grid sm:grid-cols-2 gap-3 pt-4">
-                      {feature.points.map((point, idx) => (
-                        <div key={idx} className={`flex items-start gap-2.5 p-3 rounded-2xl border ${
-                          theme === 'dark' ? 'bg-[#0B0B0B] border-neutral-800' : 'bg-white border-neutral-300 shadow-sm'
-                        }`}>
-                          <CheckCircle2 className="w-4 h-4 text-[#DC2626] shrink-0 mt-0.5" />
-                          <span className={`text-xs leading-snug ${theme === 'dark' ? 'text-neutral-300' : 'text-neutral-700'}`}>{point}</span>
+                          {feature.swahiliNote && (
+                            <div className="p-4 rounded-2xl bg-[var(--accent-red-subtle)] border-l-4 border-[var(--accent-red-safe)]">
+                              <p className="text-sm italic text-[var(--text-primary)]">
+                                {t(`features.items.${feature.id}.swahiliNote`, { defaultValue: feature.swahiliNote })}
+                              </p>
+                            </div>
+                          )}
                         </div>
-                      ))}
-                    </div>
 
-                    <div className={`mt-5 rounded-2xl border p-5 ${theme === 'dark' ? 'bg-[#0B0B0B] border-neutral-800' : 'bg-neutral-50 border-neutral-300'}`}>
-                      {renderFeatureVisual(feature)}
-                    </div>
+                        <div className="grid sm:grid-cols-1 gap-3">
+                          {feature.points.map((point, idx) => (
+                            <div key={idx} className="flex items-start gap-3 p-4 rounded-2xl border border-[var(--border-color)] bg-[var(--bg-tertiary)]/50">
+                              <CheckCircle2 className="w-5 h-5 text-[var(--accent-red-strong)] shrink-0 mt-0.5" />
+                              <span className="text-sm leading-snug text-[var(--text-secondary)]">
+                                {t(`features.items.${feature.id}.points.${idx}`, { defaultValue: point })}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
 
-                    <div className="pt-5">
-                      <button
-                        onClick={() => openBookingModal({ program: `Enroll via ${feature.title}` })}
-                        className="px-7 py-3.5 rounded-2xl font-extrabold text-xs text-white bg-[#B91C1C] hover:bg-[#DC2626] active:scale-[0.98] uppercase tracking-wider shadow-lg inline-flex items-center gap-2 transition-all duration-200 hover:-translate-y-0.5"
-                      >
-                        <span>{`Get Started with ${feature.title}`}</span>
-                        <ArrowRight className="w-4 h-4" />
-                      </button>
+                        <div className="pt-4">
+                          <button
+                            onClick={() => openBookingModal({ program: `Enroll via ${feature.title}` })}
+                            className="btn-primary w-full sm:w-auto"
+                          >
+                            <span>{t('features.getStartedWith', { defaultValue: 'Get Started with {{feature}}', feature: featureTitle })}</span>
+                            <ArrowRight className="w-4 h-4" />
+                          </button>
+                        </div>
+                      </div>
+
+                      <div className="relative group/visual">
+                        <div className="absolute -inset-4 bg-[var(--accent-red)]/5 rounded-[3rem] blur-2xl transition-opacity duration-500 opacity-0 group-hover/visual:opacity-100"></div>
+                        <div className="relative">
+                          {renderFeatureVisual(feature)}
+                        </div>
+                      </div>
                     </div>
                   </div>
                 )}

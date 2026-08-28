@@ -47,50 +47,40 @@ export const ResourcesSection: React.FC<ResourcesSectionProps> = ({
   return (
     <section 
       id="resources-section" 
-      className={`py-24 border-y transition-colors duration-300 ${
-        theme === 'dark' ? 'bg-[#0B0B0B] text-white border-neutral-800' : 'bg-white text-neutral-900 border-neutral-300'
-      }`}
+      className="py-24 border-y transition-colors duration-300 bg-[var(--bg-primary)] text-[var(--text-primary)] border-[var(--border-color)]"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
           <div className="max-w-2xl space-y-3">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-red-950/40 border border-red-800/40 text-[#DC2626] text-xs font-mono font-bold uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[var(--accent-red-subtle)] border border-[var(--accent-red-safe)]/20 text-[var(--accent-red-strong)] text-xs font-mono font-bold uppercase tracking-wider">
               <span>{t.resources.badge}</span>
             </div>
-            <h2 className={`text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight ${
-              theme === 'dark' ? 'text-white' : 'text-neutral-950'
-            }`}>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[var(--text-primary)]">
               {t.resources.title}
             </h2>
-            <p className={`text-base leading-relaxed ${
-              theme === 'dark' ? 'text-neutral-300' : 'text-neutral-800'
-            }`}>
+            <p className="text-base leading-relaxed text-[var(--text-secondary)]">
               {t.resources.subtitle}
             </p>
           </div>
 
           {/* Search */}
           <div className="relative md:self-end">
-            <Search className={`w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 ${theme === 'dark' ? 'text-neutral-500' : 'text-neutral-700'}`} />
+            <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-[var(--text-muted)]" />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder={'Search toolkits...'}
               aria-label={'Search toolkits'}
-              className={`w-56 pl-9 pr-3 py-2 rounded-xl text-xs border focus:outline-none focus:border-[#DC2626] ${
-                theme === 'dark' ? 'bg-[#171717] border-neutral-800 text-white placeholder-neutral-500' : 'bg-neutral-100 border-neutral-300 text-neutral-900 placeholder-neutral-500'
-              }`}
+              className="w-56 pl-9 pr-3 py-2 rounded-xl text-xs border focus:outline-none focus:border-[var(--accent-red)] bg-[var(--bg-secondary)] border-[var(--border-color)] text-[var(--text-primary)] placeholder-[var(--text-muted)]"
             />
           </div>
         </div>
 
         {/* Category Filter */}
-        <div className={`flex items-center gap-1.5 p-1 border rounded-2xl overflow-x-auto max-w-full mb-8 ${
-          theme === 'dark' ? 'bg-[#171717] border-neutral-800' : 'bg-neutral-100 border-neutral-300'
-        }`}>
+        <div className="flex items-center gap-1.5 p-1 border rounded-2xl overflow-x-auto max-w-full mb-8 bg-[var(--bg-secondary)] border-[var(--border-color)]">
           {categories.map((cat) => {
             const isSelected = activeCategory === cat;
             const count = cat === 'ALL' ? resourcesData.length : resourcesData.filter((r) => r.category === cat).length;
@@ -100,12 +90,12 @@ export const ResourcesSection: React.FC<ResourcesSectionProps> = ({
                 onClick={() => setActiveCategory(cat)}
                 className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold uppercase tracking-wider whitespace-nowrap transition-all ${
                   isSelected 
-                    ? 'bg-[#B91C1C] text-white shadow-sm' 
-                    : theme === 'dark' ? 'text-neutral-400 hover:text-white' : 'text-neutral-800 hover:text-neutral-900'
+                    ? 'bg-[var(--accent-red-strong)] text-white shadow-sm'
+                    : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
                 }`}
               >
                 {cat === 'ALL' ? ('ALL') : cat}
-                <span className={`text-[10px] font-mono px-1.5 py-0.5 rounded-full ${isSelected ? 'bg-white/20' : theme === 'dark' ? 'bg-neutral-800 text-neutral-500' : 'bg-neutral-200 text-neutral-700'}`}>
+                <span className={`text-[10px] font-mono px-1.5 py-0.5 rounded-full ${isSelected ? 'bg-white/20' : 'bg-[var(--bg-tertiary)] text-[var(--text-muted)]'}`}>
                   {count}
                 </span>
               </button>
@@ -124,22 +114,16 @@ export const ResourcesSection: React.FC<ResourcesSectionProps> = ({
             <div
               key={resource.id}
               id={`resource-card-${resource.id}`}
-              className={`border rounded-3xl p-6 flex flex-col justify-between transition-all duration-200 hover:-translate-y-1 shadow-sm group ${
-                theme === 'dark'
-                  ? 'bg-[#121212] border-neutral-800 hover:border-neutral-700'
-                  : 'bg-neutral-50 border-neutral-300 hover:border-red-400 hover:shadow-lg'
-              }`}
+              className="border rounded-[2rem] p-6 flex flex-col justify-between transition-all duration-200 hover:-translate-y-1 shadow-sm group glass-card border-[var(--border-color)] hover:border-[var(--accent-red-safe)]/50"
             >
               <div className="space-y-4">
                 
                 {/* Header Badge */}
                 <div className="flex items-center justify-between gap-2">
-                  <span className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded border ${
-                    theme === 'dark' ? 'text-[#DC2626] bg-red-950/60 border-red-900/40' : 'text-[#DC2626] bg-red-50 border-red-200'
-                  }`}>
+                  <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded border text-[var(--accent-red-strong)] bg-[var(--accent-red-subtle)] border-[var(--accent-red-safe)]/20">
                     {resource.format}
                   </span>
-                  <span className={`flex items-center gap-1 text-[10px] font-mono ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'}`}>
+                  <span className="flex items-center gap-1 text-[10px] font-mono text-[var(--text-muted)]">
                     <Clock className="w-3 h-3" />
                     {resource.readingTime}
                   </span>
@@ -148,28 +132,24 @@ export const ResourcesSection: React.FC<ResourcesSectionProps> = ({
                 <div className="flex items-center gap-1.5">
                   <span className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full border ${
                     resource.level === 'Beginner'
-                      ? theme === 'dark' ? 'text-emerald-400 bg-emerald-950/40 border-emerald-900/40' : 'text-emerald-700 bg-emerald-50 border-emerald-200'
+                      ? 'text-[var(--success-strong)] bg-[var(--success-subtle)] border-[var(--success-safe)]/20'
                       : resource.level === 'Intermediate'
-                      ? theme === 'dark' ? 'text-amber-400 bg-amber-950/40 border-amber-900/40' : 'text-amber-700 bg-amber-50 border-amber-200'
-                      : theme === 'dark' ? 'text-red-400 bg-red-950/40 border-red-900/40' : 'text-red-700 bg-red-50 border-red-200'
+                      ? 'text-amber-500 bg-amber-500/10 border-amber-500/20'
+                      : 'text-[var(--accent-red-strong)] bg-[var(--accent-red-subtle)] border-[var(--accent-red-safe)]/20'
                   }`}>
                     {resource.level}
                   </span>
-                  <span className={`text-[10px] font-medium ${theme === 'dark' ? 'text-neutral-500' : 'text-neutral-700'}`}>
+                  <span className="text-[10px] font-medium text-[var(--text-muted)]">
                     {useCases.length} use cases
                   </span>
                 </div>
 
                 {/* Title & Description */}
                 <div>
-                  <h3 className={`text-base font-bold tracking-tight group-hover:text-[#DC2626] transition-colors leading-snug ${
-                    theme === 'dark' ? 'text-white' : 'text-neutral-900'
-                  }`}>
+                  <h3 className="text-base font-bold tracking-tight group-hover:text-[var(--accent-red-strong)] transition-colors leading-snug text-[var(--text-primary)]">
                     {title}
                   </h3>
-                  <p className={`text-xs mt-2 line-clamp-2 leading-relaxed ${
-                    theme === 'dark' ? 'text-neutral-400' : 'text-neutral-800'
-                  }`}>
+                  <p className="text-xs mt-2 line-clamp-2 leading-relaxed text-[var(--text-secondary)]">
                     {description}
                   </p>
                 </div>
@@ -177,10 +157,8 @@ export const ResourcesSection: React.FC<ResourcesSectionProps> = ({
                 {/* Key Takeaways Preview */}
                 <div className="space-y-1 pt-2">
                   {keyHighlights.slice(0, 2).map((takeaway, tIdx) => (
-                    <div key={tIdx} className={`flex items-start gap-1.5 text-[11px] ${
-                      theme === 'dark' ? 'text-neutral-400' : 'text-neutral-800'
-                    }`}>
-                      <CheckCircle2 className="w-3 h-3 text-[#DC2626] shrink-0 mt-0.5" />
+                    <div key={tIdx} className="flex items-start gap-1.5 text-[11px] text-[var(--text-secondary)]">
+                      <CheckCircle2 className="w-3 h-3 text-[var(--accent-red-strong)] shrink-0 mt-0.5" />
                       <span className="line-clamp-1">{takeaway}</span>
                     </div>
                   ))}
@@ -189,16 +167,10 @@ export const ResourcesSection: React.FC<ResourcesSectionProps> = ({
               </div>
 
               {/* Action Buttons */}
-              <div className={`pt-4 mt-4 border-t flex items-center gap-2 ${
-                theme === 'dark' ? 'border-neutral-800' : 'border-neutral-300'
-              }`}>
+              <div className="pt-4 mt-4 border-t flex items-center gap-2 border-[var(--border-color)]">
                 <button
                   onClick={() => openResourceModal(resource)}
-                  className={`flex-1 py-2 px-3 rounded-xl text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 transition-all ${
-                    theme === 'dark'
-                      ? 'bg-[#171717] hover:bg-[#B91C1C] text-neutral-200 hover:text-white border border-neutral-800'
-                      : 'bg-white hover:bg-[#B91C1C] text-neutral-800 hover:text-white border border-neutral-300 shadow-sm'
-                  }`}
+                  className="flex-1 py-2 px-3 rounded-xl text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 transition-all bg-[var(--bg-secondary)] hover:bg-[var(--accent-red-strong)] text-[var(--text-secondary)] hover:text-white border border-[var(--border-color)] shadow-sm"
                 >
                   <Eye className="w-3.5 h-3.5" />
                   <span>Preview</span>
@@ -207,7 +179,7 @@ export const ResourcesSection: React.FC<ResourcesSectionProps> = ({
                   onClick={() => downloadResource(resource)}
                   title={'Download toolkit'}
                   aria-label={`Download ${title}`}
-                  className="py-2 px-3 rounded-xl text-xs font-bold text-white bg-[#B91C1C] hover:bg-[#DC2626] active:scale-[0.98] flex items-center justify-center transition-colors shadow-sm"
+                  className="py-2 px-3 rounded-xl text-xs font-bold text-white bg-[var(--accent-red-strong)] hover:bg-[var(--accent-red)] active:scale-[0.98] flex items-center justify-center transition-colors shadow-sm"
                 >
                   <Download className="w-3.5 h-3.5" />
                 </button>
@@ -219,7 +191,7 @@ export const ResourcesSection: React.FC<ResourcesSectionProps> = ({
         </div>
 
         {filteredResources.length === 0 && (
-          <div className={`text-center py-12 rounded-2xl border text-xs ${theme === 'dark' ? 'bg-[#171717] border-neutral-800 text-neutral-400' : 'bg-white border-neutral-300 text-neutral-800'}`}>
+          <div className="text-center py-12 rounded-[2rem] border text-xs bg-[var(--bg-secondary)] border-[var(--border-color)] text-[var(--text-muted)]">
             No toolkits match your search.
           </div>
         )}

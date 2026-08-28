@@ -5,11 +5,13 @@ export const blogPostsData: BlogPost[] = [
     id: 'how-to-use-ai-safely-at-work',
     slug: 'how-to-use-ai-safely-at-work',
     title: 'How to Use AI Safely at Work: A Practical Guide for Professionals',
+    title_sw: 'Jinsi ya Kutumia AI kwa Usalama Kazini: Mwongozo wa Kivita kwa Wataalamu',
     category: 'AI Literacy',
     readingTime: '5 min read',
     publishedDate: '2026',
     author: 'Alex Rweyemamu',
     excerpt: 'Generative AI can double your workplace efficiency, but pasting confidential contracts or client records into public tools creates major liabilities. Here is how to stay productive and secure.',
+    excerpt_sw: 'AI inayozalisha inaweza kuongeza ufanisi wako mara mbili kazini, lakini kuweka mikataba ya siri au rekodi za wateja kwenye zana za umma kunaleta hatari kubwa. Hapa kuna jinsi ya kuendelea kuwa na tija na salama.',
     content: {
       intro: 'Across Africa and global markets, professionals are adopting tools like ChatGPT, Claude, and Gemini to draft proposals, analyze reports, and accelerate daily tasks. However, treating public AI chat interfaces as private databases is a critical risk.',
       sections: [
@@ -39,17 +41,48 @@ export const blogPostsData: BlogPost[] = [
       ],
       conclusion: 'AI should empower your career, not compromise your organization. By adopting basic data hygiene, sanitization habits, and rigorous human review, you can harvest the massive productivity advantages of AI with complete peace of mind.'
     },
+    content_sw: {
+      intro: 'Kote barani Afrika na katika masoko ya kimataifa, wataalamu wanatumia zana kama ChatGPT, Claude, na Gemini kuandaa mapendekezo, kuchambua ripoti, na kuharakisha kazi za kila siku. Hata hivyo, kuchukulia violesura vya mazungumzo ya AI ya umma kama hifadhidata za siri ni hatari kubwa sana.',
+      sections: [
+        {
+          heading: '1. Sheria ya Dhahabu ya Kusafisha Data',
+          body: [
+            'Kabla ya kuwasilisha maandishi yoyote kwenye zana ya AI ya umma, ondoa vitambulisho vya moja kwa moja. Badilisha majina ya wateja kwa vishikizo (kama vile "[Mteja A]"), futa namba za akaunti, na uondoe kiasi maalum cha bajeti kwa asilimia zinazohusiana.',
+            'Kamwe usipakie mikataba ambayo haijafanyiwa uhariri, rekodi za nidhamu za wafanyakazi, au msimbo wa chanzo wa umiliki kwenye zana ya AI ya kiwango cha watumiaji wa bure.'
+          ],
+          keyTip: 'Ikiwa hungependa kuibandika kwenye ubao wa matangazo ya umma, usiibandike kwenye dirisha la mazungumzo ya AI bila makubaliano ya ulinzi wa data ya kampuni.'
+        },
+        {
+          heading: '2. Zima Mafunzo ya Mfano kwenye Akaunti Yako',
+          body: [
+            'Mitandao mingi ya AI ya watumiaji hutumia mazungumzo ya watumiaji kufundisha matoleo ya baadaye ya mfumo wao. Nenda kwenye mipangilio ya jukwaa lako (Mipangilio > Vidhibiti vya Data) na uchague kutoshiriki katika mafunzo ya mfumo.',
+            'Kwa mashirika yanayoshughulikia mali miliki nyeti, wekeza katika leseni za kiwango cha kampuni ambazo zinahakikisha kutohifadhiwa na kutofundishwa kwa data za shirika.'
+          ]
+        },
+        {
+          heading: '3. Kiwango cha Uhakiki cha "Binadamu-ndani-ya-Mchakato"',
+          body: [
+            'Zana za AI huzalisha maandishi kulingana na uwezekano wa takwimu, si uelewa wa fahamu. Hii inamaanisha zinaweza kutoa "hallucinations" (habari za uongo) kwa ujasiri, zikidai kesi za kisheria zisizokuwepo, takwimu za uongo, au fomula mbovu za lahajedwali.',
+            'Weka sera isiyovunjika: Hakuna maudhui yaliyozalishwa na AI yanayoondoka kwenye dawati lako bila binadamu kuhakiki kila dai la ukweli, hesabu, na nukuu.'
+          ],
+          keyTip: 'Ichukulie AI kama mwanafunzi wa mafunzo (intern) mwerevu na mwenye bidii. Hungepeleka rasimu ya mwanafunzi wa mafunzo kwa mjumbe wa bodi bila kuisoma kwanza.'
+        }
+      ],
+      conclusion: 'AI inapaswa kuimarisha taaluma yako, si kuhatarisha shirika lako. Kwa kupitisha usafi wa kimsingi wa data, tabia za kusafisha habari, na uhakiki makini wa binadamu, unaweza kuvuna faida kubwa za uzalishaji za AI kwa amani kamili ya akili.'
+    },
     tags: ['AI Safety', 'Workplace Productivity', 'Data Privacy', 'Enterprise AI']
   },
   {
     id: 'ai-literacy-for-educators',
     slug: 'ai-literacy-for-educators',
     title: 'AI Literacy: What Every Educator & Lecturer Should Know',
+    title_sw: 'Ujuzi wa AI: Kile Ambacho Kila Mwalimu na Mhadhiri Anapaswa Kujua',
     category: 'Education',
     readingTime: '6 min read',
     publishedDate: '2026',
     author: 'Alex Rweyemamu',
     excerpt: 'Banning AI in schools is impossible and counterproductive. Discover how teachers across Africa can use AI to save hours of prep time while teaching students critical thinking.',
+    excerpt_sw: 'Kupiga marufuku AI shuleni haiwezekani na kunarudisha nyuma maendeleo. Gundua jinsi walimu kote barani Afrika wanavyoweza kutumia AI kuokoa saa nyingi za maandalizi wakati wakifundisha wanafunzi kufikiri kwa kina.',
     content: {
       intro: 'The emergence of generative artificial intelligence has sent shockwaves through academic institutions. From primary schools to universities, educators are caught between fears of widespread plagiarism and the exciting potential for personalized learning.',
       sections: [
@@ -78,17 +111,47 @@ export const blogPostsData: BlogPost[] = [
       ],
       conclusion: 'AI will not replace great educators; but educators who understand and utilize AI will fundamentally outpace those who ignore it. CS Academy is committed to equipping African teachers with the practical skills to lead this transformation.'
     },
+    content_sw: {
+      intro: 'Kuibuka kwa akili bandia inayozalisha kumesababisha mshtuko mkubwa katika taasisi za kitaaluma. Kuanzia shule za msingi hadi vyuo vikuu, waelimishaji wamekwama kati ya hofu ya wizi mkubwa wa maandishi na uwezo wa kusisimua wa ujifunzaji wa kibinafsi.',
+      sections: [
+        {
+          heading: '1. Kwa Nini Zana za Utambuzi Si Suluhisho',
+          body: [
+            'Taasisi nyingi zilikimbilia kutumia programu za utambuzi wa AI, lakini zikagundua viwango vikubwa vya makosa, mara nyingi vikiwaadhibu wasemaji ambao si wazawa wa Kiingereza wanaoandika kwa mifumo iliyopangwa na rasmi.',
+            'Badala ya kutegemea zana mbovu za utambuzi, waelimishaji lazima wabuni upya tathmini ili kupeana kipaumbele mchakato halisi, utetezi wa mdomo, tathmini ya kina, na muktadha wa ndani ambao AI haiwezi kuiga.'
+          ]
+        },
+        {
+          heading: '2. Kurejesha Saa 5+ za Maandalizi ya Kila Wiki',
+          body: [
+            'Walimu wanalemewa na kazi. AI inayozalisha inaweza kufanya kazi kama msaidizi asiyechoka: kutengeneza vifungu vya kusoma vilivyotofautishwa kwa wanafunzi wa viwango tofauti vya ujuzi wa kusoma, kutengeneza miongozo ya kusahihisha (rubrics), kupanga maswali ya mtihani, na kupendekeza mada bunifu za mijadala darasani.',
+            'AI ikishughulikia maandalizi ya kawaida ya kiutawala, walimu wanaweza kuzingatia yale muhimu zaidi: uhusiano wa kibinadamu, ulezi, na kuchochea udadisi.'
+          ],
+          keyTip: 'Wazo la prompt: "Tengeneza maswali 4 ya maisha halisi yanayoonyesha milinganyo ya quadratic, yakiwa katika muktadha wa kilimo na usafirishaji wa Afrika Mashariki."'
+        },
+        {
+          heading: '3. Kufundisha Kizazi Kijacho Kuhoji AI',
+          body: [
+            'Lengo halisi la elimu ya AI si tu kuwaonyesha wanafunzi jinsi ya kuandika maagizo (prompts), bali kuwafundisha kuchunguza majibu. Wanafunzi wanapouliza AI kwa ajili ya ukweli wa kihistoria, wafanye wafuatilie ukweli huo hadi kwenye vyanzo vikuu vya maktaba.',
+            'Kufikiri kwa kina na ujuzi wa habari ndio dawa kuu ya udanganyifu wa kidijitali.'
+          ]
+        }
+      ],
+      conclusion: 'AI haitachukua nafasi ya waelimishaji wakuu; lakini waelimishaji wanaoelewa na kutumia AI watawapita kimsingi wale wanaoidharau. CS Academy imejitolea kuwapa walimu wa Afrika ujuzi wa kivita ili kuongoza mabadiliko haya.'
+    },
     tags: ['Education', 'AI in Schools', 'Teacher Training', 'Pedagogy']
   },
   {
     id: 'recognize-ai-deepfakes',
     slug: 'recognize-ai-deepfakes',
     title: 'How to Recognize AI-Generated Deepfakes & Synthetic Voice Scams',
+    title_sw: 'Jinsi ya Kutambua Deepfakes Zinazozalishwa na AI na Utapeli wa Sauti Bandia',
     category: 'Cybersecurity',
     readingTime: '5 min read',
     publishedDate: '2026',
     author: 'Alex Rweyemamu',
     excerpt: 'Voice cloning and synthetic video are now weaponized in mobile money scams and extortion. Learn the practical forensic signals to spot fake media before falling victim.',
+    excerpt_sw: 'Uigaji wa sauti na video bandia sasa vinatumiwa kama silaha katika utapeli wa pesa kwa mtandao na unyang\'anyi. Jifunze ishara za kivita za kuchunguza vyombo vya habari bandia kabla ya kuwa mwathirika.',
     content: {
       intro: 'Just a few years ago, creating a convincing fake video required high-end Hollywood CGI studios. Today, consumer smartphone apps and web platforms can clone a person\'s voice from a 3-second WhatsApp voice note or generate a talking video of a public figure.',
       sections: [
@@ -120,17 +183,50 @@ export const blogPostsData: BlogPost[] = [
       ],
       conclusion: 'Trust in the digital age requires verification. By combining healthy skepticism with systematic verification protocols, individuals and businesses can insulate themselves from deepfake fraud.'
     },
+    content_sw: {
+      intro: 'Miaka michache iliyopita, kutengeneza video bandia yenye kusadikisha kulihitaji studio za CGI za hali ya juu za Hollywood. Leo, programu za simu na majukwaa ya wavuti yanaweza kuiga sauti ya mtu kutoka kwenye ujumbe wa sauti wa sekunde 3 wa WhatsApp au kuzalisha video inayoongea ya kiongozi wa umma.',
+      sections: [
+        {
+          heading: '1. Muundo wa Utapeli wa Kuiga Sauti',
+          body: [
+            'Barani Afrika, matumizi hatari zaidi ya sasa ya deepfakes ni kuiga sauti kwa lengo la kulenga familia na wenzetu wa biashara. Matapeli huchukua vipande vya sauti kutoka kwenye video za mitandao ya kijamii, kumpigia simu ndugu, na kuiga hali ya dharura wakiomba utumaji wa haraka wa pesa kwa mtandao.',
+            'Sauti hiyo inaonekana kuwa na hofu, huku kukiwa na kelele za bandia nyuma ili kuficha mapungufu ya sauti na kumharakisha mwathirika kuchukua hatua bila kufikiri.'
+          ],
+          keyTip: 'Itifaki ya Neno la Siri la Familia: Weka neno la siri la siri na familia yako na maafisa wa fedha. Ombi lolote la dharura la kutuma pesa lazima litaje neno hili.'
+        },
+        {
+          heading: '2. Kasoro za Visual kwenye Video Zinazozalishwa',
+          body: [
+            'Ingawa ubora wa video unaongezeka kwa kasi, vyombo vya habari bandia bado vinahangaika na uhalisia mdogo wa kimwili. Angalia kwa karibu:',
+            'Mifumo isiyo ya kawaida ya kufumba na kufumbua macho (ama kutofumba kabisa au kufumbua kwa haraka kusiko kawaida).',
+            'Maskio, mpangilio wa meno, au vito visivyoendana ambavyo vinabadilika wakati wa kugeuza kichwa.',
+            'Kutolingana kwa mwanga na kivuli kati ya uso wa mtu na mandhari inayomzunguka.',
+            'Miondoko ya mdomo ya ajabu kama ya roboti ambayo hailingani kikamilifu na sauti za konsonanti kama "P", "B", na "M".'
+          ]
+        },
+        {
+          heading: '3. Sheria ya "Kata Simu na Upige Tena"',
+          body: [
+            'Wakati wowote unapopokea simu ya dharura inayoomba pesa, nywila, au data za siri, hata kama inasikika kama meneja wako, mwenzi wako, au Mkurugenzi Mtendaji, kata simu mara moja.',
+            'Piga simu mpya kwenda kwenye namba yao inayojulikana na iliyohakikiwa au uwafikie kupitia njia nyingine iliyohakikiwa.'
+          ]
+        }
+      ],
+      conclusion: 'Imani katika zama za kidijitali inahitaji uhakiki. Kwa kuchanganya mashaka yenye afya na itifaki za uhakiki wa kimfumo, watu binafsi na biashara wanaweza kujikinga na udanganyifu wa deepfake.'
+    },
     tags: ['Deepfakes', 'Cyber Safety', 'Voice Cloning', 'Social Engineering']
   },
   {
     id: '10-ai-skills-students',
     slug: '10-ai-skills-students',
     title: '10 AI Skills Every University Student & Graduate Must Learn in 2026',
+    title_sw: 'Ujuzi 10 wa AI Ambao Kila Mwanafunzi wa Chuo Kikuu na Mhitimu Lazima Ajifunze mnamo 2026',
     category: 'AI Literacy',
     readingTime: '6 min read',
     publishedDate: '2026',
     author: 'Alex Rweyemamu',
     excerpt: 'The job market is rapidly rewarding candidates who understand how to partner with AI to produce superior work. Here are the 10 core capabilities that set you apart.',
+    excerpt_sw: 'Soko la ajira linawazawadia kwa kasi wagombea wanaoelewa jinsi ya kushirikiana na AI ili kuzalisha kazi bora. Hapa kuna uwezo 10 wa kimsingi unaokutofautisha.',
     content: {
       intro: 'Graduating university in the AI era requires a new tier of digital fluency. Employers are no longer impressed by basic computer literacy alone; they are looking for proactive problem-solvers who leverage AI to deliver work faster and with greater accuracy.',
       sections: [
@@ -153,17 +249,41 @@ export const blogPostsData: BlogPost[] = [
       ],
       conclusion: 'AI will not make your university degree obsolete; it amplifies your degree if you know how to command it. Start building these skills today with CS Academy.'
     },
+    content_sw: {
+      intro: 'Kuhitimu chuo kikuu katika enzi ya AI kunahitaji kiwango kipya cha ujuzi wa kidijitali. Waajiri hawavutiwi tena na ujuzi wa kimsingi wa kompyuta pekee; wanatafuta watatuzi wa matatizo wanaoendelea mbele wanaotumia AI kutoa kazi haraka na kwa usahihi zaidi.',
+      sections: [
+        {
+          heading: 'Matrix ya Uwezo wa Kimsingi kwa Wahitimu wa Kisasa',
+          body: [
+            '1. Structured Context Prompting: Kwenda mbali zaidi ya maswali ya kawaida ya utafutaji kuelekea muundo wa prompt uliopangwa wa jukumu-lengo-kikwazo.',
+            '2. Large-Document Synthesis: Kufupisha haraka nyaraka za sera za kurasa 100 au tafiti za utafiti ili kupata maarifa yanayoweza kufanyiwa kazi.',
+            '3. Kusafisha na Kuchambua Data: Kutumia AI kuandika fomula tata za lahajedwali na kusafisha data chafu za utafiti.',
+            '4. Uhakiki wa Utafiti na Ukaguzi wa Ukweli: Kulinganisha kwa umakini matokeo ya AI na hifadhidata za vyanzo vyenye mamlaka.',
+            '5. Uandishi wa Biashara wa Kitaalamu: Kuboresha sauti, muundo, na ushawishi kwa ajili ya kumbukumbu za wateja na mapendekezo ya ruzuku.',
+            '6. Ujuzi wa Code kwa Wasio Wataalamu wa Programu: Kutumia AI kuandika scripts rahisi za automatisering, maswali ya SQL, na marekebisho ya wavuti.',
+            '7. Ubunifu wa Mawasilisho ya Visual: Kutengeneza seti za mawasilisho zilizo wazi na zenye matokeo makubwa kwa msaada wa visual za AI.',
+            '8. Maadili na Usiri wa AI: Kujua ni data zipi zinaweza na haziwezi kushirikiwa na mifumo ya AI ya umma.',
+            '9. Mawasiliano ya Lugha Mbalimbali: Kutumia AI kuzalisha tafsiri sahihi, zinazozingatia utamaduni katika Kiingereza na Kiswahili.',
+            '10. Urekebishaji wa Mtiririko wa Kazi Unaoendelea: Kuwa mwepesi kadiri mifumo na uwezo mpya wa AI unavyozinduliwa kila robo mwaka.'
+          ],
+          keyTip: 'Ongeza sehemu ya "AI-Enabled Workflows" kwenye CV yako ukionyesha zana na mbinu maalum za uzalishaji ambazo umezielewa.'
+        }
+      ],
+      conclusion: 'AI haitafanya digrii yako ya chuo kikuu kuwa haina thamani; inakuza digrii yako ikiwa unajua jinsi ya kuiongoza. Anza kujenga ujuzi huu leo na CS Academy.'
+    },
     tags: ['Students', 'Career Readiness', 'Future of Work', 'Skills']
   },
   {
     id: 'small-business-ai',
     slug: 'small-business-ai',
     title: 'How Small Businesses & Entrepreneurs Can Use AI on a Zero Budget',
+    title_sw: 'Jinsi Biashara Ndogo na Wajasiriamali Wanavyoweza Kutumia AI Bila Bajeti',
     category: 'Business',
     readingTime: '5 min read',
     publishedDate: '2026',
     author: 'Alex Rweyemamu',
     excerpt: 'You do not need a million-dollar IT budget to leverage artificial intelligence. Discover how African SMEs are scaling customer support, marketing, and business planning.',
+    excerpt_sw: 'Hauhitaji bajeti ya IT ya mamilioni ya dola ili kutumia akili bandia. Gundua jinsi SME za Afrika zinavyoongeza msaada kwa wateja, masoko, na upangaji wa biashara.',
     content: {
       intro: 'Small and medium enterprises (SMEs) are the economic engine of Africa. Yet many business owners believe AI is an expensive luxury reserved for Silicon Valley giants or multinational corporations. In reality, free and low-cost AI tools provide small businesses with superpowers.',
       sections: [
@@ -190,17 +310,45 @@ export const blogPostsData: BlogPost[] = [
       ],
       conclusion: 'AI levels the playing field, allowing a 3-person SME in Dar es Salaam or Nairobi to operate with the marketing and operational finesse of a major firm. Practical adoption is the key.'
     },
+    content_sw: {
+      intro: 'Biashara ndogo na za kati (SMEs) ni injini ya kiuchumi ya Afrika. Hata hivyo wamiliki wengi wa biashara wanaamini AI ni anasa ya gharama kubwa iliyotengwa kwa ajili ya magwiji wa Silicon Valley au mashirika ya kimataifa. Katika uhalisia, zana za bure na za gharama nafuu za AI zinazipa biashara ndogo nguvu za ajabu.',
+      sections: [
+        {
+          heading: '1. Mawasiliano ya Kitaalamu ya Wateja ya 24/7',
+          body: [
+            'Kuandaa majibu ya haraka na ya kitaalamu kwa maswali ya wateja kwenye WhatsApp, Instagram, na barua pepe mara nyingi huwalemea wajasiriamali wanaofanya kazi peke yao. Kwa kutumia templates za prompt zilizoboreshwa, unaweza kugeuza jibu la kawaida kuwa ujumbe wa huduma kwa wateja wenye heshima na uliokamilika kwa sekunde.',
+            'Hii inadumisha sauti thabiti ya chapa na kujenga imani kubwa kwa wateja.'
+          ]
+        },
+        {
+          heading: '2. Nakala za Masoko zenye Matokeo Makubwa na Ratiba za Kijamii',
+          body: [
+            'Acha kuhangaika na kukosa mawazo ya uandishi. Tumia AI kuzalisha mawazo ya machapisho ya mitandao ya kijamii ya siku 30, maelezo ya bidhaa, matangazo ya SMS, na makala za blogu zilizotengenezwa mahususi kwa wateja wako walengwa.',
+            'Daima weka hadithi zako za kipekee za ndani, maoni ya wateja, na picha halisi ili kufanya masoko yako yawe ya kweli na yanayohusika.'
+          ]
+        },
+        {
+          heading: '3. Upangaji wa Biashara, Upangaji wa Bei na Hesabu za Gharama',
+          body: [
+            'Kutathmini faida ya bidhaa mpya au kuandaa pendekezo la ruzuku kwa ajili ya ufadhili wa biashara? AI inaweza kupitia mawazo yako ya kifedha, kutambua gharama za uendeshaji zilizosahaulika, na kusaidia kupanga mipango ya biashara iliyo tayari kwa wawekezaji.'
+          ]
+        }
+      ],
+      conclusion: 'AI inasawazisha uwanja, ikiruhusu SME ya watu 3 jijini Dar es Salaam au Nairobi kufanya kazi kwa ustadi wa masoko na uendeshaji kama kampuni kubwa. Utekelezaji wa kivita ndio ufunguo.'
+    },
     tags: ['SMEs', 'Entrepreneurship', 'Business Growth', 'Cost Reduction']
   },
   {
     id: 'cybersecurity-mistakes',
     slug: 'cybersecurity-mistakes',
     title: '7 Dangerous Cybersecurity Mistakes People Make Every Day',
+    title_sw: 'Makosa 7 Hatari ya Usalama wa Mtandao Ambayo Watu Huyafanya Kila Siku',
     category: 'Cybersecurity',
     readingTime: '5 min read',
     publishedDate: '2026',
     author: 'Alex Rweyemamu',
     excerpt: 'From password reuse to clicking urgent WhatsApp links, simple daily habits cause 90% of account takeovers. Check how many of these 7 mistakes you are making.',
+    excerpt_sw: 'Kuanzia kutumia nywila moja mara nyingi hadi kubofya viungo vya dharura vya WhatsApp, tabia rahisi za kila siku husababisha 90% ya utekaji wa akaunti. Angalia ni mangapi kati ya makosa haya 7 unayafanya.',
     content: {
       intro: 'Cybercriminals rarely break through high-tech firewalls with complex code. Instead, they exploit everyday human habits,fatigue, distraction, urgency, and convenience.',
       sections: [
@@ -220,17 +368,38 @@ export const blogPostsData: BlogPost[] = [
       ],
       conclusion: 'Cyber safety is not about paranoia; it is about healthy digital habits. Securing your accounts takes less than 15 minutes and protects your hard-earned finances and peace of mind.'
     },
+    content_sw: {
+      intro: 'Wahalifu wa mtandaoni mara chache huvunja kuta za moto (firewalls) za hali ya juu kwa kutumia msimbo tata. Badala yake, wanatumia tabia za kibinadamu za kila siku, uchovu, usumbufu, dharura, na urahisi.',
+      sections: [
+        {
+          heading: 'Udhaifu 7 Muhimu',
+          body: [
+            'Kosa la 1: Kutumia nywila ile ile kwenye barua pepe ya kibinafsi, mitandao ya kijamii, na benki ya mtandaoni.',
+            'Kosa la 2: Kupuuza Uhakiki wa Hatua Mbili (2FA) kwa sababu unaona ni usumbufu.',
+            'Kosa la 3: Kubofya viungo kwenye SMS au ujumbe wa WhatsApp usiotarajiwa ukidai kuwa akaunti yako "imesimamishwa".',
+            'Kosa la 4: Kuunganisha kwenye mitandao ya Wi-Fi ya umma iliyo wazi na isiyo na nywila kwenye mikahawa na viwanja vya ndege bila muunganisho salama.',
+            'Kosa la 5: Kuchapisha picha za beji za matukio, pasi za kupandia ndege, au skrini za kompyuta za ofisini kwenye mitandao ya kijamii.',
+            'Kosa la 6: Kuacha simu janja bila uangalizi bila muda mfupi wa kufunga skrini kiotomatiki.',
+            'Kosa la 7: Kushindwa kuhifadhi nakala (backup) za faili muhimu za kazi kwenye eneo salama na lililosimbwa la wingu (cloud).'
+          ],
+          keyTip: 'Rekebisha Kosa la 2 sasa hivi: Fungua WhatsApp > Mipangilio > Akaunti > Uhakiki wa hatua mbili > Washa.'
+        }
+      ],
+      conclusion: 'Usalama wa mtandao si kuhusu woga uliopitiliza; ni kuhusu tabia nzuri za kidijitali. Kulinda akaunti zako huchukua chini ya dakika 15 na kulinda fedha zako ulizozichuma kwa bidii na amani yako ya akili.'
+    },
     tags: ['Cyber Hygiene', 'Online Safety', 'Passwords', 'Mobile Security']
   },
   {
     id: 'ai-in-kiswahili',
     slug: 'ai-in-kiswahili',
     title: 'AI in Kiswahili: Why Local-Language AI Education Matters for Africa',
+    title_sw: 'AI katika Kiswahili: Kwa Nini Elimu ya AI ya Lugha ya Ndani ni Muhimu kwa Afrika',
     category: 'Productivity',
     readingTime: '6 min read',
     publishedDate: '2026',
     author: 'Alex Rweyemamu',
     excerpt: 'With over 200 million Swahili speakers across East and Central Africa, AI education cannot remain an English-only domain. Discover why cultural context and language inclusion are vital.',
+    excerpt_sw: 'Kwa zaidi ya wasemaji wa Kiswahili milioni 200 kote Afrika Mashariki na Kati, elimu ya AI haiwezi kubaki kuwa uwanja wa Kiingereza pekee. Gundua kwa nini muktadha wa kitamaduni na ujumuishaji wa lugha ni muhimu.',
     content: {
       intro: 'Artificial intelligence is reshaping global economies, yet the vast majority of tutorials, documentation, and prompt guides are published exclusively in English. For millions of vibrant entrepreneurs, teachers, and students across Tanzania, Kenya, Uganda, Rwanda, Burundi, and the DRC, this language barrier slows down practical adoption.',
       sections: [
@@ -258,17 +427,46 @@ export const blogPostsData: BlogPost[] = [
       ],
       conclusion: 'The future of African technology is inclusive, accessible, and grounded in our community\'s languages. CS Academy is leading that charge every day.'
     },
+    content_sw: {
+      intro: 'Akili bandia inarekebisha uchumi wa kimataifa, lakini idadi kubwa ya mafunzo, nyaraka, na miongozo ya prompt inachapishwa kwa Kiingereza pekee. Kwa mamilioni ya wajasiriamali, walimu, na wanafunzi wachangamfu kote Tanzania, Kenya, Uganda, Rwanda, Burundi, na DRC, kizuizi hiki cha lugha kinapunguza kasi ya utekaji wa kivita.',
+      sections: [
+        {
+          heading: '1. Kurahisisha Teknolojia Kupitia Lugha ya Asili',
+          body: [
+            'Dhana tata za kiufundi kama "Prompt Engineering", "Large Language Models", na "Data Privacy" zinapoelezewa kwa kutumia mifano ya kitamaduni inayofahamika kwa Kiswahili, uelewa huongezeka kwa kasi.',
+            'Wanafunzi wanatoka kwenye hali ya kuogopa teknolojia na kugundua kuwa AI ni zana tu inayojibu mantiki ya wazi ya binadamu.'
+          ]
+        },
+        {
+          heading: '2. Kuziwezesha Biashara Ndogo za Ndani na Uvumbuzi wa Mashinani',
+          body: [
+            'Muuzaji wa soko la Kariakoo au ushirika wa kilimo Morogoro hauhitaji maneno magumu ya kitaaluma; wanahitaji kujua jinsi ya kuandika prompt kwa Kiswahili ili kuandaa ujumbe kwa mteja, kuhesabu ratiba za kulisha mifugo, au kuelewa utabiri wa hali ya hewa.',
+            'Mafunzo ya AI yanayopatikana kwa Kiswahili yanademokrasia uzalishaji katika tabaka zote za kijamii na kiuchumi.'
+          ],
+          keyTip: 'Je, unajua? LLM za kisasa zinaelewa Kiswahili vizuri sana zinapopewa maagizo kwa sentensi zilizo wazi na zenye muktadha tajiri.'
+        },
+        {
+          heading: '3. Ahadi ya Lugha Mbili ya CS Academy',
+          body: [
+            'CS Academy inajivunia kuwa painia wa ujuzi wa kivita wa AI unaotolewa kwa Kiingereza na Kiswahili. Tunaamini kuwa mamlaka ya kweli ya kidijitali huanza wakati watu wanapoweza kujifunza, kuvumbua, na kulinda haki zao za kidijitali kwa lugha yao wenyewe.'
+          ]
+        }
+      ],
+      conclusion: 'Mustakabali wa teknolojia ya Afrika ni wa mjumuisho, unaofikika, na wenye mizizi katika lugha za jamii yetu. CS Academy inaongoza juhudi hizo kila siku.'
+    },
     tags: ['Kiswahili', 'Swahili AI', 'Digital Inclusion', 'African Tech']
   },
   {
     id: 'prompt-engineering-fundamentals',
     slug: 'prompt-engineering-fundamentals',
     title: 'Prompt Engineering Fundamentals: Writing Prompts That Actually Work',
+    title_sw: 'Misingi ya Prompt Engineering: Kuandika Maagizo (Prompts) Yanayofanya Kazi Kweli',
     category: 'AI Literacy',
     readingTime: '6 min read',
     publishedDate: '2026',
     author: 'Alex Rweyemamu',
     excerpt: 'Most people type one-line questions and get mediocre answers. Master the CRAFT framework for structured prompting and unlock dramatically better AI output in minutes.',
+    excerpt_sw: 'Watu wengi huandika maswali ya mstari mmoja na kupata majibu ya wastani. Mudu mfumo wa CRAFT kwa ajili ya utoaji wa maagizo yaliyopangwa na ufungue matokeo bora zaidi ya AI kwa dakika chache.',
     content: {
       intro: 'The difference between a frustrating AI experience and a transformational one almost always comes down to prompt quality. Structured prompting is the single highest-leverage skill you can develop to multiply your daily productivity with AI tools.',
       sections: [
@@ -279,7 +477,7 @@ export const blogPostsData: BlogPost[] = [
             'R | Request: State exactly what you want produced. Be specific about format, length, and tone.',
             'A | Audience: Define who will read or use the output. "Written for non-technical business owners in Dar es Salaam."',
             'F | Format: Specify the structure, bullet points, table, executive summary, JSON, or step-by-step checklist.',
-            'T , Tone & Constraints: "Professional but friendly", "under 200 words", "avoid technical jargon".'
+            'T | Tone & Constraints: "Professional but friendly", "under 200 words", "avoid technical jargon".'
           ],
           keyTip: 'Re-using proven prompt templates saves hours each week. Build a personal prompt library indexed by use case.'
         },
@@ -301,17 +499,51 @@ export const blogPostsData: BlogPost[] = [
       ],
       conclusion: 'Strong prompting is a force multiplier. With a few minutes of structured thinking before each request, you can compress hours of work into seconds and produce professional-grade results consistently.'
     },
+    content_sw: {
+      intro: 'Tofauti kati ya uzoefu wa AI unaokatisha tamaa na ule wa mabadiliko karibu kila mara inategemea ubora wa prompt. Uandishi wa maagizo uliopangwa (structured prompting) ndio ujuzi pekee wenye ushawishi mkubwa zaidi unaoweza kukuza ili kuzidisha uzalishaji wako wa kila siku kwa zana za AI.',
+      sections: [
+        {
+          heading: '1. Mfumo wa CRAFT kwa Maagizo Bora',
+          body: [
+            'C | Muktadha (Context): Iambie AI wewe ni nani na ni jukumu gani inapaswa kutekeleza. "Tenda kama meneja mkuu wa masoko wa startup ya fintech ya Afrika Mashariki."',
+            'R | Ombi (Request): Eleza kwa usahihi kile unachotaka kizilishwe. Kuwa maalum kuhusu muundo, urefu, na sauti.',
+            'A | Watazamaji (Audience): Tambua nani atasoma au kutumia matokeo. "Imeandikwa kwa ajili ya wamiliki wa biashara wasio wa kiufundi jijini Dar es Salaam."',
+            'F | Muundo (Format): Bainisha muundo, nukta (bullets), jedwali, muhtasari wa utendaji, JSON, au orodha ya hatua kwa hatua.',
+            'T | Sauti na Vikwazo (Tone & Constraints): "Kitaalamu lakini rafiki", "chini ya maneno 200", "epuka maneno magumu ya kiufundi".'
+          ],
+          keyTip: 'Kutumia tena templates za prompt zilizothibitishwa huokoa saa nyingi kila wiki. Jenga maktaba ya binafsi ya prompt iliyopangwa kulingana na matumizi.'
+        },
+        {
+          heading: '2. Uboreshaji Unaoendelea ni Bora Kuliko Uchawi wa Mara Moja',
+          body: [
+            'Hata wataalam wa prompt mara chache hupata matokeo kamili katika jaribio la kwanza. Chukulia uandishi wa prompt kama mazungumzo: kagua, boresha, na andika tena prompt.',
+            'AI inapokosa lengo, usianze upya. Badala yake, sema: "Rekebisha jibu lililopita ili lijumuishe mifano mitatu madhubuti na ulifupishe kwa asilimia 30."'
+          ]
+        },
+        {
+          heading: '3. Makosa ya Kawaida ya Wanaoanza ya Kuepuka',
+          body: [
+            'Malengo yasiyoeleweka: "Nisaidie na masoko" dhidi ya "Andika maelezo matano ya Instagram kwa duka la kahawa lililofunguliwa hivi karibuni Arusha linalolenga wataalamu vijana."',
+            'Nia mchanganyiko: Kuchanganya maombi matatu yasiyohusiana katika prompt moja kunapunguza umakini na kutoa matokeo duni.',
+            'Kuruka uhakiki: Daima kagua matokeo ya mwisho kwa usahihi, hasa namba, tarehe, na nukuu.'
+          ]
+        }
+      ],
+      conclusion: 'Uandishi wa prompt madhubuti ni kichocheo cha nguvu. Kwa dakika chache za kufikiri kwa utaratibu kabla ya kila ombi, unaweza kubana saa za kazi kuwa sekunde na kutoa matokeo ya kiwango cha kitaalamu mara kwa mara.'
+    },
     tags: ['Prompting', 'AI Skills', 'Productivity', 'Workflows']
   },
   {
     id: 'phishing-attacks-how-to-spot',
     slug: 'phishing-attacks-how-to-spot',
     title: 'Phishing Attacks in 2026: How to Spot Mobile Money & Email Scams',
+    title_sw: 'Mashambulizi ya Phishing mnamo 2026: Jinsi ya Kutambua Utapeli wa Pesa kwa Mtandao na Barua Pepe',
     category: 'Cybersecurity',
     readingTime: '5 min read',
     publishedDate: '2026',
     author: 'Alex Rweyemamu',
     excerpt: 'Phishing remains the number one way East African bank accounts and business emails are compromised. These six tell-tale signs help you catch a fake before it costs you.',
+    excerpt_sw: 'Phishing bado ni njia namba moja ambayo akaunti za benki za Afrika Mashariki na barua pepe za biashara huingiliwa. Ishara hizi sita za wazi zinakusaidia kukamata hadaa kabla haijakugharimu.',
     content: {
       intro: 'Phishing emails and SMS messages have evolved from obviously broken English into polished, near-perfect imitations of real bank notifications, HR letters, and parcel delivery alerts. Knowing the modern signals of a phishing attempt is no longer optional , it is essential digital hygiene.',
       sections: [
@@ -344,17 +576,51 @@ export const blogPostsData: BlogPost[] = [
       ],
       conclusion: 'Phishing succeeds when we are rushed, distracted, or curious. Slowing down to verify is your strongest defense , and it costs nothing.'
     },
+    content_sw: {
+      intro: 'Barua pepe za phishing na ujumbe wa SMS zimebadilika kutoka Kiingereza kilichovunjika hadi uigaji uliokamilika na karibu kamilifu wa arifa halisi za benki, barua za HR, na arifa za utumaji wa vifurushi. Kujua ishara za kisasa za jaribio la phishing si chaguo tena; ni usafi muhimu wa kidijitali.',
+      sections: [
+        {
+          heading: '1. Mtego wa Dharura',
+          body: [
+            'Taasisi za kweli mara chache hudai "hatua ya haraka ndani ya saa 24" kupitia SMS au barua pepe. Ujumbe wa phishing hutumia hofu ili kufanya mtu asifanye maamuzi ya busara.',
+            'Ikiwa ujumbe unajenga hofu ("Akaunti yako itafungwa"), msisimko ("Umeshinda"), au udadisi ("Angalia picha hii yako"), tua na uhakiki kabla ya kubofya kiungo chochote.'
+          ]
+        },
+        {
+          heading: '2. Kagua Kikoa cha Mtumaji kwa Makini',
+          body: [
+            'Ujumbe unaodai kutoka kwa benki kuu lakini umetumwa kutoka "support@bank-verify.tz-online.app" ni ishara nyekundu ya phishing. Taasisi halisi hutumia kikoa chao wenyewe na kamwe haziombi PIN, OTP, au nywila kupitia SMS au barua pepe.',
+            'Kwenye simu, bonyeza kiungo kwa muda mrefu ili kuona kikoa (URL) kabla ya kugusa. Kwenye barua pepe, weka mshale kwenye jina la mtumaji ili kufichua anwani halisi.'
+          ]
+        },
+        {
+          heading: '3. Ishara Sita za Kisasa za Wazi',
+          body: [
+            'Ishara 1: Salamu ya jumla badala ya jina lako halisi.',
+            'Ishara 2: Makosa ya tahajia au sarufi yasiyoonekana kwa urahisi unaposoma haraka.',
+            'Ishara 3: Viungo ambavyo maandishi yake yanatofautiana na URL halisi.',
+            'Ishara 4: Viambatisho visivyotarajiwa, hasa faili za .zip, .html, au .exe.',
+            'Ishara 5: Maombi ya habari nyeti ambayo shirika halali lisingeweza kuomba kidijitali.',
+            'Ishara 6: Namba za simu za mkononi badala ya laini rasmi za huduma kwa wateja kwa ajili ya "uhakiki".'
+          ],
+          keyTip: 'Unapokuwa na shaka, fungua programu au tovuti rasmi ya taasisi moja kwa moja na uingie. Kamwe usitumie kiungo kilicho kwenye ujumbe unaotilia shaka.'
+        }
+      ],
+      conclusion: 'Phishing hufanikiwa tunapokuwa na haraka, tunaposumbuliwa, au tunapokuwa na udadisi. Kupunguza kasi ili kuhakiki ndio ulinzi wako mkubwa, na haugharimu chochote.'
+    },
     tags: ['Phishing', 'Cyber Hygiene', 'Mobile Money', 'Fraud Prevention']
   },
   {
     id: 'teaching-kids-digital-safety',
     slug: 'teaching-kids-digital-safety',
     title: 'Teaching Kids & Teens Digital Safety: A Guide for African Parents',
+    title_sw: 'Kufundisha Watoto na Vijana Usalama wa Kidijitali: Mwongozo kwa Wazazi wa Afrika',
     category: 'Education',
     readingTime: '5 min read',
     publishedDate: '2026',
     author: 'Alex Rweyemamu',
     excerpt: 'Children now get smartphones earlier than ever. This practical guide helps parents set up safe digital habits at home without turning the house into a surveillance zone.',
+    excerpt_sw: 'Watoto sasa wanapata simu janja mapema zaidi kuliko wakati wowote. Mwongozo huu wa kivita unawasaidia wazazi kuweka tabia salama za kidijitali nyumbani bila kuifanya nyumba kuwa eneo la ufuatiliaji.',
     content: {
       intro: 'Across East Africa, the average age of a first smartphone is dropping below twelve. While these devices open extraordinary learning opportunities, they also expose children to risks that previous generations never had to navigate. Thoughtful, age-appropriate guardrails protect without isolating.',
       sections: [
@@ -383,17 +649,47 @@ export const blogPostsData: BlogPost[] = [
       ],
       conclusion: 'Raising digitally fluent children is not about banning screens. It is about building the judgment, vocabulary, and trust they need to navigate an always-online world safely.'
     },
+    content_sw: {
+      intro: 'Kote Afrika Mashariki, wastani wa umri wa kupata simu janja ya kwanza unashuka chini ya miaka kumi na miwili. Ingawa vifaa hivi hufungua fursa za kipekee za kujifunza, pia vinawaweka watoto kwenye hatari ambazo kizazi kilichopita hakikuwahi kukutana nazo. Vizuizi vya kufikiri na vinavyozingatia umri hulinda bila kutenga.',
+      sections: [
+        {
+          heading: '1. Makubaliano ya Teknolojia ya Familia',
+          body: [
+            'Kabla ya kumpa mtoto kifaa chake cha kwanza kilichounganishwa, tengenezeni makubaliano mafupi ya maandishi yanayohusu muda wa kutumia skrini, programu zilizoidhinishwa, nani wa kuwasiliana naye ikiwa kuna kitu hakijakaa sawa, na matokeo ya kuvunja sheria.',
+            'Watoto wanaoshiriki kuweka sheria huzifuata kwa uthabiti zaidi kuliko wale ambao sheria zimewekwa kwao upande mmoja.'
+          ]
+        },
+        {
+          heading: '2. Kufundisha Tabia ya "Mwambie Mtu Mzima" Mapema',
+          body: [
+            'Fanya iwe kawaida na salama kwa watoto kuripoti mwingiliano usio na raha mtandaoni bila hofu ya kupoteza haki ya kutumia kifaa. Walaji na matapeli mara nyingi huwatishia watoto waziwazi kwa kusema "ukimwambia wazazi wako utaadhibiwa."',
+            'Kubalianeni mapema kwamba haijalishi nini kitatokea, kumwambia mzazi daima ni hatua sahihi, na mwitikio wa familia utakuwa wa kuunga mkono, si wa kuadhibu.'
+          ]
+        },
+        {
+          heading: '3. Vidhibiti vya Wazazi Vinavyozingatia Umri',
+          body: [
+            'Tumia vidhibiti vya wazazi vilivyojengwa kwenye mfumo wa uendeshaji (Family Link kwa Android, Screen Time kwa iOS) ili kuweka mipaka ya kupakua programu, vichujio vya maudhui, na ratiba za kulala.',
+            'Changanya vidhibiti vya kiufundi na mazungumzo ya wazi. Teknolojia inatekeleza; imani na mazungumzo vinadumisha.'
+          ],
+          keyTip: 'Panga "uhakiki wa teknolojia ya familia" wa dakika 15 kila wiki ambapo kila mtu anashiriki jambo moja muhimu alilojifunza mtandaoni na jambo moja lililomtia wasiwasi.'
+        }
+      ],
+      conclusion: 'Kulea watoto wenye ujuzi wa kidijitali si kuhusu kupiga marufuku skrini. Ni kuhusu kujenga busara, msamiati, na imani wanayohitaji ili kupita katika ulimwengu wa mtandaoni kila wakati kwa usalama.'
+    },
     tags: ['Parenting', 'Digital Literacy', 'Child Safety', 'Schools']
   },
   {
     id: 'ai-for-customer-service',
     slug: 'ai-for-customer-service',
     title: 'AI for Customer Service: How African Businesses Are Scaling WhatsApp Support',
+    title_sw: 'AI kwa Huduma kwa Wateja: Jinsi Biashara za Afrika Zinavyoongeza Msaada wa WhatsApp',
     category: 'Business',
     readingTime: '5 min read',
     publishedDate: '2026',
     author: 'Alex Rweyemamu',
     excerpt: 'Customers expect instant replies on WhatsApp at midnight. Learn how savvy SMEs use AI drafting tools to respond faster without sounding robotic , and without burning out their teams.',
+    excerpt_sw: 'Wateja wanatarajia majibu ya papo hapo kwenye WhatsApp usiku wa manane. Jifunze jinsi SME wajanja wanavyotumia zana za kuandaa rasimu za AI ili kujibu haraka bila kuonekana kama roboti, na bila kuchosha timu zao.',
     content: {
       intro: 'For most African small and medium businesses, WhatsApp is the de facto customer service channel. Customers expect a reply within minutes , even at 10pm. Meeting that bar with a small human team is exhausting, but the alternative (slow replies) costs sales.',
       sections: [
@@ -422,17 +718,47 @@ export const blogPostsData: BlogPost[] = [
       ],
       conclusion: 'AI is not a replacement for great customer service; it is a tool that lets a small team deliver a large-team experience. The businesses that adopt it now will outpace slower competitors within months.'
     },
+    content_sw: {
+      intro: 'Kwa biashara nyingi ndogo na za kati za Afrika, WhatsApp ndiyo njia kuu ya huduma kwa wateja. Wateja wanatarajia jibu ndani ya dakika chache, hata saa 4 usiku. Kufikia kiwango hicho na timu ndogo ya binadamu inachosha, lakini mbadala wake (majibu ya polepole) hugharimu mauzo.',
+      sections: [
+        {
+          heading: '1. Mtiririko wa Kazi wa "Rasimu ya AI, Tuma Binadamu"',
+          body: [
+            'Mfumo wa haraka zaidi ni kuruhusu AI kuandaa jibu lililokamilika na linaloendana na chapa kulingana na muhtasari mfupi kutoka kwa ajenti, kisha binadamu akague, arekebishe, na atume.',
+            'Hii inapunguza wastani wa muda wa kujibu kwa asilimia 60-70 huku ikihifadhi sauti ya joto na ya kibinafsi ambayo wateja wanatarajia.'
+          ]
+        },
+        {
+          heading: '2. Kujenga Prompt ya Sauti ya Chapa',
+          body: [
+            'Tengeneza prompt inayoweza kutumika tena inayofunga sauti yako ya mazungumzo, misemo ya kawaida, sheria za upandishaji wa masuala, na maudhui yaliyopigwa marufuku. Bandika ujumbe wa mteja mwishoni na uombe rasimu ya jibu chini ya maneno 80.',
+            'Boresha mara moja, kisha tumia tena mamia ya mara.'
+          ]
+        },
+        {
+          heading: '3. Kujua Wakati wa Kumkabidhi Binadamu',
+          body: [
+            'Sanidi timu yako kukabidhi bila kuchelewa wakati AI inapotambua malalamiko, maombi ya kurudishiwa pesa, au data nyeti za kibinafsi. AI haipaswi kamwe kushughulikia mzozo wa malipo au ombi la hasira la kurudishiwa pesa bila uhakiki wa binadamu.',
+            'Ikifanywa kwa usahihi, AI huondoa kazi za kuchosha na kuwaruhusu watu wako kuzingatia mazungumzo ambayo kwa kweli yanahitaji mguso wa binadamu.'
+          ],
+          keyTip: 'Fuatilia kipimo kimoja kila wiki: wastani wa muda wa jibu la kwanza. Kushuka kutoka dakika 25 hadi dakika 4 kwa kawaida hutafsiriwa kuwa ongezeko linalopimika la mauzo.'
+        }
+      ],
+      conclusion: 'AI si mbadala wa huduma bora kwa wateja; ni zana inayoiruhusu timu ndogo kutoa uzoefu wa timu kubwa. Biashara zinazoitumia sasa zitawapita washindani wa polepole ndani ya miezi michache.'
+    },
     tags: ['Customer Service', 'WhatsApp Business', 'SMEs', 'Productivity']
   },
   {
     id: 'building-first-website',
     slug: 'building-first-website',
     title: 'Building Your First Website in a Weekend: A Beginner Roadmap',
+    title_sw: 'Kujenga Tovuti Yako ya Kwanza kwa Wikiendi: Ramani ya Njia kwa Wanaoanza',
     category: 'Productivity',
     readingTime: '6 min read',
     publishedDate: '2026',
     author: 'Alex Rweyemamu',
     excerpt: 'You do not need a developer to launch a professional website. With modern AI tools, a complete beginner can publish a polished, mobile-friendly site in under 48 hours.',
+    excerpt_sw: 'Hauhitaji msanidi programu ili kuzindua tovuti ya kitaalamu. Kwa zana za kisasa za AI, mwanafunzi anayeanza kabisa anaweza kuchapisha tovuti iliyokamilika na inayofaa kwa simu chini ya saa 48.',
     content: {
       intro: 'A decade ago, building a website required either a five-figure developer budget or months of learning HTML, CSS, and JavaScript. In 2026, the playing field has changed completely. A focused beginner can launch a credible, mobile-friendly site in a single weekend.',
       sections: [
@@ -455,7 +781,7 @@ export const blogPostsData: BlogPost[] = [
           heading: '3. The Non-Negotiable Launch Checklist',
           body: [
             'Mobile-friendly layout tested on at least two screen sizes.',
-            'Fast load time under three seconds (compress images, avoid heavy animations).',
+            'Fast load time under three seconds (compress images, avoid HPavy animations).',
             'Clear call to action on every page (contact form, WhatsApp button, or booking link).',
             'A custom domain (yourname.co.tz or yourname.com) instead of a free subdomain , it costs under $15 per year and looks professional.',
             'Basic analytics installed (Plausible or Google Analytics) so you know what is working.'
@@ -464,6 +790,38 @@ export const blogPostsData: BlogPost[] = [
         }
       ],
       conclusion: 'Your online presence is your new business card. Investing a single weekend in a clear, professional site is one of the highest-return moves you can make this year.'
+    },
+    content_sw: {
+      intro: 'Muongo mmoja uliopita, kujenga tovuti kulihitaji bajeti ya msanidi programu ya tarakimu tano au miezi ya kujifunza HTML, CSS, na JavaScript. Mnamo 2026, uwanja umebadilika kabisa. Mwanafunzi anayeanza mwenye umakini anaweza kuzindua tovuti inayoweza kuaminika na inayofaa kwa simu katika wikiendi moja tu.',
+      sections: [
+        {
+          heading: '1. Chagua Zana Sahihi kwa Kazi',
+          body: [
+            '- Kwa ajili ya portfolio au ukurasa wa kutua: Carrd, Framer, au Typedream hutoa matokeo mazuri bila msimbo (coding).',
+            '- Kwa ajili ya tovuti ya maudhui au blogu: WordPress, Ghost, au jenereta ya tovuti tuli kama Astro yenye utumaji wa bure wa Netlify.',
+            '- Kwa ajili ya duka la mtandaoni: Shopify, WooCommerce, au Payhip zinashughulikia malipo, hesabu ya bidhaa, na usafirishaji moja kwa moja.'
+          ]
+        },
+        {
+          heading: '2. Tumia AI Kurahisisha Kazi Nzito',
+          body: [
+            'Wasaidizi wa kisasa wa AI wanaweza kuandaa maandishi ya ukurasa wako wa nyumbani, kupendekeza rangi, kuzalisha mawazo ya nembo, na hata kuandika marekebisho madogo ya CSS. Ichukulie AI kama msanidi programu mkuu anayepatikana wakati wowote ambaye halali kamwe.',
+            'Daima kagua matokeo ya AI kwa uwazi na uhalisia. Hadithi za kibinafsi na maelezo maalum hufanya tovuti yako ikumbukwe.'
+          ]
+        },
+        {
+          heading: '3. Orodha ya Uhakiki ya Uzinduzi Isiyoweza Kujadiliwa',
+          body: [
+            '- Muundo unaofaa kwa simu uliotestiwa kwenye angalau saizi mbili za skrini.',
+            '- Muda wa kupakia haraka chini ya sekunde tatu (punguza ukubwa wa picha, epuka vikaragosi vizito).',
+            '- Wito wa wazi wa kuchukua hatua kwenye kila ukurasa (fomu ya mawasiliano, kitufe cha WhatsApp, au kiungo cha kuweka nafasi).',
+            '- Kikoa maalum (jinalako.co.tz au jinalako.com) badala ya kikoa kidogo cha bure; inagharimu chini ya $15 kwa mwaka na inaonekana ya kitaalamu.',
+            '- Analytics ya kimsingi iliyowekwa (Plausible au Google Analytics) ili ujue kinachofanya kazi.'
+          ],
+          keyTip: 'Tovuti "nzuri kiasi" iliyochapishwa leo inashinda tovuti "kamilifu" iliyokwama kwenye rasimu. Zindua, jifunze kutoka kwa wageni halisi, boresha.'
+        }
+      ],
+      conclusion: 'Uwepo wako mtandaoni ni kadi yako mpya ya biashara. Kuwekeza wikiendi moja katika tovuti ya wazi na ya kitaalamu ni moja ya hatua zenye faida kubwa unazoweza kuzichukua mwaka huu.'
     },
     tags: ['Web Development', 'Beginners', 'Small Business', 'Digital Presence']
   },

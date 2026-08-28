@@ -29,6 +29,15 @@ export interface Translations {
     tagline: string;
     switchLang: string;
     switchTheme: string;
+    vibeCoding: string;
+    newBadge: string;
+    mpesaBadge: string;
+    corporateBadge: string;
+    waQuickMessage: string;
+    waUs: string;
+    aiAcademyMobile: string;
+    cyberAcademyMobile: string;
+    digitalAcademyMobile: string;
   };
   hero: {
     badge: string;
@@ -150,7 +159,16 @@ export const translations: Translations = {
     exploreAcademy: "Explore Courses",
     tagline: "Empowering East Africa with Digital Skills",
     switchLang: "Switch Language",
-    switchTheme: "Toggle Theme"
+    switchTheme: "Toggle Theme",
+    vibeCoding: "Vibe Coding",
+    newBadge: "NEW",
+    mpesaBadge: "M-Pesa",
+    corporateBadge: "Corporate",
+    waQuickMessage: "Hello CS Academy, I would like to inquire about training programs.",
+    waUs: "WhatsApp Us: {{number}}",
+    aiAcademyMobile: "AI & Vibe Coding Academy",
+    cyberAcademyMobile: "Cybersecurity Academy",
+    digitalAcademyMobile: "Digital Skills & Web Development"
   },
   hero: {
     badge: "EAST AFRICA'S PREMIER TECH LEARNING PLATFORM",
@@ -294,3 +312,179 @@ export const translations: Translations = {
     locationNote: "Tanzania  |  Kenya  |  Uganda  |  Rwanda  |  Burundi  |  DRC  |  East Africa"
   }
 };
+
+export const translations_sw: Translations = {
+  nav: {
+    home: "Nyumbani",
+    features: "Sifa za Jukwaa",
+    programs: "Programu na Kozi",
+    aiDeepDive: "Akili Mnemba (AI) na Amri",
+    cyberDeepDive: "Usalama wa Mtandao na Imani ya Kidijitali",
+    digitalDeepDive: "Ujuzi wa Kidijitali na Ujenzi wa Wavuti",
+    allPrograms: "Tazama Moduli zote 30+",
+    smartFramework: "Mfumo wa SMART",
+    formats: "Njia za Mafunzo",
+    organizations: "Kwa Mashirika",
+    resources: "Rasilimali na Duka la Kidijitali",
+    pricing: "Mipango ya Bei",
+    blog: "Blogu na Maoni",
+    about: "Kuhusu Sisi",
+    contact: "Wasiliana Nasi",
+    bookTraining: "Jiunge Sasa",
+    exploreAcademy: "Chunguza Kozi",
+    tagline: "Kuwawezesha Watu wa Afrika Mashariki na Ujuzi wa Kidijitali",
+    switchLang: "Badili Lugha",
+    switchTheme: "Badili Mandhari",
+    vibeCoding: "Vibe Coding",
+    newBadge: "MPYA",
+    mpesaBadge: "M-Pesa",
+    corporateBadge: "Kampuni",
+    waQuickMessage: "Habari CS Academy, naomba maelezo kuhusu programu za mafunzo.",
+    waUs: "Tuandikie WhatsApp: {{number}}",
+    aiAcademyMobile: "Akademia ya AI na Vibe Coding",
+    cyberAcademyMobile: "Akademia ya Usalama wa Mtandao",
+    digitalAcademyMobile: "Ujuzi wa Kidijitali na Wavuti"
+  },
+  hero: {
+    badge: "JUKWAA KIONGOZI LA MAFUNZO YA TEKNOLOJIA AFRIKA MASHARIKI",
+    badgeHighlight: "MPYA: Vibe Coding na AI",
+    headlineMain: "GEUZA MAWAZO YAKO KUWA",
+    headlineHighlight: "UJUZI WA KIDIJITALI WA VITENDO",
+    subheadline: "Jifunze AI, ujenzi wa wavuti, na usalama wa mtandao kupitia miradi ya vitendo inayokusaidia kusonga mbele kazini, katika biashara, na katika maisha ya kila siku.",
+    ctaExplore: "Anza Kujifunza Bure",
+    ctaEnroll: "Jiunge na Kikundi cha Moja kwa Moja",
+    ctaWatchTour: "Angalia Jukwaa Lilivyo",
+    stat1Val: "1,200+",
+    stat1Label: "Wahitimu",
+    stat2Val: "30+",
+    stat2Label: "Moduli za Vitendo",
+    stat3Val: "100%",
+    stat3Label: "Maudhui ya Kiswahili",
+    stat4Val: "4.9/5",
+    stat4Label: "Ukadiriaji wa Wanafunzi",
+    mobileMoneyNotice: "Uanzishaji wa Papo hapo kwa Pesa za Simu (M-Pesa, Tigo Pesa, Airtel Money na Kadi)"
+  },
+  common: {
+    learnMore: "Jifunze Zaidi",
+    viewDetails: "Tazama Maelezo",
+    enrollNow: "Jiunge na Kozi",
+    bookTraining: "Weka Nafasi ya Mafunzo",
+    getStarted: "Anza Sasa",
+    applyNow: "Omba Sasa",
+    inquireNow: "Uliza Kuhusu Mafunzo",
+    downloadResource: "Pakua Mwongozo (PDF)",
+    readArticle: "Soma Makala Yote",
+    share: "Shiriki",
+    filterAll: "Zote",
+    searchPlaceholder: "Tafuta kozi, miongozo, makala...",
+    mostPopular: "MAARUFU ZAIDI",
+    perMonth: "kwa mwezi",
+    free: "Bure",
+    customQuote: "Nukuu Maalum",
+    verifiedLearner: "Mwanafunzi Aliyethibitishwa",
+    qrVerification: "Cheti cha PDF cha QR kisichoingilika",
+    swahiliInstruction: "Maelekezo ya Kiswahili",
+    englishInstruction: "Istilahi za Kiufundi za Kiingereza",
+    bilingual: "Kiswahili na Kiingereza",
+    close: "Funga",
+    backToHome: "Rudi Nyumbani",
+    contactInstructor: "Wasiliana na Mkufunzi"
+  },
+  delivery: {
+    badge: "NJIA NYUMBULIFU ZA MAFUNZO",
+    title: "JIFUNZE POPOTE. JIUNGE KWA NJIA YAKO.",
+    subtitle: "Chagua muundo unaofaa jiografia ya timu yako, kasi ya mtandao, na mtindo wa kujifunza. Bei wazi zilizoboreshwa kwa kila njia ya mafunzo.",
+    bandwidth: "Mtandao / Usanidi",
+    channel: "Njia ya Mafunzo",
+    idealFor: "Inafaa Kwa",
+    keyFeatures: "Sifa Muhimu",
+    investment: "Gharama ya Mafunzo",
+    comparisonTitle: "Linganisha Njia zote 6 za Mafunzo",
+    comparisonSubtitle: "Pata uwiano bora kati ya kasi ya mtandao na kiwango cha mwingiliano wa moja kwa moja."
+  },
+  formats: {
+    badge: "NJIA 6 ZA MAFUNZO",
+    title: "JIFUNZE POPOTE. KWA RATIBA YAKO.",
+    subtitle: "Kuanzia masomo ya sauti ya WhatsApp ya gharama nafuu hadi utiririshaji wa video wa kujisomea, kambi za mafunzo za Zoom, na mafunzo ofisini kwako."
+  },
+  programsSection: {
+    badge: "NGUZO KUU",
+    title: "UJUZI WA KIDIJITALI WENYE UHITAJI MKUBWA",
+    subtitle: "Mitaala iliyoboreshwa kukusaidia kupata kazi za teknolojia, kuanza biashara za kujitegemea, au kuharakisha uzalishaji wa kampuni.",
+    viewAllCourses: "Chunguza Mitaala Yote Kamili"
+  },
+  swahiliAi: {
+    badge: "AI KATIKA VITENDO",
+    title: "JENGA NA AI KWA LUGHA YAKO",
+    subtitle: "Jifunze AI katika muktadha wa Kiswahili ulio wazi, itumie kwa salama, na geuza mawazo ya kila siku kuwa kazi, ripoti, na bidhaa za kidijitali.",
+    vibeCodingTitle: "Vibe Coding ni nini?",
+    vibeCodingDesc: "Mfumo wa kisasa wa kujenga programu za wavuti na programu kwa kutumia maelekezo ya lugha asilia na wasaidizi wa AI badala ya kuandika msimbo mwingi kwa mikono.",
+    ctaMasterclass: "Weka Nafasi ya Masterclass ya Vibe Coding"
+  },
+  organizations: {
+    badge: "KWA MAKAMPUNI NA TAASISI",
+    title: "IMARISHA UWEZO WA KIDIJITALI WA WAFANYAKAZI WAKO",
+    subtitle: "Mafunzo maalum ya AI, Usalama wa Mtandao, na Teknolojia kwa Benki, Idara za Serikali, Vyuo Vikuu, NGO, na Mashirika."
+  },
+  organizationsSection: {
+    badge: "KWA MAKAMPUNI NA TAASISI",
+    title: "IMARISHA UWEZO WA KIDIJITALI WA WAFANYAKAZI WAKO",
+    subtitle: "Mafunzo maalum ya AI, Usalama wa Mtandao, na Teknolojia kwa Benki, Idara za Serikali, Vyuo Vikuu, NGO, na Mashirika.",
+    requestProposal: "Omba Pendekezo la Mafunzo ya Kampuni"
+  },
+  packages: {
+    badge: "VIFURUSHI VYA MAFUNZO YA KITAALAMU",
+    title: "NJIA ZILIZOPANGILIWA KWA AJILI YA MATOKEO YA HARAKA",
+    subtitle: "Chagua kifurushi cha ujuzi kilichosanifiwa kwa ajili ya malengo ya kazi na teknolojia ya timu yako."
+  },
+  process: {
+    badge: "RAMANI YA MAFUNZO",
+    title: "NJIA YAKO YA HATUA KWA HATUA KUELEKEA UMAHIRI",
+    subtitle: "Awamu 4 zilizopangwa kuanzia kujiunga na mazoezi ya vitendo hadi uthibitisho wa QR na utayari wa kazi."
+  },
+  whyUs: {
+    badge: "KWA NINI CS ACADEMY?",
+    title: "IMEJENGWA MAALUM KWA AJILI YA WAAFRIKA MASHARIKI",
+    subtitle: "Kuziba pengo kati ya teknolojia ya kiwango cha juu na muktadha wa asili wa Kiswahili bila vikwazo."
+  },
+  socialProof: {
+    badge: "USHAHIDI WA MAENDELEO YA VITENDO",
+    title: "UJUZI UNAOZALISHA MATOKEO HALISI",
+    subtitle: "Ona jinsi wanafunzi, walimu, wataalamu, na timu kote Afrika Mashariki wanavyogeuza mafunzo ya vitendo kuwa kazi bora na fursa mpya."
+  },
+  resources: {
+    badge: "VIFURUSHI VYA RATIBA BURE",
+    title: "MIONGOZO YA VITENDO NA TEMPLETI ZA AMRI",
+    subtitle: "Pakua miongozo ya amri zenye athari kubwa, orodha za uhakiki za usalama wa mtandao, na templeti za mitaala bila gharama."
+  },
+  blog: {
+    badge: "MAKALA NA MAONI YA VITENDO",
+    title: "UCHAMBUZI WA KINA WA TEKNOLOJIA, AI NA USALAMA",
+    subtitle: "Soma maoni ya wataalamu kuhusu mabadiliko ya kidijitali Afrika Mashariki, AI ya kimaadili, na ulinzi wa mtandao."
+  },
+  about: {
+    badge: "KUHUSU CS ACADEMY",
+    title: "KUIWEZESHA AFRIKA MASHARIKI NA UMAHIRI WA KIDIJITALI",
+    subtitle: "Dhamira yetu ni kuondoa vikwazo vya lugha na gharama ili kila mtu aweze kushiriki katika uchumi wa kidijitali."
+  },
+  faq: {
+    badge: "MASWALI YANAYOULIZWA MARA KWA MARA",
+    title: "UNA MASWALI? TUNA MAJIBU",
+    subtitle: "Maelezo ya wazi kuhusu mifumo ya kozi, malipo ya pesa kwa simu, vyeti, na kujiunga kwa timu."
+  },
+  pricing: {
+    badge: "MIPANGO YA BEI NA UANACHAMA",
+    title: "GHARAMA WAZI ZA MAFUNZO KWA KILA MWANAFUNZI",
+    subtitle: "Mipango rahisi bila ada zilizofichwa. Lipa kwa urahisi kwa M-Pesa, Tigo Pesa, Airtel Money, au kadi ya benki."
+  },
+  footer: {
+    about: "CS Academy ni jukwaa kiongozi Afrika Mashariki linalotoa mafunzo ya teknolojia ya vitendo na ustahimilivu wa usalama wa mtandao kwa Kiswahili.",
+    quickLinks: "Viungo vya Haraka",
+    programs: "Programu Zetu",
+    delivery: "Njia za Mafunzo",
+    contactUs: "Wasiliana Nasi",
+    rights: "Haki zote zimehifadhiwa.",
+    locationNote: "Tanzania | Kenya | Uganda | Rwanda | Burundi | DRC | Afrika Mashariki"
+  }
+};
+

@@ -24,13 +24,13 @@ export const TrainingDetailModal: React.FC<TrainingDetailModalProps> = ({
   if (!training) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-sm animate-in fade-in duration-200">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-md animate-in fade-in duration-300">
       <div 
-        className="bg-[#171717] border border-neutral-800 rounded-3xl w-full max-w-2xl max-h-[90vh] overflow-y-auto shadow-2xl relative text-white"
+        className="bg-[#171717]/80 border border-white/10 rounded-3xl w-full max-w-2xl max-h-[90vh] overflow-y-auto shadow-2xl relative text-white backdrop-blur-2xl glass-card"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="sticky top-0 bg-[#171717]/95 backdrop-blur-md px-6 sm:px-8 py-5 border-b border-neutral-800 flex items-center justify-between z-10">
+        <div className="sticky top-0 bg-[#171717]/40 backdrop-blur-2xl px-6 sm:px-8 py-5 border-b border-white/10 flex items-center justify-between z-10">
           <div className="min-w-0">
             <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-red-950/80 border border-red-800/80 text-[#DC2626] uppercase">
               {training.level} Level

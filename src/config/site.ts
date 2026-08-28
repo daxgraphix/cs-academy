@@ -4,7 +4,7 @@ export const siteConfig = {
   parentOrg: "CyberSwahili",
   tagline: "Bridging Digital Skills Through Practical Swahili & English Tech Education",
   establishedYear: 2026,
-  email: "cyberswahili@gmail.com",
+  email: "support@cyberswahili.co.tz",
   phone: "+255753969379",
   phoneDisplay: "+255 753 969 379",
   whatsapp: "255753969379",

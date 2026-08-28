@@ -1,5 +1,6 @@
 import React from 'react';
 import { PageRoute, ProgramPillar, TrainingProgram, ResourceItem, BlogPost } from '../types';
+import { SEO } from '../components/SEO';
 import { Hero } from '../components/Hero';
 import { AudienceStrip } from '../components/AudienceStrip';
 import { ProgramsOverview } from '../components/ProgramsOverview';
@@ -37,6 +38,10 @@ export const HomePage: React.FC<HomePageProps> = ({
 }) => {
   return (
     <main className="w-full">
+      <SEO
+        title="Home"
+        description="Learn AI, cybersecurity and digital skills with CS Academy. Practical workforce training for East Africa."
+      />
       {/* 1. Hero Section */}
       <Hero 
         setCurrentRoute={setCurrentRoute} 

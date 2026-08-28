@@ -32,35 +32,35 @@ export const PricingSection: React.FC<PricingSectionProps> = ({
   const formatPrice = (plan: typeof pricingPlansData[0]) => {
     if (currency === 'TSH') {
       return plan.priceTsh === 'Custom' || plan.priceTsh === '0' 
-        ? plan.priceTsh === '0' ? ('Free') : ('Custom Quote')
+        ? plan.priceTsh === '0' ? t('pricing.labels.free') : t('pricing.labels.customQuote')
         : `${plan.priceTsh} Tsh`;
     }
     if (currency === 'KES') {
       return plan.priceKes === 'Custom' || plan.priceKes === '0' 
-        ? plan.priceKes === '0' ? ('Free') : ('Custom Quote')
+        ? plan.priceKes === '0' ? t('pricing.labels.free') : t('pricing.labels.customQuote')
         : `${plan.priceKes} KSh`;
     }
     return plan.priceUsd === 'Custom' || plan.priceUsd === '0' 
-      ? plan.priceUsd === '0' ? '$0' : ('Custom Quote')
+      ? plan.priceUsd === '0' ? '$0' : t('pricing.labels.customQuote')
       : `$${plan.priceUsd}`;
   };
 
   const getChannelIcon = (type: string) => {
     switch (type) {
       case 'mobile-first':
-        return <MessageSquare className="w-4 h-4 text-emerald-500" />;
+        return <MessageSquare className="w-4 h-4 text-[var(--success-strong)]" />;
       case 'self-paced':
-        return <Layers className="w-4 h-4 text-blue-500" />;
+        return <Layers className="w-4 h-4 text-[var(--accent-red-strong)]" />;
       case 'virtual-live':
-        return <Video className="w-4 h-4 text-[#DC2626]" />;
+        return <Video className="w-4 h-4 text-[var(--accent-red-strong)]" />;
       case 'in-person-workshop':
-        return <Calendar className="w-4 h-4 text-amber-500" />;
+        return <Calendar className="w-4 h-4 text-[var(--accent-red-strong)]" />;
       case 'corporate-onsite':
-        return <Building2 className="w-4 h-4 text-purple-500" />;
+        return <Building2 className="w-4 h-4 text-[var(--accent-red-strong)]" />;
       case 'keynote':
-        return <Mic className="w-4 h-4 text-rose-500" />;
+        return <Mic className="w-4 h-4 text-[var(--accent-red-strong)]" />;
       default:
-        return <HelpCircle className="w-4 h-4 text-[#DC2626]" />;
+        return <HelpCircle className="w-4 h-4 text-[var(--accent-red-strong)]" />;
     }
   };
 
@@ -76,43 +76,62 @@ export const PricingSection: React.FC<PricingSectionProps> = ({
   return (
     <section 
       id="pricing-section" 
-      className={`py-24 border-b transition-colors duration-300 ${
-        theme === 'dark' ? 'bg-[#090909] text-white border-white/10' : 'bg-[#f7f4ee] text-neutral-900 border-neutral-200'
-      }`}
+      className="py-24 border-b transition-colors duration-300 bg-[var(--bg-primary)] text-[var(--text-primary)] border-[var(--border-color)]"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
         <div className="text-center max-w-3xl mx-auto space-y-5">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#ff3b30]/30 bg-[#ff3b30]/10 text-[#ff3b30] text-[10px] font-bold uppercase tracking-[0.22em]">
-            <span>{t.pricing.badge}</span>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[var(--accent-red-safe)]/30 bg-[var(--accent-red-subtle)] text-[var(--accent-red-strong)] text-[10px] font-bold uppercase tracking-[0.22em]">
+            <span>{t('pricing.badge')}</span>
           </div>
-          <h2 className={`text-3xl sm:text-4xl lg:text-5xl font-black tracking-[-0.06em] ${
-            theme === 'dark' ? 'text-white' : 'text-neutral-950'
-          }`}>
-            {t.pricing.title}
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-[-0.06em] text-[var(--text-primary)]">
+            {t('pricing.title')}
           </h2>
-          <p className={`text-base sm:text-lg leading-relaxed ${
-            theme === 'dark' ? 'text-neutral-400' : 'text-neutral-800'
-          }`}>
-            {t.pricing.subtitle}
+          <p className="text-base sm:text-lg leading-relaxed text-[var(--text-secondary)]">
+            {t('pricing.subtitle')}
           </p>
+
+          <div className="pt-8 flex flex-wrap items-center justify-center gap-6 opacity-80 filter grayscale hover:grayscale-0 transition-all duration-500">
+            <div className="flex flex-col items-center gap-2">
+              <div className="h-8 w-auto flex items-center justify-center font-black text-xl italic tracking-tighter text-[#00AFEF]">
+                M-PESA
+              </div>
+              <span className="text-[8px] font-bold uppercase tracking-[0.2em] text-[var(--text-muted)]">Tanzania & Kenya</span>
+            </div>
+            <div className="flex flex-col items-center gap-2">
+              <div className="h-8 w-auto flex items-center justify-center font-black text-xl italic tracking-tighter text-[#EECC00]">
+                Tigo Pesa
+              </div>
+              <span className="text-[8px] font-bold uppercase tracking-[0.2em] text-[var(--text-muted)]">Tanzania</span>
+            </div>
+            <div className="flex flex-col items-center gap-2">
+              <div className="h-8 w-auto flex items-center justify-center font-black text-xl italic tracking-tighter text-[#FF0000]">
+                airtel Money
+              </div>
+              <span className="text-[8px] font-bold uppercase tracking-[0.2em] text-[var(--text-muted)]">East Africa</span>
+            </div>
+            <div className="flex flex-col items-center gap-2">
+              <div className="h-8 w-auto flex items-center justify-center font-black text-xl italic tracking-tighter text-[var(--text-muted)]">
+                VISA / MC
+              </div>
+              <span className="text-[8px] font-bold uppercase tracking-[0.2em] text-[var(--text-muted)]">International</span>
+            </div>
+          </div>
 
           <div className="pt-4 flex flex-wrap items-center justify-center gap-2">
             {[
-              { id: 'all', label: 'All Delivery Channels'},
-              { id: 'mobile', label: 'WhatsApp Mobile (Data Saver)'},
-              { id: 'self-paced', label: 'On-Demand Video Platform'},
-              { id: 'virtual-live', label: 'Zoom & Meet Live Cohorts'},
-              { id: 'in-person', label: 'Workshops & On-Site (In-Person)'}
+              { id: 'all', label: t('pricing.tabs.all')},
+              { id: 'mobile', label: t('pricing.tabs.mobile')},
+              { id: 'self-paced', label: t('pricing.tabs.selfPaced')},
+              { id: 'virtual-live', label: t('pricing.tabs.virtualLive')},
+              { id: 'in-person', label: t('pricing.tabs.inPerson')}
             ].map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setActiveChannelFilter(tab.id as any)}
                 className={`px-3.5 py-2 rounded-full text-[10px] font-bold uppercase tracking-[0.18em] transition-all border ${
                   activeChannelFilter === tab.id
-                    ? 'bg-[#ff3b30] border-[#ff3b30] text-white shadow-[0_12px_30px_rgba(255,59,48,0.28)]'
-                    : theme === 'dark'
-                    ? 'bg-white/5 text-neutral-300 hover:text-white border-white/10'
-                    : 'bg-white text-neutral-800 hover:text-neutral-900 border-neutral-200'
+                    ? 'bg-[var(--accent-red)] border-[var(--accent-red)] text-white shadow-[0_12px_30px_rgba(255,59,48,0.28)]'
+                    : 'bg-[var(--bg-secondary)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border-[var(--border-color)]'
                 }`}
               >
                 {tab.label}
@@ -120,40 +139,34 @@ export const PricingSection: React.FC<PricingSectionProps> = ({
             ))}
           </div>
 
-          <div className={`pt-2 inline-flex items-center p-1 rounded-full border shadow-sm ${
-            theme === 'dark' ? 'border-white/10 bg-white/5' : 'border-neutral-200 bg-white/80'
-          }`}>
+          <div className="pt-2 inline-flex items-center p-1 rounded-full border shadow-sm border-[var(--border-color)] bg-[var(--bg-secondary)]">
             {(['TSH', 'KES', 'USD'] as const).map((curr) => (
               <button
                 key={curr}
                 onClick={() => setCurrency(curr)}
                 className={`px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-[0.18em] transition-all ${
                   currency === curr 
-                    ? 'bg-[#ff3b30] text-white shadow-[0_10px_24px_rgba(255,59,48,0.3)]' 
-                    : theme === 'dark' ? 'text-neutral-400 hover:text-white' : 'text-neutral-800 hover:text-neutral-900'
+                    ? 'bg-[var(--accent-red)] text-white shadow-[0_10px_24px_rgba(255,59,48,0.3)]'
+                    : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
                 }`}
               >
-                {curr === 'TSH' ? 'TZS (Tsh)' : curr === 'KES' ? 'KES (KSh)' : 'USD ($)'}
+                {curr === 'TSH' ? t('pricing.currency.tsh') : curr === 'KES' ? t('pricing.currency.kes') : t('pricing.currency.usd')}
               </button>
             ))}
           </div>
 
-          <div className={`grid sm:grid-cols-3 gap-3 max-w-4xl mx-auto pt-3 text-left ${
-            theme === 'dark' ? 'text-neutral-300' : 'text-neutral-700'
-          }`}>
+          <div className="grid sm:grid-cols-3 gap-3 max-w-4xl mx-auto pt-3 text-left text-[var(--text-secondary)]">
             {[
-              { title: 'Choose your access level', text: 'From mobile-first learning to live instructor access.'},
-              { title: 'Plan with confidence', text: 'Prices are guidance; we confirm schedule and details before enrollment.'},
-              { title: 'Get a human recommendation', text: 'Send an inquiry and we will recommend the best fit.'}
+              { title: t('pricing.guidance.access.title'), text: t('pricing.guidance.access.text')},
+              { title: t('pricing.guidance.confidence.title'), text: t('pricing.guidance.confidence.text')},
+              { title: t('pricing.guidance.human.title'), text: t('pricing.guidance.human.text')}
             ].map((item) => (
-              <div key={item.title} className={`rounded-2xl border p-4 ${
-                theme === 'dark' ? 'border-white/10 bg-white/[0.03]' : 'border-neutral-200 bg-white/70'
-              }`}>
-                <div className="mb-1 flex items-center gap-2 text-[11px] font-black uppercase tracking-[0.12em] text-[#ff3b30]">
+              <div key={item.title} className="rounded-2xl border p-4 border-[var(--border-color)] bg-[var(--bg-card)]">
+                <div className="mb-1 flex items-center gap-2 text-[11px] font-black uppercase tracking-[0.12em] text-[var(--accent-red-strong)]">
                   <CheckCircle2 className="h-3.5 w-3.5" />
                   <span>{item.title}</span>
                 </div>
-                <p className={`text-xs leading-relaxed ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-800'}`}>{item.text}</p>
+                <p className="text-xs leading-relaxed text-[var(--text-muted)]">{item.text}</p>
               </div>
             ))}
           </div>
@@ -171,81 +184,85 @@ export const PricingSection: React.FC<PricingSectionProps> = ({
           {filteredPlans.map((plan) => {
             const isPopular = plan.popular;
             const membershipLabel = plan.deliveryType === 'mobile-first'
-              ? ('Mobile starter')
+              ? t('pricing.labels.mobileStarter')
               : plan.deliveryType === 'self-paced'
-              ? ('Self-paced access')
+              ? t('pricing.labels.selfPaced')
               : plan.deliveryType === 'virtual-live'
-              ? ('Live cohort access')
+              ? t('pricing.labels.liveCohort')
               : plan.deliveryType === 'keynote'
-              ? ('Events and leadership')
-              : ('Teams and organizations');
+              ? t('pricing.labels.events')
+              : t('pricing.labels.teams');
+
+            const planKey = plan.id.split('-')[0]; // Simple mapping logic
+            const localizedName = t(`pricing.plans.${planKey}.name`, { defaultValue: plan.name });
+            const localizedTagline = t(`pricing.plans.${planKey}.tagline`, { defaultValue: plan.tagline });
+            const localizedBadge = t(`pricing.plans.${planKey}.badge`, { defaultValue: plan.badge });
+            const localizedCta = t(`pricing.plans.${planKey}.cta`, { defaultValue: plan.ctaText });
+            const localizedHighlight = t(`pricing.plans.${planKey}.highlight`, { defaultValue: plan.highlightNote });
+
+            // Map billing periods
+            let localizedBilling = plan.billingPeriod;
+            if (plan.billingPeriod.includes('month')) localizedBilling = t('pricing.labels.perMonth');
+            else if (plan.billingPeriod.includes('year')) localizedBilling = t('pricing.labels.perYear');
+            else if (plan.billingPeriod.includes('workshop')) localizedBilling = t('pricing.labels.perWorkshop');
+            else if (plan.billingPeriod.includes('corporate')) localizedBilling = t('pricing.labels.perCohort');
+            else if (plan.billingPeriod.includes('keynote')) localizedBilling = t('pricing.labels.perKeynote');
+
             return (
               <div
                 key={plan.id}
-                className={`group relative min-w-0 overflow-hidden rounded-[2rem] border p-6 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 ${
+                className={`group relative min-w-0 overflow-hidden rounded-[2rem] border p-6 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 glass-card ${
                   isPopular 
-                    ? theme === 'dark'
-                      ? 'bg-[#111111] border-[#ff3b30]/60 shadow-[0_26px_80px_rgba(255,59,48,0.16)] lg:-translate-y-1'
-                      : 'bg-white border-[#ff3b30]/40 shadow-[0_22px_60px_rgba(255,59,48,0.12)] lg:-translate-y-1'
-                    : theme === 'dark'
-                    ? 'bg-[#111111] border-white/10 hover:border-white/20'
-                    : 'bg-white border-neutral-200 hover:border-neutral-300'
+                    ? 'border-[var(--accent-red-safe)]/60 shadow-[0_26px_80px_rgba(255,59,48,0.16)] lg:-translate-y-1'
+                    : 'border-[var(--border-color)] hover:border-[var(--border-color)]'
                 }`}
               >
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,59,48,0.10),transparent_35%)]" />
                 <div className="relative z-10 space-y-5">
-                  {plan.badge && (
-                    <div className="inline-flex items-center rounded-full bg-[#ff3b30] px-2.5 py-1 text-[9px] font-black uppercase tracking-[0.18em] text-white shadow-[0_10px_25px_rgba(255,59,48,0.3)]">
-                      {plan.badge}
+                  {localizedBadge && (
+                    <div className="inline-flex items-center rounded-full bg-[var(--accent-red)] px-2.5 py-1 text-[9px] font-black uppercase tracking-[0.18em] text-white shadow-[0_10px_25px_rgba(255,59,48,0.3)]">
+                      {localizedBadge}
                     </div>
                   )}
 
                   <div className="flex min-w-0 items-start justify-between gap-2">
-                    <div className={`inline-flex min-w-0 items-center gap-1.5 rounded-full border px-2.5 py-1.5 text-[10px] font-bold uppercase tracking-[0.18em] ${
-                      theme === 'dark' ? 'border-white/10 bg-white/5 text-neutral-300' : 'border-neutral-200 bg-neutral-50 text-neutral-700'
-                    }`}>
+                    <div className="inline-flex min-w-0 items-center gap-1.5 rounded-full border px-2.5 py-1.5 text-[10px] font-bold uppercase tracking-[0.18em] border-[var(--border-color)] bg-[var(--bg-secondary)] text-[var(--text-secondary)]">
                       {getChannelIcon(plan.deliveryType)}
                       <span className="min-w-0 break-words">{plan.deliveryChannel}</span>
                     </div>
                   </div>
 
                   <div className="space-y-2">
-                    <div className={`text-[10px] font-bold uppercase tracking-[0.16em] ${theme === 'dark' ? 'text-neutral-500' : 'text-neutral-700'}`}>
+                    <div className="text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--text-muted)]">
                       {membershipLabel}
                     </div>
-                    <h3 className={`text-xl font-black tracking-[-0.05em] ${theme === 'dark' ? 'text-white' : 'text-neutral-900'}`}>{plan.name}</h3>
-                    <p className={`text-xs leading-relaxed ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-800'}`}>{plan.tagline}</p>
+                    <h3 className="text-xl font-black tracking-[-0.05em] text-[var(--text-primary)]">{localizedName}</h3>
+                    <p className="text-xs leading-relaxed text-[var(--text-secondary)]">{localizedTagline}</p>
                   </div>
 
-                  <div className={`pb-4 border-b ${theme === 'dark' ? 'border-white/10' : 'border-neutral-200'}`}>
-                    <div className={`text-3xl font-black tracking-[-0.06em] ${theme === 'dark' ? 'text-white' : 'text-neutral-950'}`}>
+                  <div className="pb-4 border-b border-[var(--border-color)]">
+                    <div className="text-3xl font-black tracking-[-0.06em] text-[var(--text-primary)]">
                       {formatPrice(plan)}
                     </div>
-                    <div className={`mt-1 text-[10px] font-bold uppercase tracking-[0.18em] ${theme === 'dark' ? 'text-neutral-500' : 'text-neutral-700'}`}>
-                      {plan.billingPeriod}
+                    <div className="mt-1 text-[10px] font-bold uppercase tracking-[0.18em] text-[var(--text-muted)]">
+                      {localizedBilling}
                     </div>
 
                     {plan.bandwidthRequirement && (
-                      <div className={`mt-2 flex min-w-0 items-start gap-1.5 text-[10px] font-semibold ${
-                        theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'
-                      }`}>
-                        <Wifi className="w-3 h-3 text-[#ff3b30]" />
-                        <span className="min-w-0 break-words">Bandwidth: {plan.bandwidthRequirement}</span>
+                      <div className="mt-2 flex min-w-0 items-start gap-1.5 text-[10px] font-semibold text-[var(--text-muted)]">
+                        <Wifi className="w-3 h-3 text-[var(--accent-red-strong)]" />
+                        <span className="min-w-0 break-words">{t('pricing.labels.bandwidth', { value: plan.bandwidthRequirement })}</span>
                       </div>
                     )}
                   </div>
 
                   <div className="space-y-3">
-                    <span className={`text-[10px] font-bold uppercase tracking-[0.18em] ${
-                      theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'
-                    }`}>
-                      Included in this Delivery Option:
+                    <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-[var(--text-muted)]">
+                      {t('pricing.labels.included')}
                     </span>
                     {plan.features.map((feat, idx) => (
-                      <div key={idx} className={`flex items-start gap-2 text-sm ${
-                        theme === 'dark' ? 'text-neutral-300' : 'text-neutral-700'
-                      }`}>
-                        <CheckCircle2 className="w-4 h-4 text-[#ff3b30] shrink-0 mt-0.5" />
+                      <div key={idx} className="flex items-start gap-2 text-sm text-[var(--text-secondary)]">
+                        <CheckCircle2 className="w-4 h-4 text-[var(--accent-red-strong)] shrink-0 mt-0.5" />
                         <span className="leading-snug">{feat}</span>
                       </div>
                     ))}
@@ -253,8 +270,8 @@ export const PricingSection: React.FC<PricingSectionProps> = ({
                     {plan.notIncluded && plan.notIncluded.length > 0 && (
                       <div className="pt-2 space-y-2">
                         {plan.notIncluded.map((notFeat, nIdx) => (
-                          <div key={nIdx} className="flex items-start gap-2 text-sm text-neutral-400 line-through">
-                            <X className="w-4 h-4 text-neutral-400 shrink-0 mt-0.5" />
+                          <div key={nIdx} className="flex items-start gap-2 text-sm text-[var(--text-muted)] line-through">
+                            <X className="w-4 h-4 text-[var(--text-muted)] shrink-0 mt-0.5" />
                             <span className="leading-snug">{notFeat}</span>
                           </div>
                         ))}
@@ -263,21 +280,19 @@ export const PricingSection: React.FC<PricingSectionProps> = ({
                   </div>
                 </div>
 
-                <div className={`relative z-10 pt-6 mt-6 border-t ${theme === 'dark' ? 'border-white/10' : 'border-neutral-200'}`}>
+                <div className="relative z-10 pt-6 mt-6 border-t border-[var(--border-color)]">
                   <button
                     onClick={() => openBookingModal({ 
-                      program: `Plan: ${plan.name} (${formatPrice(plan)})`,
+                      program: `Plan: ${localizedName} (${formatPrice(plan)})`,
                       format: plan.deliveryChannel
                     })}
                     className={`w-full py-3.5 px-4 rounded-full text-[10px] font-black uppercase tracking-[0.18em] transition-all flex items-center justify-center gap-2 ${
                       isPopular
-                        ? 'bg-[#ff3b30] hover:bg-[#ff564d] text-white shadow-[0_14px_30px_rgba(255,59,48,0.35)]'
-                        : theme === 'dark'
-                        ? 'bg-white/5 hover:bg-white/10 transition-colors duration-200 text-neutral-200 border border-white/10'
-                        : 'bg-neutral-100 hover:bg-neutral-200 transition-colors duration-200 text-neutral-800 border border-neutral-200'
+                        ? 'bg-[var(--accent-red)] hover:bg-[var(--accent-red-hover)] text-white shadow-[0_14px_30px_rgba(255,59,48,0.35)]'
+                        : 'bg-[var(--bg-secondary)] hover:bg-[var(--bg-elevated)] transition-colors duration-200 text-[var(--text-primary)] border border-[var(--border-color)]'
                     }`}
                   >
-                    <span>{plan.ctaText}</span>
+                    <span>{localizedCta}</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </button>
                 </div>

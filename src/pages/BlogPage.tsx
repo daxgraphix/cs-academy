@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { SEO } from '../components/SEO';
 import { blogPostsData } from '../data/blog';
 import { BlogPost } from '../types';
 import { useApp } from '../context/AppContext';
@@ -19,7 +20,7 @@ interface BlogPageProps {
 export const BlogPage: React.FC<BlogPageProps> = ({
   openBlogArticleModal
 }) => {
-  const { theme } = useApp();
+  const { theme, t, language } = useApp();
   const [selectedCategory, setSelectedCategory] = useState<string>('ALL');
   const [search, setSearch] = useState<string>('');
 
@@ -27,54 +28,47 @@ export const BlogPage: React.FC<BlogPageProps> = ({
 
   const filtered = blogPostsData.filter(post => {
     const matchCat = selectedCategory === 'ALL' || post.category === selectedCategory;
-    const matchSearch = search === '' || 
-      post.title.toLowerCase().includes(search.toLowerCase()) || 
-      post.excerpt.toLowerCase().includes(search.toLowerCase()) ||
+    const title = language === 'sw' && post.title_sw ? post.title_sw : post.title;
+    const excerpt = language === 'sw' && post.excerpt_sw ? post.excerpt_sw : post.excerpt;
+
+    const matchSearch = search === '' ||
+      title.toLowerCase().includes(search.toLowerCase()) ||
+      excerpt.toLowerCase().includes(search.toLowerCase()) ||
       post.tags.some(t => t.toLowerCase().includes(search.toLowerCase()));
     return matchCat && matchSearch;
   });
 
   return (
-    <div className={`pt-28 pb-20 min-h-screen transition-colors duration-300 ${
-      theme === 'dark' ? 'bg-[#0B0B0B] text-white' : 'bg-white text-neutral-900'
-    }`}>
+    <div className="pt-28 pb-20 min-h-screen transition-colors duration-300 bg-[var(--bg-primary)] text-[var(--text-primary)]">
+      <SEO
+        title={t('blog.seo.title', 'Blog & Insights')}
+        description={t('blog.seo.description', 'Thought leadership, practical tutorials, and ethical considerations surrounding AI and cybersecurity in Africa.')}
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4 pt-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-red-950/40 border border-red-800/40 text-[#DC2626] text-xs font-mono font-bold uppercase tracking-wider">
-            <span>Essays, Insights & Practical Analysis</span>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[var(--accent-red-subtle)] border border-[var(--accent-red-strong)]/20 text-[var(--accent-red-strong)] text-xs font-mono font-bold uppercase tracking-wider">
+            <span>{t('blog.hero.badge', 'Essays, Insights & Practical Analysis')}</span>
           </div>
-          <h1 className={`text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight ${
-            theme === 'dark' ? 'text-white' : 'text-neutral-950'
-          }`}>
-            CS ACADEMY <span className="text-[#DC2626]">BLOG</span>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[var(--text-primary)]">
+            {t('blog.hero.title', 'CS ACADEMY BLOG').split(' BLOG')[0]} <span className="text-[var(--accent-red-safe)]">BLOG</span>
           </h1>
-          <p className={`text-base sm:text-lg leading-relaxed ${
-            theme === 'dark' ? 'text-neutral-300' : 'text-neutral-800'
-          }`}>
-            Thought leadership, practical tutorials, and ethical considerations surrounding artificial intelligence and cybersecurity in Africa.
+          <p className="text-base sm:text-lg leading-relaxed text-[var(--text-secondary)]">
+            {t('blog.subtitle')}
           </p>
         </div>
 
         {/* Search and Filter */}
-        <div className={`flex flex-col md:flex-row gap-4 items-center justify-between p-4 rounded-2xl border ${
-          theme === 'dark' ? 'bg-[#171717] border-neutral-800' : 'bg-neutral-50 border-neutral-300 shadow-sm'
-        }`}>
+        <div className="flex flex-col md:flex-row gap-4 items-center justify-between p-4 rounded-[2rem] glass-card border-[var(--border-color)]">
           <div className="relative w-full md:w-80">
-            <Search className={`w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 ${
-              theme === 'dark' ? 'text-neutral-500' : 'text-neutral-700'
-            }`} />
+            <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-[var(--text-muted)]" />
             <input
               type="text"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              placeholder={'Search articles, topics...'}
-              className={`w-full pl-10 pr-4 py-2.5 rounded-xl text-xs focus:outline-none focus:border-[#DC2626] border ${
-                theme === 'dark'
-                  ? 'bg-[#0B0B0B] border-neutral-800 text-white placeholder-neutral-500'
-                  : 'bg-white border-neutral-300 text-neutral-900 placeholder-neutral-500 shadow-sm'
-              }`}
+              placeholder={t('blog.searchPlaceholder', 'Search articles, topics...')}
+              className="w-full pl-10 pr-4 py-2.5 rounded-xl text-xs focus:outline-none focus:border-[var(--accent-red)] border border-[var(--border-color)] bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder-[var(--text-muted)]"
             />
           </div>
 
@@ -84,15 +78,13 @@ export const BlogPage: React.FC<BlogPageProps> = ({
               <button
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
-                className={`px-3 py-1.5 rounded-xl text-xs font-bold uppercase tracking-wider whitespace-nowrap transition-all ${
+                className={`px-3 py-1.5 rounded-xl text-xs font-bold uppercase tracking-wider whitespace-nowrap transition-all border ${
                   selectedCategory === cat 
-                    ? 'bg-[#B91C1C] text-white shadow-sm' 
-                    : theme === 'dark'
-                    ? 'text-neutral-400 hover:text-white bg-[#0B0B0B] border border-neutral-800'
-                    : 'text-neutral-800 hover:text-neutral-950 bg-white border border-neutral-300'
+                    ? 'bg-[var(--accent-red-strong)] text-white border-[var(--accent-red-strong)] shadow-sm'
+                    : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] bg-[var(--bg-primary)] border-[var(--border-color)]'
                 }`}
               >
-                {cat === 'ALL' ? ('ALL') : cat}
+                {t(`blog.categories.${cat}`, cat)}
               </button>
             ))}
           </div>
@@ -100,83 +92,72 @@ export const BlogPage: React.FC<BlogPageProps> = ({
 
         {/* Articles Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filtered.map((post) => (
-            <article
-              key={post.id}
-              onClick={() => openBlogArticleModal(post)}
-              className={`border rounded-3xl p-6 flex flex-col justify-between cursor-pointer transition-all duration-200 hover:-translate-y-1 shadow-sm group ${
-                theme === 'dark'
-                  ? 'bg-[#171717] border-neutral-800 hover:border-neutral-700'
-                  : 'bg-neutral-50 border-neutral-300 hover:border-red-400 hover:shadow-lg'
-              }`}
-            >
-              <div className="space-y-4">
-                <div className="flex items-center justify-between text-xs">
-                  <span className={`font-mono text-[10px] font-bold px-2.5 py-0.5 rounded border ${
-                    theme === 'dark' ? 'text-[#DC2626] bg-red-950/60 border-red-900/40' : 'text-[#DC2626] bg-red-50 border-red-200'
-                  }`}>
-                    {post.category}
-                  </span>
-                  <div className={`flex items-center gap-1.5 font-mono text-[11px] ${
-                    theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'
-                  }`}>
-                    <Clock className="w-3.5 h-3.5" />
-                    <span>{post.readingTime}</span>
-                  </div>
-                </div>
+          {filtered.map((post) => {
+            const displayTitle = language === 'sw' && post.title_sw ? post.title_sw : post.title;
+            const displayExcerpt = language === 'sw' && post.excerpt_sw ? post.excerpt_sw : post.excerpt;
 
-                <div>
-                  <h3 className={`text-xl font-bold tracking-tight group-hover:text-[#DC2626] transition-colors leading-snug ${
-                    theme === 'dark' ? 'text-white' : 'text-neutral-900'
-                  }`}>
-                    {post.title}
-                  </h3>
-                  <p className={`text-xs mt-2 line-clamp-3 leading-relaxed ${
-                    theme === 'dark' ? 'text-neutral-300' : 'text-neutral-800'
-                  }`}>
-                    {post.excerpt}
-                  </p>
-                </div>
-
-                <div className="flex flex-wrap gap-1.5 pt-2">
-                  {post.tags.map((t, idx) => (
-                    <span key={idx} className={`text-[10px] font-mono px-2 py-0.5 rounded border ${
-                      theme === 'dark' ? 'bg-[#0B0B0B] text-neutral-400 border-neutral-800' : 'bg-white text-neutral-800 border-neutral-300'
-                    }`}>
-                      #{t}
+            return (
+              <article
+                key={post.id}
+                onClick={() => openBlogArticleModal(post)}
+                className="rounded-[2rem] p-6 flex flex-col justify-between cursor-pointer transition-all duration-200 hover:-translate-y-1 shadow-sm group glass-card border-[var(--border-color)] hover:border-[var(--accent-red-strong)]/30"
+              >
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between text-xs">
+                    <span className="font-mono text-[10px] font-bold px-2.5 py-0.5 rounded border text-[var(--accent-red-strong)] bg-[var(--accent-red-subtle)] border-[var(--accent-red-strong)]/20">
+                      {t(`blog.categories.${post.category}`, post.category)}
                     </span>
-                  ))}
-                </div>
-              </div>
-
-              <div className={`pt-4 mt-4 border-t flex flex-col gap-3 ${
-                theme === 'dark' ? 'border-neutral-800 text-neutral-400' : 'border-neutral-300 text-neutral-800'
-              }`}>
-                <div className="flex items-center justify-between text-xs">
-                  <div className="flex items-center gap-2">
-                    <User className="w-4 h-4 text-[#DC2626]" />
-                    <span className="font-semibold">{post.author}</span>
+                    <div className="flex items-center gap-1.5 font-mono text-[11px] text-[var(--text-muted)]">
+                      <Clock className="w-3.5 h-3.5" />
+                      <span>{post.readingTime}</span>
+                    </div>
                   </div>
-                  <div className="flex items-center gap-1 font-bold text-[#DC2626] group-hover:translate-x-1 transition-transform">
-                    <span>Read Article</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
+
+                  <div>
+                    <h3 className="text-xl font-bold tracking-tight group-hover:text-[var(--accent-red-strong)] transition-colors leading-snug text-[var(--text-primary)]">
+                      {displayTitle}
+                    </h3>
+                    <p className="text-xs mt-2 line-clamp-3 leading-relaxed text-[var(--text-secondary)]">
+                      {displayExcerpt}
+                    </p>
+                  </div>
+
+                  <div className="flex flex-wrap gap-1.5 pt-2">
+                    {post.tags.map((t, idx) => (
+                      <span key={idx} className="text-[10px] font-mono px-2 py-0.5 rounded border bg-[var(--bg-primary)] text-[var(--text-muted)] border-[var(--border-color)]">
+                        #{t}
+                      </span>
+                    ))}
                   </div>
                 </div>
 
-                {/* Social Share Buttons */}
-                <div className="pt-2 border-t border-dashed border-neutral-800/40 dark:border-neutral-800/80 flex items-center justify-between">
-                  <ShareButtons
-                    title={post.title}
-                    description={post.excerpt}
-                    variant="compact"
-                  />
+                <div className="pt-4 mt-4 border-t flex flex-col gap-3 border-[var(--border-color)] text-[var(--text-secondary)]">
+                  <div className="flex items-center justify-between text-xs">
+                    <div className="flex items-center gap-2">
+                      <User className="w-4 h-4 text-[var(--accent-red-strong)]" />
+                      <span className="font-semibold">{post.author}</span>
+                    </div>
+                    <div className="flex items-center gap-1 font-bold text-[var(--accent-red-strong)] group-hover:translate-x-1 transition-transform">
+                      <span>{t('blog.readArticle')}</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </div>
+                  </div>
+
+                  {/* Social Share Buttons */}
+                  <div className="pt-2 border-t border-dashed border-[var(--border-color)] flex items-center justify-between">
+                    <ShareButtons
+                      title={displayTitle}
+                      description={displayExcerpt}
+                      variant="compact"
+                    />
+                  </div>
                 </div>
-              </div>
-            </article>
-          ))}
+              </article>
+            );
+          })}
         </div>
-
       </div>
     </div>
+
   );
 };

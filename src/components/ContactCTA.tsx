@@ -31,43 +31,31 @@ export const ContactCTA: React.FC<ContactCTAProps> = ({
   return (
     <section 
       id="contact-section" 
-      className={`py-24 border-t transition-colors duration-300 relative overflow-hidden ${
-        theme === 'dark' ? 'bg-[#0B0B0B] text-white border-neutral-800' : 'bg-neutral-50 text-neutral-900 border-neutral-200'
-      }`}
+      className="py-24 border-t transition-colors duration-300 relative overflow-hidden bg-[var(--bg-primary)] text-[var(--text-primary)] border-[var(--border-color)]"
     >
       {/* Glow */}
-      <div className={`absolute bottom-0 right-1/4 w-[500px] h-[500px] rounded-full blur-[140px] pointer-events-none -z-10 ${
-        theme === 'dark' ? 'bg-red-950/20' : 'bg-red-200/40'
-      }`}></div>
+      <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] rounded-full blur-[140px] pointer-events-none -z-10 bg-[var(--accent-red-subtle)] opacity-50"></div>
 
       <div ref={contentRef} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
         
         {/* Main CTA Box */}
-        <div className={`border rounded-[2rem] p-8 sm:p-14 shadow-2xl relative overflow-hidden site-panel ${
-          theme === 'dark' ? 'bg-[#171717] border-neutral-800' : 'bg-white border-neutral-200 shadow-neutral-200'
-        }`}>
+        <div className="border rounded-[2rem] p-8 sm:p-14 shadow-2xl relative overflow-hidden site-panel glass-card bg-[var(--bg-card)] border-[var(--border-color)] shadow-[var(--border-color)]/20">
           
           <div className="grid lg:grid-cols-12 gap-10 items-center">
             
             {/* Left Content (7 cols) */}
             <div className="lg:col-span-7 space-y-6">
-              <div className={`inline-flex items-center gap-2 px-3.5 py-1 rounded-full border text-xs font-mono font-bold uppercase tracking-wider ${
-                theme === 'dark' ? 'bg-red-950/60 border-red-900/60 text-[#DC2626]' : 'bg-red-50 border-red-200 text-[#DC2626]'
-              }`}>
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border text-xs font-mono font-bold uppercase tracking-wider bg-[var(--accent-red-subtle)] border-[var(--accent-red-safe)]/20 text-[var(--accent-red-strong)]">
                 <span>Direct Lead & Training Inquiries</span>
               </div>
 
-              <h2 className={`text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight ${
-                theme === 'dark' ? 'text-white' : 'text-neutral-950'
-              }`}>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight text-[var(--text-primary)]">
                 {(
-                  <>START YOUR <span className="text-[#DC2626]">DIGITAL JOURNEY</span></>
+                  <>START YOUR <span className="text-[var(--accent-red-strong)]">DIGITAL JOURNEY</span></>
                 )}
               </h2>
 
-              <p className={`text-base sm:text-lg leading-relaxed ${
-                theme === 'dark' ? 'text-neutral-300' : 'text-neutral-800'
-              }`}>
+              <p className="text-base sm:text-lg leading-relaxed text-[var(--text-secondary)]">
                 Tell us what you want to learn or the training your organization needs. Whether you need a 2-hour executive seminar or a workforce AI bootcamp, our team is ready to assist.
               </p>
 
@@ -75,22 +63,16 @@ export const ContactCTA: React.FC<ContactCTAProps> = ({
               <div className="grid sm:grid-cols-2 gap-3 pt-2">
                 <a
                   href={`mailto:${siteConfig.email}`}
-                  className={`p-4 rounded-2xl border transition-colors flex items-center gap-3 group ${
-                    theme === 'dark'
-                      ? 'bg-[#0B0B0B] border-neutral-800 hover:border-neutral-700'
-                      : 'bg-neutral-50 border-neutral-200 hover:border-neutral-300'
-                  }`}
+                  className="p-4 rounded-2xl border transition-colors flex items-center gap-3 group bg-[var(--bg-secondary)] border-[var(--border-color)] hover:border-[var(--accent-red-safe)]/50"
                 >
-                  <div className="w-9 h-9 rounded-xl bg-red-950/40 border border-red-900/40 flex items-center justify-center text-[#DC2626] shrink-0">
+                  <div className="w-9 h-9 rounded-xl bg-[var(--accent-red-subtle)] border border-[var(--accent-red-safe)]/20 flex items-center justify-center text-[var(--accent-red-strong)] shrink-0">
                     <Mail className="w-4 h-4" />
                   </div>
                   <div className="truncate">
-                    <div className={`text-[10px] font-mono uppercase ${theme === 'dark' ? 'text-neutral-500' : 'text-neutral-700'}`}>
+                    <div className="text-[10px] font-mono uppercase text-[var(--text-muted)]">
                       Direct Email
                     </div>
-                    <div className={`text-xs font-bold truncate group-hover:text-[#DC2626] transition-colors ${
-                      theme === 'dark' ? 'text-neutral-200' : 'text-neutral-800'
-                    }`}>{siteConfig.email}</div>
+                    <div className="text-xs font-bold truncate group-hover:text-[var(--accent-red-strong)] transition-colors text-[var(--text-secondary)]">{siteConfig.email}</div>
                   </div>
                 </a>
 
@@ -98,39 +80,31 @@ export const ContactCTA: React.FC<ContactCTAProps> = ({
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`p-4 rounded-2xl border transition-colors flex items-center gap-3 group ${
-                    theme === 'dark'
-                      ? 'bg-[#0B0B0B] border-neutral-800 hover:border-neutral-700'
-                      : 'bg-neutral-50 border-neutral-200 hover:border-neutral-300'
-                  }`}
+                  className="p-4 rounded-2xl border transition-colors flex items-center gap-3 group bg-[var(--bg-secondary)] border-[var(--border-color)] hover:border-[var(--success-safe)]/50"
                 >
-                  <div className="w-9 h-9 rounded-xl bg-emerald-950/40 border border-emerald-900/40 flex items-center justify-center text-emerald-500 shrink-0">
+                  <div className="w-9 h-9 rounded-xl bg-[var(--success-subtle)] border border-[var(--success-safe)]/20 flex items-center justify-center text-[var(--success-strong)] shrink-0">
                     <MessageCircle className="w-4 h-4" />
                   </div>
                   <div className="truncate">
-                    <div className={`text-[10px] font-mono uppercase ${theme === 'dark' ? 'text-neutral-500' : 'text-neutral-700'}`}>
+                    <div className="text-[10px] font-mono uppercase text-[var(--text-muted)]">
                       WhatsApp Inquiries
                     </div>
-                    <div className={`text-xs font-bold truncate group-hover:text-emerald-500 transition-colors ${
-                      theme === 'dark' ? 'text-neutral-200' : 'text-neutral-800'
-                    }`}>{siteConfig.whatsappDisplay}</div>
+                    <div className="text-xs font-bold truncate group-hover:text-[var(--success-strong)] transition-colors text-[var(--text-secondary)]">{siteConfig.whatsappDisplay}</div>
                   </div>
                 </a>
               </div>
             </div>
 
             {/* Right Action Trigger Box (5 cols) */}
-            <div className={`lg:col-span-5 border rounded-[1.75rem] p-6 sm:p-8 space-y-4 shadow-xl ${
-              theme === 'dark' ? 'bg-[#0B0B0B] border-neutral-800' : 'bg-neutral-50 border-neutral-200'
-            }`}>
+            <div className="lg:col-span-5 border rounded-[1.75rem] p-6 sm:p-8 space-y-4 shadow-xl bg-[var(--bg-secondary)] border-[var(--border-color)]">
               <div className="space-y-1">
-                <span className="text-xs font-mono font-bold text-[#DC2626] uppercase">
+                <span className="text-xs font-mono font-bold text-[var(--accent-red-strong)] uppercase">
                   Instant Interactive Booking
                 </span>
-                <h3 className={`text-xl font-extrabold ${theme === 'dark' ? 'text-white' : 'text-neutral-900'}`}>
+                <h3 className="text-xl font-extrabold text-[var(--text-primary)]">
                   How would you like to connect?
                 </h3>
-                <p className={`text-xs ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-800'}`}>
+                <p className="text-xs text-[var(--text-secondary)]">
                   Configure your training request in 60 seconds.
                 </p>
               </div>
@@ -139,7 +113,7 @@ export const ContactCTA: React.FC<ContactCTAProps> = ({
                 <button
                   id="cta-book-training-primary"
                   onClick={openBookingModal}
-                  className="w-full py-4 px-5 text-xs font-extrabold text-white bg-[#B91C1C] hover:bg-[#DC2626] active:scale-[0.99] rounded-2xl shadow-lg hover:shadow-red-900/30 uppercase tracking-wider transition-all duration-200 hover:-translate-y-0.5 flex items-center justify-center gap-2"
+                  className="w-full py-4 px-5 text-xs font-extrabold text-white bg-[var(--accent-red)] hover:bg-[var(--accent-red-hover)] active:scale-[0.99] rounded-2xl shadow-lg hover:shadow-red-900/30 uppercase tracking-wider transition-all duration-200 hover:-translate-y-0.5 flex items-center justify-center gap-2"
                 >
                   <Calendar className="w-4 h-4" />
                   <span>BOOK TRAINING NOW</span>
@@ -150,19 +124,15 @@ export const ContactCTA: React.FC<ContactCTAProps> = ({
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`w-full py-3 px-5 text-xs font-bold rounded-2xl border transition-all duration-200 hover:-translate-y-0.5 uppercase tracking-wider flex items-center justify-center gap-2 ${
-                    theme === 'dark'
-                      ? 'text-neutral-200 hover:text-white bg-[#171717] hover:bg-neutral-800 border-neutral-800'
-                      : 'text-neutral-800 hover:text-neutral-950 bg-white hover:bg-neutral-100 transition-colors duration-200 border-neutral-200'
-                  }`}
+                  className="w-full py-3 px-5 text-xs font-bold rounded-2xl border transition-all duration-200 hover:-translate-y-0.5 uppercase tracking-wider flex items-center justify-center gap-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] bg-[var(--bg-tertiary)] hover:bg-[var(--bg-elevated)] border-[var(--border-color)] transition-colors duration-200"
                 >
-                  <MessageCircle className="w-4 h-4 text-emerald-500" />
+                  <MessageCircle className="w-4 h-4 text-[var(--success-strong)]" />
                   <span>WHATSAPP US DIRECTLY</span>
                 </a>
               </div>
 
               <div className="pt-2 text-center">
-                <p className={`text-[11px] font-mono ${theme === 'dark' ? 'text-neutral-500' : 'text-neutral-700'}`}>
+                <p className="text-[11px] font-mono text-[var(--text-muted)]">
                   Tanzania  |  Kenya  |  Uganda  |  Rwanda  |  DRC
                 </p>
               </div>

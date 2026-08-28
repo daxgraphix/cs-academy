@@ -18,7 +18,7 @@ import { siteConfig } from '../config/site';
 import { Highlight } from '../utils/highlight';
 
 export const FAQSection: React.FC = () => {
-  const { theme, t } = useApp();
+  const { theme, t, language } = useApp();
   const [openIds, setOpenIds] = useState<string[]>(['how-to-access-courses', 'mobile-money-payments', 'learner-support-helpdesk']);
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [selectedCategory, setSelectedCategory] = useState<string>('ALL');
@@ -26,13 +26,13 @@ export const FAQSection: React.FC = () => {
   const contentRef = useReveal<HTMLDivElement>();
 
   const categories = [
-    { id: 'ALL', label: 'All FAQs', icon: Filter },
-    { id: 'Course Access', label: 'Course Access', icon: BookOpen },
-    { id: 'Payment & Mobile Money', label: 'Payment & Mobile Money', icon: CreditCard },
-    { id: 'Technical Support', label: 'Technical Support', icon: Headphones },
-    { id: 'Languages', label: 'Languages', icon: MessageCircle },
-    { id: 'Organizations', label: 'Organizations', icon: Users },
-    { id: 'General', label: 'Certificates & General', icon: Award },
+    { id: 'ALL', label: t('faq.categories.all', { defaultValue: 'All FAQs' }), icon: Filter },
+    { id: 'Course Access', label: t('faq.categories.courseAccess', { defaultValue: 'Course Access' }), icon: BookOpen },
+    { id: 'Payment & Mobile Money', label: t('faq.categories.payment', { defaultValue: 'Payment & Mobile Money' }), icon: CreditCard },
+    { id: 'Technical Support', label: t('faq.categories.support', { defaultValue: 'Technical Support' }), icon: Headphones },
+    { id: 'Languages', label: t('faq.categories.languages', { defaultValue: 'Languages' }), icon: MessageCircle },
+    { id: 'Organizations', label: t('faq.categories.organizations', { defaultValue: 'Organizations' }), icon: Users },
+    { id: 'General', label: t('faq.categories.general', { defaultValue: 'Certificates & General' }), icon: Award },
   ];
 
   const toggleAccordion = (id: string) => {
@@ -47,14 +47,17 @@ export const FAQSection: React.FC = () => {
   const filteredFaq = useMemo(() => {
     const q = searchQuery.trim().toLowerCase();
     return faqData.filter(item => {
-      const question = item.question.toLowerCase();
-      const answer = item.answer.toLowerCase();
+      const qText = language === 'sw' && item.question_sw ? item.question_sw : item.question;
+      const aText = language === 'sw' && item.answer_sw ? item.answer_sw : item.answer;
+
+      const question = qText.toLowerCase();
+      const answer = aText.toLowerCase();
       const category = item.category.toLowerCase();
       const matchesCat = selectedCategory === 'ALL' || item.category === selectedCategory;
       const matchesSearch = !q || question.includes(q) || answer.includes(q) || category.includes(q);
       return matchesCat && matchesSearch;
     });
-  }, [selectedCategory, searchQuery]);
+  }, [selectedCategory, searchQuery, language]);
 
   // Keyboard navigation across accordion buttons (Up/Down to move, Home/End to jump)
   const handleListKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
@@ -87,62 +90,52 @@ export const FAQSection: React.FC = () => {
   return (
     <section 
       id="faq-section" 
-      className={`relative py-24 overflow-hidden transition-colors duration-300 ${
-        theme === 'dark' ? 'bg-[#0B0B0B] text-white' : 'bg-[#FAFAFA] text-neutral-900'
-      }`}
+      className="relative py-24 overflow-hidden transition-colors duration-300 bg-[var(--bg-primary)] text-[var(--text-primary)]"
     >
-      <div className="absolute inset-x-0 top-0 h-72 bg-[radial-gradient(circle_at_top,_rgba(255,59,48,0.14),transparent_45%)]" />
+      <div className="absolute inset-x-0 top-0 h-72 bg-[radial-gradient(circle_at_top,_var(--accent-red-subtle),transparent_45%)]" />
       <div ref={contentRef} className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
         
         {/* Section Header */}
-        <div className="text-center space-y-4 mb-12">
-          <div className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border text-xs font-mono font-bold uppercase tracking-wider ${
-            theme === 'dark' ? 'bg-[#171717] border-neutral-800 text-neutral-300' : 'bg-white border-neutral-200 text-neutral-800 shadow-sm'
-          }`}>
-            <span>{t.faq.badge}</span>
+        <div className="text-center space-y-6 mb-16">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[var(--border-subtle)] bg-[var(--bg-elevated)] text-[var(--text-muted)] text-[10px] font-mono font-bold uppercase tracking-widest">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--accent-red-safe)] opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-[var(--accent-red-safe)]"></span>
+            </span>
+            <span>{t('faq.badge', { defaultValue: 'FREQUENTLY ASKED QUESTIONS' })}</span>
           </div>
-          <h2 className={`text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-[-0.05em] ${
-            theme === 'dark' ? 'text-white' : 'text-neutral-950'
-          }`}>
-            {t.faq.title}
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[var(--text-primary)]">
+            {t('faq.title', { defaultValue: 'HAVE QUESTIONS? WE HAVE ANSWERS' })}
           </h2>
-          <p className={`max-w-2xl mx-auto text-base leading-relaxed ${
-            theme === 'dark' ? 'text-neutral-400' : 'text-neutral-800'
-          }`}>
-            Direct answers regarding course access, mobile money payments (M-Pesa, Tigo Pesa, Airtel Money), technical support, and QR certification.
+          <p className="max-w-2xl mx-auto text-lg leading-relaxed text-[var(--text-secondary)]">
+            {t('faq.subtitle', { defaultValue: 'Direct answers regarding course access, mobile money payments (M-Pesa, Tigo Pesa, Airtel Money), technical support, and QR certification.' })}
           </p>
 
           {/* FAQ Search Bar */}
-          <div className="max-w-xl mx-auto pt-2 relative" role="search">
-            <Search className={`w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 ${
-              theme === 'dark' ? 'text-neutral-500' : 'text-neutral-700'
-            }`} />
+          <div className="max-w-xl mx-auto pt-4 relative" role="search">
+            <Search className="w-5 h-5 absolute left-4 top-1/2 -translate-y-1/2 text-[var(--text-muted)]" />
             <input
               id="faq-search-input"
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder={'Search questions (e.g. M-Pesa, smartphone, WhatsApp, support)...'}
-              aria-label={'Search questions'}
-              className={`w-full pl-10 pr-10 py-3 border rounded-2xl text-xs focus:outline-none focus:border-[#DC2626] transition-colors ${
-                theme === 'dark'
-                  ? 'bg-[#171717] border-neutral-800 text-white placeholder-neutral-500'
-                  : 'bg-white border-neutral-200 text-neutral-900 placeholder-neutral-500 shadow-sm'
-              }`}
+              placeholder={t('faq.search', { defaultValue: 'Search questions (e.g. M-Pesa, smartphone, WhatsApp, support)...' })}
+              aria-label={t('faq.searchLabel', { defaultValue: 'Search questions' })}
+              className="w-full pl-12 pr-12 py-4 border border-[var(--border-color)] rounded-[1.5rem] text-sm focus:outline-none focus:border-[var(--accent-red)] focus:ring-4 focus:ring-[var(--accent-red-subtle)] transition-all bg-[var(--bg-elevated)] text-[var(--text-primary)] placeholder-[var(--text-muted)]"
             />
             {searchQuery && (
               <button 
                 onClick={() => setSearchQuery('')}
-                aria-label={'Clear search'}
-                className="absolute right-3.5 top-1/2 -translate-y-1/2 text-xs font-bold text-neutral-400 hover:text-[#DC2626]"
+                aria-label={t('faq.clear', { defaultValue: 'Clear' })}
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-xs font-bold text-[var(--text-muted)] hover:text-[var(--accent-red-strong)] transition-colors"
               >
-                Clear
+                {t('faq.clear', { defaultValue: 'Clear' })}
               </button>
             )}
           </div>
 
           {/* Quick Category Filters with result counts */}
-          <div className="flex flex-nowrap items-center justify-start gap-2 pt-3 overflow-x-auto pb-1 sm:flex-wrap sm:justify-center sm:overflow-visible">
+          <div className="flex flex-nowrap items-center justify-start gap-2 pt-4 overflow-x-auto pb-2 sm:flex-wrap sm:justify-center sm:overflow-visible no-scrollbar">
             {categories.map(cat => {
               const Icon = cat.icon;
               const isSelected = selectedCategory === cat.id;
@@ -154,18 +147,16 @@ export const FAQSection: React.FC = () => {
                   key={cat.id}
                   id={`faq-category-btn-${cat.id.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
                   onClick={() => setSelectedCategory(cat.id)}
-                  className={`inline-flex shrink-0 items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all duration-200 hover:-translate-y-0.5 ${
+                  className={`inline-flex shrink-0 items-center gap-2 px-4 py-2 rounded-xl text-[11px] font-bold transition-all duration-200 hover:-translate-y-0.5 border ${
                     isSelected
-                      ? 'bg-[#B91C1C] text-white shadow-md'
-                      : theme === 'dark'
-                      ? 'bg-[#171717] text-neutral-400 hover:text-white border border-neutral-800 hover:border-neutral-700'
-                      : 'bg-white text-neutral-800 hover:text-neutral-900 border border-neutral-200 shadow-sm hover:border-neutral-300'
+                      ? 'bg-[var(--accent-red-strong)] text-white border-[var(--accent-red-strong)] shadow-lg shadow-red-500/20'
+                      : 'bg-[var(--bg-card)] text-[var(--text-muted)] hover:text-[var(--text-primary)] border-[var(--border-subtle)] hover:border-[var(--text-muted)]'
                   }`}
                 >
-                  <Icon className="w-3.5 h-3.5" />
+                  <Icon className="w-4 h-4" />
                   <span>{cat.label}</span>
-                  <span className={`ml-0.5 text-[10px] font-mono px-1.5 py-0.5 rounded-full ${
-                    isSelected ? 'bg-white/20' : theme === 'dark' ? 'bg-neutral-800 text-neutral-500' : 'bg-neutral-100 text-neutral-700'
+                  <span className={`ml-1 text-[9px] font-mono px-2 py-0.5 rounded-full ${
+                    isSelected ? 'bg-white/20' : 'bg-[var(--bg-elevated)] text-[var(--text-muted)]'
                   }`}>
                     {count}
                   </span>
@@ -175,91 +166,86 @@ export const FAQSection: React.FC = () => {
           </div>
 
           {/* Expand/Collapse and Results Counter */}
-          <div className="flex items-center justify-between gap-3 text-xs pt-2 px-1 text-neutral-400">
-            <span>
-              {`Showing ${filteredFaq.length} FAQs`}
+          <div className="flex items-center justify-between gap-3 text-[11px] pt-4 px-2 text-[var(--text-muted)]">
+            <span className="font-medium">
+              {t('faq.showingResults', { count: filteredFaq.length, defaultValue: `Showing ${filteredFaq.length} FAQs` })}
             </span>
-            {searchQuery && (
-              <button 
-                onClick={() => setSearchQuery('')}
-                className="hover:text-[#DC2626] transition-colors font-medium"
-              >
-                Clear filters
-              </button>
-            )}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-4">
               <button 
                 onClick={expandAll}
-                className="hover:text-[#DC2626] transition-colors font-medium"
+                className="hover:text-[var(--accent-red-strong)] transition-colors font-bold uppercase tracking-wider"
               >
-                Expand All
+                {t('faq.expandAll', { defaultValue: 'Expand All' })}
               </button>
-              <span> | </span>
+              <span className="opacity-20">|</span>
               <button 
                 onClick={collapseAll}
-                className="hover:text-[#DC2626] transition-colors font-medium"
+                className="hover:text-[var(--accent-red-strong)] transition-colors font-bold uppercase tracking-wider"
               >
-                Collapse All
+                {t('faq.collapseAll', { defaultValue: 'Collapse All' })}
               </button>
             </div>
           </div>
         </div>
 
         {/* Accordion List */}
-        <div className="space-y-3" ref={listRef} onKeyDown={handleListKeyDown}>
+        <div className="space-y-4" ref={listRef} onKeyDown={handleListKeyDown}>
           {filteredFaq.map((item) => {
             const isOpen = openIds.includes(item.id);
-            const question = item.question;
-            const answer = item.answer;
-            const category = item.category;
+            const question = language === 'sw' && item.question_sw ? item.question_sw : item.question;
+            const answer = language === 'sw' && item.answer_sw ? item.answer_sw : item.answer;
             return (
               <div
                 key={item.id}
                 id={`faq-item-${item.id}`}
-                className={`border rounded-2xl overflow-hidden transition-all duration-200 hover:-translate-y-0.5 shadow-sm ${
-                  theme === 'dark'
-                    ? 'bg-[#171717] border-neutral-800 hover:border-neutral-700'
-                    : 'bg-white border-neutral-200 hover:border-neutral-300'
+                className={`border rounded-[2rem] overflow-hidden transition-all duration-300 hover:-translate-y-0.5 shadow-sm group ${
+                  isOpen
+                    ? 'bg-[var(--bg-secondary)] border-[var(--accent-red-safe)]/50 glass-card'
+                    : 'bg-[var(--bg-card)] border-[var(--border-color)] hover:border-[var(--accent-red-safe)]/30'
                 }`}
               >
                 <button
                   data-faq-trigger
                   onClick={() => toggleAccordion(item.id)}
-                  className="w-full p-5 sm:p-6 text-left flex items-start sm:items-center justify-between gap-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#DC2626] rounded-2xl"
+                  className="w-full p-6 sm:p-8 text-left flex items-start sm:items-center justify-between gap-6 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-red)]"
                   aria-expanded={isOpen}
                   aria-controls={`faq-panel-${item.id}`}
                 >
-                  <div className="flex items-start sm:items-center gap-3">
-                    <div className="w-8 h-8 rounded-xl bg-red-950/30 border border-red-900/40 flex items-center justify-center text-[#DC2626] shrink-0 mt-0.5 sm:mt-0 glow-accent">
-                      <HelpCircle className="w-4 h-4" />
+                  <div className="flex items-start sm:items-center gap-5">
+                    <div className={`w-10 h-10 rounded-2xl border flex items-center justify-center shrink-0 mt-0.5 sm:mt-0 transition-all duration-300 ${
+                      isOpen
+                        ? 'bg-[var(--accent-red-strong)] border-[var(--accent-red-strong)] text-white shadow-lg shadow-[var(--accent-red-strong)]/20'
+                        : 'bg-[var(--bg-tertiary)] border-[var(--border-subtle)] text-[var(--accent-red-safe)]'
+                    }`}>
+                      <HelpCircle className="w-5 h-5" />
                     </div>
                     <div>
-                      <span className={`text-sm sm:text-base font-bold tracking-tight block ${
-                        theme === 'dark' ? 'text-white' : 'text-neutral-900'
-                      }`}>
+                      <span className="text-base sm:text-lg font-bold tracking-tight block text-[var(--text-primary)]">
                         <Highlight text={question} query={searchQuery} />
                       </span>
-                      <span className="inline-block mt-1 text-[10px] font-mono font-bold uppercase tracking-wider text-[#DC2626] px-2 py-0.5 rounded bg-red-950/20 border border-red-900/20">
-                        {category}
-                      </span>
+                      <div className="mt-2 flex items-center gap-2">
+                        <span className="inline-block text-[9px] font-mono font-black uppercase tracking-widest text-[var(--accent-red-strong)] px-2.5 py-1 rounded-lg bg-[var(--accent-red-subtle)] border border-[var(--accent-red-safe)]/10">
+                          {t(`faq.categories.${item.category.toLowerCase().replace(/ & /g, '').replace(/ /g, '')}`, item.category)}
+                        </span>
+                      </div>
                     </div>
                   </div>
-                  <ChevronDown className={`w-4 h-4 shrink-0 transition-transform duration-200 mt-1 sm:mt-0 ${
-                    isOpen ? 'rotate-180 text-[#DC2626]' : theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'
-                  }`} />
+                  <div className={`w-10 h-10 rounded-full border border-[var(--border-subtle)] flex items-center justify-center transition-all duration-300 ${
+                    isOpen ? 'bg-[var(--accent-red-strong)] border-[var(--accent-red-strong)] text-white' : 'text-[var(--text-muted)] group-hover:text-[var(--text-primary)]'
+                  }`}>
+                    <ChevronDown className={`w-5 h-5 transition-transform duration-500 ${isOpen ? 'rotate-180' : ''}`} />
+                  </div>
                 </button>
 
                 {isOpen && (
                   <div 
                     id={`faq-panel-${item.id}`}
                     role="region"
-                    className={`px-5 sm:px-6 pb-6 pt-3 text-xs sm:text-sm leading-relaxed border-t animate-[fadeIn_0.2s_ease-out] ${
-                      theme === 'dark' ? 'text-neutral-300 border-neutral-800/60' : 'text-neutral-800 border-neutral-100'
-                    }`}
+                    className="px-6 sm:px-8 pb-8 pt-2 text-sm sm:text-base leading-relaxed border-t border-[var(--border-color)] animate-[fadeIn_0.3s_ease-out] text-[var(--text-secondary)]"
                   >
-                    <p className="mt-1 pl-11 leading-7 max-w-3xl">
+                    <div className="mt-2 pl-0 sm:pl-15 max-w-3xl border-l-2 border-[var(--accent-red-safe)]/20 pl-6">
                       <Highlight text={answer} query={searchQuery} />
-                    </p>
+                    </div>
                   </div>
                 )}
               </div>
@@ -267,48 +253,51 @@ export const FAQSection: React.FC = () => {
           })}
 
           {filteredFaq.length === 0 && (
-            <div className={`text-center py-12 rounded-2xl border text-xs space-y-3 ${
-              theme === 'dark' ? 'bg-[#171717] border-neutral-800 text-neutral-400' : 'bg-white border-neutral-200 text-neutral-800'
-            }`}>
-              <p>No matching questions found for your query.</p>
+            <div className="text-center py-20 rounded-[2rem] border border-[var(--border-color)] bg-[var(--bg-elevated)] glass-card space-y-4">
+              <HelpCircle className="w-12 h-12 mx-auto text-[var(--text-muted)] opacity-20" />
+              <div className="space-y-2">
+                <p className="text-base font-bold text-[var(--text-primary)]">
+                  {t('faq.noResults', { defaultValue: 'No matching questions found.' })}
+                </p>
+                <p className="text-sm text-[var(--text-muted)]">
+                  {t('faq.noResultsSub', { defaultValue: 'Try searching for M-Pesa, Smartphone, or Certificates.' })}
+                </p>
+              </div>
               <button 
                 onClick={() => { setSearchQuery(''); setSelectedCategory('ALL'); }}
-                className="px-4 py-2 rounded-xl bg-[#DC2626] text-white text-xs font-bold shadow hover:bg-red-700 transition-colors"
+                className="btn-primary"
               >
-                Reset Search
+                {t('faq.resetSearch', { defaultValue: 'Clear All Filters' })}
               </button>
             </div>
           )}
         </div>
 
         {/* Live Support Banner */}
-        <div className={`mt-10 p-6 rounded-3xl border flex flex-col sm:flex-row items-center justify-between gap-4 ${
-          theme === 'dark' ? 'bg-[#121212] border-neutral-800' : 'bg-white border-neutral-200 shadow-sm'
-        }`}>
-          <div className="flex items-center gap-3 text-left">
-            <div className="w-10 h-10 rounded-xl bg-emerald-950/60 border border-emerald-800/60 text-emerald-400 flex items-center justify-center shrink-0">
-              <MessageCircle className="w-5 h-5" />
+        <div className="mt-16 p-8 rounded-[2.5rem] border border-[var(--border-color)] flex flex-col lg:flex-row items-center justify-between gap-8 glass-card">
+          <div className="flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left">
+            <div className="w-16 h-16 rounded-[1.5rem] bg-[var(--success-subtle)] border border-[var(--success-safe)]/20 text-[var(--success-strong)] flex items-center justify-center shrink-0">
+              <MessageCircle className="w-8 h-8" />
             </div>
-            <div>
-              <div className={`text-sm font-bold ${theme === 'dark' ? 'text-white' : 'text-neutral-900'}`}>
-                Have more questions or need direct guidance?
+            <div className="space-y-1">
+              <div className="text-xl font-bold text-[var(--text-primary)]">
+                {t('faq.support.title', { defaultValue: 'Still have questions?' })}
               </div>
-              <div className={`text-xs ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'}`}>
-                Chat directly with our learner support team on WhatsApp.
+              <div className="text-sm text-[var(--text-secondary)]">
+                {t('faq.support.subtitle', { defaultValue: 'Chat with our learner support team on WhatsApp for instant guidance.' })}
               </div>
             </div>
           </div>
           <a
-            href={`https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent('Habari CS Academy! Nina swali kuhusu kujiunga na mafunzo:')}`}
+            href={`https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(t('faq.support.waMessage', { defaultValue: 'Hello CS Academy! I have a question about joining the training:' }))}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center gap-2 transition-all duration-200 hover:-translate-y-0.5 shrink-0 shadow-lg shadow-emerald-700/20"
+            className="btn-primary bg-[var(--success-strong)] hover:bg-[var(--success-safe)] shadow-[var(--success-safe)]/20 w-full lg:w-auto"
           >
-            <MessageCircle className="w-4 h-4" />
-            <span>WhatsApp Support</span>
+            <MessageCircle className="w-5 h-5" />
+            <span>{t('faq.support.cta', { defaultValue: 'Chat with Support' })}</span>
           </a>
         </div>
-
       </div>
     </section>
   );

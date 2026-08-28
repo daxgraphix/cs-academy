@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { Theme, Currency, translations, Translations } from '../data/translations';
+import { useTranslation } from 'react-i18next';
 
 interface AppContextType {
   theme: Theme;
@@ -7,7 +8,9 @@ interface AppContextType {
   toggleTheme: () => void;
   currency: Currency;
   setCurrency: (currency: Currency) => void;
-  t: Translations;
+  language: string;
+  t: any;
+  i18n: any;
 }
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
@@ -36,7 +39,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   useEffect(() => {
     try {
       const root = document.documentElement;
-      root.lang = 'en';
+      root.lang = i18n.language || 'en';
       root.classList.add('notranslate');
       if (theme === 'dark') {
         root.classList.add('dark');
@@ -68,7 +71,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     }
   };
 
-  const t = translations;
+  const { t, i18n } = useTranslation();
 
   return (
     <AppContext.Provider
@@ -78,7 +81,9 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         toggleTheme,
         currency,
         setCurrency,
+        language: i18n.language,
         t,
+        i18n,
       }}
     >
       {children}

@@ -25,8 +25,13 @@ export const BlogArticleModal: React.FC<BlogArticleModalProps> = ({
   onClose,
   openBookingModal
 }) => {
-  const { theme } = useApp();
+  const { theme, language } = useApp();
   if (!post) return null;
+
+  const isSwahili = language === 'sw';
+  const displayTitle = isSwahili && post.title_sw ? post.title_sw : post.title;
+  const displayExcerpt = isSwahili && post.excerpt_sw ? post.excerpt_sw : post.excerpt;
+  const displayContent = isSwahili && post.content_sw ? post.content_sw : post.content;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-sm animate-in fade-in duration-200">
@@ -71,7 +76,7 @@ export const BlogArticleModal: React.FC<BlogArticleModalProps> = ({
             <h1 className={`text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight leading-tight ${
               theme === 'dark' ? 'text-white' : 'text-neutral-950'
             }`}>
-              {post.title}
+              {displayTitle}
             </h1>
             
             <div className={`flex flex-wrap items-center justify-between gap-4 text-xs pt-2 border-b pb-4 ${
@@ -86,8 +91,8 @@ export const BlogArticleModal: React.FC<BlogArticleModalProps> = ({
 
               {/* Share in Article Header */}
               <ShareButtons
-                title={post.title}
-                description={post.excerpt}
+                title={displayTitle}
+                description={displayExcerpt}
                 variant="compact"
               />
             </div>
@@ -97,12 +102,12 @@ export const BlogArticleModal: React.FC<BlogArticleModalProps> = ({
           <div className={`p-5 rounded-2xl border-l-4 border-[#DC2626] border-y border-r text-sm sm:text-base leading-relaxed italic font-medium ${
             theme === 'dark' ? 'bg-[#0B0B0B] border-neutral-800 text-neutral-200' : 'bg-red-50/50 border-neutral-200 text-neutral-800'
           }`}>
-            "{post.content.intro}"
+            "{displayContent.intro}"
           </div>
 
           {/* Sections */}
           <div className="space-y-8">
-            {post.content.sections.map((sec, idx) => (
+            {displayContent.sections.map((sec, idx) => (
               <div key={idx} className="space-y-3">
                 <h2 className={`text-lg sm:text-xl font-extrabold tracking-tight ${
                   theme === 'dark' ? 'text-white' : 'text-neutral-900'
@@ -123,7 +128,7 @@ export const BlogArticleModal: React.FC<BlogArticleModalProps> = ({
                       : 'bg-red-50 border-red-200 text-red-900'
                   }`}>
                     <Lightbulb className="w-4 h-4 text-[#DC2626] shrink-0 mt-0.5" />
-                    <span><strong>Actionable Rule:</strong> {sec.keyTip}</span>
+                    <span><strong>{isSwahili ? 'Sheria Inayoweza Kutumika:' : 'Actionable Rule:'}</strong> {sec.keyTip}</span>
                   </div>
                 )}
               </div>
@@ -135,12 +140,12 @@ export const BlogArticleModal: React.FC<BlogArticleModalProps> = ({
             theme === 'dark' ? 'bg-[#0B0B0B] border-neutral-800' : 'bg-neutral-50 border-neutral-200'
           }`}>
             <h3 className="text-sm font-bold uppercase tracking-wider text-[#DC2626]">
-              Summary & Next Steps
+              {isSwahili ? 'Muhtasari na Hatua Zinazofuata' : 'Summary & Next Steps'}
             </h3>
             <p className={`text-sm leading-relaxed ${
               theme === 'dark' ? 'text-neutral-300' : 'text-neutral-800'
             }`}>
-              {post.content.conclusion}
+              {displayContent.conclusion}
             </p>
           </div>
 
@@ -161,8 +166,8 @@ export const BlogArticleModal: React.FC<BlogArticleModalProps> = ({
               theme === 'dark' ? 'bg-[#0B0B0B] border-neutral-800' : 'bg-neutral-50 border-neutral-200'
             }`}>
               <ShareButtons
-                title={post.title}
-                description={post.excerpt}
+                title={displayTitle}
+                description={displayExcerpt}
                 variant="inline"
               />
             </div>
@@ -174,20 +179,20 @@ export const BlogArticleModal: React.FC<BlogArticleModalProps> = ({
           }`}>
             <div>
               <div className={`text-xs font-bold ${theme === 'dark' ? 'text-white' : 'text-neutral-900'}`}>
-                Want your team trained on this topic?
+                {isSwahili ? 'Unataka timu yako ipewe mafunzo kuhusu mada hii?' : 'Want your team trained on this topic?'}
               </div>
               <div className={`text-[11px] ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'}`}>
-                Request a live workshop or executive briefing.
+                {isSwahili ? 'Omba warsha ya moja kwa moja au maelezo ya watendaji.' : 'Request a live workshop or executive briefing.'}
               </div>
             </div>
             <button
               onClick={() => {
                 onClose();
-                openBookingModal({ program: `Training on ${post.category}: ${post.title}` });
+                openBookingModal({ program: `Training on ${post.category}: ${displayTitle}` });
               }}
               className="w-full sm:w-auto px-6 py-3 rounded-xl font-extrabold text-xs text-white bg-[#B91C1C] hover:bg-[#DC2626] active:scale-[0.98] uppercase tracking-wider shadow-lg transition-all"
             >
-              Book Related Training
+              {isSwahili ? 'Weka Mafunzo Yanayohusiana' : 'Book Related Training'}
             </button>
           </div>
 

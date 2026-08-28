@@ -51,7 +51,7 @@ ${(resource.previewContent || []).join('\n\n')}
 ====================================================
 ${labels.cta}
 Email: ${siteConfig.email}
-${labels.web}: https://cyberswahili.co.tz/academy
+${labels.web}: https://academy.cyberswahili.co.tz
 ====================================================`;
 
   const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });

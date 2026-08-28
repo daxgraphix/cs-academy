@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from 'react';
+import { SEO } from '../components/SEO';
 import { PageRoute, ProgramPillar, TrainingProgram } from '../types';
 import { programsData } from '../data/programs';
 import { featuredTrainingData } from '../data/training';
@@ -35,7 +36,8 @@ export const ProgramsPage: React.FC<ProgramsPageProps> = ({
 
   const categories = [
     { id: 'ALL', label: 'All Programs', icon: Layers },
-    { id: 'ai', label: 'AI & Vibe Coding', icon: Laptop },
+    { id: 'vibe-coding', label: 'Vibe Coding', icon: Zap },
+    { id: 'ai', label: 'AI & Machine Learning', icon: Laptop },
     { id: 'cybersecurity', label: 'Cybersecurity & Defense', icon: ShieldCheck },
     { id: 'digital-skills', label: 'Digital Skills & Web', icon: Laptop },
   ];
@@ -43,11 +45,11 @@ export const ProgramsPage: React.FC<ProgramsPageProps> = ({
   const getIcon = (iconName: string) => {
     switch (iconName) {
       case 'Sparkles':
-        return <Laptop className="w-6 h-6 text-[#DC2626]" />;
+        return <Laptop className="w-6 h-6 text-[var(--accent-red-strong)]" />;
       case 'ShieldCheck':
-        return <ShieldCheck className="w-6 h-6 text-[#DC2626]" />;
+        return <ShieldCheck className="w-6 h-6 text-[var(--accent-red-strong)]" />;
       default:
-        return <Laptop className="w-6 h-6 text-[#DC2626]" />;
+        return <Laptop className="w-6 h-6 text-[var(--accent-red-strong)]" />;
     }
   };
 
@@ -99,56 +101,44 @@ export const ProgramsPage: React.FC<ProgramsPageProps> = ({
   const totalResultsCount = filteredPillars.length + filteredCourses.length;
 
   return (
-    <div className={`pt-28 pb-20 min-h-screen transition-colors duration-300 ${
-      theme === 'dark' ? 'bg-[#0B0B0B] text-white' : 'bg-neutral-50 text-neutral-900'
-    }`}>
+    <div className="pt-28 pb-20 min-h-screen transition-colors duration-300 bg-[var(--bg-primary)] text-[var(--text-primary)]">
+      <SEO
+        title="Programs & Courses"
+        description="Browse all CS Academy programs. Specialized academies for AI, Cybersecurity, and Digital Skills training in East Africa."
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4 pt-4">
-          <div className={`inline-flex items-center gap-2 px-3.5 py-1 rounded-full border text-xs font-mono font-bold uppercase tracking-wider ${
-            theme === 'dark' ? 'bg-red-950/60 border-red-900/60 text-[#DC2626]' : 'bg-red-50 border-red-200 text-[#DC2626]'
-          }`}>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-[var(--accent-red-strong)]/20 bg-[var(--accent-red-subtle)] text-[var(--accent-red-strong)] text-xs font-mono font-bold uppercase tracking-wider">
             <span>Comprehensive Curriculum Directory</span>
           </div>
-          <h1 className={`text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight ${
-            theme === 'dark' ? 'text-white' : 'text-neutral-950'
-          }`}>
-            CS ACADEMY <span className="text-[#DC2626]">PROGRAMS</span>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[var(--text-primary)]">
+            CS ACADEMY <span className="text-[var(--accent-red-strong)]">PROGRAMS</span>
           </h1>
-          <p className={`text-base sm:text-lg leading-relaxed ${
-            theme === 'dark' ? 'text-neutral-300' : 'text-neutral-800'
-          }`}>
+          <p className="text-base sm:text-lg leading-relaxed text-[var(--text-secondary)]">
             Explore our comprehensive academies designed for practical skill mastery, ethical technology application, and career empowerment across Africa.
           </p>
         </div>
 
         {/* SEARCH & FILTER BAR */}
-        <div className={`p-6 sm:p-8 rounded-3xl border shadow-xl space-y-6 ${
-          theme === 'dark' ? 'bg-[#141414] border-neutral-800' : 'bg-white border-neutral-300'
-        }`}>
+        <div className="p-6 sm:p-8 rounded-[2rem] sm:rounded-[2.5rem] border border-[var(--border-color)] shadow-xl space-y-6 glass-card">
           <div className="flex flex-col md:flex-row items-center gap-4">
             {/* Search Input */}
             <div className="relative flex-1 w-full">
-              <Search className={`w-5 h-5 absolute left-4 top-1/2 -translate-y-1/2 ${
-                theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'
-              }`} />
+              <Search className="w-5 h-5 absolute left-4 top-1/2 -translate-y-1/2 text-[var(--text-muted)]" />
               <input
                 id="programs-search-input"
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder={'Search courses by title or skill category (e.g. Prompt Engineering, React, Cybersecurity, Phishing)...'}
-                className={`w-full pl-12 pr-10 py-3.5 text-sm rounded-2xl border focus:outline-none focus:border-[#DC2626] transition-colors ${
-                  theme === 'dark'
-                    ? 'bg-[#0B0B0B] border-neutral-800 text-white placeholder-neutral-500'
-                    : 'bg-neutral-50 border-neutral-300 text-neutral-900 placeholder-neutral-500 shadow-inner'
-                }`}
+                className="w-full pl-12 pr-10 py-3.5 text-sm rounded-2xl border border-[var(--border-color)] bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder-[var(--text-muted)] focus:outline-none focus:border-[var(--accent-red-strong)] transition-colors"
               />
               {searchQuery && (
                 <button
                   onClick={() => setSearchQuery('')}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 text-xs font-bold text-neutral-400 hover:text-[#DC2626] p-1"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-xs font-bold text-[var(--text-muted)] hover:text-[var(--accent-red-strong)] p-1"
                 >
                   -
                 </button>
@@ -159,7 +149,7 @@ export const ProgramsPage: React.FC<ProgramsPageProps> = ({
             {(searchQuery || selectedCategory !== 'ALL') && (
               <button
                 onClick={() => { setSearchQuery(''); setSelectedCategory('ALL'); }}
-                className="px-4 py-3 text-xs font-bold text-[#DC2626] hover:bg-red-500/10 rounded-2xl border border-red-500/20 transition-colors shrink-0"
+                className="px-4 py-3 text-xs font-bold text-[var(--accent-red-strong)] hover:bg-[var(--accent-red-subtle)] rounded-2xl border border-[var(--accent-red-strong)]/20 transition-colors shrink-0"
               >
                 Clear Filters
               </button>
@@ -167,10 +157,8 @@ export const ProgramsPage: React.FC<ProgramsPageProps> = ({
           </div>
 
           {/* Category Filter Pills */}
-          <div className="flex flex-wrap items-center gap-2 pt-1 border-t border-neutral-800/40">
-            <span className={`text-xs font-bold uppercase tracking-wider mr-2 ${
-              theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'
-            }`}>
+          <div className="flex flex-wrap items-center gap-2 pt-1 border-t border-[var(--border-color)]">
+            <span className="text-xs font-bold uppercase tracking-wider mr-2 text-[var(--text-muted)]">
               <Filter className="w-3.5 h-3.5 inline mr-1" />
               Category:
             </span>
@@ -184,10 +172,8 @@ export const ProgramsPage: React.FC<ProgramsPageProps> = ({
                   onClick={() => setSelectedCategory(cat.id)}
                   className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all ${
                     isSelected
-                      ? 'bg-[#DC2626] text-white shadow-lg shadow-red-900/40 scale-[1.02]'
-                      : theme === 'dark'
-                      ? 'bg-[#0B0B0B] text-neutral-300 hover:text-white border border-neutral-800 hover:border-neutral-700'
-                      : 'bg-neutral-100 text-neutral-700 hover:text-neutral-900 border border-neutral-300 hover:bg-neutral-200 transition-colors duration-200'
+                      ? 'bg-[var(--accent-red-strong)] text-white shadow-lg shadow-red-900/40 scale-[1.02]'
+                      : 'bg-[var(--bg-primary)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[var(--border-color)] hover:border-[var(--accent-red-strong)]/30'
                   }`}
                 >
                   <Icon className="w-3.5 h-3.5" />
@@ -198,7 +184,7 @@ export const ProgramsPage: React.FC<ProgramsPageProps> = ({
           </div>
 
           {/* Results Summary Bar */}
-          <div className="flex items-center justify-between text-xs pt-1 text-neutral-400">
+          <div className="flex items-center justify-between text-xs pt-1 text-[var(--text-muted)]">
             <div>
               {searchQuery ? (
                 <span>
@@ -215,11 +201,9 @@ export const ProgramsPage: React.FC<ProgramsPageProps> = ({
 
         {/* Empty State */}
         {totalResultsCount === 0 && (
-          <div className={`p-12 text-center rounded-3xl border space-y-4 ${
-            theme === 'dark' ? 'bg-[#171717] border-neutral-800 text-neutral-400' : 'bg-white border-neutral-300 text-neutral-800'
-          }`}>
-            <BookOpen className="w-12 h-12 text-[#DC2626] mx-auto opacity-80" />
-            <h3 className={`text-xl font-bold ${theme === 'dark' ? 'text-white' : 'text-neutral-900'}`}>
+          <div className="p-12 text-center rounded-[2rem] sm:rounded-[2.5rem] border border-[var(--border-color)] space-y-4 bg-[var(--bg-tertiary)] text-[var(--text-secondary)]">
+            <BookOpen className="w-12 h-12 text-[var(--accent-red-strong)] mx-auto opacity-80" />
+            <h3 className="text-xl font-bold text-[var(--text-primary)]">
               No matching courses found
             </h3>
             <p className="text-sm max-w-md mx-auto">
@@ -227,7 +211,7 @@ export const ProgramsPage: React.FC<ProgramsPageProps> = ({
             </p>
             <button
               onClick={() => { setSearchQuery(''); setSelectedCategory('ALL'); }}
-              className="px-6 py-2.5 rounded-xl bg-[#DC2626] text-white text-xs font-bold hover:bg-red-700 transition-colors shadow"
+              className="px-6 py-2.5 rounded-xl bg-[var(--accent-red-strong)] text-white text-xs font-bold hover:bg-[var(--accent-red)] transition-colors shadow"
             >
               Reset All Filters
             </button>
@@ -238,10 +222,8 @@ export const ProgramsPage: React.FC<ProgramsPageProps> = ({
         {filteredPillars.length > 0 && (
           <div className="space-y-12">
             <div className="flex items-center gap-3">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#DC2626]" />
-              <h2 className={`text-xl sm:text-2xl font-black uppercase tracking-tight ${
-                theme === 'dark' ? 'text-white' : 'text-neutral-900'
-              }`}>
+              <span className="w-2.5 h-2.5 rounded-full bg-[var(--accent-red-strong)]" />
+              <h2 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-[var(--text-primary)]">
                 Core Academy Tracks
               </h2>
             </div>
@@ -250,26 +232,18 @@ export const ProgramsPage: React.FC<ProgramsPageProps> = ({
               <div
                 key={pillar.id}
                 id={`programs-page-${pillar.id}`}
-                className={`border rounded-3xl p-8 sm:p-12 shadow-2xl space-y-8 transition-all ${
-                  theme === 'dark' ? 'bg-[#171717] border-neutral-800' : 'bg-white border-neutral-300'
-                }`}
+                className="border rounded-[2rem] sm:rounded-[2.5rem] p-8 sm:p-12 shadow-2xl space-y-8 transition-all glass-card border-[var(--border-color)]"
               >
-                <div className={`flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b ${
-                  theme === 'dark' ? 'border-neutral-800' : 'border-neutral-300'
-                }`}>
+                <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b border-[var(--border-color)]">
                   <div className="flex items-center gap-4">
-                    <div className={`w-14 h-14 rounded-2xl border flex items-center justify-center ${
-                      theme === 'dark' ? 'bg-[#0B0B0B] border-neutral-800' : 'bg-neutral-100 border-neutral-300'
-                    }`}>
+                    <div className="w-14 h-14 rounded-2xl border border-[var(--border-color)] flex items-center justify-center bg-[var(--bg-primary)]">
                       {getIcon(pillar.icon)}
                     </div>
                     <div>
-                      <span className="text-xs font-mono font-bold text-[#DC2626] uppercase">
+                      <span className="text-xs font-mono font-bold text-[var(--accent-red-strong)] uppercase">
                         {pillar.badge}
                       </span>
-                      <h2 className={`text-2xl sm:text-3xl font-extrabold ${
-                        theme === 'dark' ? 'text-white' : 'text-neutral-900'
-                      }`}>
+                      <h2 className="text-2xl sm:text-3xl font-extrabold text-[var(--text-primary)]">
                         {pillar.title}
                       </h2>
                     </div>
@@ -278,17 +252,13 @@ export const ProgramsPage: React.FC<ProgramsPageProps> = ({
                   <div className="flex items-center gap-3">
                     <button
                       onClick={() => navigateToPillar(pillar.slug)}
-                      className={`px-5 py-2.5 rounded-xl text-xs font-bold transition-colors uppercase tracking-wider ${
-                        theme === 'dark'
-                          ? 'text-neutral-200 hover:text-white bg-[#0B0B0B] hover:bg-neutral-800 border border-neutral-800'
-                          : 'text-neutral-800 hover:text-black bg-neutral-100 hover:bg-neutral-200 transition-colors duration-200 border border-neutral-300'
-                      }`}
+                      className="px-5 py-2.5 rounded-xl text-xs font-bold transition-all uppercase tracking-wider text-[var(--text-secondary)] hover:text-[var(--text-primary)] bg-[var(--bg-primary)] hover:bg-[var(--bg-elevated)] border border-[var(--border-color)]"
                     >
                       View Academy Page
                     </button>
                     <button
                       onClick={() => openBookingModal({ program: pillar.title })}
-                      className="px-6 py-2.5 rounded-xl text-xs font-extrabold text-white bg-[#B91C1C] hover:bg-[#DC2626] active:scale-[0.98] uppercase tracking-wider shadow-lg transition-all"
+                      className="px-6 py-2.5 rounded-xl text-xs font-extrabold text-white bg-[var(--accent-red-strong)] hover:bg-[var(--accent-red)] active:scale-[0.98] uppercase tracking-wider shadow-lg transition-all"
                     >
                       Book Training
                     </button>
@@ -298,28 +268,20 @@ export const ProgramsPage: React.FC<ProgramsPageProps> = ({
                 {/* Descriptions & Topics */}
                 <div className="grid lg:grid-cols-12 gap-8">
                   <div className="lg:col-span-6 space-y-4">
-                    <h3 className={`text-lg font-bold ${
-                      theme === 'dark' ? 'text-white' : 'text-neutral-900'
-                    }`}>{pillar.tagline}</h3>
-                    <p className={`text-sm leading-relaxed ${
-                      theme === 'dark' ? 'text-neutral-300' : 'text-neutral-800'
-                    }`}>
+                    <h3 className="text-lg font-bold text-[var(--text-primary)]">{pillar.tagline}</h3>
+                    <p className="text-sm leading-relaxed text-[var(--text-secondary)]">
                       {pillar.extendedDescription}
                     </p>
 
                     <div className="space-y-2 pt-2">
-                      <h4 className="text-xs font-bold uppercase tracking-wider text-neutral-400">
+                      <h4 className="text-xs font-bold uppercase tracking-wider text-[var(--text-muted)]">
                         Target Audiences:
                       </h4>
                       <div className="flex flex-wrap gap-2">
                         {pillar.audience.map((aud, aIdx) => (
                           <span 
                             key={aIdx} 
-                            className={`text-xs px-2.5 py-1 rounded border ${
-                              theme === 'dark'
-                                ? 'bg-[#0B0B0B] border-neutral-800 text-neutral-300'
-                                : 'bg-neutral-100 border-neutral-300 text-neutral-700'
-                            }`}
+                            className="text-xs px-2.5 py-1 rounded border border-[var(--border-color)] bg-[var(--bg-primary)] text-[var(--text-secondary)]"
                           >
                             {aud}
                           </span>
@@ -329,22 +291,20 @@ export const ProgramsPage: React.FC<ProgramsPageProps> = ({
                   </div>
 
                   <div className="lg:col-span-6 space-y-4">
-                    <h4 className="text-xs font-bold uppercase tracking-wider text-neutral-400">
+                    <h4 className="text-xs font-bold uppercase tracking-wider text-[var(--text-muted)]">
                       Core Curriculum Modules & Hands-on Skills:
                     </h4>
                     <div className="space-y-3">
                       {pillar.modules.map((mod, mIdx) => (
                         <div 
                           key={mIdx} 
-                          className={`p-3.5 rounded-xl border space-y-1 ${
-                            theme === 'dark' ? 'bg-[#0B0B0B] border-neutral-800' : 'bg-neutral-50 border-neutral-300'
-                          }`}
+                          className="p-3.5 rounded-xl border border-[var(--border-color)] space-y-1 bg-[var(--bg-primary)]"
                         >
-                          <div className={`text-xs font-bold ${theme === 'dark' ? 'text-white' : 'text-neutral-900'}`}>
+                          <div className="text-xs font-bold text-[var(--text-primary)]">
                             {mod.title}
                           </div>
-                          <div className="text-[11px] text-neutral-400">{mod.description}</div>
-                          <div className="text-[10px] text-[#DC2626] font-mono font-bold mt-1">
+                          <div className="text-[11px] text-[var(--text-muted)]">{mod.description}</div>
+                          <div className="text-[10px] text-[var(--accent-red-strong)] font-mono font-bold mt-1">
                             ✓ {mod.practicalSkill}
                           </div>
                         </div>
@@ -354,35 +314,29 @@ export const ProgramsPage: React.FC<ProgramsPageProps> = ({
                 </div>
 
                 {/* Bottom Outcomes & Formats */}
-                <div className={`grid sm:grid-cols-2 gap-4 p-5 rounded-2xl border text-xs ${
-                  theme === 'dark' ? 'bg-[#0B0B0B] border-neutral-800' : 'bg-neutral-100 border-neutral-300'
-                }`}>
+                <div className="grid sm:grid-cols-2 gap-4 p-5 rounded-2xl border border-[var(--border-color)] text-xs bg-[var(--bg-primary)]">
                   <div>
-                    <div className={`font-bold uppercase tracking-wider mb-2 ${
-                      theme === 'dark' ? 'text-neutral-300' : 'text-neutral-800'
-                    }`}>
+                    <div className="font-bold uppercase tracking-wider mb-2 text-[var(--text-secondary)]">
                       Verified Outcomes:
                     </div>
-                    <ul className="space-y-1.5 text-neutral-400">
+                    <ul className="space-y-1.5 text-[var(--text-muted)]">
                       {pillar.outcomes.map((out, oIdx) => (
                         <li key={oIdx} className="flex items-start gap-2">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-[#DC2626] shrink-0 mt-0.5" />
-                          <span className={theme === 'dark' ? 'text-neutral-300' : 'text-neutral-700'}>{out}</span>
+                          <CheckCircle2 className="w-3.5 h-3.5 text-[var(--accent-red-strong)] shrink-0 mt-0.5" />
+                          <span className="text-[var(--text-secondary)]">{out}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
 
                   <div>
-                    <div className={`font-bold uppercase tracking-wider mb-2 ${
-                      theme === 'dark' ? 'text-neutral-300' : 'text-neutral-800'
-                    }`}>
+                    <div className="font-bold uppercase tracking-wider mb-2 text-[var(--text-secondary)]">
                       Delivery & Duration:
                     </div>
-                    <div className={`space-y-1 ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-800'}`}>
+                    <div className="space-y-1 text-[var(--text-secondary)]">
                       <p>Formats: {pillar.deliveryFormats.join(', ')}</p>
                       <p>Duration: {pillar.durationOptions.join(', ')}</p>
-                      <p className="text-[#DC2626] pt-1 font-semibold">
+                      <p className="text-[var(--accent-red-strong)] pt-1 font-semibold">
                         ✓ Instructed in English & Kiswahili
                       </p>
                     </div>
@@ -398,10 +352,8 @@ export const ProgramsPage: React.FC<ProgramsPageProps> = ({
         {filteredCourses.length > 0 && (
           <div className="space-y-8 pt-8">
             <div className="flex items-center gap-3">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#DC2626]" />
-              <h2 className={`text-xl sm:text-2xl font-black uppercase tracking-tight ${
-                theme === 'dark' ? 'text-white' : 'text-neutral-900'
-              }`}>
+              <span className="w-2.5 h-2.5 rounded-full bg-[var(--accent-red-strong)]" />
+              <h2 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-[var(--text-primary)]">
                 Specialized Cohort Bootcamps & Masterclasses
               </h2>
             </div>
@@ -411,59 +363,49 @@ export const ProgramsPage: React.FC<ProgramsPageProps> = ({
                 <div
                   key={course.id}
                   id={`course-card-${course.id}`}
-                  className={`border rounded-3xl p-6 flex flex-col justify-between space-y-5 shadow-lg transition-all hover:scale-[1.01] ${
-                    theme === 'dark' ? 'bg-[#171717] border-neutral-800 hover:border-neutral-700' : 'bg-white border-neutral-300 hover:border-red-400'
-                  }`}
+                  className="glass-card rounded-[2rem] sm:rounded-[2.5rem] p-6 flex flex-col justify-between space-y-5 shadow-lg transition-all hover:scale-[1.01] border border-[var(--border-color)] hover:border-[var(--accent-red-strong)]/30"
                 >
                   <div className="space-y-3">
                     <div className="flex items-center justify-between gap-2">
-                      <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#DC2626] px-2.5 py-0.5 rounded-full bg-red-950/40 border border-red-900/40">
+                      <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[var(--accent-red-strong)] px-2.5 py-0.5 rounded-full bg-[var(--accent-red-subtle)] border border-[var(--accent-red-strong)]/20">
                         {course.category.toUpperCase()} | {course.level}
                       </span>
-                      <span className={`text-[11px] font-mono flex items-center gap-1 ${
-                        theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'
-                      }`}>
-                        <Clock className="w-3 h-3 text-[#DC2626]" />
+                      <span className="text-[11px] font-mono flex items-center gap-1 text-[var(--text-muted)]">
+                        <Clock className="w-3 h-3 text-[var(--accent-red-strong)]" />
                         {course.duration}
                       </span>
                     </div>
 
-                    <h3 className={`text-lg font-black tracking-tight ${
-                      theme === 'dark' ? 'text-white' : 'text-neutral-900'
-                    }`}>
+                    <h3 className="text-lg font-black tracking-tight text-[var(--text-primary)]">
                       {course.title}
                     </h3>
 
-                    <p className={`text-xs leading-relaxed ${
-                      theme === 'dark' ? 'text-neutral-300' : 'text-neutral-800'
-                    }`}>
+                    <p className="text-xs leading-relaxed text-[var(--text-secondary)]">
                       {course.description}
                     </p>
 
                     <div className="space-y-1.5 pt-2">
-                      <div className="text-[11px] font-bold uppercase tracking-wider text-neutral-400">
+                      <div className="text-[11px] font-bold uppercase tracking-wider text-[var(--text-muted)]">
                         Key Highlights:
                       </div>
                       <ul className="space-y-1 text-xs">
                         {course.highlights.slice(0, 3).map((h, hIdx) => (
                           <li key={hIdx} className="flex items-start gap-1.5 text-[11px]">
-                            <CheckCircle2 className="w-3.5 h-3.5 text-[#DC2626] shrink-0 mt-0.5" />
-                            <span className={theme === 'dark' ? 'text-neutral-300' : 'text-neutral-800'}>{h}</span>
+                            <CheckCircle2 className="w-3.5 h-3.5 text-[var(--accent-red-strong)] shrink-0 mt-0.5" />
+                            <span className="text-[var(--text-secondary)]">{h}</span>
                           </li>
                         ))}
                       </ul>
                     </div>
                   </div>
 
-                  <div className={`pt-4 border-t flex items-center justify-between gap-2 ${
-                    theme === 'dark' ? 'border-neutral-800' : 'border-neutral-100'
-                  }`}>
-                    <span className="text-[10px] font-mono text-neutral-400">
+                  <div className="pt-4 border-t border-[var(--border-color)] flex items-center justify-between gap-2">
+                    <span className="text-[10px] font-mono text-[var(--text-muted)]">
                       {course.format}
                     </span>
                     <button
                       onClick={() => openBookingModal({ program: course.title })}
-                      className="px-4 py-2 rounded-xl bg-[#DC2626] hover:bg-red-700 text-white text-xs font-bold tracking-wider uppercase transition-colors shadow flex items-center gap-1.5"
+                      className="px-4 py-2 rounded-xl bg-[var(--accent-red-strong)] hover:bg-[var(--accent-red)] text-white text-xs font-bold tracking-wider uppercase transition-colors shadow flex items-center gap-1.5"
                     >
                       <span>Enroll</span>
                       <ArrowRight className="w-3.5 h-3.5" />

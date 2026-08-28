@@ -1,0 +1,934 @@
+{
+  "common": {
+    "enrollNow": "Enroll Now",
+    "more": "more",
+    "viewSyllabus": "View Syllabus",
+    "close": "Close",
+    "backToPrograms": "Back to All Programmes"
+  },
+  "nav": {
+    "home": "Home",
+    "features": "Features",
+    "programs": "Programs",
+    "allPrograms": "All Programs",
+    "formats": "Learning Formats",
+    "organizations": "For Organizations",
+    "pricing": "Pricing",
+    "resources": "Resources",
+    "about": "About",
+    "blog": "Blog",
+    "contact": "Contact",
+    "bookTraining": "Book Training",
+    "switchTheme": "Switch Theme",
+    "aiAcademy": "AI & Vibe Coding",
+    "aiAcademyDesc": "Prompting, LLMs, AI Safety & Swahili Prompts",
+    "cyberAcademy": "Cybersecurity Academy",
+    "cyberAcademyDesc": "Digital Defense, Phishing Prevention & Data Safety",
+    "digitalAcademy": "Full-Stack & Digital Skills",
+    "digitalAcademyDesc": "Web Dev, Figma UI/UX & Digital Marketing",
+    "aiAcademyMobile": "AI & Vibe Coding Academy",
+    "cyberAcademyMobile": "Cybersecurity Academy",
+    "digitalAcademyMobile": "Digital Skills & Web Development",
+    "newBadge": "New",
+    "mpesaBadge": "M-Pesa",
+    "corporateBadge": "Corporate",
+    "waQuickMessage": "Habari CS Academy Support, I would like to inquire about training programs.",
+    "waUs": "WhatsApp Us: {{number}}"
+  },
+  "hero": {
+    "headlineMain": "Master the Future of Work with ",
+    "headlineHighlight": "AI & Cyber Skills",
+    "headlineEnd": " for your career, business, and life.",
+    "subheadline": "Practical, Swahili-first training for the East African digital economy. Master AI, Cybersecurity, and Web Development with local support.",
+    "benefit1": "No prior experience required",
+    "benefit2": "Learn on mobile or desktop",
+    "ctaEnroll": "Enroll Now",
+    "ctaExplore": "Explore Programs",
+    "stat1Val": "5,000+",
+    "stat1Label": "Students",
+    "stat2Val": "95%",
+    "stat2Label": "Success Rate",
+    "stat3Val": "50+",
+    "stat3Label": "Courses",
+    "stat4Val": "24/7",
+    "stat4Label": "Support",
+    "bottomFeature": {
+      "feature1": "Learn in English, Swahili, and local contexts.",
+      "feature2": "Build real apps, automated systems, and digital skills fast.",
+      "feature3": "Work from anywhere with mobile-friendly, practical training."
+    }
+  },
+  "programsSection": {
+    "badge": "OUR PROGRAMS",
+    "title": "High-impact skills for the African context.",
+    "subtitle": "Choose a specialized academy to build your future. We offer practical training designed for students, professionals, and organizations.",
+    "curriculumFocus": "Curriculum Focus",
+    "outcomeLabel": "Key Practical Outcomes:",
+    "viewSyllabus": "View Syllabus"
+  },
+  "deepDive": {
+    "syllabusTitle": "Syllabus & Practical Competency Modules",
+    "syllabusSubtitle": "Each module combines direct instruction, live demonstrations, guided practice, and real-world exercises.",
+    "moduleLabel": "Module",
+    "handsOnOutput": "Hands-on Output",
+    "targetAudience": "Target Audience",
+    "whoShouldTake": "Who Should Take This Program",
+    "formatOptions": "Format & Duration Options",
+    "flexibleScheduling": "Flexible Scheduling",
+    "formatNote": "Available in live online video classes, WhatsApp cohort micro-learning, or physical on-site delivery at your facility.",
+    "readyToEnroll": "Ready to enroll or schedule {{title}}?",
+    "inquireNote": "Contact us for upcoming cohort dates or request a customized proposal for your organization.",
+    "inquireBook": "INQUIRE & BOOK NOW",
+    "requestProposal": "Request Corporate Proposal"
+  },
+  "booking": {
+    "title": "BOOK TRAINING / INQUIRY",
+    "subtitle": "Connect with CS Academy instructors & advisors",
+    "fields": {
+      "name": "Your Name",
+      "email": "Email Address",
+      "organization": "Organization / Institution (or Individual)",
+      "location": "Location / Country",
+      "program": "Selected Training Program",
+      "format": "Preferred Format",
+      "audience": "Audience Segment",
+      "notes": "Specific Objectives or Team Size (Optional)"
+    },
+    "placeholders": {
+      "yourName": "e.g. Maria Joseph",
+      "yourEmail": "e.g. maria@company.com",
+      "organization": "e.g. University / Company / Self",
+      "notes": "e.g. Training 25 team members on prompt engineering..."
+    },
+    "programs": {
+      "coreLabel": "Core Academies",
+      "aiFlagship": "AI Academy Flagship Program",
+      "cyberAcademy": "Cybersecurity Academy Program",
+      "digitalSkills": "Digital Skills Academy Program",
+      "coursesLabel": "Featured Courses",
+      "aiEveryone": "AI for Everyone (Beginner)",
+      "aiBusiness": "AI for Business & Teams",
+      "aiEducators": "AI for Educators & Lecturers",
+      "aiSafety": "AI Safety & Deepfake Defense",
+      "cyberAwareness": "Cybersecurity Awareness Workshop",
+      "digitalProductivity": "Digital Productivity Masterclass",
+      "institutionalLabel": "Institutional & Speaking",
+      "corporateProposal": "Corporate AI & Cybersecurity Workforce Proposal",
+      "executiveBriefing": "Executive AI Briefing (C-Suite/Boards)",
+      "keynote": "Keynote Speaking by Alex Rweyemamu",
+      "customCurriculum": "Custom Institutional Curriculum"
+    },
+    "formats": {
+      "online": "Live Online (Zoom/Google Meet)",
+      "onsite": "On-Site Physical Workshop",
+      "whatsapp": "WhatsApp Micro-Learning Cohort",
+      "hybrid": "Hybrid (Online + Physical)",
+      "conference": "Conference Keynote / Seminar"
+    },
+    "audiences": {
+      "individual": "Individual Professional / Student",
+      "company": "Company / Enterprise Team",
+      "university": "University / School Faculty",
+      "ngo": "NGO / Development Organization",
+      "government": "Government / Public Institution",
+      "sme": "Small Business Owner"
+    },
+    "errors": {
+      "name": "Please enter your name.",
+      "email": "Please enter a valid email address."
+    },
+    "preview": {
+      "label": "Automated Message Preview",
+      "copy": "Copy Text",
+      "copied": "Copied to Clipboard!"
+    },
+    "actions": {
+      "whatsapp": "Send via WhatsApp",
+      "email": "Send via Email"
+    },
+    "message": {
+      "greeting": "Hello CS Academy Support Team,",
+      "intro": "I would like to inquire about a training program",
+      "closing": "Please provide curriculum details and scheduling availability.",
+      "subjectPrefix": "Training Inquiry"
+    }
+  },
+  "countries": {
+    "tanzania": "Tanzania",
+    "kenya": "Kenya",
+    "uganda": "Uganda",
+    "rwanda": "Rwanda",
+    "burundi": "Burundi",
+    "drc": "DRC",
+    "zanzibar": "Zanzibar",
+    "otherAfrica": "Other African Country",
+    "international": "International / Diaspora"
+  },
+  "about": {
+    "badge": "ABOUT CS ACADEMY",
+    "titlePart1": "EMPOWERING EAST AFRICA WITH ",
+    "titleHighlight": "DIGITAL SKILLS",
+    "subtitle": "CS Academy is on a mission to democratize technology education for Swahili-speaking learners, professionals, and future innovators.",
+    "purpose": {
+      "badge": "Our Purpose",
+      "title": "Our Mission",
+      "description": "Language should never be a barrier to learning technology."
+    },
+    "vision": {
+      "badge": "The Future We Build",
+      "title": "Our Vision",
+      "description": "Equipping millions to thrive in the global digital economy."
+    },
+    "pillars": {
+      "badge": "Our Core Curriculum Pillars",
+      "title": "The 3 Pillars of CS Academy"
+    },
+    "instructors": {
+      "badge": "Our Expert Instructors",
+      "title": "MEET OUR INSTRUCTORS",
+      "subtitle": "Seasoned industry practitioners, ethical security researchers, and software architects passionate about making high-value tech skills accessible across Africa.",
+      "expertiseLabel": "Core Areas of Expertise:",
+      "coursesLabel": "Featured Courses:",
+      "bookBtn": "Book Session",
+      "experience": "{{years}} Experience",
+      "data": {
+        "alex-rweyemamu": {
+          "role": "Founder & Lead Instructor",
+          "specialtyBadge": "AI & Cybersecurity Lead",
+          "bio": "Pioneer of Swahili-first technology education, cybersecurity strategist, and AI educator. Alex leads CS Academy curricula, advising regional organizations on AI adoption, digital trust, and practical technological literacy.",
+          "expertise": [
+            "Prompt Engineering",
+            "Cybersecurity & OSINT",
+            "Vibe Coding Architecture",
+            "Swahili Tech Pedagogy",
+            "Executive AI Strategy"
+          ],
+          "featuredCourses": [
+            "Artificial Intelligence & Prompt Engineering",
+            "Cybersecurity & Digital Trust",
+            "Vibe Coding Masterclass"
+          ]
+        },
+        "fatma-mrema": {
+          "role": "Senior Full-Stack & Cloud Facilitator",
+          "specialtyBadge": "Web & Cloud Architecture",
+          "bio": "Software engineer and cloud solutions architect with extensive experience building scalable web applications. Passionate about mentoring upcoming African developers and turning technical jargon into intuitive concepts.",
+          "expertise": [
+            "Full-Stack Web Dev",
+            "React & TypeScript",
+            "API Integration",
+            "Cloud Deployment (AWS/GCP)",
+            "Database Architecture"
+          ],
+          "featuredCourses": [
+            "Digital Skills & Web Development",
+            "Practical Full-Stack Bootcamp",
+            "Cloud & Deployment Essentials"
+          ]
+        },
+        "david-ochieng": {
+          "role": "Cybersecurity Specialist & Ethical Hacker",
+          "specialtyBadge": "Defensive Security & Threat Hunting",
+          "bio": "Certified ethical hacker and information security analyst. David trains enterprise teams and learners in defense-in-depth, mobile money fraud prevention, phishing resilience, and compliance standards.",
+          "expertise": [
+            "Ethical Hacking & Pen Testing",
+            "Incident Response",
+            "Mobile Fraud Prevention",
+            "Network Security",
+            "ISO 27001 Compliance"
+          ],
+          "featuredCourses": [
+            "Cybersecurity & Digital Trust",
+            "Ethical Hacking Foundations",
+            "Mobile Money Security & Scam Shield"
+          ]
+        },
+        "neema-kimaro": {
+          "role": "Lead UI/UX & Digital Media Creator",
+          "specialtyBadge": "Design Systems & Creative Tech",
+          "bio": "Visual designer, brand strategist, and Figma educator helping African startups and digital creators design intuitive user interfaces and impactful marketing assets using modern design workflows.",
+          "expertise": [
+            "UI/UX Design Systems",
+            "Figma & Prototyping",
+            "AI Generative Graphics",
+            "Brand Identity",
+            "Digital Marketing Assets"
+          ],
+          "featuredCourses": [
+            "UI/UX Design Mastery with Figma",
+            "Graphic Design for Entrepreneurs",
+            "AI-Powered Content & Visuals"
+          ]
+        },
+        "baraka-mwita": {
+          "role": "AI & Data Solutions Architect",
+          "specialtyBadge": "Machine Learning & Swahili NLP",
+          "bio": "Data scientist and machine learning engineer researching local language NLP models. Baraka teaches practical data analysis, predictive automation, and business intelligence for corporate and academic institutions.",
+          "expertise": [
+            "Swahili NLP Models",
+            "Python for Data Science",
+            "Workflow Automation",
+            "Business Intelligence",
+            "LLM Fine-Tuning"
+          ],
+          "featuredCourses": [
+            "AI Automation for Organizations",
+            "Data Analytics with Python",
+            "Swahili AI Integration Workshop"
+          ]
+        }
+      }
+    },
+    "founder": {
+      "badge": "Founder",
+      "name": "Alex Rweyemamu",
+      "bio": "Alex Rweyemamu is a technology educator and cybersecurity professional dedicated to demystifying artificial intelligence, digital design, and coding for African youth, educators, and enterprise workforces. Through CS Academy and the CyberSwahili initiative, he leads practical training programs that bridge complex modern technologies with accessible, Swahili-language and contextually relevant learning experiences.",
+      "quote": "Language should never be a barrier to learning technology. We empower East African youth with practical, accessible digital skills that turn curiosity into real opportunity and lasting economic impact.",
+      "bookBtn": "Book Keynote / Training"
+    },
+    "values": {
+      "accessibility": {
+        "title": "Accessibility",
+        "description": "Making digital education accessible through Swahili-first curricula, mobile money payments, and low-bandwidth channels."
+      },
+      "practicalValue": {
+        "title": "Practical Value",
+        "description": "Focusing on real-world skills and tangible projects that directly improve employability and business outcomes."
+      },
+      "community": {
+        "title": "Community",
+        "description": "Building an active, supportive network of tech learners and mentors across East Africa."
+      },
+      "innovation": {
+        "title": "Innovation & Safety",
+        "description": "Equipping learners with forward-looking generative AI and cybersecurity tools with deep ethics and privacy built-in."
+      }
+    }
+  },
+  "blog": {
+    "badge": "ESSAYS & PRACTICAL INSIGHTS",
+    "title": "DEEP DIVES INTO TECH, AI & SECURITY",
+    "subtitle": "Read expert perspectives on East African digital transformation, ethical AI, and cyber defense.",
+    "search": "Search articles, topics...",
+    "searchPlaceholder": "Search articles, topics...",
+    "searchLabel": "Search essays",
+    "sortLabel": "Sort essays",
+    "sortNewest": "Newest",
+    "sortQuickest": "Quickest Read",
+    "sortAZ": "A to Z",
+    "featuredBadge": "FEATURED ESSAY",
+    "readArticle": "Read Article",
+    "read": "Read",
+    "noResults": "No essays match your search.",
+    "categories": {
+      "ALL": "ALL",
+      "AI Literacy": "AI Literacy",
+      "Cybersecurity": "Cybersecurity",
+      "Education": "Education",
+      "Business": "Business",
+      "Swahili AI": "Swahili AI"
+    },
+    "hero": {
+      "badge": "Essays, Insights & Practical Analysis",
+      "title": "CS ACADEMY BLOG"
+    }
+  },
+  "faq": {
+    "badge": "FREQUENTLY ASKED QUESTIONS",
+    "title": "HAVE QUESTIONS? WE HAVE ANSWERS",
+    "subtitle": "Direct answers regarding course access, mobile money payments (M-Pesa, Tigo Pesa, Airtel Money), technical support, and QR certification.",
+    "search": "Search questions (e.g. M-Pesa, smartphone, WhatsApp, support)...",
+    "searchLabel": "Search questions",
+    "clear": "Clear",
+    "showingResults": "Showing {{count}} FAQs",
+    "clearFilters": "Clear filters",
+    "expandAll": "Expand All",
+    "collapseAll": "Collapse All",
+    "noResults": "No matching questions found for your query.",
+    "resetSearch": "Reset Search",
+    "support": {
+      "title": "Have more questions or need direct support?",
+      "subtitle": "Chat directly with our learner support team on WhatsApp.",
+      "cta": "WhatsApp Support",
+      "waMessage": "Hello CS Academy Support! I have a question about joining the training:"
+    },
+    "categories": {
+      "all": "All FAQs",
+      "courseAccess": "Course Access",
+      "payment": "Payment & Mobile Money",
+      "support": "Technical Support",
+      "languages": "Languages",
+      "organizations": "Organizations",
+      "general": "Certificates & General"
+    }
+  },
+  "whyUs": {
+    "badge": "WHY CHOOSE US",
+    "title": "The leading choice for practical tech education.",
+    "subtitle": "We bridge the gap between global technology and local context through bilingual, hands-on, and accessible instruction.",
+    "stats": {
+      "0": "Learners Trained",
+      "1": "Institutions Served",
+      "2": "Hours Delivered",
+      "3": "Satisfaction Rate"
+    },
+    "benefits": {
+      "practical": {
+        "title": "Practical Learning",
+        "desc": "No abstract theory. You build functional prompts, audit security settings, and create deliverables on day one."
+      },
+      "africa": {
+        "title": "Africa-Focused Context",
+        "desc": "Case studies, workflows, and economic realities rooted in the East & Central African business ecosystem."
+      },
+      "bilingual": {
+        "title": "English & Kiswahili",
+        "desc": "Bilingual accessibility ensuring language is never an obstacle to mastering high-impact technologies."
+      },
+      "expert": {
+        "title": "Expert-Led Sessions",
+        "desc": "Instruction delivered by seasoned cybersecurity professionals, tech educators, and AI practitioners."
+      },
+      "delivery": {
+        "title": "Online & Physical Delivery",
+        "desc": "Seamless choice between live Zoom/Meet classes, WhatsApp micro-learning, and on-site physical workshops."
+      },
+      "deliverables": {
+        "title": "Real-World Deliverables",
+        "desc": "Work directly on your team's actual documents, reports, proposals, and security policies."
+      },
+      "safety": {
+        "title": "AI Safety Built In",
+        "desc": "Data privacy, hallucination verification, and deepfake defense are baked into every module."
+      },
+      "flexible": {
+        "title": "Flexible Formats",
+        "desc": "From 90-minute executive briefings to multi-week cohort intensives that fit your demanding schedule."
+      },
+      "corporate": {
+        "title": "Custom Corporate Training",
+        "desc": "Tailored curricula co-designed for universities, banks, NGOs, and government ministries."
+      },
+      "community": {
+        "title": "Community-Driven Learning",
+        "desc": "Continuous alumni support, daily resource drops, and ongoing mentorship via CyberSwahili communities."
+      },
+      "certificates": {
+        "title": "Recognized Certificates",
+        "desc": "QR-verifiable digital certificates trusted by East African employers and institutions."
+      }
+    },
+    "ctaTitle": "Ready to start your journey?",
+    "ctaDesc": "Join the next hands-on, practical training cohort.",
+    "ctaBtn": "JOIN NEXT COHORT"
+  },
+  "formats": {
+    "seo": {
+      "title": "Learning Formats",
+      "description": "Choose your preferred learning style: Live Online, In-Person, Hybrid, or WhatsApp micro-learning for flexible AI and digital training."
+    },
+    "badge": "Flexible Multi-Channel Delivery",
+    "titlePart1": "LEARN ANYWHERE.",
+    "titleHighlight": "CONNECT YOUR WAY.",
+    "subtitle": "Choose the instructional delivery channel that best aligns with your team's geography, bandwidth, and learning style. Pricing is transparently structured per delivery channel.",
+    "labels": {
+      "bandwidth": "Bandwidth:",
+      "channel": "Channel:",
+      "pricing": "Pricing:",
+      "capabilities": "Key Capabilities:",
+      "tuition": "Starting Tuition / Fee:",
+      "customQuote": "Custom Quote",
+      "selectTrack": "SELECT THIS DELIVERY TRACK",
+      "deliveryTrack": "Delivery Track: {{title}}"
+    },
+    "items": {
+      "whatsapp-learning": {
+        "title": "WHATSAPP LEARNING",
+        "channelName": "WhatsApp Micro-Learning & Audio Notes",
+        "description": "Micro-learning communities, daily prompt challenges, audio voice notes, downloadable cheat-sheets, and ongoing peer support on low data bundles.",
+        "bestFor": "Mobile-first learners, university students, and busy professionals needing bite-sized daily knowledge.",
+        "pricingLabel": "per month  |  Data Saver",
+        "bandwidthLevel": "Ultra-Low Data (Works on 2G/3G/4G)",
+        "features": [
+          "Zero-barrier mobile access via WhatsApp",
+          "Daily 5-minute practical challenges in Swahili",
+          "Voice note explanations & downloadable PDFs",
+          "Active peer study group & instant instructor feedback"
+        ]
+      },
+      "zoom-live": {
+        "title": "ZOOM LIVE CLASSES",
+        "channelName": "Interactive Zoom Live Virtual Cohorts",
+        "description": "Interactive instructor-led virtual classrooms with live screensharing, real-time code critiques, Vibe Coding, and interactive Q&A.",
+        "bestFor": "Individual learners, distributed tech teams, and evening cohort participants across African time zones.",
+        "pricingLabel": "per month  |  Live Interactive",
+        "bandwidthLevel": "Standard Broadband / 4G (HD Live)",
+        "features": [
+          "HD live video walkthroughs & coding demonstrations",
+          "Breakout rooms for hands-on team exercises",
+          "Lifetime session recordings provided for revision",
+          "Real-time Q&A, chat polls & code reviews"
+        ]
+      },
+      "google-meet": {
+        "title": "GOOGLE MEET TRAINING",
+        "channelName": "Google Meet Executive & Team Sessions",
+        "description": "Frictionless, lightweight online training and 1-on-1 or small-team executive coaching with direct calendar integration and Google Workspace collaboration.",
+        "bestFor": "Corporate departments, executive briefings, and institutional committee training.",
+        "pricingLabel": "per month / cohort access",
+        "bandwidthLevel": "Lightweight Browser (Low-Bandwidth Adaptive)",
+        "features": [
+          "No software installation required (Browser-ready)",
+          "High accessibility on low-bandwidth networks",
+          "Integrated Google Workspace live document editing",
+          "Direct calendar scheduling & 1-on-1 coaching"
+        ]
+      },
+      "workshops-seminars": {
+        "title": "WORKSHOPS & SEMINARS",
+        "channelName": "Hands-On Intensive Workshops & Seminars",
+        "description": "Action-oriented half-day, full-day, and multi-day deep dives focused on producing concrete deliverables and immediate practical skills.",
+        "bestFor": "Departmental staff, teacher associations, youth incubators, and professional member associations.",
+        "pricingLabel": "per workshop session (Up to 30 Seats)",
+        "bandwidthLevel": "In-Person / Hybrid Delivery",
+        "features": [
+          "Intensive hands-on practice & group project drills",
+          "Customized workbook and prompt library for participants",
+          "Real-world problem solving on client data",
+          "Printed & Digital Certificate of Attendance provided"
+        ]
+      },
+      "physical-training": {
+        "title": "PHYSICAL TRAINING",
+        "channelName": "On-Site Corporate & Campus Immersion",
+        "description": "On-site, immersive in-person training delivered directly at your company offices, university campuses, school halls, or hotel venues across East Africa.",
+        "bestFor": "Organizations wanting maximum focus, deep collaboration, and high-retention face-to-face instruction.",
+        "pricingLabel": "per corporate cohort (Multi-Day Deep Dive)",
+        "bandwidthLevel": "Zero Bandwidth Needed (Local / On-Site)",
+        "features": [
+          "In-person lead trainer presence & desk-by-desk support",
+          "Adapted to your local IT environment and hardware",
+          "High-energy team building and collaborative drills",
+          "Flexible scheduling (weekdays or intensive weekends)"
+        ]
+      },
+      "conferences-keynotes": {
+        "title": "CONFERENCES & KEYNOTES",
+        "channelName": "Keynotes, Tech Summits & Public Forums",
+        "description": "Inspiring, authoritative keynote speeches on AI trends, cybersecurity resilience, digital trust, and technology leadership across Africa.",
+        "bestFor": "Industry summits, technology conferences, annual general meetings, and public forums.",
+        "pricingLabel": "Keynote Speaker Honorarium",
+        "bandwidthLevel": "Stage Presentation / Live Demonstrations",
+        "features": [
+          "Engaging, high-impact multimedia presentations",
+          "Context-rich insights on African technology landscape",
+          "Clear, accessible language without dry jargon",
+          "Interactive audience live demonstrations"
+        ]
+      }
+    }
+  },
+  "organizations": {
+    "seo": {
+      "title": "For Organizations",
+      "description": "Empower your workforce with AI capability and cyber resilience. Custom training solutions for enterprise, government, and academic institutions in East Africa."
+    },
+    "badge": "Enterprise, Academic & Public Sector Solutions",
+    "titlePart1": "FOR",
+    "titleHighlight": "ORGANIZATIONS",
+    "subtitle": "Equip your entire workforce, academic faculty, or institutional leadership with tailored AI capability and cyber resilience.",
+    "requestProposal": "REQUEST INSTITUTIONAL PROPOSAL",
+    "offerings": {
+      "enterprise": {
+        "badge": "Enterprise Workforce",
+        "title": "Corporate AI & Cybersecurity Training",
+        "description": "Transform internal operations with hands-on prompt engineering, safe workflow automation, and human firewall defense.",
+        "points": [
+          "Confidential data privacy guardrails",
+          "Departmental prompting cheat sheets",
+          "Simulated phishing and fraud audits"
+        ]
+      },
+      "academic": {
+        "badge": "Academic & Higher Ed",
+        "title": "University & Youth Programmes",
+        "description": "Empower faculty with AI pedagogy and equip students with job-ready digital capabilities and assessment integrity.",
+        "points": [
+          "Ethical AI curriculum guidelines",
+          "Classroom assessment tools",
+          "Career-ready digital portfolios"
+        ]
+      },
+      "executive": {
+        "badge": "Executive & Boardroom",
+        "title": "Executive AI Briefings",
+        "description": "High-density, jargon-free briefings for directors and C-suite leaders evaluating AI opportunities, regulatory exposure, and cyber governance.",
+        "points": [
+          "Strategic technology horizon scan",
+          "Institutional risk and liability",
+          "Executive data security best practices"
+        ]
+      },
+      "custom": {
+        "badge": "Custom Institutional",
+        "title": "Customized Organizational Syllabi",
+        "description": "Bespoke multi-module training programs co-designed with your L&D leads for NGOs, government ministries, and banks.",
+        "points": [
+          "Tailored to your software stack",
+          "Bilingual English & Kiswahili",
+          "Pre/post impact evaluation reports"
+        ]
+      }
+    },
+    "sectors": {
+      "title": "Solutions by Sector & Industry",
+      "subtitle": "Curricula fine-tuned for the regulatory, operational, and language realities of African institutions.",
+      "criticalNeeds": "Critical Needs:",
+      "requestSyllabus": "Request {{name}} Syllabus"
+    },
+    "industries": {
+      "education": {
+        "name": "Education & Universities",
+        "description": "Empower faculty, administrative staff, and student bodies with AI-powered curriculum design, ethical assessment standards, and digital research fluency.",
+        "criticalNeeds": [
+          "Academic integrity frameworks",
+          "AI-assisted lesson planning",
+          "Campus digital hygiene",
+          "Student career readiness"
+        ]
+      },
+      "financial": {
+        "name": "Financial Services & Banking",
+        "description": "Arm customer service, credit analysts, and operations personnel with deepfake detection, phishing resistance, and secure generative data synthesis.",
+        "criticalNeeds": [
+          "Deepfake voice fraud defense",
+          "Confidential customer data protection",
+          "Regulatory compliance",
+          "Phishing awareness"
+        ]
+      },
+      "ngos": {
+        "name": "NGOs & Development Agencies",
+        "description": "Accelerate donor reporting, grant writing, field survey data analysis, and cross-cultural community communication with AI and cloud collaboration.",
+        "criticalNeeds": [
+          "Rapid grant proposal drafting",
+          "Field survey data cleanup",
+          "Multilingual community messaging",
+          "Remote team coordination"
+        ]
+      },
+      "government": {
+        "name": "Government & Public Sector",
+        "description": "Build institutional capability for civil servants, policy analysts, and department heads to understand AI ethics, digital sovereignty, and cyber defense.",
+        "criticalNeeds": [
+          "Public sector AI policy awareness",
+          "Data sovereignty & security",
+          "Citizen-facing communication",
+          "Legacy process modernization"
+        ]
+      },
+      "healthcare": {
+        "name": "Healthcare & Medical Institutes",
+        "description": "Streamline administrative documentation, patient communication, and medical research synthesis while safeguarding patient privacy and HIPAA/data ethics.",
+        "criticalNeeds": [
+          "Patient confidentiality & privacy",
+          "Medical literature summarization",
+          "Administrative efficiency",
+          "Device & portal security"
+        ]
+      },
+      "smes": {
+        "name": "SMEs & Growing Enterprises",
+        "description": "Help small business owners, sales teams, and marketers leverage free/low-cost AI tools to scale customer acquisition, marketing, and operations.",
+        "criticalNeeds": [
+          "Zero-budget marketing automation",
+          "24/7 customer support templates",
+          "Financial spreadsheet tracking",
+          "Mobile money safety"
+        ]
+      }
+    },
+    "packages": {
+      "title": "Corporate & Institutional Package Tiers",
+      "subtitle": "Select the engagement scope that fits your team's timeline and readiness.",
+      "duration": "Duration:",
+      "formats": "Formats:",
+      "selectTier": "Select This Tier"
+    },
+    "lifecycle": {
+      "title": "Our 5-Step Delivery Lifecycle",
+      "subtitle": "How we take your organization from initial assessment to sustained skill adoption.",
+      "step": "Step",
+      "process": {
+        "discover": {
+          "name": "DISCOVER",
+          "title": "Discover & Assess",
+          "description": "We consult with your leadership to understand your team's current tech fluency, unique operational bottlenecks, compliance mandates, and key goals."
+        },
+        "design": {
+          "name": "DESIGN",
+          "title": "Design & Customize",
+          "description": "We tailor curriculum modules, real-world case studies, and proprietary prompt templates to your exact organizational workflow and industry context."
+        },
+        "deliver": {
+          "name": "DELIVER",
+          "title": "Deliver & Engage",
+          "description": "Our expert facilitators lead highly interactive live sessions, online via Zoom/Meet, on-site at your offices, or through blended hybrid formats."
+        },
+        "reinforce": {
+          "name": "REINFORCE",
+          "title": "Reinforce & Practice",
+          "description": "Participants receive downloadable toolkits, prompt cheat sheets, WhatsApp cohort support, and practical post-training challenge exercises."
+        },
+        "measure": {
+          "name": "MEASURE",
+          "title": "Measure & Evaluate",
+          "description": "We provide post-training evaluation reports, competency assessments, and institutional feedback to verify tangible productivity and safety impact."
+        }
+      }
+    },
+    "cta": {
+      "title": "Ready to Upskill Your Institution?",
+      "subtitle": "Contact us for a formal training proposal, curriculum syllabus, and customized delivery schedule.",
+      "button": "Schedule Institutional Consultation"
+    }
+  },
+  "audienceStrip": {
+    "title": "PRACTICAL LEARNING FOR THE DIGITAL GENERATION ACROSS AFRICA",
+    "audiences": {
+      "students": "STUDENTS",
+      "educators": "EDUCATORS",
+      "businesses": "BUSINESSES",
+      "universities": "UNIVERSITIES",
+      "organizations": "ORGANIZATIONS"
+    }
+  },
+  "socialProof": {
+    "badge": "LEARNER SUCCESS",
+    "title": "Trusted by hundreds of East African professionals.",
+    "subtitle": "From prompt engineering to digital defense, see how our practical training changes careers.",
+    "stats": {
+      "rating": "Average Student Rating",
+      "learners": "East African Learners",
+      "languages": "Kiswahili + EN",
+      "accessible": "Accessible Tech Learning"
+    },
+    "pillars": {
+      "project": "Project-based learning",
+      "verified": "Verified certificates",
+      "community": "East African community"
+    },
+    "filters": {
+      "all": "All Reviews",
+      "web": "Web & Coding",
+      "ai": "AI & Vibe Coding",
+      "security": "Cybersecurity",
+      "design": "Design & UI/UX"
+    }
+  },
+  "footer": {
+    "newsletter": {
+      "badge": "CS Academy Dispatch",
+      "titlePart1": "STAY AHEAD IN ",
+      "titleHighlight": "TECH, AI & SECURITY",
+      "description": "Weekly practical guides, free prompt cheat sheets, live cohort announcements, and East African cybersecurity insights delivered straight to your inbox.",
+      "placeholder": "Enter your email address...",
+      "subscribe": "Subscribe Free",
+      "subscribing": "Subscribing",
+      "successTitle": "Successfully Subscribed!",
+      "successText": "Welcome aboard. Watch your inbox for the next tech dispatch and free masterclass alert.",
+      "registerAnother": "Register another email",
+      "topicsLabel": "Topics:",
+      "spamNote": "Zero spam. Unsubscribe with 1-click at any time.",
+      "errorEmail": "Please enter a valid email address."
+    },
+    "topics": {
+      "all": "All Updates",
+      "ai": "AI & Vibe Coding",
+      "cybersecurity": "Cybersecurity",
+      "web": "Web & Digital"
+    },
+    "brand": {
+      "tagline": "Tech Education",
+      "description": "Practical training in Artificial Intelligence, Cybersecurity, and Digital Skills across East and Central Africa.",
+      "hub": "East Africa Hub"
+    },
+    "nav": {
+      "programs": "Programs",
+      "delivery": "Delivery",
+      "organizations": "Organizations",
+      "company": "Company"
+    },
+    "navItems": {
+      "aiVibe": "AI & Vibe Coding",
+      "cybersecurity": "Cybersecurity",
+      "digitalSkills": "Digital Skills",
+      "allCurricula": "All Curricula",
+      "deliveryFormats": "6 Delivery Formats",
+      "pricingPlans": "Pricing & Plans",
+      "whatsappCourse": "WhatsApp Micro-Course",
+      "platformFeatures": "Platform Features",
+      "corporateTraining": "Corporate Training",
+      "universityPrograms": "University Programs",
+      "ngoGov": "NGOs & Government",
+      "requestProposal": "Request Proposal",
+      "aboutCS": "About CS Academy",
+      "freeResources": "Free Resources",
+      "blogArticles": "Blog & Articles",
+      "contactBook": "Contact & Book"
+    },
+    "pillars": {
+      "ai": "AI Literacy",
+      "cyber": "Cybersecurity",
+      "digital": "Digital Skills",
+      "vibe": "Vibe Coding",
+      "career": "Career Pathways"
+    },
+    "bottom": {
+      "copyright": "© 2026 {{name}}.",
+      "ecosystem": "CyberSwahili Tech Ecosystem.",
+      "rights": "All rights reserved."
+    }
+  },
+  "contact": {
+    "seoTitle": "Contact Us",
+    "seoDescription": "Get in touch with CS Academy for AI training, cybersecurity workshops, or digital skills consulting in East Africa.",
+    "badge": "Get in Touch",
+    "title": "CONTACT",
+    "titleHighlight": "CS ACADEMY",
+    "subtitle": "Reach out for individual enrollment, customized organizational workshops, or executive speaking engagements.",
+    "directChannels": "Direct Support & Communication",
+    "emailLabel": "Support Email Address",
+    "whatsappLabel": "WhatsApp Support",
+    "phoneLabel": "Phone Inquiries",
+    "locationLabel": "Headquarters & Hub",
+    "bookingBtn": "Launch Quick Booking Wizard",
+    "formTitle": "Send a Training Inquiry",
+    "formSubtitle": "Our training coordinators respond within 24 business hours.",
+    "form": {
+      "nameLabel": "Your Full Name",
+      "namePlaceholder": "e.g. David Mwangi",
+      "emailLabel": "Support Email Address",
+      "emailPlaceholder": "e.g. david@organization.org",
+      "orgLabel": "Company / University / Self",
+      "orgPlaceholder": "e.g. East Africa Bank",
+      "formatLabel": "Preferred Delivery Format",
+      "programLabel": "Program Track of Interest",
+      "notesLabel": "Objectives & Notes",
+      "notesPlaceholder": "Share details regarding your cohort size, target dates, or specific departmental requirements...",
+      "submitBtn": "Submit Training Inquiry"
+    },
+    "waMessage": "Hello CS Academy Support, I would like to inquire about training programs for myself / my organization.",
+    "emailBody": "Hello CS Academy Support Team,\n\nI would like to inquire about training:\nName: {{name}}\nEmail: {{email}}\nOrganization: {{org}}\nProgram Interest: {{interest}}\nPreferred Format: {{delivery}}\nMessage / Objectives: {{message}}\n\nPlease share availability and enrollment details.",
+    "emailSubject": "Training Request: {{interest}} | {{name}}"
+  },
+  "pricing": {
+    "badge": "MEMBERSHIP & ACCESS",
+    "title": "Transparent pricing for every learner.",
+    "subtitle": "Choose a plan that fits your learning style, schedule, and career goals. We offer flexible delivery across multiple channels.",
+    "tabs": {
+      "all": "All Delivery Channels",
+      "mobile": "WhatsApp Mobile (Data Saver)",
+      "selfPaced": "On-Demand Video Platform",
+      "virtualLive": "Zoom & Meet Live Cohorts",
+      "inPerson": "Workshops & On-Site (In-Person)"
+    },
+    "currency": {
+      "tsh": "TZS (Tsh)",
+      "kes": "KES (KSh)",
+      "usd": "USD ($)"
+    },
+    "guidance": {
+      "access": {
+        "title": "Choose your access level",
+        "text": "From mobile-first learning to live instructor access."
+      },
+      "confidence": {
+        "title": "Plan with confidence",
+        "text": "Prices are guidance; we confirm schedule and details before enrollment."
+      },
+      "human": {
+        "title": "Get a human recommendation",
+        "text": "Send an inquiry and we will recommend the best fit."
+      }
+    },
+    "labels": {
+      "mobileStarter": "Mobile starter",
+      "selfPaced": "Self-paced access",
+      "liveCohort": "Live cohort access",
+      "events": "Events and leadership",
+      "teams": "Teams and organizations",
+      "included": "Included in this Delivery Option:",
+      "free": "Free",
+      "customQuote": "Custom Quote",
+      "perMonth": "per month",
+      "perYear": "per year",
+      "perWorkshop": "per workshop (up to 30 participants)",
+      "perCohort": "per corporate cohort (multi-day)",
+      "perKeynote": "per keynote address",
+      "bandwidth": "Bandwidth: {{value}}"
+    },
+    "help": {
+      "title": "Need Help Choosing a Plan or Group Discount?",
+      "subtitle": "Our admissions advisors in Dar es Salaam and Nairobi are available on WhatsApp and email to assist you with payment, invoice requests, or customized team packages.",
+      "whatsapp": "Chat on WhatsApp ({{number}})",
+      "contactBtn": "Contact Admissions Team",
+      "waMessage": "Hello, I need assistance regarding payments and enrolling in CS Academy."
+    },
+    "seo": {
+      "title": "Pricing & Membership",
+      "description": "Affordable tuition and membership plans for AI, Cybersecurity and Digital Skills training. Pay via M-Pesa."
+    },
+    "plans": {
+      "whatsapp": {
+        "name": "WhatsApp Micro-Learning",
+        "tagline": "Learn daily technology lessons directly in your WhatsApp inbox.",
+        "badge": "DATA SAVER (2G/3G)",
+        "cta": "Join WhatsApp Cohort",
+        "highlight": "Zero internet friction | Pay with M-Pesa / Tigo Pesa"
+      },
+      "selfPaced": {
+        "name": "Self-Paced Video Platform",
+        "tagline": "Learn at your own pace with full access to all Swahili video tracks.",
+        "badge": "FLEXIBLE SCHEDULE",
+        "cta": "Start On-Demand Video",
+        "highlight": "Study anytime, anywhere on any device"
+      },
+      "liveCohort": {
+        "name": "Zoom & Meet Live Cohorts",
+        "tagline": "Live interactive classes with real-time screen sharing and Vibe Coding.",
+        "badge": "MOST POPULAR | LIVE INTERACTION",
+        "cta": "Enroll in Live Cohort",
+        "highlight": "Live Q&A and instant instructor feedback"
+      },
+      "annual": {
+        "name": "VIP Annual Pass (All Channels)",
+        "tagline": "The complete 360° technology immersion across all delivery formats.",
+        "badge": "BEST VALUE (2 MONTHS FREE)",
+        "cta": "Get VIP 1-Year Pass",
+        "highlight": "Save 60,000 Tsh | Complete Career Transformation"
+      },
+      "workshop": {
+        "name": "Workshops & Seminars",
+        "tagline": "Action-oriented deep dives producing concrete deliverables for teams.",
+        "badge": "INSTITUTIONAL / HYBRID",
+        "cta": "Book Team Workshop",
+        "highlight": "Ideal for departments, teacher associations & incubators"
+      },
+      "corporate": {
+        "name": "Physical Training (On-Site)",
+        "tagline": "On-site in-person training delivered directly at your venue or campus.",
+        "badge": "ENTERPRISE IMMERSIVE",
+        "cta": "Request On-Site Quote",
+        "highlight": "Maximum retention, deep team collaboration & focus"
+      },
+      "keynote": {
+        "name": "Conferences & Keynotes",
+        "tagline": "Inspiring, authoritative keynote speeches on AI and digital safety.",
+        "badge": "EXECUTIVE SPEAKING",
+        "cta": "Inquire Keynote Availability",
+        "highlight": "For Summits, AGMs, Tech Expos & Public Forums"
+      }
+    }
+  }
+}
