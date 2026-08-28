@@ -5,11 +5,12 @@ import Backend from 'i18next-http-backend';
 
 i18n
   .use(Backend)
-  .use(LanguageDetector)
   .use(initReactI18next)
   .init({
+    lng: 'en',
     fallbackLng: 'en',
     debug: false,
+    useSuspense: false,
     interpolation: {
       escapeValue: false,
     },

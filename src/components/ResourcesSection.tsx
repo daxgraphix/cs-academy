@@ -19,7 +19,8 @@ interface ResourcesSectionProps {
 export const ResourcesSection: React.FC<ResourcesSectionProps> = ({
   openResourceModal
 }) => {
-  const { theme, t } = useApp();
+  const { theme, dictionary } = useApp();
+  const t = dictionary ?? {} as typeof dictionary;
   const [activeCategory, setActiveCategory] = useState<string>('ALL');
   const [searchQuery, setSearchQuery] = useState('');
   const gridRef = useReveal<HTMLDivElement>();
@@ -55,13 +56,13 @@ export const ResourcesSection: React.FC<ResourcesSectionProps> = ({
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
           <div className="max-w-2xl space-y-3">
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[var(--accent-red-subtle)] border border-[var(--accent-red-safe)]/20 text-[var(--accent-red-strong)] text-xs font-mono font-bold uppercase tracking-wider">
-              <span>{t.resources.badge}</span>
+              <span>{t.resources?.badge}</span>
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[var(--text-primary)]">
-              {t.resources.title}
+              {t.resources?.title}
             </h2>
             <p className="text-base leading-relaxed text-[var(--text-secondary)]">
-              {t.resources.subtitle}
+              {t.resources?.subtitle}
             </p>
           </div>
 

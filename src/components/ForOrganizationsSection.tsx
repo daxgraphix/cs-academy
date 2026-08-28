@@ -21,7 +21,8 @@ interface ForOrganizationsSectionProps {
 export const ForOrganizationsSection: React.FC<ForOrganizationsSectionProps> = ({
   openBookingModal
 }) => {
-  const { theme, t } = useApp();
+  const { theme, dictionary } = useApp();
+  const t = dictionary ?? {} as typeof dictionary;
 
   const corporateServices = [
     { 
@@ -69,13 +70,13 @@ export const ForOrganizationsSection: React.FC<ForOrganizationsSectionProps> = (
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[var(--accent-red-subtle)] border border-[var(--accent-red-strong)]/20 text-[var(--accent-red-strong)] text-xs font-mono font-bold uppercase tracking-wider">
             <Building2 className="w-3.5 h-3.5" />
-            <span>{t.organizations.badge}</span>
+            <span>{t.organizations?.badge}</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[var(--text-primary)]">
-            {t.organizations.title}
+            {t.organizations?.title}
           </h2>
           <p className="text-base sm:text-lg leading-relaxed text-[var(--text-secondary)]">
-            {t.organizations.subtitle}
+            {t.organizations?.subtitle}
           </p>
         </div>
 

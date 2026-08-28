@@ -25,7 +25,8 @@ interface ForOrganizationsPageProps {
 export const ForOrganizationsPage: React.FC<ForOrganizationsPageProps> = ({
   openBookingModal
 }) => {
-  const { theme, t } = useApp();
+  const { theme, dictionary } = useApp();
+  const t = dictionary ?? {} as typeof dictionary;
 
   const getIndustryIcon = (iconName: string) => {
     switch (iconName) {

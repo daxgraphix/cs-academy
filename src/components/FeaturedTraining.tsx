@@ -200,7 +200,7 @@ export const FeaturedTraining: React.FC<FeaturedTrainingProps> = ({
                   onClick={() => openBookingModal({ program: course.title, format: course.format })}
                   className="flex-2 py-3 px-4 text-xs font-extrabold text-white bg-[var(--accent-red-strong)] hover:bg-[var(--accent-red)] active:scale-[0.98] rounded-2xl flex items-center justify-center gap-2 transition-all shadow-lg shadow-[var(--accent-red-subtle)]"
                 >
-                  <span>{t.common.bookTraining}</span>
+                  <span>{t('common.bookTraining')}</span>
                   <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                 </button>
               </div>

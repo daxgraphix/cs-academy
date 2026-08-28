@@ -11,7 +11,8 @@ import {
 } from 'lucide-react';
 
 export const TrainingProcess: React.FC = () => {
-  const { theme, t } = useApp();
+  const { theme, dictionary } = useApp();
+  const t = dictionary ?? {} as typeof dictionary;
 
   const getStepIcon = (idx: number) => {
     switch (idx) {
@@ -40,13 +41,13 @@ export const TrainingProcess: React.FC = () => {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border text-xs font-mono font-bold uppercase tracking-wider bg-[var(--bg-primary)] border-[var(--border-color)] text-[var(--text-secondary)] shadow-sm">
-            <span>{t.process.badge}</span>
+            <span>{t.process?.badge}</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[var(--text-primary)]">
-            {t.process.title}
+            {t.process?.title}
           </h2>
           <p className="text-base sm:text-lg leading-relaxed text-[var(--text-secondary)]">
-            {t.process.subtitle}
+            {t.process?.subtitle}
           </p>
         </div>
 

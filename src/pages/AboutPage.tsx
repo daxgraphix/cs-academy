@@ -36,7 +36,8 @@ interface AboutPageProps {
 export const AboutPage: React.FC<AboutPageProps> = ({
   openBookingModal
 }) => {
-  const { theme, t } = useApp();
+  const { theme, dictionary } = useApp();
+  const t = dictionary;
 
   return (
     <div className="pt-28 pb-20 min-h-screen transition-colors duration-300 bg-[var(--bg-primary)] text-[var(--text-primary)]">

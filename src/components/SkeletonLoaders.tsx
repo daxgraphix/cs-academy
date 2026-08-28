@@ -1,7 +1,7 @@
 import React from 'react';
 import { useApp } from '../context/AppContext';
 
-const SkeletonBase = ({ className }: { className: string }) => {
+const SkeletonBase: React.FC<{ className?: string }> = ({ className }) => {
   const { theme } = useApp();
   return (
     <div className={`animate-pulse rounded ${

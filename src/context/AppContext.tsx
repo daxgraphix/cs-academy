@@ -10,6 +10,7 @@ interface AppContextType {
   setCurrency: (currency: Currency) => void;
   language: string;
   t: any;
+  dictionary: Translations;
   i18n: any;
 }
 
@@ -73,6 +74,8 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
   const { t, i18n } = useTranslation();
 
+  const dictionary: Translations = translations;
+
   return (
     <AppContext.Provider
       value={{
@@ -81,8 +84,9 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         toggleTheme,
         currency,
         setCurrency,
-        language: i18n.language,
+        language: 'en',
         t,
+        dictionary,
         i18n,
       }}
     >

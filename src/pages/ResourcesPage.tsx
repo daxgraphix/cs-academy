@@ -25,7 +25,7 @@ export const ResourcesPage: React.FC<ResourcesPageProps> = ({
   const [selectedCat, setSelectedCat] = useState<string>('ALL');
   const [search, setSearch] = useState<string>('');
 
-  const categories = ['ALL', 'AI Productivity', 'Cybersecurity', 'Cyber Safety', 'Education', 'AI Governance', 'Privacy'];
+  const categories = ['ALL', 'AI Productivity', 'Cyber Safety', 'Cybersecurity', 'Education', 'AI Governance', 'Privacy', 'Business'];
 
   const filtered = resourcesData.filter(r => {
     const matchCat = selectedCat === 'ALL' || r.category.toLowerCase().includes(selectedCat.toLowerCase());
@@ -71,7 +71,7 @@ export const ResourcesPage: React.FC<ResourcesPageProps> = ({
           </div>
 
           <div className="flex items-center gap-1.5 overflow-x-auto w-full md:w-auto">
-            {categories.slice(0, 5).map((cat) => (
+            {categories.slice(0, 7).map((cat) => (
               <button
                 key={cat}
                 onClick={() => setSelectedCat(cat)}

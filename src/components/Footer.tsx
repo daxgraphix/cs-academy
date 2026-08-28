@@ -70,7 +70,29 @@ export const Footer: React.FC<FooterProps> = ({
   setCurrentRoute,
   openBookingModal
 }) => {
-  const { theme, t } = useApp();
+  const { theme, dictionary } = useApp();
+  const t = (key: string, options?: any) => {
+    // Basic fallback for simple keys
+    const parts = key.split('.');
+    let result: any = dictionary;
+    for (const part of parts) {
+      if (result && result[part]) {
+        result = result[part];
+      } else {
+        return options?.defaultValue || key;
+      }
+    }
+
+    if (typeof result === 'string' && options) {
+      let str = result;
+      for (const [k, v] of Object.entries(options)) {
+        str = str.replace(`{{${k}}}`, String(v));
+      }
+      return str;
+    }
+
+    return typeof result === 'string' ? result : (options?.defaultValue || key);
+  };
   const [email, setEmail] = useState('');
   const [interest, setInterest] = useState<'all' | 'ai' | 'cybersecurity' | 'web'>('all');
   const [isSubscribed, setIsSubscribed] = useState(false);

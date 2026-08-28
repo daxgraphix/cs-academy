@@ -24,7 +24,8 @@ const readingMinutes = (r: string) => parseInt(r, 10) || 0;
 export const BlogSection: React.FC<BlogSectionProps> = ({
   openBlogArticleModal
 }) => {
-  const { theme, t } = useApp();
+  const { theme, t, dictionary } = useApp();
+  const blogT = dictionary ?? {} as typeof dictionary;
   const [selectedTag, setSelectedTag] = useState<string>('ALL');
   const [searchQuery, setSearchQuery] = useState('');
   const [sortKey, setSortKey] = useState<SortKey>('newest');
@@ -66,13 +67,13 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 reveal">
           <div className="max-w-2xl space-y-4">
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[var(--accent-red-subtle)] border border-[var(--accent-red-safe)]/20 text-[var(--accent-red-strong)] text-xs font-mono font-bold uppercase tracking-wider animate-reveal">
-              <span>{t.blog.badge}</span>
+              <span>{blogT.blog?.badge}</span>
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[var(--text-primary)] text-balance animate-reveal-delay-1">
-              {t.blog.title}
+              {blogT.blog?.title}
             </h2>
             <p className="text-base leading-relaxed text-[var(--text-secondary)] max-w-xl animate-reveal-delay-2">
-              {t.blog.subtitle}
+              {blogT.blog?.subtitle}
             </p>
           </div>
 

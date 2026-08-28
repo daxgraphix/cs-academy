@@ -156,11 +156,35 @@ export const ResourceViewModal: React.FC<ResourceViewModalProps> = ({
                 {labels.previewTitle}
               </h5>
               <div className="space-y-2 p-4 rounded-xl bg-[#0B0B0B] border border-neutral-800/90 font-mono text-xs text-neutral-300">
-                {resource.previewContent.map((snippet, i) => (
-                  <p key={i} className="leading-relaxed text-[11px] text-neutral-300 border-l-2 border-[#DC2626] pl-3 py-1 bg-neutral-900/40 rounded-r">
-                    {snippet}
-                  </p>
-                ))}
+                {resource.previewContent.map((snippet, i) => {
+                  const colonIdx = snippet.indexOf('—');
+                  const emDashIdx = snippet.indexOf(' — ');
+                  const colonAfterSpace = snippet.indexOf(': ');
+                  let heading = '';
+                  let body = snippet;
+                  if (emDashIdx > -1 && emDashIdx < 60) {
+                    heading = snippet.slice(0, emDashIdx).trim();
+                    body = snippet.slice(emDashIdx + 3).trim();
+                  } else if (colonAfterSpace > -1 && colonAfterSpace < 50) {
+                    heading = snippet.slice(0, colonAfterSpace).trim();
+                    body = snippet.slice(colonAfterSpace + 2).trim();
+                  }
+                  return (
+                    <div key={i} className="leading-relaxed text-[11px] text-neutral-300 border-l-2 border-[#DC2626] pl-3 py-2 bg-neutral-900/40 rounded-r">
+                      <div className="flex items-center gap-2 mb-1">
+                        <span className="inline-flex items-center justify-center min-w-5 h-5 px-1.5 rounded text-[9px] font-bold text-white bg-[#DC2626]">
+                          {i + 1}
+                        </span>
+                        {heading && (
+                          <span className="font-bold text-white uppercase tracking-wider text-[10px]">
+                            {heading}
+                          </span>
+                        )}
+                      </div>
+                      <p className="text-neutral-300">{body}</p>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           )}

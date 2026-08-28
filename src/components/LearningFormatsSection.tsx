@@ -21,7 +21,8 @@ interface LearningFormatsSectionProps {
 export const LearningFormatsSection: React.FC<LearningFormatsSectionProps> = ({
   openBookingModal
 }) => {
-  const { theme, currency, setCurrency, t } = useApp();
+  const { theme, currency, setCurrency, dictionary } = useApp();
+  const t = dictionary ?? {} as typeof dictionary;
 
   const getFormatPrice = (format: typeof learningFormatsData[0]) => {
     if (currency === 'TSH') {
@@ -68,13 +69,13 @@ export const LearningFormatsSection: React.FC<LearningFormatsSectionProps> = ({
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-[var(--border-color)] bg-[var(--bg-tertiary)] text-[var(--text-secondary)] text-xs font-mono font-bold uppercase tracking-wider">
-            <span>{t.formats.badge}</span>
+            <span>{t.formats?.badge}</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[var(--text-primary)]">
-            {t.formats.title}
+            {t.formats?.title}
           </h2>
           <p className="text-base sm:text-lg leading-relaxed text-[var(--text-secondary)]">
-            {t.formats.subtitle}
+            {t.formats?.subtitle}
           </p>
 
           {/* Currency Toggle */}

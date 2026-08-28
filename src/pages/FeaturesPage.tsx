@@ -14,7 +14,7 @@ export const FeaturesPage: React.FC<FeaturesPageProps> = ({
   openBookingModal
 }) => {
   return (
-    <div className="pt-28 pb-20 bg-[var(--bg-primary)] text-[var(--text-primary)] min-h-screen">">
+    <div className="pt-28 pb-20 bg-[var(--bg-primary)] text-[var(--text-primary)] min-h-screen">
       <SEO
         title="Platform Features"
         description="Explore the features of CS Academy's learning platform. Interactive AI labs, cybersecurity simulations, and more."

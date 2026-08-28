@@ -246,9 +246,5 @@ export const ProgramDeepDivePage: React.FC<ProgramDeepDivePageProps> = ({
 
       </div>
     </div>
-
-
-      </div>
-    </div>
   );
 };

@@ -281,10 +281,5 @@ export const ContactPage: React.FC<ContactPageProps> = ({
 
       </div>
     </div>
-
-        </div>
-
-      </div>
-    </div>
   );
 };

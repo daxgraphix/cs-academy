@@ -21,21 +21,22 @@ interface LearningFormatsPageProps {
 export const LearningFormatsPage: React.FC<LearningFormatsPageProps> = ({
   openBookingModal
 }) => {
-  const { theme, currency, setCurrency, t } = useApp();
+  const { theme, currency, setCurrency, dictionary } = useApp();
+  const t = dictionary ?? {} as typeof dictionary;
 
   const getFormatPrice = (format: typeof learningFormatsData[0]) => {
     if (currency === 'TSH') {
       return format.priceStartingTsh === 'Custom' 
-        ? t.formats.labels.customQuote
+        ? t.formats?.labels.customQuote
         : `${format.priceStartingTsh} Tsh`;
     }
     if (currency === 'KES') {
       return format.priceStartingKes === 'Custom' 
-        ? t.formats.labels.customQuote
+        ? t.formats?.labels.customQuote
         : `${format.priceStartingKes} KSh`;
     }
     return format.priceStartingUsd === 'Custom' 
-      ? t.formats.labels.customQuote
+      ? t.formats?.labels.customQuote
       : `$${format.priceStartingUsd}`;
   };
 
@@ -58,26 +59,26 @@ export const LearningFormatsPage: React.FC<LearningFormatsPageProps> = ({
     }
   };
 
-  const formats = t.formats.items;
+  const formats = t.formats?.items ?? [];
 
   return (
     <div className="pt-28 pb-20 min-h-screen transition-colors duration-300 bg-[var(--bg-primary)] text-[var(--text-primary)]">
       <SEO
-        title={t.formats.seo.title}
-        description={t.formats.seo.description}
+        title={t.formats?.seo?.title}
+        description={t.formats?.seo?.description}
       />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4 pt-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[var(--accent-red-subtle)] border border-[var(--accent-red-strong)]/20 text-[var(--accent-red-strong)] text-xs font-mono font-bold uppercase tracking-wider">
-            <span>{t.formats.badge}</span>
+            <span>{t.formats?.badge}</span>
           </div>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[var(--text-primary)]">
-            {t.formats.titlePart1} <span className="text-[var(--accent-red-safe)]">{t.formats.titleHighlight}</span>
+            {t.formats?.titlePart1} <span className="text-[var(--accent-red-safe)]">{t.formats?.titleHighlight}</span>
           </h1>
           <p className="text-base sm:text-lg leading-relaxed text-[var(--text-secondary)]">
-            {t.formats.subtitle}
+            {t.formats?.subtitle}
           </p>
 
           {/* Currency Toggle */}
@@ -125,18 +126,18 @@ export const LearningFormatsPage: React.FC<LearningFormatsPageProps> = ({
                   {/* Specs Box */}
                   <div className="p-4 rounded-2xl border border-[var(--border-color)] bg-[var(--bg-primary)] space-y-2 text-xs font-mono text-[var(--text-secondary)]">
                     <div className="flex items-center justify-between">
-                      <span className="text-[var(--text-muted)]">{t.formats.labels.bandwidth}</span>
+                      <span className="text-[var(--text-muted)]">{t.formats?.labels.bandwidth}</span>
                       <span className="font-bold flex items-center gap-1">
                         <Wifi className="w-3.5 h-3.5 text-[var(--accent-red-strong)]" />
                         {localizedFormat.bandwidthLevel}
                       </span>
                     </div>
                     <div className="flex items-center justify-between">
-                      <span className="text-[var(--text-muted)]">{t.formats.labels.channel}</span>
+                      <span className="text-[var(--text-muted)]">{t.formats?.labels.channel}</span>
                       <span className="font-bold">{localizedFormat.channelName}</span>
                     </div>
                     <div className="flex items-center justify-between">
-                      <span className="text-[var(--text-muted)]">{t.formats.labels.pricing}</span>
+                      <span className="text-[var(--text-muted)]">{t.formats?.labels.pricing}</span>
                       <span className="font-bold text-[var(--success-strong)]">{localizedFormat.pricingLabel}</span>
                     </div>
                   </div>
@@ -144,7 +145,7 @@ export const LearningFormatsPage: React.FC<LearningFormatsPageProps> = ({
                   {/* Key Features */}
                   <div className="space-y-2 pt-2">
                     <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[var(--text-muted)]">
-                      {t.formats.labels.capabilities}
+                      {t.formats?.labels.capabilities}
                     </span>
                     {localizedFormat.features.map((feat, fIdx) => (
                       <div key={fIdx} className="flex items-start gap-2 text-xs text-[var(--text-secondary)]">
@@ -159,7 +160,7 @@ export const LearningFormatsPage: React.FC<LearningFormatsPageProps> = ({
                 <div className="pt-6 border-t border-[var(--border-color)] space-y-4">
                   <div>
                     <div className="text-[10px] font-mono uppercase text-[var(--text-muted)]">
-                      {t.formats.labels.tuition}
+                      {t.formats?.labels.tuition}
                     </div>
                     <div className="text-2xl font-black text-[var(--text-primary)]">
                       {getFormatPrice(format)}
@@ -169,11 +170,11 @@ export const LearningFormatsPage: React.FC<LearningFormatsPageProps> = ({
                   <button
                     onClick={() => openBookingModal({
                       format: localizedFormat.title,
-                      program: t.formats.labels.deliveryTrack.replace('{{title}}', localizedFormat.title)
+                      program: t.formats?.labels.deliveryTrack.replace('{{title}}', localizedFormat.title)
                     })}
                     className="w-full py-3.5 px-4 rounded-2xl text-xs font-extrabold uppercase tracking-wider text-white bg-[var(--accent-red-strong)] hover:bg-[var(--accent-red)] active:scale-[0.98] shadow-lg flex items-center justify-center gap-2 transition-all"
                   >
-                    <span>{t.formats.labels.selectTrack}</span>
+                    <span>{t.formats?.labels.selectTrack}</span>
                     <ArrowRight className="w-4 h-4" />
                   </button>
                 </div>
